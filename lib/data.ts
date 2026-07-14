@@ -174,7 +174,7 @@ export const galleryImages: GalleryImage[] = Array.from({ length: 12 }).map(
   })
 );
 
-export const instagramPosts: InstagramPost[] = Array.from({ length: 12 }).map(
+export const instagramPosts: InstagramPost[] = Array.from({ length: 30 }).map(
   (_, i) => ({
     id: String(i + 1),
     caption: "Fresh from the salon floor ✨",

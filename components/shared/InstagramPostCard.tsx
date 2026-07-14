@@ -1,34 +1,37 @@
-import Image from "next/image";
 import type { InstagramPost } from "@/types";
 import ImagePlaceholder from "./ImagePlaceholder";
 
 interface InstagramPostCardProps {
   post: InstagramPost;
   href: string;
-  className?: string;
+  aspectClassName?: string;
 }
 
 export default function InstagramPostCard({
   post,
   href,
-  className = "",
+  aspectClassName = "aspect-square",
 }: InstagramPostCardProps) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group relative block w-full overflow-hidden rounded-xl ${className}`}
+      className="group block w-full overflow-hidden rounded-xl"
     >
       {post.image ? (
-        <Image
+        // Plain <img>, not next/image: Instagram CDN URLs are signed/expiring
+        // and we want the browser to size the box off the real, unknown
+        // aspect ratio instead of forcing a crop.
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
           src={post.image}
           alt={post.caption || "Instagram post"}
-          fill
-          className="object-cover transition-transform group-hover:scale-105"
+          loading="lazy"
+          className="block h-auto w-full transition-transform group-hover:scale-105"
         />
       ) : (
-        <ImagePlaceholder className="h-full w-full" />
+        <ImagePlaceholder className={`w-full ${aspectClassName}`} />
       )}
     </a>
   );

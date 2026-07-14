@@ -7,14 +7,24 @@ import InstagramPostCard from "@/components/shared/InstagramPostCard";
 import { siteConfig } from "@/lib/site-config";
 import type { InstagramPost } from "@/types";
 
+const POSTS_PER_SLIDE = 6;
+const PLACEHOLDER_ASPECTS = ["aspect-square", "aspect-[3/4]", "aspect-[4/5]"];
+
+function chunk<T>(items: T[], size: number): T[][] {
+  const chunks: T[][] = [];
+  for (let i = 0; i < items.length; i += size) {
+    chunks.push(items.slice(i, i + size));
+  }
+  return chunks;
+}
+
 interface InstagramSliderProps {
   posts: InstagramPost[];
   isLive: boolean;
 }
 
 export default function InstagramSlider({ posts, isLive }: InstagramSliderProps) {
-  const midpoint = Math.ceil(posts.length / 2);
-  const slides = [posts.slice(0, midpoint), posts.slice(midpoint)];
+  const slides = chunk(posts, POSTS_PER_SLIDE);
 
   const [slideIndex, setSlideIndex] = useState(0);
   const [direction, setDirection] = useState(0);
@@ -23,6 +33,8 @@ export default function InstagramSlider({ posts, isLive }: InstagramSliderProps)
     setDirection(index > slideIndex ? 1 : -1);
     setSlideIndex((index + slides.length) % slides.length);
   };
+
+  if (slides.length === 0) return null;
 
   return (
     <div>
@@ -43,44 +55,50 @@ export default function InstagramSlider({ posts, isLive }: InstagramSliderProps)
                   key={post.id}
                   post={post}
                   href={isLive ? post.permalink : siteConfig.instagramUrl}
-                  className={i % 3 === 0 ? "h-72" : "h-48"}
+                  aspectClassName={PLACEHOLDER_ASPECTS[i % PLACEHOLDER_ASPECTS.length]}
                 />
               ))}
             </motion.div>
           </AnimatePresence>
         </div>
 
-        <button
-          type="button"
-          onClick={() => goTo(slideIndex - 1)}
-          aria-label="Previous posts"
-          className="absolute left-2 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white text-zinc-700 shadow-md hover:bg-rose-50 hover:text-rose-600"
-        >
-          <ChevronLeft className="h-5 w-5" />
-        </button>
-        <button
-          type="button"
-          onClick={() => goTo(slideIndex + 1)}
-          aria-label="Next posts"
-          className="absolute right-2 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white text-zinc-700 shadow-md hover:bg-rose-50 hover:text-rose-600"
-        >
-          <ChevronRight className="h-5 w-5" />
-        </button>
+        {slides.length > 1 && (
+          <>
+            <button
+              type="button"
+              onClick={() => goTo(slideIndex - 1)}
+              aria-label="Previous posts"
+              className="absolute left-2 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white text-zinc-700 shadow-md hover:bg-rose-50 hover:text-rose-600"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              type="button"
+              onClick={() => goTo(slideIndex + 1)}
+              aria-label="Next posts"
+              className="absolute right-2 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white text-zinc-700 shadow-md hover:bg-rose-50 hover:text-rose-600"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </>
+        )}
       </div>
 
-      <div className="mt-8 flex justify-center gap-2">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            type="button"
-            onClick={() => goTo(i)}
-            aria-label={`Go to grid ${i + 1}`}
-            className={`h-2.5 rounded-full transition-all ${
-              i === slideIndex ? "w-6 bg-rose-600" : "w-2.5 bg-zinc-200"
-            }`}
-          />
-        ))}
-      </div>
+      {slides.length > 1 && (
+        <div className="mt-8 flex justify-center gap-2">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => goTo(i)}
+              aria-label={`Go to grid ${i + 1}`}
+              className={`h-2.5 rounded-full transition-all ${
+                i === slideIndex ? "w-6 bg-rose-600" : "w-2.5 bg-zinc-200"
+              }`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

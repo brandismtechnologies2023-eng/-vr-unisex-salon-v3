@@ -7,7 +7,7 @@ import { getInstagramPosts } from "@/lib/instagram";
 import { siteConfig } from "@/lib/site-config";
 
 export default async function InstagramFeed() {
-  const livePosts = await getInstagramPosts(12);
+  const livePosts = await getInstagramPosts(30);
   const posts = livePosts ?? placeholderPosts;
 
   return (
