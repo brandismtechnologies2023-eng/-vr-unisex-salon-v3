@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { Service } from "@/types";
+import { siteConfig } from "@/lib/site-config";
 import ImagePlaceholder from "./ImagePlaceholder";
 
 interface ServiceCardProps {
@@ -16,7 +17,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
         <p className="mt-1 text-sm text-zinc-600">{service.description}</p>
         <div className="mt-4 flex items-center justify-between">
           <span className="text-sm font-medium text-rose-600">
-            Starting ₹{service.startingPrice}
+            Starting {siteConfig.currency} {service.startingPrice}
           </span>
           <Link
             href={`/services/${service.slug}`}

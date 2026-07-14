@@ -2,6 +2,7 @@ import { Check } from "lucide-react";
 import SectionHeading from "@/components/shared/SectionHeading";
 import Button from "@/components/shared/Button";
 import { pricingPackages } from "@/lib/data";
+import { siteConfig } from "@/lib/site-config";
 
 export default function Pricing() {
   return (
@@ -30,7 +31,7 @@ export default function Pricing() {
               )}
               <h3 className="text-lg font-semibold text-zinc-900">{pkg.name}</h3>
               <p className="mt-2 text-3xl font-bold text-zinc-900">
-                ₹{pkg.price}
+                {siteConfig.currency} {pkg.price}
               </p>
               <ul className="mt-6 flex-1 space-y-3">
                 {pkg.features.map((feature) => (

@@ -1,21 +1,25 @@
-// Placeholder business details — replace with real values before launch.
+// Phone/WhatsApp number are still placeholders (UAE-formatted) — replace with the real number.
+const address =
+  "Crown Park Hotel, Burjuman, Shop 01, Ground Floor, Exit 4, Al Hamriya, Dubai, United Arab Emirates";
+
 export const siteConfig = {
   name: "VR Unisex Salon",
   shortName: "VR Salon",
   description:
     "Premium unisex hair, skin and beauty salon offering expert stylists, luxury treatments and a hygienic, relaxing experience.",
-  phone: "+91 98765 43210",
-  whatsappNumber: "919876543210",
+  phone: "+971 50 123 4567",
+  whatsappNumber: "971501234567",
   email: "info@vrunisexsalon.com",
-  address: "123 MG Road, Near City Mall, Ahmedabad, Gujarat 380001",
-  mapEmbedUrl:
-    "https://www.google.com/maps?q=Ahmedabad,Gujarat&output=embed",
-  mapLink: "https://maps.google.com/?q=VR+Unisex+Salon+Ahmedabad",
-  instagramUrl: "https://instagram.com/",
+  address,
+  currency: "AED",
+  mapEmbedUrl: `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`,
+  mapLink: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`,
+  instagramUrl: "https://www.instagram.com/vrunisexsalon_dxb/",
+  instagramHandle: "vrunisexsalon_dxb",
   facebookUrl: "https://facebook.com/",
   hours: [
-    { day: "Monday - Saturday", time: "10:00 AM - 8:30 PM" },
-    { day: "Sunday", time: "11:00 AM - 6:00 PM" },
+    { day: "Saturday - Thursday", time: "10:00 AM - 10:00 PM" },
+    { day: "Friday", time: "2:00 PM - 10:00 PM" },
   ],
   rating: 4.9,
   reviewCount: 500,
