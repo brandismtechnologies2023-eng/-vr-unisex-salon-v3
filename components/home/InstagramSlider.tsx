@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site-config";
 import type { InstagramPost } from "@/types";
 
 const POSTS_PER_SLIDE = 15;
-const AUTO_PLAY_INTERVAL = 3000;
+const AUTO_PLAY_INTERVAL = 4000;
 const SWIPE_THRESHOLD = 60;
 const SLIDE_DURATION = 0.3;
 
@@ -29,12 +29,20 @@ interface InstagramSliderProps {
 
 export default function InstagramSlider({ posts, isLive }: InstagramSliderProps) {
   const slides = chunk(posts, POSTS_PER_SLIDE);
+  const loop = slides.length > 1;
+  // Clone the last/first slide onto each end so wrapping continues
+  // sliding forward instead of snapping backward across every slide.
+  const trackSlides = loop ? [slides[slides.length - 1], ...slides, slides[0]] : slides;
+
   const trackRef = useRef<HTMLDivElement>(null);
   const [trackWidth, setTrackWidth] = useState(0);
 
-  const [slideIndex, setSlideIndex] = useState(0);
+  const [trackIndex, setTrackIndex] = useState(loop ? 1 : 0);
+  const [withTransition, setWithTransition] = useState(true);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [isPaused, setIsPaused] = useState(false);
+
+  const slideIndex = loop ? (trackIndex - 1 + slides.length) % slides.length : trackIndex;
 
   useEffect(() => {
     const el = trackRef.current;
@@ -47,22 +55,46 @@ export default function InstagramSlider({ posts, isLive }: InstagramSliderProps)
   }, []);
 
   const goTo = (index: number) => {
-    setSlideIndex((index + slides.length) % slides.length);
+    setWithTransition(true);
+    setTrackIndex(loop ? index + 1 : index);
+  };
+
+  const step = (delta: number) => {
+    setWithTransition(true);
+    setTrackIndex((i) => i + delta);
   };
 
   useEffect(() => {
-    if (slides.length <= 1 || isPaused || activeIndex !== null) return;
-    const timer = setInterval(() => {
-      setSlideIndex((i) => (i + 1) % slides.length);
-    }, AUTO_PLAY_INTERVAL);
+    if (!loop || isPaused || activeIndex !== null) return;
+    const timer = setInterval(() => step(1), AUTO_PLAY_INTERVAL);
     return () => clearInterval(timer);
-  }, [slides.length, isPaused, activeIndex]);
+  }, [loop, isPaused, activeIndex]);
+
+  // Seamlessly reset from a cloned end slide back to the matching real
+  // slide the instant the (invisible) jump completes.
+  const handleAnimationComplete = () => {
+    if (!loop) return;
+    if (trackIndex === 0) {
+      setWithTransition(false);
+      setTrackIndex(slides.length);
+    } else if (trackIndex === trackSlides.length - 1) {
+      setWithTransition(false);
+      setTrackIndex(1);
+    }
+  };
+
+  useEffect(() => {
+    if (!withTransition) {
+      const id = requestAnimationFrame(() => setWithTransition(true));
+      return () => cancelAnimationFrame(id);
+    }
+  }, [withTransition]);
 
   if (slides.length === 0) return null;
 
   const currentSlidePosts = slides[slideIndex];
   const activePost = activeIndex !== null ? currentSlidePosts[activeIndex] : null;
-  const canDrag = slides.length > 1 && trackWidth > 0;
+  const canDrag = loop && trackWidth > 0;
 
   return (
     <div
@@ -74,16 +106,19 @@ export default function InstagramSlider({ posts, isLive }: InstagramSliderProps)
           <motion.div
             className="flex touch-pan-y"
             drag={canDrag ? "x" : false}
-            dragConstraints={{ left: -(slides.length - 1) * trackWidth, right: 0 }}
+            dragConstraints={{ left: -(trackSlides.length - 1) * trackWidth, right: 0 }}
             dragElastic={0.1}
-            animate={{ x: -slideIndex * trackWidth }}
-            transition={{ ease: "linear", duration: SLIDE_DURATION }}
+            animate={{ x: -trackIndex * trackWidth }}
+            transition={
+              withTransition ? { ease: "linear", duration: SLIDE_DURATION } : { duration: 0 }
+            }
+            onAnimationComplete={handleAnimationComplete}
             onDragEnd={(_e, info) => {
-              if (info.offset.x < -SWIPE_THRESHOLD) goTo(slideIndex + 1);
-              else if (info.offset.x > SWIPE_THRESHOLD) goTo(slideIndex - 1);
+              if (info.offset.x < -SWIPE_THRESHOLD) step(1);
+              else if (info.offset.x > SWIPE_THRESHOLD) step(-1);
             }}
           >
-            {slides.map((slidePosts, idx) => (
+            {trackSlides.map((slidePosts, idx) => (
               <div
                 key={idx}
                 className="grid w-full shrink-0 grid-cols-3 gap-3 sm:grid-cols-5"
@@ -94,7 +129,7 @@ export default function InstagramSlider({ posts, isLive }: InstagramSliderProps)
                     key={post.id}
                     post={post}
                     onClick={() => {
-                      if (idx === slideIndex) setActiveIndex(i);
+                      if (idx === trackIndex) setActiveIndex(i);
                     }}
                   />
                 ))}
@@ -107,7 +142,7 @@ export default function InstagramSlider({ posts, isLive }: InstagramSliderProps)
           <>
             <button
               type="button"
-              onClick={() => goTo(slideIndex - 1)}
+              onClick={() => step(-1)}
               aria-label="Previous posts"
               className="absolute left-2 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white text-zinc-700 shadow-md hover:bg-rose-50 hover:text-rose-600"
             >
@@ -115,7 +150,7 @@ export default function InstagramSlider({ posts, isLive }: InstagramSliderProps)
             </button>
             <button
               type="button"
-              onClick={() => goTo(slideIndex + 1)}
+              onClick={() => step(1)}
               aria-label="Next posts"
               className="absolute right-2 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white text-zinc-700 shadow-md hover:bg-rose-50 hover:text-rose-600"
             >

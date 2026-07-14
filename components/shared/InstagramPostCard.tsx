@@ -8,10 +8,17 @@ interface InstagramPostCardProps {
 
 export default function InstagramPostCard({ post, onClick }: InstagramPostCardProps) {
   return (
-    <button
-      type="button"
+    <div
+      role="button"
+      tabIndex={0}
       onClick={onClick}
-      className="group block aspect-square w-full overflow-hidden rounded-lg"
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onClick();
+        }
+      }}
+      className="group block aspect-square w-full touch-pan-y overflow-hidden rounded-lg"
     >
       {post.image ? (
         // eslint-disable-next-line @next/next/no-img-element
@@ -19,11 +26,12 @@ export default function InstagramPostCard({ post, onClick }: InstagramPostCardPr
           src={post.image}
           alt={post.caption || "Instagram post"}
           loading="lazy"
+          draggable={false}
           className="h-full w-full object-cover transition-transform group-hover:scale-105"
         />
       ) : (
         <ImagePlaceholder className="h-full w-full" />
       )}
-    </button>
+    </div>
   );
 }
