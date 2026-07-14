@@ -7,8 +7,7 @@ import InstagramPostCard from "@/components/shared/InstagramPostCard";
 import { siteConfig } from "@/lib/site-config";
 import type { InstagramPost } from "@/types";
 
-const POSTS_PER_SLIDE = 6;
-const PLACEHOLDER_ASPECTS = ["aspect-square", "aspect-[3/4]", "aspect-[4/5]"];
+const POSTS_PER_SLIDE = 15;
 
 function chunk<T>(items: T[], size: number): T[][] {
   const chunks: T[][] = [];
@@ -48,14 +47,13 @@ export default function InstagramSlider({ posts, isLive }: InstagramSliderProps)
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: direction >= 0 ? -60 : 60 }}
               transition={{ duration: 0.35 }}
-              className="columns-2 gap-4 *:mb-4"
+              className="grid grid-cols-3 gap-3 sm:grid-cols-5"
             >
-              {slides[slideIndex].map((post, i) => (
+              {slides[slideIndex].map((post) => (
                 <InstagramPostCard
                   key={post.id}
                   post={post}
                   href={isLive ? post.permalink : siteConfig.instagramUrl}
-                  aspectClassName={PLACEHOLDER_ASPECTS[i % PLACEHOLDER_ASPECTS.length]}
                 />
               ))}
             </motion.div>
