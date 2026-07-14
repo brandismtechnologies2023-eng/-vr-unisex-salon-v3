@@ -165,7 +165,7 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-export const galleryImages: GalleryImage[] = Array.from({ length: 9 }).map(
+export const galleryImages: GalleryImage[] = Array.from({ length: 12 }).map(
   (_, i) => ({
     id: String(i + 1),
     src: "",
