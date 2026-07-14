@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight, Heart, MessageCircle, Send } from "lucide-react";
+import { Heart, MessageCircle, Send } from "lucide-react";
 import type { InstagramPost } from "@/types";
 import { siteConfig } from "@/lib/site-config";
 import { formatInstagramTimestamp } from "@/utils/formatInstagramTimestamp";
@@ -7,10 +7,6 @@ import ImagePlaceholder from "./ImagePlaceholder";
 interface InstagramPostModalProps {
   post: InstagramPost;
   href: string;
-  hasPrev: boolean;
-  hasNext: boolean;
-  onPrev: () => void;
-  onNext: () => void;
 }
 
 function renderCaption(caption: string) {
@@ -25,17 +21,10 @@ function renderCaption(caption: string) {
   );
 }
 
-export default function InstagramPostModal({
-  post,
-  href,
-  hasPrev,
-  hasNext,
-  onPrev,
-  onNext,
-}: InstagramPostModalProps) {
+export default function InstagramPostModal({ post, href }: InstagramPostModalProps) {
   return (
     <div className="flex max-h-[85vh] w-[92vw] max-w-4xl flex-col overflow-hidden rounded-xl bg-white sm:h-[75vh] sm:flex-row">
-      <div className="relative h-72 shrink-0 bg-black sm:h-full sm:flex-1">
+      <div className="h-72 shrink-0 bg-black sm:h-full sm:flex-1">
         {post.image ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -45,27 +34,6 @@ export default function InstagramPostModal({
           />
         ) : (
           <ImagePlaceholder className="h-full w-full" />
-        )}
-
-        {hasPrev && (
-          <button
-            type="button"
-            onClick={onPrev}
-            aria-label="Previous post"
-            className="absolute left-2 top-1/2 flex -translate-y-1/2 items-center justify-center rounded-full bg-white/90 p-2 text-zinc-700 shadow-md hover:text-rose-600"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-        )}
-        {hasNext && (
-          <button
-            type="button"
-            onClick={onNext}
-            aria-label="Next post"
-            className="absolute right-2 top-1/2 flex -translate-y-1/2 items-center justify-center rounded-full bg-white/90 p-2 text-zinc-700 shadow-md hover:text-rose-600"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
         )}
       </div>
 
