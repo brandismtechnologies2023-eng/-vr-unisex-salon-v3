@@ -12,7 +12,9 @@ import type { InstagramPost } from "@/types";
 const POSTS_PER_SLIDE = 15;
 const AUTO_PLAY_INTERVAL = 4000;
 const SWIPE_THRESHOLD = 60;
-const SLIDE_DURATION = 0.3;
+const SLIDE_DURATION = 0.45;
+const SLIDE_GAP = 16;
+const DRAG_CLICK_THRESHOLD = 5;
 
 function chunk<T>(items: T[], size: number): T[][] {
   const chunks: T[][] = [];
@@ -36,6 +38,7 @@ export default function InstagramSlider({ posts, isLive }: InstagramSliderProps)
 
   const trackRef = useRef<HTMLDivElement>(null);
   const [trackWidth, setTrackWidth] = useState(0);
+  const justDraggedRef = useRef(false);
 
   const [trackIndex, setTrackIndex] = useState(loop ? 1 : 0);
   const [withTransition, setWithTransition] = useState(true);
@@ -95,6 +98,7 @@ export default function InstagramSlider({ posts, isLive }: InstagramSliderProps)
   const currentSlidePosts = slides[slideIndex];
   const activePost = activeIndex !== null ? currentSlidePosts[activeIndex] : null;
   const canDrag = loop && trackWidth > 0;
+  const stepDistance = trackWidth + SLIDE_GAP;
 
   return (
     <div
@@ -105,15 +109,24 @@ export default function InstagramSlider({ posts, isLive }: InstagramSliderProps)
         <div ref={trackRef} className="overflow-hidden">
           <motion.div
             className="flex touch-pan-y"
+            style={{ gap: SLIDE_GAP }}
             drag={canDrag ? "x" : false}
-            dragConstraints={{ left: -(trackSlides.length - 1) * trackWidth, right: 0 }}
+            dragConstraints={{ left: -(trackSlides.length - 1) * stepDistance, right: 0 }}
             dragElastic={0.1}
-            animate={{ x: -trackIndex * trackWidth }}
+            animate={{ x: -trackIndex * stepDistance }}
             transition={
-              withTransition ? { ease: "linear", duration: SLIDE_DURATION } : { duration: 0 }
+              withTransition
+                ? { ease: "easeInOut", duration: SLIDE_DURATION }
+                : { duration: 0 }
             }
             onAnimationComplete={handleAnimationComplete}
             onDragEnd={(_e, info) => {
+              if (Math.abs(info.offset.x) > DRAG_CLICK_THRESHOLD) {
+                justDraggedRef.current = true;
+                window.setTimeout(() => {
+                  justDraggedRef.current = false;
+                }, 150);
+              }
               if (info.offset.x < -SWIPE_THRESHOLD) step(1);
               else if (info.offset.x > SWIPE_THRESHOLD) step(-1);
             }}
@@ -129,6 +142,7 @@ export default function InstagramSlider({ posts, isLive }: InstagramSliderProps)
                     key={post.id}
                     post={post}
                     onClick={() => {
+                      if (justDraggedRef.current) return;
                       if (idx === trackIndex) setActiveIndex(i);
                     }}
                   />
