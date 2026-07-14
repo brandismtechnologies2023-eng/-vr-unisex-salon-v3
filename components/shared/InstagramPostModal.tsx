@@ -30,7 +30,7 @@ export default function InstagramPostModal({ post, href }: InstagramPostModalPro
           <img
             src={post.image}
             alt={post.caption || "Instagram post"}
-            className="h-full w-full object-contain"
+            className="h-full w-full object-cover"
           />
         ) : (
           <ImagePlaceholder className="h-full w-full" />
