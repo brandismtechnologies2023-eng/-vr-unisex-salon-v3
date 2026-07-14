@@ -4,6 +4,8 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import InstagramPostCard from "@/components/shared/InstagramPostCard";
+import InstagramPostModal from "@/components/shared/InstagramPostModal";
+import Modal from "@/components/shared/Modal";
 import { siteConfig } from "@/lib/site-config";
 import type { InstagramPost } from "@/types";
 
@@ -27,6 +29,7 @@ export default function InstagramSlider({ posts, isLive }: InstagramSliderProps)
 
   const [slideIndex, setSlideIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const goTo = (index: number) => {
     setDirection(index > slideIndex ? 1 : -1);
@@ -34,6 +37,9 @@ export default function InstagramSlider({ posts, isLive }: InstagramSliderProps)
   };
 
   if (slides.length === 0) return null;
+
+  const currentSlidePosts = slides[slideIndex];
+  const activePost = activeIndex !== null ? currentSlidePosts[activeIndex] : null;
 
   return (
     <div>
@@ -49,11 +55,11 @@ export default function InstagramSlider({ posts, isLive }: InstagramSliderProps)
               transition={{ duration: 0.35 }}
               className="grid grid-cols-3 gap-3 sm:grid-cols-5"
             >
-              {slides[slideIndex].map((post) => (
+              {currentSlidePosts.map((post, i) => (
                 <InstagramPostCard
                   key={post.id}
                   post={post}
-                  href={isLive ? post.permalink : siteConfig.instagramUrl}
+                  onClick={() => setActiveIndex(i)}
                 />
               ))}
             </motion.div>
@@ -97,6 +103,27 @@ export default function InstagramSlider({ posts, isLive }: InstagramSliderProps)
           ))}
         </div>
       )}
+
+      <Modal
+        isOpen={activePost !== null}
+        onClose={() => setActiveIndex(null)}
+        maxWidthClassName="max-w-4xl"
+      >
+        {activePost && (
+          <InstagramPostModal
+            post={activePost}
+            href={isLive ? activePost.permalink : siteConfig.instagramUrl}
+            hasPrev={(activeIndex ?? 0) > 0}
+            hasNext={(activeIndex ?? 0) < currentSlidePosts.length - 1}
+            onPrev={() => setActiveIndex((idx) => Math.max((idx ?? 0) - 1, 0))}
+            onNext={() =>
+              setActiveIndex((idx) =>
+                Math.min((idx ?? 0) + 1, currentSlidePosts.length - 1)
+              )
+            }
+          />
+        )}
+      </Modal>
     </div>
   );
 }

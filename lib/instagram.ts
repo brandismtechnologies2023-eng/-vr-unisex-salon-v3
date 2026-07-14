@@ -10,6 +10,8 @@ interface GraphMediaItem {
   thumbnail_url?: string;
   permalink: string;
   like_count?: number;
+  comments_count?: number;
+  timestamp?: string;
 }
 
 // Returns null (rather than throwing) whenever the Graph API isn't
@@ -21,7 +23,8 @@ export async function getInstagramPosts(limit = 6): Promise<InstagramPost[] | nu
 
   if (!accessToken || !businessAccountId) return null;
 
-  const fields = "id,caption,media_type,media_url,thumbnail_url,permalink,like_count";
+  const fields =
+    "id,caption,media_type,media_url,thumbnail_url,permalink,like_count,comments_count,timestamp";
   const url = `https://graph.facebook.com/${GRAPH_API_VERSION}/${businessAccountId}/media?fields=${fields}&limit=${limit}&access_token=${accessToken}`;
 
   try {
@@ -38,6 +41,8 @@ export async function getInstagramPosts(limit = 6): Promise<InstagramPost[] | nu
       image: item.media_type === "VIDEO" ? item.thumbnail_url : item.media_url,
       caption: item.caption ?? "",
       likes: item.like_count ?? 0,
+      comments: item.comments_count ?? 0,
+      timestamp: item.timestamp,
       permalink: item.permalink,
     }));
   } catch (err) {

@@ -3,15 +3,14 @@ import ImagePlaceholder from "./ImagePlaceholder";
 
 interface InstagramPostCardProps {
   post: InstagramPost;
-  href: string;
+  onClick: () => void;
 }
 
-export default function InstagramPostCard({ post, href }: InstagramPostCardProps) {
+export default function InstagramPostCard({ post, onClick }: InstagramPostCardProps) {
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+    <button
+      type="button"
+      onClick={onClick}
       className="group block aspect-square w-full overflow-hidden rounded-lg"
     >
       {post.image ? (
@@ -25,6 +24,6 @@ export default function InstagramPostCard({ post, href }: InstagramPostCardProps
       ) : (
         <ImagePlaceholder className="h-full w-full" />
       )}
-    </a>
+    </button>
   );
 }

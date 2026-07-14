@@ -8,9 +8,15 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   children: ReactNode;
+  maxWidthClassName?: string;
 }
 
-export default function Modal({ isOpen, onClose, children }: ModalProps) {
+export default function Modal({
+  isOpen,
+  onClose,
+  children,
+  maxWidthClassName = "max-w-3xl",
+}: ModalProps) {
   useEffect(() => {
     if (!isOpen) return;
     const onKeyDown = (e: KeyboardEvent) => {
@@ -36,7 +42,7 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
         <X className="h-7 w-7" />
       </button>
       <div
-        className="max-h-full max-w-3xl"
+        className={`max-h-full ${maxWidthClassName}`}
         onClick={(e) => e.stopPropagation()}
       >
         {children}

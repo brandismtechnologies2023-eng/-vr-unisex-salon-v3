@@ -177,8 +177,10 @@ export const galleryImages: GalleryImage[] = Array.from({ length: 12 }).map(
 export const instagramPosts: InstagramPost[] = Array.from({ length: 30 }).map(
   (_, i) => ({
     id: String(i + 1),
-    caption: "Fresh from the salon floor ✨",
+    caption: "Fresh from the salon floor ✨ #vrunisexsalon #dubaisalon",
     likes: 40 + i * 7,
+    comments: 3 + (i % 5),
+    timestamp: new Date(Date.now() - i * 86400000).toISOString(),
     permalink: "https://instagram.com/",
   })
 );
