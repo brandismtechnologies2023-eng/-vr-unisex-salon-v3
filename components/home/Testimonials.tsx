@@ -8,7 +8,7 @@ import { GoogleIcon } from "@/components/shared/SocialIcons";
 import { testimonials } from "@/lib/data";
 import { siteConfig } from "@/lib/site-config";
 
-const REVIEWS_PER_SLIDE = 3;
+const REVIEWS_PER_SLIDE = 1;
 const AUTO_PLAY_INTERVAL = 5000;
 
 function chunk<T>(items: T[], size: number): T[][] {
@@ -45,7 +45,7 @@ export default function Testimonials() {
           slides={slides}
           autoPlayInterval={AUTO_PLAY_INTERVAL}
           arrowLabel="reviews"
-          slideClassName="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3"
+          slideClassName="mx-auto max-w-xl"
           renderSlide={(slideReviews) => (
             <>
               {slideReviews.map((testimonial) => (
