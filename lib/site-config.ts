@@ -1,4 +1,3 @@
-// Phone/WhatsApp number are still placeholders (UAE-formatted) — replace with the real number.
 const address =
   "Crown Park Hotel, Burjuman, Shop 01, Ground Floor, Exit 4, Al Hamriya, Dubai, United Arab Emirates";
 
@@ -7,8 +6,8 @@ export const siteConfig = {
   shortName: "VR Salon",
   description:
     "Premium unisex hair, skin and beauty salon offering expert stylists, luxury treatments and a hygienic, relaxing experience.",
-  phone: "+971 50 123 4567",
-  whatsappNumber: "971501234567",
+  phone: "+971 55 956 6627",
+  whatsappNumber: "971559566627",
   email: "info@vrunisexsalon.com",
   address,
   currency: "AED",
@@ -26,7 +25,7 @@ export const siteConfig = {
     { day: "Friday", time: "2:00 PM - 10:00 PM" },
   ],
   rating: 4.9,
-  reviewCount: 500,
+  reviewCount: 200,
 };
 
 export function whatsappLink(message = "Hi, I'd like to book an appointment.") {

@@ -42,7 +42,6 @@ export default function Carousel<T>({
     goTo,
     step,
     onDragEnd,
-    handleAnimationComplete,
     setIsHovering,
   } = useLoopingSlider({
     slideCount: slides.length,
@@ -68,7 +67,6 @@ export default function Carousel<T>({
             transition={
               withTransition ? { ease: "easeInOut", duration: slideDuration } : { duration: 0 }
             }
-            onAnimationComplete={handleAnimationComplete}
             onDragEnd={onDragEnd}
           >
             {trackSlides.map((items, idx) => (

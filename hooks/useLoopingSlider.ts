@@ -64,17 +64,19 @@ export function useLoopingSlider({
   }, [loop, isHovering, pausedExternally, autoPlayInterval]);
 
   // Seamlessly reset from a cloned end slide back to the matching real
-  // slide the instant the (invisible) jump completes.
-  const handleAnimationComplete = () => {
+  // slide once the slide-in has had time to finish. This runs off our own
+  // timer (not framer-motion's onAnimationComplete) because that event can
+  // fire against a stale trackIndex when auto-play advances again before it
+  // resolves, occasionally sliding the track out of view into blank space.
+  useEffect(() => {
     if (!loop) return;
-    if (trackIndex === 0) {
+    if (trackIndex !== 0 && trackIndex !== slideCount + 1) return;
+    const timeout = window.setTimeout(() => {
       setWithTransition(false);
-      setTrackIndex(slideCount);
-    } else if (trackIndex === slideCount + 1) {
-      setWithTransition(false);
-      setTrackIndex(1);
-    }
-  };
+      setTrackIndex(trackIndex === 0 ? slideCount : 1);
+    }, slideDuration * 1000 + 30);
+    return () => window.clearTimeout(timeout);
+  }, [trackIndex, loop, slideCount, slideDuration]);
 
   useEffect(() => {
     if (!withTransition) {
@@ -112,7 +114,6 @@ export function useLoopingSlider({
     goTo,
     step,
     onDragEnd,
-    handleAnimationComplete,
     setIsHovering,
   };
 }
