@@ -18,6 +18,8 @@ export interface Testimonial {
   name: string;
   rating: number;
   review: string;
+  service?: string;
+  location?: string;
   image?: string;
   source?: "google" | "website";
 }

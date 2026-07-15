@@ -1,57 +1,73 @@
 "use client";
 
-import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ExternalLink, Star } from "lucide-react";
 import SectionHeading from "@/components/shared/SectionHeading";
 import ReviewCard from "@/components/shared/ReviewCard";
+import Carousel from "@/components/shared/Carousel";
+import { GoogleIcon } from "@/components/shared/SocialIcons";
 import { testimonials } from "@/lib/data";
+import { siteConfig } from "@/lib/site-config";
 
-const PAGE_SIZE = 3;
+const REVIEWS_PER_SLIDE = 3;
+const AUTO_PLAY_INTERVAL = 5000;
+
+function chunk<T>(items: T[], size: number): T[][] {
+  const chunks: T[][] = [];
+  for (let i = 0; i < items.length; i += size) {
+    chunks.push(items.slice(i, i + size));
+  }
+  return chunks;
+}
 
 export default function Testimonials() {
-  const [page, setPage] = useState(0);
-  const totalPages = Math.ceil(testimonials.length / PAGE_SIZE);
-
-  const visible = testimonials.slice(page * PAGE_SIZE, page * PAGE_SIZE + PAGE_SIZE);
+  const slides = chunk(testimonials, REVIEWS_PER_SLIDE);
 
   return (
-    <section className="bg-zinc-50 py-20">
+    <section className="bg-[#FAF6EE] py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Testimonials"
-          title="What Our Clients Say"
-          subtitle="Real reviews from real clients, straight from Google."
-        />
-
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {visible.map((testimonial) => (
-            <ReviewCard key={testimonial.id} testimonial={testimonial} />
-          ))}
+        <div className="mb-6 flex justify-center">
+          <div className="flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-4 py-2 shadow-sm">
+            <GoogleIcon className="h-4 w-4" />
+            <span className="text-sm font-semibold text-zinc-900">Google Reviews</span>
+            <span className="flex items-center gap-0.5">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+              ))}
+            </span>
+            <span className="text-sm font-semibold text-zinc-900">{siteConfig.rating}</span>
+            <span className="text-sm text-zinc-500">({siteConfig.reviewCount}+)</span>
+          </div>
         </div>
 
-        {totalPages > 1 && (
-          <div className="mt-10 flex items-center justify-center gap-4">
-            <button
-              type="button"
-              onClick={() => setPage((p) => (p - 1 + totalPages) % totalPages)}
-              aria-label="Previous testimonials"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 hover:bg-white"
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </button>
-            <span className="text-sm text-zinc-500">
-              {page + 1} / {totalPages}
-            </span>
-            <button
-              type="button"
-              onClick={() => setPage((p) => (p + 1) % totalPages)}
-              aria-label="Next testimonials"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 hover:bg-white"
-            >
-              <ChevronRight className="h-4 w-4" />
-            </button>
-          </div>
-        )}
+        <SectionHeading eyebrow="Reviews" title="What our Burjuman clients say" />
+
+        <Carousel
+          slides={slides}
+          autoPlayInterval={AUTO_PLAY_INTERVAL}
+          arrowLabel="reviews"
+          slideClassName="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          renderSlide={(slideReviews) => (
+            <>
+              {slideReviews.map((testimonial) => (
+                <ReviewCard key={testimonial.id} testimonial={testimonial} />
+              ))}
+            </>
+          )}
+        />
+
+        <div className="mt-10 text-center">
+          <p className="text-sm text-zinc-500">Read all our verified reviews on Google</p>
+          <a
+            href={siteConfig.googleReviewsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex items-center gap-2 rounded-full border border-rose-200 bg-white px-5 py-2.5 text-sm font-medium text-rose-600 hover:bg-rose-50"
+          >
+            <GoogleIcon className="h-4 w-4" />
+            See All Google Reviews
+            <ExternalLink className="h-3.5 w-3.5" />
+          </a>
+        </div>
       </div>
     </section>
   );

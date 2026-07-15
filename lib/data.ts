@@ -137,30 +137,152 @@ export const pricingPackages: PricingPackage[] = [
 export const testimonials: Testimonial[] = [
   {
     id: "1",
-    name: "Priya Shah",
+    name: "Fatima H.",
     rating: 5,
-    review: "Amazing experience! The staff is so professional and the salon is spotless.",
+    service: "Balayage",
+    location: "Deira",
+    review:
+      "My balayage came out absolutely stunning. The colorist really understood what I wanted and matched it perfectly to my skin tone. Will be back every few months!",
     source: "google",
   },
   {
     id: "2",
-    name: "Rohan Mehta",
+    name: "Meera P.",
     rating: 5,
-    review: "Best haircut I've had in years. Will definitely be coming back.",
+    service: "Hydra Facial",
+    location: "Mankhool",
+    review:
+      "The hydra facial was so relaxing and my skin glowed for a week after. Perfect for Dubai's dry AC weather. The therapists are so professional and caring.",
     source: "google",
   },
   {
     id: "3",
-    name: "Ananya Patel",
-    rating: 4,
-    review: "Loved the Korean head spa treatment, so relaxing!",
-    source: "website",
+    name: "Noor A.",
+    rating: 5,
+    service: "Eyelash Extensions",
+    location: "Downtown Dubai",
+    review:
+      "Classic lash extensions done perfectly — natural looking and lasted 4 weeks. The lash artist was incredibly precise and hygienic. My go-to salon now!",
+    source: "google",
   },
   {
     id: "4",
-    name: "Karan Joshi",
+    name: "Priya S.",
     rating: 5,
-    review: "Great value for money and very hygienic environment.",
+    service: "Korean Head Spa",
+    location: "Al Barsha",
+    review:
+      "Amazing experience! The head spa was so relaxing and the staff is so professional. The salon is spotless — you can really tell hygiene is a priority.",
+    source: "google",
+  },
+  {
+    id: "5",
+    name: "Rohan M.",
+    rating: 5,
+    service: "Mens Haircut",
+    location: "Karama",
+    review:
+      "Best haircut I've had in years. The barber actually listened to what I wanted instead of just doing his own thing. Will definitely be coming back.",
+    source: "google",
+  },
+  {
+    id: "6",
+    name: "Aisha K.",
+    rating: 5,
+    service: "Bridal Makeup",
+    location: "Jumeirah",
+    review:
+      "Booked them for my wedding and it was the best decision. The makeup lasted through the entire event and photographed beautifully. So many compliments!",
+    source: "google",
+  },
+  {
+    id: "7",
+    name: "Sara T.",
+    rating: 4,
+    service: "Manicure & Pedicure",
+    location: "Business Bay",
+    review:
+      "Loved the manicure, super neat finish and the nail art was exactly what I showed them. Only wish there was a bit more parking nearby!",
+    source: "google",
+  },
+  {
+    id: "8",
+    name: "Omar R.",
+    rating: 5,
+    service: "Hair Repair Therapy",
+    location: "Al Quoz",
+    review:
+      "My hair was so damaged from bleaching and the repair therapy genuinely brought it back to life. Noticeably softer after just one session.",
+    source: "google",
+  },
+  {
+    id: "9",
+    name: "Layla F.",
+    rating: 5,
+    service: "Waxing / Threading",
+    location: "Satwa",
+    review:
+      "Quick, gentle and precise every single time. I've tried a few salons around Bur Dubai and Satwa and this is by far the least painful and most consistent.",
+    source: "google",
+  },
+  {
+    id: "10",
+    name: "Zainab Q.",
+    rating: 5,
+    service: "Nail Extensions",
+    location: "Al Rigga",
+    review:
+      "The nail extensions are so durable, mine lasted almost a month with zero lifting. The salon is bright, clean, and the staff are genuinely lovely.",
+    source: "google",
+  },
+  {
+    id: "11",
+    name: "Ahmed J.",
+    rating: 5,
+    service: "Couple Services",
+    location: "JLT",
+    review:
+      "Came in with my wife for a couple's spa day and it was the perfect way to unwind. Great atmosphere and the staff made sure we were both taken care of.",
+    source: "google",
+  },
+  {
+    id: "12",
+    name: "Huda S.",
+    rating: 5,
+    service: "Hair Color",
+    location: "Oud Metha",
+    review:
+      "Went from dark brown to a full ash blonde in one visit and my hair still feels healthy. The colorist clearly knew what she was doing. Highly recommend.",
+    source: "google",
+  },
+  {
+    id: "13",
+    name: "Yusuf B.",
+    rating: 5,
+    service: "Mens Haircut",
+    location: "Al Barsha",
+    review:
+      "Sharp fade every time, no matter which barber I get. Booking through WhatsApp is so convenient and they're never running late.",
+    source: "google",
+  },
+  {
+    id: "14",
+    name: "Reem N.",
+    rating: 4,
+    service: "Makeup",
+    location: "Bur Dubai",
+    review:
+      "Got my makeup done for a family event and it looked flawless in photos. Would've loved a slightly longer appointment slot, but the result was great.",
+    source: "google",
+  },
+  {
+    id: "15",
+    name: "Khalid M.",
+    rating: 5,
+    service: "Hair Treatment",
+    location: "Marina",
+    review:
+      "The keratin treatment cut my styling time in half and my hair has never been this manageable. Staff explained the whole process before starting, appreciated that.",
     source: "google",
   },
 ];
