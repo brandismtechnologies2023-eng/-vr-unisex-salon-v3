@@ -105,6 +105,132 @@ export const services: Service[] = [
           "Foot massage",
         ],
       },
+      {
+        id: "french-manicure",
+        category: "Manicure",
+        name: "French Manicure",
+        description:
+          "A timeless, elegant look with a soft nude base and crisp white tips.",
+        features: ["Soft nude base", "Crisp white tips", "Clean, classic finish"],
+      },
+      {
+        id: "luxury-manicure",
+        category: "Manicure",
+        name: "Luxury Manicure",
+        description:
+          "An indulgent treatment with premium products, deep hydration and an extended massage.",
+        features: ["Premium product range", "Deep hydration", "Extended hand massage"],
+      },
+      {
+        id: "cuticle-care",
+        category: "Manicure",
+        name: "Cuticle Care",
+        description:
+          "Focused care for healthy, neat cuticles — the foundation of great-looking nails.",
+        features: ["Gentle softening", "Precise trimming", "Nourishing oil finish"],
+      },
+      {
+        id: "hand-massage",
+        category: "Manicure",
+        name: "Hand Massage",
+        description:
+          "A relaxing standalone or add-on massage to ease tension and improve circulation.",
+        features: ["Tension relief", "Improved circulation", "Nourishing cream"],
+      },
+      {
+        id: "hand-polishing",
+        category: "Manicure",
+        name: "Hand Polishing",
+        description:
+          "Removes dead skin and brightens hands for a visibly smoother, fresher look.",
+        features: ["Dead skin removal", "Brighter skin tone", "Smooth, soft finish"],
+      },
+      {
+        id: "paraffin-wax-manicure",
+        category: "Manicure",
+        name: "Paraffin Wax Manicure",
+        description:
+          "Warm paraffin wax therapy that deeply moisturizes and softens tired hands.",
+        features: ["Intense moisture therapy", "Deep hydration", "Soft, rejuvenated skin"],
+      },
+      {
+        id: "french-pedicure",
+        category: "Pedicure",
+        name: "French Pedicure",
+        description:
+          "A clean, elegant look with natural tones and crisp white tips, suited to any occasion.",
+        features: ["Natural tone base", "Crisp white tips", "Timeless finish"],
+      },
+      {
+        id: "luxury-pedicure",
+        category: "Pedicure",
+        name: "Luxury Pedicure",
+        description:
+          "A premium foot care experience with advanced exfoliation, hydration and an extended massage.",
+        features: ["Advanced exfoliation", "Hydration therapy", "Extended foot massage"],
+      },
+      {
+        id: "foot-spa",
+        category: "Pedicure",
+        name: "Foot Spa",
+        description:
+          "A soothing warm-water soak that relaxes tired muscles and eases daily stress.",
+        features: ["Warm water therapy", "Muscle relaxation", "Improved circulation"],
+      },
+      {
+        id: "callus-removal",
+        category: "Pedicure",
+        name: "Callus Removal",
+        description:
+          "Gently smooths hardened, rough skin for more comfortable, healthier-looking feet.",
+        features: ["Smooths hardened skin", "Reduces roughness", "Improved comfort"],
+      },
+      {
+        id: "heel-crack-treatment",
+        category: "Pedicure",
+        name: "Heel Crack Treatment",
+        description: "Deep hydration and targeted care to soften dry, cracked heels.",
+        features: ["Deep hydration", "Targeted heel care", "Softer, smoother skin"],
+      },
+      {
+        id: "foot-polishing",
+        category: "Pedicure",
+        name: "Foot Polishing",
+        description:
+          "Removes dead skin and brightens feet for a smoother, refreshed finish.",
+        features: ["Dead skin removal", "Brighter skin tone", "Smooth finish"],
+      },
+      {
+        id: "paraffin-wax-pedicure",
+        category: "Pedicure",
+        name: "Paraffin Wax Pedicure",
+        description:
+          "Warm paraffin wax therapy that locks in moisture for soft, hydrated feet.",
+        features: ["Intense moisture therapy", "Deep hydration", "Soft, soothed skin"],
+      },
+      {
+        id: "mens-classic-mani-pedi",
+        category: "For Men",
+        name: "Classic Manicure & Pedicure",
+        description:
+          "Essential all-round grooming for hands and feet — nail shaping, cuticle care and hydration.",
+        features: ["Nail shaping & cuticle care", "Hydrating scrub", "Neat, groomed finish"],
+      },
+      {
+        id: "mens-spa-mani-pedi",
+        category: "For Men",
+        name: "Spa Manicure & Pedicure",
+        description:
+          "Extra relaxation and care with exfoliation, a hydrating scrub and massage for hands and feet.",
+        features: ["Hand & foot exfoliation", "Hydrating scrub", "Relaxing massage"],
+      },
+      {
+        id: "nail-cleaning-shaping",
+        category: "For Men",
+        name: "Nail Cleaning & Shaping",
+        description: "A quick, effective grooming service for clean, well-shaped nails.",
+        features: ["Nail cleaning", "Precise shaping", "Tidy, groomed finish"],
+      },
     ],
     process: [
       {
