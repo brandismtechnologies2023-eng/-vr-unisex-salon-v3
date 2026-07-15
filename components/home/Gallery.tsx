@@ -34,7 +34,7 @@ export default function Gallery() {
       <Carousel
         slides={slides}
         arrowLabel="photos"
-        slideClassName="columns-2 gap-4 *:mb-4"
+        slideClassName="columns-2 gap-4 *:mb-4 sm:columns-3 lg:columns-4"
         renderSlide={(slideMedia) => (
           <>
             {slideMedia.map((media) => (
