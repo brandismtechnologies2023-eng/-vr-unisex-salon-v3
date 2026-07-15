@@ -8,9 +8,10 @@ import Carousel from "@/components/shared/Carousel";
 import Modal from "@/components/shared/Modal";
 import { galleryMedia } from "@/lib/data";
 
-// High enough that all current media fits in one dense grid; once more
-// photos/videos are added this will automatically start paginating.
-const MEDIA_PER_SLIDE = 16;
+// Kept low enough to always produce at least 2 slides so the slider
+// (arrows, dots, auto-play loop) stays active even with few items.
+const MEDIA_PER_SLIDE = 5;
+const AUTO_PLAY_INTERVAL = 4000;
 
 function chunk<T>(items: T[], size: number): T[][] {
   const chunks: T[][] = [];
@@ -35,8 +36,9 @@ export default function Gallery() {
 
       <Carousel
         slides={slides}
+        autoPlayInterval={AUTO_PLAY_INTERVAL}
         arrowLabel="photos"
-        slideClassName="columns-2 gap-3 *:mb-3 sm:columns-3 md:columns-4 lg:columns-5 xl:columns-6"
+        slideClassName="columns-2 gap-3 *:mb-3 sm:columns-3 lg:columns-4"
         renderSlide={(slideMedia) => (
           <>
             {slideMedia.map((media) => (
