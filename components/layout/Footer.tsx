@@ -14,7 +14,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-secondary text-zinc-300">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-[1.1fr_0.7fr_1.5fr_1.1fr] lg:px-8">
         {/* Column 1 */}
         <div>
           <Link href="/" className="flex items-center gap-2">
