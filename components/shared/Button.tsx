@@ -5,10 +5,10 @@ type Variant = "primary" | "secondary" | "outline" | "ghost";
 type Size = "sm" | "md" | "lg";
 
 const variantClasses: Record<Variant, string> = {
-  primary: "bg-rose-600 text-white hover:bg-rose-700",
-  secondary: "bg-amber-500 text-white hover:bg-amber-600",
-  outline: "border border-rose-600 text-rose-600 hover:bg-rose-50",
-  ghost: "text-rose-600 hover:bg-rose-50",
+  primary: "bg-secondary text-white hover:bg-secondary/90",
+  secondary: "bg-primary text-secondary hover:bg-primary/80",
+  outline: "border border-secondary text-secondary hover:bg-primary/40",
+  ghost: "text-secondary hover:bg-primary/40",
 };
 
 const sizeClasses: Record<Size, string> = {

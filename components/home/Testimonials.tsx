@@ -23,18 +23,18 @@ export default function Testimonials() {
   const slides = chunk(testimonials, REVIEWS_PER_SLIDE);
 
   return (
-    <section className="bg-[#FAF6EE] py-20">
+    <section className="bg-primary/20 py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6 flex justify-center">
           <div className="flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-4 py-2 shadow-sm">
             <GoogleIcon className="h-4 w-4" />
-            <span className="text-sm font-semibold text-zinc-900">Google Reviews</span>
+            <span className="text-sm font-semibold text-secondary">Google Reviews</span>
             <span className="flex items-center gap-0.5">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
               ))}
             </span>
-            <span className="text-sm font-semibold text-zinc-900">{siteConfig.rating}</span>
+            <span className="text-sm font-semibold text-secondary">{siteConfig.rating}</span>
             <span className="text-sm text-zinc-500">({siteConfig.reviewCount}+)</span>
           </div>
         </div>
@@ -61,7 +61,7 @@ export default function Testimonials() {
             href={siteConfig.googleReviewsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 inline-flex items-center gap-2 rounded-full border border-rose-200 bg-white px-5 py-2.5 text-sm font-medium text-rose-600 hover:bg-rose-50"
+            className="mt-3 inline-flex items-center gap-2 rounded-full border border-third/40 bg-white px-5 py-2.5 text-sm font-medium text-secondary hover:bg-primary/40"
           >
             <GoogleIcon className="h-4 w-4" />
             See All Google Reviews

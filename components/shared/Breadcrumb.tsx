@@ -17,11 +17,11 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
         <span key={i} className="flex items-center gap-2">
           {i > 0 && <ChevronRight className="h-3.5 w-3.5 text-zinc-400" />}
           {item.href ? (
-            <Link href={item.href} className="text-zinc-500 hover:text-rose-600">
+            <Link href={item.href} className="text-zinc-500 hover:text-secondary">
               {item.label}
             </Link>
           ) : (
-            <span className="font-medium text-zinc-900">{item.label}</span>
+            <span className="font-medium text-secondary">{item.label}</span>
           )}
         </span>
       ))}

@@ -20,11 +20,11 @@ export default function ReviewCard({ testimonial }: ReviewCardProps) {
     <div className="flex h-full flex-col rounded-2xl border border-zinc-100 bg-white p-6 shadow-sm">
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-3">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-rose-100 text-sm font-semibold text-rose-600">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-semibold text-secondary">
             {initials}
           </div>
           <div>
-            <p className="text-sm font-semibold text-zinc-900">{testimonial.name}</p>
+            <p className="text-sm font-semibold text-secondary">{testimonial.name}</p>
             {subtitle && <p className="text-xs text-zinc-500">{subtitle}</p>}
           </div>
         </div>

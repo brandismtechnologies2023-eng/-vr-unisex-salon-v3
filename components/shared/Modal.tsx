@@ -61,7 +61,7 @@ export default function Modal({
           }}
           disabled={!hasPrev}
           aria-label="Previous"
-          className="absolute left-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-zinc-700 shadow-md hover:text-rose-600 disabled:opacity-30"
+          className="absolute left-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-zinc-700 shadow-md hover:text-secondary disabled:opacity-30"
         >
           <ChevronLeft className="h-6 w-6" />
         </button>
@@ -75,7 +75,7 @@ export default function Modal({
           }}
           disabled={!hasNext}
           aria-label="Next"
-          className="absolute right-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-zinc-700 shadow-md hover:text-rose-600 disabled:opacity-30"
+          className="absolute right-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-zinc-700 shadow-md hover:text-secondary disabled:opacity-30"
         >
           <ChevronRight className="h-6 w-6" />
         </button>

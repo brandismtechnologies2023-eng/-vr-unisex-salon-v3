@@ -53,7 +53,7 @@ export default function ContactForm() {
           id="name"
           type="text"
           {...register("name")}
-          className="w-full rounded-lg border border-zinc-200 px-4 py-2.5 text-sm focus:border-rose-500 focus:outline-none focus:ring-1 focus:ring-rose-500"
+          className="w-full rounded-lg border border-zinc-200 px-4 py-2.5 text-sm focus:border-secondary focus:outline-none focus:ring-1 focus:ring-secondary"
         />
         {errors.name && (
           <p className="mt-1 text-xs text-red-600">{errors.name.message}</p>
@@ -68,7 +68,7 @@ export default function ContactForm() {
           id="email"
           type="email"
           {...register("email")}
-          className="w-full rounded-lg border border-zinc-200 px-4 py-2.5 text-sm focus:border-rose-500 focus:outline-none focus:ring-1 focus:ring-rose-500"
+          className="w-full rounded-lg border border-zinc-200 px-4 py-2.5 text-sm focus:border-secondary focus:outline-none focus:ring-1 focus:ring-secondary"
         />
         {errors.email && (
           <p className="mt-1 text-xs text-red-600">{errors.email.message}</p>
@@ -83,7 +83,7 @@ export default function ContactForm() {
           id="phone"
           type="tel"
           {...register("phone")}
-          className="w-full rounded-lg border border-zinc-200 px-4 py-2.5 text-sm focus:border-rose-500 focus:outline-none focus:ring-1 focus:ring-rose-500"
+          className="w-full rounded-lg border border-zinc-200 px-4 py-2.5 text-sm focus:border-secondary focus:outline-none focus:ring-1 focus:ring-secondary"
         />
         {errors.phone && (
           <p className="mt-1 text-xs text-red-600">{errors.phone.message}</p>
@@ -98,7 +98,7 @@ export default function ContactForm() {
           id="message"
           rows={4}
           {...register("message")}
-          className="w-full rounded-lg border border-zinc-200 px-4 py-2.5 text-sm focus:border-rose-500 focus:outline-none focus:ring-1 focus:ring-rose-500"
+          className="w-full rounded-lg border border-zinc-200 px-4 py-2.5 text-sm focus:border-secondary focus:outline-none focus:ring-1 focus:ring-secondary"
         />
         {errors.message && (
           <p className="mt-1 text-xs text-red-600">{errors.message.message}</p>

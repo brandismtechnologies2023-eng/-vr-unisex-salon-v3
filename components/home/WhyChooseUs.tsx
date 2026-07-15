@@ -33,7 +33,7 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-rose-50/50 py-20">
+    <section className="bg-primary/25 py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Why Choose Us"
@@ -47,8 +47,8 @@ export default function WhyChooseUs() {
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             {features.map((feature) => (
               <Card key={feature.title}>
-                <feature.icon className="h-7 w-7 text-rose-600" strokeWidth={1.5} />
-                <h3 className="mt-4 font-semibold text-zinc-900">{feature.title}</h3>
+                <feature.icon className="h-7 w-7 text-secondary" strokeWidth={1.5} />
+                <h3 className="mt-4 font-semibold text-secondary">{feature.title}</h3>
                 <p className="mt-1 text-sm text-zinc-600">{feature.description}</p>
               </Card>
             ))}

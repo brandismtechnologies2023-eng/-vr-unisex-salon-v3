@@ -19,19 +19,18 @@ export default function Navbar() {
           <Image
             src="/images/logo.webp"
             alt={siteConfig.name}
-            width={166}
-            height={166}
+            width={230}
+            height={230}
             priority
-            className="h-11 w-11 rounded-lg object-cover"
+            className="h-22 w-22 rounded-lg object-cover"
           />
-          <span className="text-lg font-bold text-zinc-900">{siteConfig.shortName}</span>
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link) =>
             link.children ? (
               <div key={link.label} className="group relative">
-                <button className="flex items-center gap-1 text-sm font-medium text-zinc-700 hover:text-rose-600">
+                <button className="flex items-center gap-1 text-sm font-medium text-zinc-700 hover:text-secondary">
                   {link.label}
                   <ChevronDown className="h-4 w-4" />
                 </button>
@@ -40,7 +39,7 @@ export default function Navbar() {
                     <Link
                       key={child.href}
                       href={child.href}
-                      className="rounded-lg px-3 py-2 text-sm text-zinc-600 hover:bg-rose-50 hover:text-rose-600"
+                      className="rounded-lg px-3 py-2 text-sm text-zinc-600 hover:bg-primary/40 hover:text-secondary"
                     >
                       {child.label}
                     </Link>
@@ -51,7 +50,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-zinc-700 hover:text-rose-600"
+                className="text-sm font-medium text-zinc-700 hover:text-secondary"
               >
                 {link.label}
               </Link>

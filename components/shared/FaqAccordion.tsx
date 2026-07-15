@@ -23,7 +23,7 @@ export default function FaqAccordion({ items }: FaqAccordionProps) {
               className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
               aria-expanded={isOpen}
             >
-              <span className="font-medium text-zinc-900">{item.question}</span>
+              <span className="font-medium text-secondary">{item.question}</span>
               <ChevronDown
                 className={`h-5 w-5 shrink-0 text-zinc-400 transition-transform ${
                   isOpen ? "rotate-180" : ""

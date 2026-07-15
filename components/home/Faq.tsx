@@ -14,7 +14,7 @@ export default function Faq() {
           href={whatsappLink("Hi, I have a question about your services.")}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-medium text-rose-600"
+          className="font-medium text-secondary"
         >
           Chat with us on WhatsApp
         </a>

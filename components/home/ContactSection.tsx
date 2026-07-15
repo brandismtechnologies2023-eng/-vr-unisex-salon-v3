@@ -25,21 +25,21 @@ export default function ContactSection() {
 
           <ul className="space-y-4 text-sm text-zinc-700">
             <li className="flex items-start gap-3">
-              <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-rose-600" />
+              <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-secondary" />
               {siteConfig.address}
             </li>
             <li className="flex items-center gap-3">
-              <Phone className="h-5 w-5 shrink-0 text-rose-600" />
+              <Phone className="h-5 w-5 shrink-0 text-secondary" />
               <a href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`}>
                 {siteConfig.phone}
               </a>
             </li>
             <li className="flex items-center gap-3">
-              <Mail className="h-5 w-5 shrink-0 text-rose-600" />
+              <Mail className="h-5 w-5 shrink-0 text-secondary" />
               <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
             </li>
             <li className="flex items-start gap-3">
-              <Clock className="mt-0.5 h-5 w-5 shrink-0 text-rose-600" />
+              <Clock className="mt-0.5 h-5 w-5 shrink-0 text-secondary" />
               <div className="space-y-0.5">
                 {siteConfig.hours.map((h) => (
                   <p key={h.day}>

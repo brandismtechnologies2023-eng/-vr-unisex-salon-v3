@@ -87,7 +87,7 @@ export default function Carousel<T>({
               type="button"
               onClick={() => step(-1)}
               aria-label={`Previous ${arrowLabel}`}
-              className="absolute left-0 top-1/2 hidden -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-white text-zinc-700 shadow-md hover:bg-rose-50 hover:text-rose-600 sm:flex"
+              className="absolute left-0 top-1/2 hidden -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-white text-zinc-700 shadow-md hover:bg-primary/40 hover:text-secondary sm:flex"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
@@ -95,7 +95,7 @@ export default function Carousel<T>({
               type="button"
               onClick={() => step(1)}
               aria-label={`Next ${arrowLabel}`}
-              className="absolute right-0 top-1/2 hidden -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-white text-zinc-700 shadow-md hover:bg-rose-50 hover:text-rose-600 sm:flex"
+              className="absolute right-0 top-1/2 hidden -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-white text-zinc-700 shadow-md hover:bg-primary/40 hover:text-secondary sm:flex"
             >
               <ChevronRight className="h-5 w-5" />
             </button>
@@ -112,7 +112,7 @@ export default function Carousel<T>({
               onClick={() => goTo(i)}
               aria-label={`Go to ${arrowLabel} group ${i + 1}`}
               className={`h-2.5 rounded-full transition-all ${
-                i === slideIndex ? "w-6 bg-rose-600" : "w-2.5 bg-zinc-200"
+                i === slideIndex ? "w-6 bg-secondary" : "w-2.5 bg-third/30"
               }`}
             />
           ))}

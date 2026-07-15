@@ -16,10 +16,10 @@ export default function AboutConnect() {
         <ImagePlaceholder className="h-80 rounded-2xl lg:h-[420px]" />
 
         <div>
-          <span className="text-sm font-semibold uppercase tracking-wider text-rose-600">
+          <span className="text-sm font-semibold uppercase tracking-wider text-third">
             Connect With Us
           </span>
-          <h2 className="mt-2 text-3xl font-bold text-zinc-900 sm:text-4xl">
+          <h2 className="mt-2 text-3xl font-bold text-secondary sm:text-4xl">
             More Than a Salon — A Complete Beauty Experience
           </h2>
           <p className="mt-4 text-zinc-600">
@@ -30,8 +30,8 @@ export default function AboutConnect() {
           <ul className="mt-6 space-y-3">
             {features.map((feature) => (
               <li key={feature} className="flex items-center gap-3 text-sm text-zinc-700">
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-rose-100">
-                  <Check className="h-3 w-3 text-rose-600" />
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary">
+                  <Check className="h-3 w-3 text-secondary" />
                 </span>
                 {feature}
               </li>

@@ -4,12 +4,12 @@ import { siteConfig, telLink, whatsappLink } from "@/lib/site-config";
 
 export default function ContactCta() {
   return (
-    <section className="bg-rose-600">
+    <section className="bg-secondary">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 py-16 text-center sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-white sm:text-4xl">
           Ready for Your Next Appointment?
         </h2>
-        <p className="max-w-xl text-rose-100">
+        <p className="max-w-xl text-primary/80">
           Reach out on WhatsApp, give us a call, or book online — whichever
           is easiest for you.
         </p>
@@ -27,7 +27,7 @@ export default function ContactCta() {
           <Button
             href={telLink()}
             size="lg"
-            className="bg-white text-rose-600 hover:bg-zinc-100"
+            className="bg-white text-secondary hover:bg-primary/20"
             icon={<Phone className="h-5 w-5" />}
           >
             Call {siteConfig.phone}

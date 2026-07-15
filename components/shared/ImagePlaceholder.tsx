@@ -12,10 +12,10 @@ export default function ImagePlaceholder({
 }: ImagePlaceholderProps) {
   return (
     <div
-      className={`flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-rose-100 via-amber-50 to-rose-50 text-rose-300 ${className}`}
+      className={`flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-primary via-primary/50 to-third/30 text-third ${className}`}
     >
       <ImageIcon className="h-8 w-8" strokeWidth={1.5} />
-      {label && <span className="text-xs font-medium text-rose-400">{label}</span>}
+      {label && <span className="text-xs font-medium text-secondary/60">{label}</span>}
     </div>
   );
 }

@@ -13,7 +13,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-zinc-900 text-zinc-300">
+    <footer className="bg-secondary text-zinc-300">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
         {/* Column 1 */}
         <div>
@@ -21,11 +21,10 @@ export default function Footer() {
             <Image
               src="/images/logo.webp"
               alt={siteConfig.name}
-              width={166}
-              height={166}
-              className="h-11 w-11 rounded-lg object-cover"
+              width={230}
+              height={230}
+              className="h-22 w-22 rounded-lg object-cover"
             />
-            <span className="text-lg font-bold text-white">{siteConfig.shortName}</span>
           </Link>
           <p className="mt-4 text-sm text-zinc-400">{siteConfig.description}</p>
           <div className="mt-5 flex items-center gap-3">
@@ -34,7 +33,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-zinc-800 hover:bg-rose-600"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-third"
             >
               <InstagramIcon />
             </a>
@@ -43,7 +42,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-zinc-800 hover:bg-rose-600"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-third"
             >
               <FacebookIcon />
             </a>
@@ -58,7 +57,7 @@ export default function Footer() {
           <ul className="mt-4 space-y-2 text-sm">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="hover:text-rose-500">
+                <Link href={link.href} className="hover:text-primary">
                   {link.label}
                 </Link>
               </li>
@@ -78,7 +77,7 @@ export default function Footer() {
                   <li key={service.id}>
                     <Link
                       href={`/services/${service.slug}`}
-                      className="hover:text-rose-500"
+                      className="hover:text-primary"
                     >
                       {service.title}
                     </Link>
@@ -96,19 +95,19 @@ export default function Footer() {
           </h3>
           <ul className="mt-4 space-y-3 text-sm">
             <li className="flex items-start gap-2">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-rose-500" />
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
               <a href={siteConfig.mapLink} target="_blank" rel="noopener noreferrer">
                 {siteConfig.address}
               </a>
             </li>
             <li className="flex items-center gap-2">
-              <Phone className="h-4 w-4 shrink-0 text-rose-500" />
+              <Phone className="h-4 w-4 shrink-0 text-primary" />
               <a href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`}>
                 {siteConfig.phone}
               </a>
             </li>
             <li className="flex items-center gap-2">
-              <Mail className="h-4 w-4 shrink-0 text-rose-500" />
+              <Mail className="h-4 w-4 shrink-0 text-primary" />
               <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
             </li>
           </ul>
@@ -122,7 +121,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-zinc-800 py-6 text-center text-xs text-zinc-500">
+      <div className="border-t border-white/10 py-6 text-center text-xs text-zinc-500">
         © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
       </div>
     </footer>

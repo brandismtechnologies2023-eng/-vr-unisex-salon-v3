@@ -59,7 +59,7 @@ export default function Gallery() {
           type="button"
           onClick={() => goTo(slideIndex - 1)}
           aria-label="Previous photos"
-          className="absolute left-2 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white text-zinc-700 shadow-md hover:bg-rose-50 hover:text-rose-600"
+          className="absolute left-2 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white text-zinc-700 shadow-md hover:bg-primary/40 hover:text-secondary"
         >
           <ChevronLeft className="h-5 w-5" />
         </button>
@@ -67,7 +67,7 @@ export default function Gallery() {
           type="button"
           onClick={() => goTo(slideIndex + 1)}
           aria-label="Next photos"
-          className="absolute right-2 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white text-zinc-700 shadow-md hover:bg-rose-50 hover:text-rose-600"
+          className="absolute right-2 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white text-zinc-700 shadow-md hover:bg-primary/40 hover:text-secondary"
         >
           <ChevronRight className="h-5 w-5" />
         </button>
@@ -81,7 +81,7 @@ export default function Gallery() {
             onClick={() => goTo(i)}
             aria-label={`Go to grid ${i + 1}`}
             className={`h-2.5 rounded-full transition-all ${
-              i === slideIndex ? "w-6 bg-rose-600" : "w-2.5 bg-zinc-200"
+              i === slideIndex ? "w-6 bg-secondary" : "w-2.5 bg-third/30"
             }`}
           />
         ))}

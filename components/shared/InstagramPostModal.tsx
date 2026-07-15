@@ -39,17 +39,17 @@ export default function InstagramPostModal({ post, href }: InstagramPostModalPro
 
       <div className="flex w-full flex-1 flex-col overflow-hidden sm:w-80 sm:flex-none">
         <div className="flex items-center gap-3 border-b border-zinc-100 p-4">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-rose-100 text-xs font-semibold text-rose-600">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-xs font-semibold text-secondary">
             VR
           </div>
-          <span className="text-sm font-semibold text-zinc-900">
+          <span className="text-sm font-semibold text-secondary">
             {siteConfig.instagramHandle}
           </span>
         </div>
 
         <div className="flex-1 overflow-y-auto p-4 text-sm text-zinc-700">
           <p>
-            <span className="font-semibold text-zinc-900">
+            <span className="font-semibold text-secondary">
               {siteConfig.instagramHandle}
             </span>{" "}
             {renderCaption(post.caption)}
@@ -59,16 +59,16 @@ export default function InstagramPostModal({ post, href }: InstagramPostModalPro
         <div className="border-t border-zinc-100 p-4">
           <div className="flex items-center gap-4">
             <a href={href} target="_blank" rel="noopener noreferrer" aria-label="Like on Instagram">
-              <Heart className="h-6 w-6 text-zinc-700 hover:text-rose-600" />
+              <Heart className="h-6 w-6 text-zinc-700 hover:text-secondary" />
             </a>
             <a href={href} target="_blank" rel="noopener noreferrer" aria-label="Comment on Instagram">
-              <MessageCircle className="h-6 w-6 text-zinc-700 hover:text-rose-600" />
+              <MessageCircle className="h-6 w-6 text-zinc-700 hover:text-secondary" />
             </a>
             <a href={href} target="_blank" rel="noopener noreferrer" aria-label="Share">
-              <Send className="h-6 w-6 text-zinc-700 hover:text-rose-600" />
+              <Send className="h-6 w-6 text-zinc-700 hover:text-secondary" />
             </a>
           </div>
-          <p className="mt-2 text-sm font-semibold text-zinc-900">
+          <p className="mt-2 text-sm font-semibold text-secondary">
             {post.likes} likes · {post.comments} comments
           </p>
           {post.timestamp && (
@@ -80,7 +80,7 @@ export default function InstagramPostModal({ post, href }: InstagramPostModalPro
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 block text-center text-sm font-medium text-rose-600"
+            className="mt-3 block text-center text-sm font-medium text-secondary"
           >
             View on Instagram
           </a>
