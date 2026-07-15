@@ -5,8 +5,10 @@ import Image from "next/image";
 import SectionHeading from "@/components/shared/SectionHeading";
 import GalleryCard from "@/components/shared/GalleryCard";
 import Carousel from "@/components/shared/Carousel";
+import MasonryColumns from "@/components/shared/MasonryColumns";
 import Modal from "@/components/shared/Modal";
 import { galleryMedia } from "@/lib/data";
+import type { GalleryMedia } from "@/types";
 
 const AUTO_PLAY_INTERVAL = 4000;
 // With only a handful of real photos/videos, repeat the same set across
@@ -42,17 +44,18 @@ export default function Gallery() {
         slides={slides}
         autoPlayInterval={AUTO_PLAY_INTERVAL}
         arrowLabel="photos"
-        slideClassName="columns-2 gap-3 *:mb-3 sm:columns-3 md:columns-4 lg:columns-5 xl:columns-6"
         renderSlide={(slideMedia) => (
-          <>
-            {slideMedia.map((media) => (
-              <GalleryCard
-                key={media.id}
-                media={media}
-                onClick={() => setActiveId(media.id)}
-              />
-            ))}
-          </>
+          <MasonryColumns
+            items={slideMedia}
+            maxColumns={5}
+            getKey={(media: GalleryMedia) => media.id}
+            getAspectRatio={(media: GalleryMedia) =>
+              media.width && media.height ? media.width / media.height : 9 / 16
+            }
+            renderItem={(media: GalleryMedia) => (
+              <GalleryCard media={media} onClick={() => setActiveId(media.id)} />
+            )}
+          />
         )}
       />
 
