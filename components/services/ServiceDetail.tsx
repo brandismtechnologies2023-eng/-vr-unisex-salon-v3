@@ -5,9 +5,15 @@ import Image from "next/image";
 import {
   CalendarCheck,
   Check,
+  Droplets,
+  HeartPulse,
+  Leaf,
   MessageCircle,
   Phone,
+  Sparkles,
   Star,
+  Wind,
+  type LucideIcon,
 } from "lucide-react";
 import Button from "@/components/shared/Button";
 import Badge from "@/components/shared/Badge";
@@ -17,6 +23,18 @@ import FaqAccordion from "@/components/shared/FaqAccordion";
 import { faqs as generalFaqs } from "@/lib/data";
 import { siteConfig, telLink, whatsappLink } from "@/lib/site-config";
 import type { Service } from "@/types";
+
+const benefitIcons: Record<string, LucideIcon> = {
+  Droplets,
+  Wind,
+  HeartPulse,
+  Leaf,
+};
+
+const processColsClass: Record<number, string> = {
+  4: "lg:grid-cols-4",
+  5: "lg:grid-cols-3",
+};
 
 interface ServiceDetailProps {
   service: Service;
@@ -32,20 +50,30 @@ export default function ServiceDetail({ service }: ServiceDetailProps) {
     service.treatments?.filter((t) => t.category === activeCategory) ?? [];
 
   const faqItems = service.faqs ?? generalFaqs;
+  const processGridClass = processColsClass[service.process?.length ?? 0] ?? "lg:grid-cols-3";
 
   return (
     <>
       <section className="bg-primary/15">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-24">
           <div>
+            {service.heroBadge && (
+              <Badge className="mb-4">
+                <Sparkles className="h-3.5 w-3.5 text-third" />
+                {service.heroBadge}
+              </Badge>
+            )}
             {service.tagline && (
-              <span className="text-sm font-semibold uppercase tracking-wider text-third">
+              <span className="block text-sm font-semibold uppercase tracking-wider text-third">
                 {service.tagline}
               </span>
             )}
             <h1 className="mt-2 text-3xl font-bold text-secondary sm:text-4xl lg:text-5xl">
               {service.title}
             </h1>
+            {service.heroSubtitle && (
+              <p className="mt-2 italic text-zinc-500">{service.heroSubtitle}</p>
+            )}
             <p className="mt-4 max-w-lg text-zinc-600">
               {service.longDescription ?? service.description}
             </p>
@@ -99,6 +127,41 @@ export default function ServiceDetail({ service }: ServiceDetailProps) {
         </div>
       </section>
 
+      {service.journeyIntro && (
+        <section className="mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-secondary sm:text-3xl">
+            {service.journeyIntro.title}
+          </h2>
+          <p className="mt-4 text-zinc-600">{service.journeyIntro.description}</p>
+        </section>
+      )}
+
+      {service.benefits && service.benefits.length > 0 && (
+        <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+          <SectionHeading
+            eyebrow="Why It Works"
+            title={`Benefits of ${service.title}`}
+          />
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {service.benefits.map((benefit) => {
+              const Icon = benefitIcons[benefit.icon] ?? Sparkles;
+              return (
+                <div
+                  key={benefit.title}
+                  className="rounded-2xl border border-zinc-100 bg-white p-6 shadow-sm"
+                >
+                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/40">
+                    <Icon className="h-5 w-5 text-secondary" strokeWidth={1.5} />
+                  </span>
+                  <h3 className="mt-4 font-semibold text-secondary">{benefit.title}</h3>
+                  <p className="mt-1 text-sm text-zinc-600">{benefit.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
       {categories.length > 0 && (
         <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <SectionHeading
@@ -135,8 +198,12 @@ export default function ServiceDetail({ service }: ServiceDetailProps) {
       {service.process && service.process.length > 0 && (
         <section className="bg-primary/15 py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <SectionHeading eyebrow="How It Works" title="Your Visit, Step by Step" />
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <SectionHeading
+              eyebrow="How It Works"
+              title={service.processTitle ?? "Your Visit, Step by Step"}
+              subtitle={service.processSubtitle}
+            />
+            <div className={`grid grid-cols-1 gap-8 sm:grid-cols-2 ${processGridClass}`}>
               {service.process.map((step) => (
                 <div key={step.step} className="relative rounded-2xl bg-white p-6 shadow-sm">
                   <span className="text-4xl font-bold text-primary">

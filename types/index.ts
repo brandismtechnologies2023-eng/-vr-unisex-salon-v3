@@ -18,6 +18,12 @@ export interface ProcessStep {
   description: string;
 }
 
+export interface ServiceBenefit {
+  icon: string;
+  title: string;
+  description: string;
+}
+
 export interface Service {
   id: string;
   slug: string;
@@ -26,10 +32,16 @@ export interface Service {
   startingPrice: number;
   image?: string;
   tagline?: string;
+  heroBadge?: string;
+  heroSubtitle?: string;
   longDescription?: string;
   highlights?: string[];
+  journeyIntro?: { title: string; description: string };
+  benefits?: ServiceBenefit[];
   treatments?: ServiceTreatment[];
   process?: ProcessStep[];
+  processTitle?: string;
+  processSubtitle?: string;
   faqs?: FaqItem[];
 }
 

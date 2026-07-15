@@ -285,6 +285,95 @@ export const services: Service[] = [
     title: "Korean Head Spa",
     description: "Deep scalp cleansing and relaxation therapy.",
     startingPrice: 899,
+    tagline: "Scalp Ritual",
+    heroBadge: "Premium Korean Ritual",
+    heroSubtitle: "A Ritual of Scalp Renewal & Deep Relaxation",
+    longDescription:
+      "A calming, restorative treatment that combines deep scalp cleansing, soothing water therapy and therapeutic massage — designed to reset your scalp and relax your entire being, rooted in authentic Korean wellness traditions.",
+    highlights: [
+      "Certified head spa therapists",
+      "Premium, scalp-safe products",
+      "Warm water ritual therapy",
+      "Deeply relaxing atmosphere",
+    ],
+    journeyIntro: {
+      title: "More Than a Treatment — It's a Journey",
+      description:
+        "At VR Unisex Salon, our Korean Head Spa combines deep cleansing, gentle massage and nourishing care to help you feel lighter, calmer and refreshed from the roots up.",
+    },
+    benefits: [
+      {
+        icon: "Droplets",
+        title: "Deep Scalp Cleansing",
+        description: "Removes buildup, oil and impurities that regular shampooing can't reach.",
+      },
+      {
+        icon: "Wind",
+        title: "Stress Relief",
+        description: "Gentle massage techniques calm the nervous system and ease tension.",
+      },
+      {
+        icon: "HeartPulse",
+        title: "Improved Circulation",
+        description: "Stimulates blood flow to hair follicles, supporting healthier hair growth.",
+      },
+      {
+        icon: "Leaf",
+        title: "Balanced Scalp Health",
+        description: "Nourishing products help restore natural balance and moisture.",
+      },
+    ],
+    process: [
+      {
+        step: 1,
+        title: "Serene Environment",
+        description: "Begin in a softly lit, calming space designed to help you unwind.",
+      },
+      {
+        step: 2,
+        title: "Gentle Cleansing",
+        description: "Premium products gently cleanse and nourish your scalp.",
+      },
+      {
+        step: 3,
+        title: "Water Ritual Therapy",
+        description: "Warm water flows soothe your senses and ease daily stress.",
+      },
+      {
+        step: 4,
+        title: "Therapeutic Massage",
+        description: "Traditional massage techniques release tension and boost circulation.",
+      },
+      {
+        step: 5,
+        title: "Complete Renewal",
+        description: "Leave with a refreshed scalp, softer hair and a calmer mind.",
+      },
+    ],
+    processTitle: "Your Journey in 5 Steps",
+    processSubtitle: "Each stage is designed to deepen relaxation and renewal.",
+    faqs: [
+      {
+        id: "khs-1",
+        question: "How long does a Korean Head Spa session take?",
+        answer: "Most sessions take around 60–75 minutes for the full ritual.",
+      },
+      {
+        id: "khs-2",
+        question: "Is it suitable for all hair and scalp types?",
+        answer: "Yes, the treatment is gentle enough for all hair types and scalp conditions.",
+      },
+      {
+        id: "khs-3",
+        question: "How often should I get a head spa treatment?",
+        answer: "Once every 3–4 weeks is ideal for maintaining scalp health.",
+      },
+      {
+        id: "khs-4",
+        question: "Do I need to wash my hair before coming in?",
+        answer: "No, just come as you are — cleansing is part of the ritual.",
+      },
+    ],
   },
   {
     id: "3",
