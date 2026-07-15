@@ -27,7 +27,7 @@ export default function ContactCta() {
           <Button
             href={telLink()}
             size="lg"
-            className="bg-white text-secondary hover:bg-primary/20"
+            className="bg-white text-secondary hover:bg-primary"
             icon={<Phone className="h-5 w-5" />}
           >
             Call {siteConfig.phone}
