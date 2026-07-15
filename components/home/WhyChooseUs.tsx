@@ -1,7 +1,7 @@
+import Image from "next/image";
 import { CalendarClock, Gem, ShieldCheck, Sparkles, Users } from "lucide-react";
 import SectionHeading from "@/components/shared/SectionHeading";
 import Card from "@/components/shared/Card";
-import ImagePlaceholder from "@/components/shared/ImagePlaceholder";
 
 const features = [
   {
@@ -42,7 +42,15 @@ export default function WhyChooseUs() {
         />
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-          <ImagePlaceholder className="h-80 rounded-2xl lg:h-full" />
+          <div className="relative h-80 overflow-hidden rounded-2xl bg-white lg:h-full">
+            <Image
+              src="/images/why-choose-us.webp"
+              alt="Nail art and a relaxing facial treatment at VR Unisex Salon"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-contain"
+            />
+          </div>
 
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             {features.map((feature) => (
