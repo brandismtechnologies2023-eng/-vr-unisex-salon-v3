@@ -8,21 +8,25 @@ import Carousel from "@/components/shared/Carousel";
 import Modal from "@/components/shared/Modal";
 import { galleryMedia } from "@/lib/data";
 
-// Kept low enough to always produce at least 2 slides so the slider
-// (arrows, dots, auto-play loop) stays active even with few items.
-const MEDIA_PER_SLIDE = 5;
 const AUTO_PLAY_INTERVAL = 4000;
+// With only a handful of real photos/videos, repeat the same set across
+// a few slides (each rotated to a different starting item) so every
+// slide is still a full, dense Pinterest-style grid instead of a sparse
+// one, while the slider still has multiple slides to loop through. Once
+// the media library grows, swap this for real chunking again.
+const SLIDE_REPEATS = 3;
 
-function chunk<T>(items: T[], size: number): T[][] {
-  const chunks: T[][] = [];
-  for (let i = 0; i < items.length; i += size) {
-    chunks.push(items.slice(i, i + size));
-  }
-  return chunks;
+function buildRepeatingSlides<T>(items: T[], repeats: number): T[][] {
+  if (items.length === 0) return [];
+  const step = Math.max(1, Math.ceil(items.length / repeats));
+  return Array.from({ length: repeats }, (_, i) => {
+    const offset = (i * step) % items.length;
+    return [...items.slice(offset), ...items.slice(0, offset)];
+  });
 }
 
 export default function Gallery() {
-  const slides = chunk(galleryMedia, MEDIA_PER_SLIDE);
+  const slides = buildRepeatingSlides(galleryMedia, SLIDE_REPEATS);
   const [activeId, setActiveId] = useState<string | null>(null);
   const activeMedia = galleryMedia.find((m) => m.id === activeId) ?? null;
 
@@ -38,7 +42,7 @@ export default function Gallery() {
         slides={slides}
         autoPlayInterval={AUTO_PLAY_INTERVAL}
         arrowLabel="photos"
-        slideClassName="columns-2 gap-3 *:mb-3 sm:columns-3 lg:columns-4"
+        slideClassName="columns-2 gap-3 *:mb-3 sm:columns-3 md:columns-4 lg:columns-5 xl:columns-6"
         renderSlide={(slideMedia) => (
           <>
             {slideMedia.map((media) => (
