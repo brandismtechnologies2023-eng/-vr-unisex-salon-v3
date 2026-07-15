@@ -33,6 +33,12 @@ export function useLoopingSlider({
   const [withTransition, setWithTransition] = useState(true);
   const [isHovering, setIsHovering] = useState(false);
   const justDraggedRef = useRef(false);
+  // Blocks new navigation until the current transition — and any silent
+  // loop-reset it triggers — has fully resolved. Without this, clicking
+  // faster than the transition duration can push trackIndex past the
+  // cloned boundary slide into a position nothing is rendered at, which
+  // shows up as the track sliding into blank space.
+  const isAnimatingRef = useRef(false);
 
   const slideIndex = loop ? (trackIndex - 1 + slideCount) % slideCount : trackIndex;
 
@@ -47,11 +53,15 @@ export function useLoopingSlider({
   }, []);
 
   const goTo = (index: number) => {
+    if (isAnimatingRef.current) return;
+    isAnimatingRef.current = true;
     setWithTransition(true);
     setTrackIndex(loop ? index + 1 : index);
   };
 
   const step = (delta: number) => {
+    if (isAnimatingRef.current) return;
+    isAnimatingRef.current = true;
     setWithTransition(true);
     setTrackIndex((i) => i + delta);
   };
@@ -64,17 +74,26 @@ export function useLoopingSlider({
   }, [loop, isHovering, pausedExternally, autoPlayInterval]);
 
   // Seamlessly reset from a cloned end slide back to the matching real
-  // slide once the slide-in has had time to finish. This runs off our own
-  // timer (not framer-motion's onAnimationComplete) because that event can
-  // fire against a stale trackIndex when auto-play advances again before it
-  // resolves, occasionally sliding the track out of view into blank space.
+  // slide once the slide-in has had time to finish, then release the lock.
+  // This runs off our own timer (not framer-motion's onAnimationComplete)
+  // because that event can fire against a stale trackIndex if another step
+  // was queued right as it resolved.
   useEffect(() => {
-    if (!loop) return;
-    if (trackIndex !== 0 && trackIndex !== slideCount + 1) return;
-    const timeout = window.setTimeout(() => {
-      setWithTransition(false);
-      setTrackIndex(trackIndex === 0 ? slideCount : 1);
-    }, slideDuration * 1000 + 30);
+    if (!loop) {
+      isAnimatingRef.current = false;
+      return;
+    }
+    const isBoundary = trackIndex === 0 || trackIndex === slideCount + 1;
+    const timeout = window.setTimeout(
+      () => {
+        if (isBoundary) {
+          setWithTransition(false);
+          setTrackIndex(trackIndex === 0 ? slideCount : 1);
+        }
+        isAnimatingRef.current = false;
+      },
+      slideDuration * 1000 + 30
+    );
     return () => window.clearTimeout(timeout);
   }, [trackIndex, loop, slideCount, slideDuration]);
 
