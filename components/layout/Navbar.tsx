@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, Menu, Scissors, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { navLinks } from "@/lib/data";
 import { siteConfig } from "@/lib/site-config";
 import Button from "@/components/shared/Button";
@@ -15,9 +16,14 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-zinc-100 bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-rose-600 text-white">
-            <Scissors className="h-4.5 w-4.5" />
-          </span>
+          <Image
+            src="/images/logo.webp"
+            alt={siteConfig.name}
+            width={166}
+            height={166}
+            priority
+            className="h-11 w-11 rounded-lg object-cover"
+          />
           <span className="text-lg font-bold text-zinc-900">{siteConfig.shortName}</span>
         </Link>
 

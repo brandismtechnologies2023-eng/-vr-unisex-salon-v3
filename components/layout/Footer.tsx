@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Mail, MapPin, Phone, Scissors } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { navLinks, services } from "@/lib/data";
 import { siteConfig } from "@/lib/site-config";
 import { FacebookIcon, InstagramIcon } from "@/components/shared/SocialIcons";
@@ -17,9 +18,13 @@ export default function Footer() {
         {/* Column 1 */}
         <div>
           <Link href="/" className="flex items-center gap-2">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-rose-600 text-white">
-              <Scissors className="h-4.5 w-4.5" />
-            </span>
+            <Image
+              src="/images/logo.webp"
+              alt={siteConfig.name}
+              width={166}
+              height={166}
+              className="h-11 w-11 rounded-lg object-cover"
+            />
             <span className="text-lg font-bold text-white">{siteConfig.shortName}</span>
           </Link>
           <p className="mt-4 text-sm text-zinc-400">{siteConfig.description}</p>
