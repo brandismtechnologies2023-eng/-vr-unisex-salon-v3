@@ -254,6 +254,8 @@ export const galleryMedia: GalleryMedia[] = [
     src: "/images/gallery/01.jpg",
     alt: "Hair color transformation at VR Salon",
     category: "hair",
+    width: 1440,
+    height: 1799,
   },
   {
     id: "img-2",
@@ -261,6 +263,8 @@ export const galleryMedia: GalleryMedia[] = [
     src: "/images/gallery/02.jpg",
     alt: "Precision haircut at VR Salon",
     category: "hair",
+    width: 1440,
+    height: 1920,
   },
   {
     id: "vid-1",
@@ -286,6 +290,8 @@ export const galleryMedia: GalleryMedia[] = [
     src: "/images/gallery/03.jpg",
     alt: "Manicure and pedicure at VR Salon",
     category: "nails",
+    width: 1440,
+    height: 1479,
   },
   {
     id: "img-4",
@@ -293,6 +299,8 @@ export const galleryMedia: GalleryMedia[] = [
     src: "/images/gallery/04.jpg",
     alt: "Hair color transformation at VR Salon",
     category: "hair",
+    width: 1440,
+    height: 1799,
   },
   {
     id: "vid-4",

@@ -22,7 +22,7 @@ export default function GalleryCard({
       {media.type === "video" ? (
         <video
           src={media.src}
-          className="h-full w-full object-cover"
+          className="block h-auto w-full"
           preload="metadata"
           muted
           playsInline
@@ -31,9 +31,10 @@ export default function GalleryCard({
         <Image
           src={media.src}
           alt={media.alt}
-          fill
+          width={media.width ?? 1440}
+          height={media.height ?? 1440}
           sizes="(min-width: 640px) 50vw, 100vw"
-          className="object-cover"
+          className="h-auto w-full"
         />
       )}
 

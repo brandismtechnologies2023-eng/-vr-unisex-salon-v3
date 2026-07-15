@@ -30,6 +30,10 @@ export interface GalleryMedia {
   src: string;
   alt: string;
   category?: string;
+  // Intrinsic pixel size, used so images/videos render at their own
+  // natural aspect ratio in the masonry grid instead of a forced crop.
+  width?: number;
+  height?: number;
 }
 
 export interface FaqItem {

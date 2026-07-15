@@ -37,12 +37,11 @@ export default function Gallery() {
         slideClassName="columns-2 gap-4 *:mb-4"
         renderSlide={(slideMedia) => (
           <>
-            {slideMedia.map((media, i) => (
+            {slideMedia.map((media) => (
               <GalleryCard
                 key={media.id}
                 media={media}
                 onClick={() => setActiveId(media.id)}
-                className={i % 3 === 0 ? "h-72" : "h-48"}
               />
             ))}
           </>
@@ -64,8 +63,8 @@ export default function Gallery() {
               <Image
                 src={activeMedia.src}
                 alt={activeMedia.alt}
-                width={1200}
-                height={1200}
+                width={activeMedia.width ?? 1200}
+                height={activeMedia.height ?? 1200}
                 className="max-h-[85vh] w-full object-contain"
               />
             )}
