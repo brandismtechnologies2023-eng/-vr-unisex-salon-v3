@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { twMerge } from "tailwind-merge";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 type Variant = "primary" | "secondary" | "outline" | "ghost";
@@ -47,7 +48,12 @@ export default function Button({
   icon,
   ...props
 }: ButtonProps) {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-full font-medium transition-colors ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+  const classes = twMerge(
+    "inline-flex items-center justify-center gap-2 rounded-full font-medium transition-colors",
+    variantClasses[variant],
+    sizeClasses[size],
+    className
+  );
 
   if ("href" in props && props.href) {
     const { href, target, rel } = props;
