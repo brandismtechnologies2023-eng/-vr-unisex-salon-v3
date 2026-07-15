@@ -67,7 +67,7 @@ export default function ReviewsPeekSlider({ reviews }: ReviewsPeekSliderProps) {
               <div
                 key={`${testimonial.id}-${idx}`}
                 ref={idx === 0 ? trackRef : undefined}
-                className="w-full shrink-0 sm:w-1/2 lg:w-1/3"
+                className="w-full shrink-0 sm:w-[calc((100%-16px)/2)] lg:w-[calc((100%-32px)/3)]"
               >
                 <ReviewCard testimonial={testimonial} />
               </div>
