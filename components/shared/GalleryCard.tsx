@@ -5,24 +5,19 @@ import type { GalleryMedia } from "@/types";
 interface GalleryCardProps {
   media: GalleryMedia;
   onClick?: () => void;
-  className?: string;
 }
 
-export default function GalleryCard({
-  media,
-  onClick,
-  className = "",
-}: GalleryCardProps) {
+export default function GalleryCard({ media, onClick }: GalleryCardProps) {
   return (
     <button
       type="button"
       onClick={onClick}
-      className={`group relative block w-full overflow-hidden rounded-xl bg-secondary/5 ${className}`}
+      className="group relative block aspect-square w-full overflow-hidden rounded-xl bg-secondary/5"
     >
       {media.type === "video" ? (
         <video
           src={media.src}
-          className="block h-auto w-full"
+          className="h-full w-full object-cover"
           preload="metadata"
           muted
           playsInline
@@ -31,10 +26,9 @@ export default function GalleryCard({
         <Image
           src={media.src}
           alt={media.alt}
-          width={media.width ?? 1440}
-          height={media.height ?? 1440}
-          sizes="(min-width: 640px) 50vw, 100vw"
-          className="h-auto w-full"
+          fill
+          sizes="(min-width: 1024px) 16vw, (min-width: 640px) 25vw, 50vw"
+          className="object-cover"
         />
       )}
 
