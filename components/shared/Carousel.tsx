@@ -55,7 +55,7 @@ export default function Carousel<T>({
 
   return (
     <div onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
-      <div className="relative">
+      <div className="relative sm:px-12 lg:px-14">
         <div ref={trackRef} className="overflow-hidden">
           <motion.div
             className="flex touch-pan-y"
@@ -87,7 +87,7 @@ export default function Carousel<T>({
               type="button"
               onClick={() => step(-1)}
               aria-label={`Previous ${arrowLabel}`}
-              className="absolute left-2 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white text-zinc-700 shadow-md hover:bg-rose-50 hover:text-rose-600"
+              className="absolute left-0 top-1/2 hidden -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-white text-zinc-700 shadow-md hover:bg-rose-50 hover:text-rose-600 sm:flex"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
@@ -95,7 +95,7 @@ export default function Carousel<T>({
               type="button"
               onClick={() => step(1)}
               aria-label={`Next ${arrowLabel}`}
-              className="absolute right-2 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white text-zinc-700 shadow-md hover:bg-rose-50 hover:text-rose-600"
+              className="absolute right-0 top-1/2 hidden -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-white text-zinc-700 shadow-md hover:bg-rose-50 hover:text-rose-600 sm:flex"
             >
               <ChevronRight className="h-5 w-5" />
             </button>
