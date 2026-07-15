@@ -1,16 +1,23 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { CalendarCheck, MessageCircle, Star } from "lucide-react";
 import Button from "@/components/shared/Button";
 import Badge from "@/components/shared/Badge";
-import ImagePlaceholder from "@/components/shared/ImagePlaceholder";
 import { siteConfig, whatsappLink } from "@/lib/site-config";
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <ImagePlaceholder className="absolute inset-0 h-full w-full" />
+      <Image
+        src="/images/hero.webp"
+        alt={`${siteConfig.name} — hairstyling in progress`}
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/10" />
 
       <div className="relative mx-auto flex min-h-[85vh] max-w-7xl flex-col items-center justify-center px-4 py-24 text-center sm:px-6 lg:px-8">
