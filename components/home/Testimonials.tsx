@@ -2,26 +2,12 @@
 
 import { ExternalLink, Star } from "lucide-react";
 import SectionHeading from "@/components/shared/SectionHeading";
-import ReviewCard from "@/components/shared/ReviewCard";
-import Carousel from "@/components/shared/Carousel";
+import ReviewsPeekSlider from "@/components/home/ReviewsPeekSlider";
 import { GoogleIcon } from "@/components/shared/SocialIcons";
 import { testimonials } from "@/lib/data";
 import { siteConfig } from "@/lib/site-config";
 
-const REVIEWS_PER_SLIDE = 1;
-const AUTO_PLAY_INTERVAL = 5000;
-
-function chunk<T>(items: T[], size: number): T[][] {
-  const chunks: T[][] = [];
-  for (let i = 0; i < items.length; i += size) {
-    chunks.push(items.slice(i, i + size));
-  }
-  return chunks;
-}
-
 export default function Testimonials() {
-  const slides = chunk(testimonials, REVIEWS_PER_SLIDE);
-
   return (
     <section className="bg-primary/20 py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -41,19 +27,7 @@ export default function Testimonials() {
 
         <SectionHeading eyebrow="Reviews" title="What our Burjuman clients say" />
 
-        <Carousel
-          slides={slides}
-          autoPlayInterval={AUTO_PLAY_INTERVAL}
-          arrowLabel="reviews"
-          slideClassName="mx-auto max-w-xl"
-          renderSlide={(slideReviews) => (
-            <>
-              {slideReviews.map((testimonial) => (
-                <ReviewCard key={testimonial.id} testimonial={testimonial} />
-              ))}
-            </>
-          )}
-        />
+        <ReviewsPeekSlider reviews={testimonials} />
 
         <div className="mt-10 text-center">
           <p className="text-sm text-zinc-500">Read all our verified reviews on Google</p>

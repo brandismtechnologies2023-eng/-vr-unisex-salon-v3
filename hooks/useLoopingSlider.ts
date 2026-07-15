@@ -5,6 +5,7 @@ import type { PanInfo } from "motion-dom";
 
 interface UseLoopingSliderOptions {
   slideCount: number;
+  cloneCount?: number;
   autoPlayInterval?: number;
   slideGap?: number;
   swipeThreshold?: number;
@@ -16,8 +17,14 @@ interface UseLoopingSliderOptions {
 // Shared carousel mechanics: a real sliding track (not fade), seamless
 // infinite loop via cloned boundary slides, drag/swipe with click
 // suppression, and auto-play that pauses on hover or when told to.
+// cloneCount controls how many items are cloned onto each end of the
+// track — 1 is enough for a full-page-per-step carousel, but a "peek"
+// carousel that shows N items at once and steps by one needs at least N
+// clones on each side so the visible window is always fully populated
+// mid-transition, including across the loop wrap.
 export function useLoopingSlider({
   slideCount,
+  cloneCount = 1,
   autoPlayInterval = 0,
   slideGap = 16,
   swipeThreshold = 60,
@@ -29,7 +36,7 @@ export function useLoopingSlider({
 
   const trackRef = useRef<HTMLDivElement>(null);
   const [trackWidth, setTrackWidth] = useState(0);
-  const [trackIndex, setTrackIndex] = useState(loop ? 1 : 0);
+  const [trackIndex, setTrackIndex] = useState(loop ? cloneCount : 0);
   const [withTransition, setWithTransition] = useState(true);
   const [isHovering, setIsHovering] = useState(false);
   const justDraggedRef = useRef(false);
@@ -40,7 +47,9 @@ export function useLoopingSlider({
   // shows up as the track sliding into blank space.
   const isAnimatingRef = useRef(false);
 
-  const slideIndex = loop ? (trackIndex - 1 + slideCount) % slideCount : trackIndex;
+  const slideIndex = loop
+    ? (trackIndex - cloneCount + slideCount) % slideCount
+    : trackIndex;
 
   useEffect(() => {
     const el = trackRef.current;
@@ -56,7 +65,7 @@ export function useLoopingSlider({
     if (isAnimatingRef.current) return;
     isAnimatingRef.current = true;
     setWithTransition(true);
-    setTrackIndex(loop ? index + 1 : index);
+    setTrackIndex(loop ? index + cloneCount : index);
   };
 
   const step = (delta: number) => {
@@ -83,19 +92,24 @@ export function useLoopingSlider({
       isAnimatingRef.current = false;
       return;
     }
-    const isBoundary = trackIndex === 0 || trackIndex === slideCount + 1;
+    const isBoundary =
+      trackIndex === cloneCount - 1 || trackIndex === slideCount + cloneCount;
     const timeout = window.setTimeout(
       () => {
         if (isBoundary) {
           setWithTransition(false);
-          setTrackIndex(trackIndex === 0 ? slideCount : 1);
+          setTrackIndex(
+            trackIndex === cloneCount - 1
+              ? slideCount + cloneCount - 1
+              : cloneCount
+          );
         }
         isAnimatingRef.current = false;
       },
       slideDuration * 1000 + 30
     );
     return () => window.clearTimeout(timeout);
-  }, [trackIndex, loop, slideCount, slideDuration]);
+  }, [trackIndex, loop, slideCount, cloneCount, slideDuration]);
 
   useEffect(() => {
     if (!withTransition) {
