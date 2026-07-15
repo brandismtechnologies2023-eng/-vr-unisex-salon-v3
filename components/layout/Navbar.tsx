@@ -14,13 +14,13 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-100 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
           <Image
             src="/images/logo.webp"
             alt={siteConfig.name}
-            width={230}
-            height={230}
+            width={190}
+            height={190}
             priority
             className="h-22 w-22 rounded-lg object-cover"
           />
