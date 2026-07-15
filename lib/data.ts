@@ -1,6 +1,6 @@
 import type {
   FaqItem,
-  GalleryImage,
+  GalleryMedia,
   InstagramPost,
   NavLink,
   PricingPackage,
@@ -247,14 +247,72 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-export const galleryImages: GalleryImage[] = Array.from({ length: 12 }).map(
-  (_, i) => ({
-    id: String(i + 1),
-    src: "",
-    alt: `Salon gallery photo ${i + 1}`,
-    category: i % 3 === 0 ? "hair" : i % 3 === 1 ? "nails" : "makeup",
-  })
-);
+export const galleryMedia: GalleryMedia[] = [
+  {
+    id: "img-1",
+    type: "image",
+    src: "/images/gallery/01.jpg",
+    alt: "Hair color transformation at VR Salon",
+    category: "hair",
+  },
+  {
+    id: "img-2",
+    type: "image",
+    src: "/images/gallery/02.jpg",
+    alt: "Precision haircut at VR Salon",
+    category: "hair",
+  },
+  {
+    id: "vid-1",
+    type: "video",
+    src: "/images/gallery/01.mp4",
+    alt: "Salon service reel",
+  },
+  {
+    id: "vid-2",
+    type: "video",
+    src: "/images/gallery/02.mp4",
+    alt: "Salon service reel",
+  },
+  {
+    id: "vid-3",
+    type: "video",
+    src: "/images/gallery/03.mp4",
+    alt: "Salon service reel",
+  },
+  {
+    id: "img-3",
+    type: "image",
+    src: "/images/gallery/03.jpg",
+    alt: "Manicure and pedicure at VR Salon",
+    category: "nails",
+  },
+  {
+    id: "img-4",
+    type: "image",
+    src: "/images/gallery/04.jpg",
+    alt: "Hair color transformation at VR Salon",
+    category: "hair",
+  },
+  {
+    id: "vid-4",
+    type: "video",
+    src: "/images/gallery/04.mp4",
+    alt: "Salon service reel",
+  },
+  {
+    id: "vid-5",
+    type: "video",
+    src: "/images/gallery/05.mp4",
+    alt: "Salon service reel",
+  },
+  {
+    id: "vid-6",
+    type: "video",
+    src: "/images/gallery/06.mp4",
+    alt: "Salon service reel",
+  },
+];
 
 export const instagramPosts: InstagramPost[] = Array.from({ length: 30 }).map(
   (_, i) => ({

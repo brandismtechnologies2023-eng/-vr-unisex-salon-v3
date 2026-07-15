@@ -24,8 +24,9 @@ export interface Testimonial {
   source?: "google" | "website";
 }
 
-export interface GalleryImage {
+export interface GalleryMedia {
   id: string;
+  type: "image" | "video";
   src: string;
   alt: string;
   category?: string;
