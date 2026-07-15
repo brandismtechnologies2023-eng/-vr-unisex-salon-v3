@@ -45,7 +45,7 @@ export default function Testimonials() {
           slides={slides}
           autoPlayInterval={AUTO_PLAY_INTERVAL}
           arrowLabel="reviews"
-          slideClassName="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          slideClassName="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3"
           renderSlide={(slideReviews) => (
             <>
               {slideReviews.map((testimonial) => (

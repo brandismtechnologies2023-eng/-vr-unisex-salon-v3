@@ -58,7 +58,7 @@ export default function Carousel<T>({
       <div className="relative sm:px-12 lg:px-14">
         <div ref={trackRef} className="overflow-hidden">
           <motion.div
-            className="flex touch-pan-y"
+            className="flex touch-pan-y pb-3"
             style={{ gap: slideGap }}
             drag={canDrag ? "x" : false}
             dragConstraints={{ left: -(trackSlides.length - 1) * stepDistance, right: 0 }}
