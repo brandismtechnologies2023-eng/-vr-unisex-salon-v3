@@ -4,6 +4,20 @@ export interface NavLink {
   children?: NavLink[];
 }
 
+export interface ServiceTreatment {
+  id: string;
+  category: string;
+  name: string;
+  description: string;
+  features: string[];
+}
+
+export interface ProcessStep {
+  step: number;
+  title: string;
+  description: string;
+}
+
 export interface Service {
   id: string;
   slug: string;
@@ -11,6 +25,12 @@ export interface Service {
   description: string;
   startingPrice: number;
   image?: string;
+  tagline?: string;
+  longDescription?: string;
+  highlights?: string[];
+  treatments?: ServiceTreatment[];
+  process?: ProcessStep[];
+  faqs?: FaqItem[];
 }
 
 export interface Testimonial {

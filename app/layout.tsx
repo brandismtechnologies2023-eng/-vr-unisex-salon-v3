@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import GlobalBreadcrumb from "@/components/layout/GlobalBreadcrumb";
 import WhatsAppButton from "@/components/shared/WhatsAppButton";
 import CallButton from "@/components/shared/CallButton";
 import ScrollToTop from "@/components/shared/ScrollToTop";
@@ -28,6 +29,7 @@ export default function RootLayout({
     <html lang="en" className={`${poppins.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <Navbar />
+        <GlobalBreadcrumb />
         <main className="flex-1">{children}</main>
         <Footer />
         <WhatsAppButton />

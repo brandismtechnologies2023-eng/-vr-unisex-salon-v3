@@ -18,6 +18,140 @@ export const services: Service[] = [
     title: "Manicure & Pedicure",
     description: "Relaxing hand and foot care with premium products.",
     startingPrice: 499,
+    tagline: "Nail Care",
+    longDescription:
+      "From a quick tidy-up to a full spa-style treatment, our manicure and pedicure menu is built around clean, careful technique and premium products — so your hands and feet leave looking (and feeling) their best.",
+    highlights: [
+      "Certified nail technicians",
+      "Sanitized tools for every client",
+      "Premium products",
+      "Relaxing salon ambience",
+    ],
+    treatments: [
+      {
+        id: "classic-manicure",
+        category: "Manicure",
+        name: "Classic Manicure",
+        description:
+          "Nail shaping, cuticle care and polish for clean, healthy-looking hands.",
+        features: [
+          "Nail shaping & buffing",
+          "Cuticle care",
+          "Hand massage",
+          "Polish of your choice",
+        ],
+      },
+      {
+        id: "spa-manicure",
+        category: "Manicure",
+        name: "Spa Manicure",
+        description:
+          "A deeper hand treatment with exfoliation and an extended massage for softer skin.",
+        features: [
+          "Exfoliating scrub",
+          "Extended hand massage",
+          "Hydrating mask",
+          "Nail shaping & polish",
+        ],
+      },
+      {
+        id: "gel-manicure",
+        category: "Manicure",
+        name: "Gel Manicure",
+        description:
+          "Chip-resistant gel polish for a glossy, long-lasting finish.",
+        features: [
+          "Nail prep & shaping",
+          "Long-lasting gel polish",
+          "UV/LED cure finish",
+          "Cuticle care",
+        ],
+      },
+      {
+        id: "classic-pedicure",
+        category: "Pedicure",
+        name: "Classic Pedicure",
+        description: "Nail care and grooming for clean, comfortable feet.",
+        features: [
+          "Nail shaping & buffing",
+          "Cuticle care",
+          "Foot massage",
+          "Polish of your choice",
+        ],
+      },
+      {
+        id: "spa-pedicure",
+        category: "Pedicure",
+        name: "Spa Pedicure",
+        description:
+          "A relaxing foot soak with exfoliation and massage to soften and refresh.",
+        features: [
+          "Warm foot soak",
+          "Exfoliating scrub",
+          "Extended foot massage",
+          "Hydrating mask",
+        ],
+      },
+      {
+        id: "gel-pedicure",
+        category: "Pedicure",
+        name: "Gel Pedicure",
+        description:
+          "Glossy, chip-resistant gel polish that stays fresh for weeks.",
+        features: [
+          "Nail prep & shaping",
+          "Long-lasting gel polish",
+          "UV/LED cure finish",
+          "Foot massage",
+        ],
+      },
+    ],
+    process: [
+      {
+        step: 1,
+        title: "Book Your Slot",
+        description: "Reach out on WhatsApp, call, or online and pick your treatment.",
+      },
+      {
+        step: 2,
+        title: "Quick Consultation",
+        description: "Tell us what you're after — shape, polish, or anything to watch for.",
+      },
+      {
+        step: 3,
+        title: "Relax & Enjoy",
+        description: "Sit back while our technicians take care of the rest.",
+      },
+      {
+        step: 4,
+        title: "Aftercare Tips",
+        description: "Leave with polish that lasts and tips to keep it looking fresh.",
+      },
+    ],
+    faqs: [
+      {
+        id: "mp-1",
+        question: "How long does a manicure & pedicure session take?",
+        answer:
+          "Most sessions take between 45 minutes to 1.5 hours depending on the treatment you choose.",
+      },
+      {
+        id: "mp-2",
+        question: "Can I get gel polish removed and reapplied?",
+        answer:
+          "Yes, gel removal is included when you book a new gel manicure or pedicure with us.",
+      },
+      {
+        id: "mp-3",
+        question: "Are your tools sanitized between clients?",
+        answer: "Yes, all tools are sanitized after every single client.",
+      },
+      {
+        id: "mp-4",
+        question: "Can I book a manicure and pedicure together?",
+        answer: "Absolutely — most clients combine both in a single visit to save time.",
+      },
+    ],
   },
   {
     id: "2",
