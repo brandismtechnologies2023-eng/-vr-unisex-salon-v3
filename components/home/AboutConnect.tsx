@@ -1,6 +1,6 @@
+import Image from "next/image";
 import { Check } from "lucide-react";
 import Button from "@/components/shared/Button";
-import ImagePlaceholder from "@/components/shared/ImagePlaceholder";
 
 const features = [
   "Certified & experienced stylists",
@@ -13,9 +13,17 @@ export default function AboutConnect() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-        <ImagePlaceholder className="h-80 rounded-2xl lg:h-[420px]" />
+        <div className="relative h-80 overflow-hidden rounded-2xl lg:order-2 lg:h-105">
+          <Image
+            src="/images/connect-with-us.webp"
+            alt="Stylist working on a client's hair at VR Unisex Salon"
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover"
+          />
+        </div>
 
-        <div>
+        <div className="lg:order-1">
           <span className="text-sm font-semibold uppercase tracking-wider text-third">
             Connect With Us
           </span>
