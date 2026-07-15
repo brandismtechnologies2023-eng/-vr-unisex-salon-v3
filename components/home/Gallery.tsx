@@ -47,7 +47,8 @@ export default function Gallery() {
         renderSlide={(slideMedia) => (
           <MasonryColumns
             items={slideMedia}
-            maxColumns={5}
+            maxColumns={6}
+            minColumnWidth={180}
             getKey={(media: GalleryMedia) => media.id}
             getAspectRatio={(media: GalleryMedia) =>
               media.width && media.height ? media.width / media.height : 9 / 16
