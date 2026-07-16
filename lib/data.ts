@@ -737,6 +737,97 @@ export const services: Service[] = [
     title: "Hair Repair Therapy",
     description: "Restorative therapy for damaged, weak hair.",
     startingPrice: 1299,
+    tagline: "Repair & Scalp Care",
+    heroBadge: "Salon-Grade Repair",
+    heroSubtitle: "Restore Strength, Softness & Scalp Comfort",
+    longDescription:
+      "Our Hair Repair Therapy restores damaged hair and improves overall scalp comfort using advanced, salon-grade techniques. Whether your hair is affected by heat styling, chemical treatments, dryness or scalp concerns, our expert care helps bring back strength, softness and shine.",
+    highlights: [
+      "Salon-grade repair techniques",
+      "Scalp comfort, not just hair",
+      "Consultation before every session",
+      "Gentle on coloured hair",
+    ],
+    treatmentsSubtitle:
+      "Repair for the hair, relief for the scalp — pick what your hair needs most.",
+    treatments: [
+      {
+        id: "olaplex-treatment",
+        category: "Repair",
+        name: "Olaplex Treatment",
+        tagline: "Rebuild Hair Strength from Within",
+        description:
+          "Works on the internal structure of the hair to reduce damage caused by colouring, bleaching and heat styling. It improves strength, manageability and smoothness while keeping a natural look and feel.",
+        featuresLabel: "Key benefits",
+        features: [
+          "Reduces damage from chemical treatments and heat styling",
+          "Improves hair strength and manageability",
+          "Maintains natural look and feel",
+          "Restores smoothness and shine",
+        ],
+        bestForLabel: "Perfect for",
+        bestFor: "Hair damaged by colouring, bleaching or frequent heat styling.",
+      },
+      {
+        id: "anti-dandruff-treatment",
+        category: "Repair",
+        name: "Anti-Dandruff Treatment",
+        tagline: "Professional Scalp Cleansing & Care",
+        description:
+          "A salon-grade treatment that cleanses the scalp and reduces visible flakes while maintaining moisture balance — keeping the scalp fresh and clean without leaving hair dry or heavy.",
+        featuresLabel: "What it does",
+        features: [
+          "Cleanses scalp and reduces visible flakes",
+          "Maintains moisture balance",
+          "Keeps scalp fresh and clean",
+          "Prevents dryness and heaviness",
+        ],
+        bestForLabel: "Recommended for",
+        bestFor: "Flaky or itchy scalps that need a deep but balanced cleanse.",
+      },
+      {
+        id: "dry-scalp-therapy",
+        category: "Repair",
+        name: "Dry Scalp Therapy",
+        tagline: "Targeted Hydration for Scalp Comfort",
+        description:
+          "Provides targeted hydration and nourishment to improve scalp comfort and support healthier-looking hair. Designed for clients experiencing dryness from weather, lifestyle or styling habits.",
+        featuresLabel: "Benefits include",
+        features: [
+          "Targeted hydration for a dry scalp",
+          "Nourishes and improves scalp comfort",
+          "Supports healthier-looking hair",
+          "Addresses dryness from weather and styling",
+        ],
+        bestFor: "Scalp dryness caused by weather, lifestyle or styling habits.",
+      },
+    ],
+    faqs: [
+      {
+        id: "hrt-1",
+        question: "What does Olaplex actually do?",
+        answer:
+          "It works on the internal structure of the hair, repairing damage from colouring, bleaching and heat styling rather than just coating the surface.",
+      },
+      {
+        id: "hrt-2",
+        question: "Will an anti-dandruff treatment dry out my hair?",
+        answer:
+          "No — it cleanses the scalp and reduces flakes while maintaining moisture balance, so your hair doesn't end up dry or heavy.",
+      },
+      {
+        id: "hrt-3",
+        question: "How do I know if I need dry scalp therapy?",
+        answer:
+          "If your scalp feels dry or uncomfortable because of the weather, your lifestyle or your styling habits, this is the one to ask about.",
+      },
+      {
+        id: "hrt-4",
+        question: "Can I have repair therapy if my hair is coloured?",
+        answer:
+          "Yes — Olaplex in particular is designed to reduce damage from colouring and bleaching. Mention your colour history during the consultation.",
+      },
+    ],
   },
   {
     id: "7",
@@ -744,6 +835,157 @@ export const services: Service[] = [
     title: "Nail Extensions",
     description: "Durable, salon-perfect nail extensions and art.",
     startingPrice: 799,
+    tagline: "Nail Artistry",
+    heroBadge: "Shaped, Sculpted & Designed",
+    heroSubtitle: "Luxury Nail Extensions Designed to Elevate Your Style",
+    longDescription:
+      "Our nail extensions are crafted for those who love perfectly shaped, long-lasting and beautifully designed nails. Whether you prefer a clean, classic look or bold, artistic designs, our nail technicians deliver precision, hygiene and premium finishes every time — using high-quality products, advanced techniques and a personalised consultation.",
+    highlights: [
+      "Certified nail technicians",
+      "Sanitized tools for every client",
+      "High-quality products",
+      "Personalised consultation",
+    ],
+    treatmentsSubtitle:
+      "From a first set to refills, art and safe removal — the full nail menu.",
+    treatments: [
+      {
+        id: "acrylic-nail-extensions",
+        category: "Nails",
+        name: "Acrylic Nail Extensions",
+        tagline: "Strong, Durable & Flawlessly Shaped",
+        description:
+          "Ideal if you want strong, durable, long-lasting nails with a flawless shape. A protective acrylic layer adds length and structure, making it perfect for brittle or weak nails.",
+        featuresLabel: "What you'll get",
+        features: [
+          "Bold lengths with defined shapes",
+          "Extended wear with minimal breakage",
+          "Sturdy nails with a smooth, polished finish",
+        ],
+        bestFor: "Bold lengths, defined shapes and extended wear with minimal breakage.",
+      },
+      {
+        id: "gel-nail-extensions",
+        category: "Nails",
+        name: "Gel Nail Extensions",
+        tagline: "Lightweight & Naturally Glossy",
+        description:
+          "A lighter, more natural-looking alternative with a glossy, flexible finish. Cured under a UV/LED lamp, so your nails feel lightweight yet strong.",
+        featuresLabel: "Perfect for",
+        features: [
+          "Natural appearance with added length and shine",
+          "Lightweight yet strong nails",
+          "Everyday elegance and comfort",
+        ],
+        bestForLabel: "Ideal for",
+        bestFor: "Anyone who prefers a natural appearance with added length and shine.",
+      },
+      {
+        id: "nail-refilling",
+        category: "Nails",
+        name: "Nail Refilling",
+        tagline: "Maintain Beauty & Longevity",
+        description:
+          "Essential for keeping your extensions looking their best. As your natural nails grow, refilling restores balance, strength and shape without removing the entire set.",
+        featuresLabel: "This service",
+        features: [
+          "Refreshes your nails and restores balance",
+          "Fixes minor lifting and maintains strength",
+          "Keeps extensions neat and salon-fresh",
+        ],
+        bestFor:
+          "Regular maintenance — refreshing your set, fixing minor lifting and keeping nails polished.",
+      },
+      {
+        id: "nail-removal",
+        category: "Nails",
+        name: "Nail Removal",
+        tagline: "Safe & Gentle Removal",
+        description:
+          "Professional removal that takes your extensions off without damaging your natural nails. We use gentle techniques that protect nail health and prepare them for your next set.",
+        featuresLabel: "We ensure",
+        features: [
+          "Safe removal without damage",
+          "Protection of natural nail health",
+          "Clean, smooth and healthy nails",
+        ],
+        bestForLabel: "Ideal for",
+        bestFor: "Switching styles or taking a break, while keeping nails healthy.",
+      },
+      {
+        id: "nail-art",
+        category: "Nails",
+        name: "Nail Art (Basic / Advanced)",
+        tagline: "Let Your Personality Shine",
+        description:
+          "From minimal accents to detailed creative designs. Basic nail art covers clean patterns, subtle designs and elegant finishes, while advanced art features intricate detailing, textures, stones and fully customised concepts.",
+        featuresLabel: "Choose from",
+        features: [
+          "Basic: clean patterns and elegant finishes",
+          "Advanced: intricate details with stones & textures",
+          "Customised concepts for any occasion",
+        ],
+        bestForLabel: "Perfect for",
+        bestFor: "Everyday wear, special occasions or statement looks.",
+      },
+      {
+        id: "french-nail-extensions",
+        category: "Nails",
+        name: "French Nail Extensions",
+        tagline: "Timeless, Elegant & Effortlessly Stylish",
+        description:
+          "A soft base with crisp white tips — perfect for professionals, brides and lovers of classic beauty.",
+        featuresLabel: "Features",
+        features: [
+          "Neat, refined nails with a premium finish",
+          "Perfect symmetry and durability",
+          "A clean aesthetic that never goes out of style",
+        ],
+        bestFor: "Neat, refined nails with a premium, classic finish.",
+      },
+      {
+        id: "ombre-nail-extensions",
+        category: "Nails",
+        name: "Ombre Nail Extensions",
+        tagline: "Modern Gradient Perfection",
+        description:
+          "Blends two or more shades seamlessly, creating a soft gradient that looks modern and luxurious — adding depth, elegance and uniqueness to your nails.",
+        featuresLabel: "What to expect",
+        features: [
+          "Smooth colour transitions",
+          "Customised shades to match your style",
+          "Flawless, trendy finish",
+        ],
+        bestForLabel: "Ideal for",
+        bestFor: "Anyone who wants a trendy yet sophisticated look.",
+      },
+    ],
+    faqs: [
+      {
+        id: "ne-1",
+        question: "What's the difference between acrylic and gel extensions?",
+        answer:
+          "Acrylic is stronger and more structured, so it suits bold lengths and weak or brittle nails. Gel is lighter and more flexible with a naturally glossy finish.",
+      },
+      {
+        id: "ne-2",
+        question: "How often do I need a refill?",
+        answer:
+          "As your natural nails grow out, a refill restores the balance and shape without removing the whole set — most clients come back every few weeks.",
+      },
+      {
+        id: "ne-3",
+        question: "Will extensions damage my natural nails?",
+        answer:
+          "Not when they're removed properly. Our removal service uses gentle techniques that protect your natural nail health.",
+      },
+      {
+        id: "ne-4",
+        question: "Can I get nail art on my extensions?",
+        answer:
+          "Yes — anything from clean, minimal patterns to intricate detailing with stones and textures.",
+      },
+    ],
   },
   {
     id: "8",
