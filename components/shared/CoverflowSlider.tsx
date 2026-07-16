@@ -18,6 +18,25 @@ interface CoverflowSliderProps {
 const SWIPE_THRESHOLD = 50;
 // Movement (px) past which a pointer gesture counts as a drag, not a click.
 const DRAG_TOLERANCE = 8;
+const MOBILE_BREAKPOINT = 640;
+
+// Smaller cards and a tighter fan on phones so the splayed side cards
+// stay inside the viewport instead of being clipped at the screen edge.
+const LAYOUTS = {
+  mobile: { cardW: 200, cardH: 280, boxH: 320, txStep: 15, tyStep: 5, rotStep: 6 },
+  desktop: { cardW: 280, cardH: 380, boxH: 420, txStep: 32, tyStep: 6, rotStep: 9 },
+};
+
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+  return isMobile;
+}
 
 // A fanned "coverflow" stack: the active card sits front and centre while
 // the rest splay symmetrically behind it (odd ranks fan right, even ranks
@@ -27,6 +46,8 @@ export default function CoverflowSlider({ slides, interval = 3200 }: CoverflowSl
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const count = slides.length;
+  const isMobile = useIsMobile();
+  const layout = isMobile ? LAYOUTS.mobile : LAYOUTS.desktop;
 
   const startXRef = useRef<number | null>(null);
   // Set once a gesture moves past the tolerance, so the card's onClick can
@@ -72,7 +93,8 @@ export default function CoverflowSlider({ slides, interval = 3200 }: CoverflowSl
 
   return (
     <div
-      className="perspective-distant relative mx-auto flex h-105 w-full max-w-sm cursor-grab touch-pan-y select-none items-center justify-center active:cursor-grabbing"
+      className="perspective-distant relative mx-auto flex w-full max-w-sm cursor-grab touch-pan-y select-none items-center justify-center active:cursor-grabbing"
+      style={{ height: layout.boxH }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onPointerDown={onPointerDown}
@@ -92,9 +114,9 @@ export default function CoverflowSlider({ slides, interval = 3200 }: CoverflowSl
         if (rank !== 0) {
           const side = rank % 2 === 1 ? 1 : -1;
           const depth = Math.ceil(rank / 2);
-          rot = side * depth * 9;
-          tx = side * depth * 32;
-          ty = depth * 6;
+          rot = side * depth * layout.rotStep;
+          tx = side * depth * layout.txStep;
+          ty = depth * layout.tyStep;
           scale = 1 - depth * 0.08;
           z = count - depth;
         }
@@ -110,8 +132,10 @@ export default function CoverflowSlider({ slides, interval = 3200 }: CoverflowSl
               setActive(i);
             }}
             aria-label={`Show ${slide.title}`}
-            className="absolute left-1/2 top-1/2 h-95 w-70 overflow-hidden rounded-3xl shadow-xl transition-all duration-500 ease-out"
+            className="absolute left-1/2 top-1/2 overflow-hidden rounded-3xl shadow-xl transition-all duration-500 ease-out"
             style={{
+              width: layout.cardW,
+              height: layout.cardH,
               transformOrigin: "50% 100%",
               transform: `translate(-50%, -50%) translateX(${tx}px) translateY(${ty}px) rotate(${rot}deg) scale(${scale})`,
               zIndex: z,
@@ -121,7 +145,7 @@ export default function CoverflowSlider({ slides, interval = 3200 }: CoverflowSl
               src={slide.src}
               alt={slide.title}
               fill
-              sizes="280px"
+              sizes={`${layout.cardW}px`}
               className="object-cover"
             />
             <div className="absolute inset-0 bg-linear-to-t from-secondary/80 via-secondary/10 to-transparent" />
