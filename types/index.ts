@@ -9,13 +9,17 @@ export interface ServiceTreatment {
   category: string;
   name: string;
   description: string;
-  features: string[];
-  tagline?: string;
+  // Optional: some treatments are described by prose and an outcome alone,
+  // with no bullet list.
+  features?: string[];
   // Heading above the feature list — varies per treatment ("What you get",
   // "Benefits", "Styling options"). Defaults to "Features".
   featuresLabel?: string;
+  tagline?: string;
   bestFor?: string;
   result?: string;
+  // Label for the outcome line — "Result" by default, "Finish" for cuts.
+  resultLabel?: string;
 }
 
 export interface ProcessStep {

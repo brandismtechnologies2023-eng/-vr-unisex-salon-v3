@@ -497,6 +497,94 @@ export const services: Service[] = [
     title: "Mens Haircut",
     description: "Sharp, modern cuts from experienced stylists.",
     startingPrice: 249,
+    tagline: "Grooming",
+    heroBadge: "Sharp Cuts, Clean Finishes",
+    heroSubtitle: "Precision Grooming for Modern Men",
+    longDescription:
+      "Our haircut and wash services are built for men who value sharp style, clean grooming and a professional finish. From timeless cuts to modern trends, every service starts with understanding your face shape, hair texture and lifestyle — so you leave with precision, hygiene and confidence, every visit.",
+    highlights: [
+      "Consultation before every cut",
+      "Precise scissor & clipper work",
+      "Sanitized tools for every client",
+      "Sharp, easy-to-maintain finishes",
+    ],
+    treatmentsSubtitle:
+      "From timeless cuts to modern trends — pick the one that suits your style.",
+    treatments: [
+      {
+        id: "classic-haircut",
+        category: "Grooming",
+        name: "Classic Haircut",
+        description:
+          "Perfect for men who prefer a clean, well-structured look that never goes out of style. Includes a detailed consultation, precise scissor or clipper work, neckline cleanup and a neat finish. Ideal for professionals, students, and anyone who wants a sharp everyday haircut that's easy to maintain.",
+        resultLabel: "Finish",
+        result: "Balanced, tidy and polished — perfect for daily wear and formal settings.",
+      },
+      {
+        id: "fade-haircut",
+        category: "Grooming",
+        name: "Fade Haircut",
+        description:
+          "Focuses on seamless blending from skin or short lengths to fuller hair on top. Best for men who like a modern, stylish appearance with clean transitions. Our stylists ensure smooth gradients, sharp edges and symmetry for a premium finish.",
+        resultLabel: "Finish",
+        result: "Crisp, modern and photo-ready — one of the most requested men's styles today.",
+      },
+      {
+        id: "taper-cut",
+        category: "Grooming",
+        name: "Taper Cut",
+        description:
+          "A subtle, refined transition around the sides and back without an extreme fade. Ideal for men who want a professional look with a modern touch — it maintains natural volume while keeping the edges clean and controlled.",
+        resultLabel: "Finish",
+        result:
+          "Neat, sophisticated and low-maintenance — great for office and everyday grooming.",
+      },
+      {
+        id: "modern-trendy-styles",
+        category: "Grooming",
+        name: "Modern & Trendy Styles",
+        description:
+          "For men who like to experiment with current grooming trends. Whether it's textured crops, undercuts, messy styles or fully customised looks, our stylists tailor the haircut to your personality, hair type and styling routine.",
+        resultLabel: "Finish",
+        result:
+          "Fashion-forward, confident and customised — perfect for men looking to stand out.",
+      },
+      {
+        id: "hair-wash-blow-dry",
+        category: "Grooming",
+        name: "Hair Wash & Blow Dry",
+        description:
+          "Complete your grooming with a professional wash and blow dry. Includes a relaxing scalp cleanse using quality products for freshness and scalp cleanliness, followed by a controlled blow dry for shape and volume. Ideal before meetings, events, or straight after a haircut.",
+        resultLabel: "Finish",
+        result: "Clean, refreshed and styled — enhancing the overall haircut result.",
+      },
+    ],
+    faqs: [
+      {
+        id: "mh-1",
+        question: "How long does a men's haircut take?",
+        answer:
+          "Most cuts take around 30–45 minutes, a little longer if you add a wash and blow dry.",
+      },
+      {
+        id: "mh-2",
+        question: "What's the difference between a fade and a taper?",
+        answer:
+          "A fade blends much shorter — often down to the skin — while a taper is a subtler, gradual transition that keeps more length around the sides and back.",
+      },
+      {
+        id: "mh-3",
+        question: "Can I bring a reference photo?",
+        answer:
+          "Please do. A photo is the easiest way for our stylists to match exactly the cut you have in mind.",
+      },
+      {
+        id: "mh-4",
+        question: "Do you clean up the neckline and edges?",
+        answer:
+          "Yes — every cut finishes with a neckline cleanup and clean, controlled edges.",
+      },
+    ],
   },
   {
     id: "5",

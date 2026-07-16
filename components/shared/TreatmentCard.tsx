@@ -25,17 +25,21 @@ export default function TreatmentCard({ treatment }: TreatmentCardProps) {
         {treatment.description}
       </p>
 
-      <p className="mt-5 text-sm font-semibold text-secondary">
-        {treatment.featuresLabel ?? "Features"}
-      </p>
-      <ul className="mt-3 space-y-2">
-        {treatment.features.map((feature) => (
-          <li key={feature} className="flex items-start gap-2 text-sm text-zinc-700">
-            <Check className="mt-0.5 h-4 w-4 shrink-0 text-third" />
-            {feature}
-          </li>
-        ))}
-      </ul>
+      {treatment.features && treatment.features.length > 0 && (
+        <>
+          <p className="mt-5 text-sm font-semibold text-secondary">
+            {treatment.featuresLabel ?? "Features"}
+          </p>
+          <ul className="mt-3 space-y-2">
+            {treatment.features.map((feature) => (
+              <li key={feature} className="flex items-start gap-2 text-sm text-zinc-700">
+                <Check className="mt-0.5 h-4 w-4 shrink-0 text-third" />
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
 
       {hasSummary && (
         <div className="mt-5 space-y-1.5 rounded-xl bg-primary/20 p-4 text-sm">
@@ -49,7 +53,9 @@ export default function TreatmentCard({ treatment }: TreatmentCardProps) {
             <p className="flex gap-1.5 text-zinc-700">
               <Sparkles className="mt-0.5 h-3.5 w-3.5 shrink-0 text-third" />
               <span>
-                <span className="font-semibold text-secondary">Result: </span>
+                <span className="font-semibold text-secondary">
+                  {treatment.resultLabel ?? "Result"}:{" "}
+                </span>
                 {treatment.result}
               </span>
             </p>
