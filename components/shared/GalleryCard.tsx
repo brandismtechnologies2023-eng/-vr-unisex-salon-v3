@@ -1,18 +1,23 @@
 import Image from "next/image";
 import { Expand, Play } from "lucide-react";
+import { twMerge } from "tailwind-merge";
 import type { GalleryMedia } from "@/types";
 
 interface GalleryCardProps {
   media: GalleryMedia;
   onClick?: () => void;
+  className?: string;
 }
 
-export default function GalleryCard({ media, onClick }: GalleryCardProps) {
+export default function GalleryCard({ media, onClick, className = "" }: GalleryCardProps) {
   return (
     <button
       type="button"
       onClick={onClick}
-      className="group relative block aspect-square w-full overflow-hidden rounded-xl bg-secondary/5"
+      className={twMerge(
+        "group relative block w-full min-h-0 overflow-hidden rounded-xl bg-secondary/5",
+        className
+      )}
     >
       {media.type === "video" ? (
         <video

@@ -7,31 +7,41 @@ import GalleryCard from "@/components/shared/GalleryCard";
 import Carousel from "@/components/shared/Carousel";
 import Modal from "@/components/shared/Modal";
 import { galleryMedia } from "@/lib/data";
+import type { GalleryMedia } from "@/types";
 
 const AUTO_PLAY_INTERVAL = 4000;
 const MOBILE_BREAKPOINT = 640;
-// Mobile shows just 2 items per slide (one short row) instead of the
-// whole library stacked into a tall 2-column grid. 10 items / 2 divides
-// evenly, so this naturally produces 5 full slides with no repeats
-// needed. Desktop still repeats the set across a few dense grids (see
-// buildRepeatingSlides) since 10 items only fills one 5-column grid.
-const MOBILE_MEDIA_PER_SLIDE = 2;
-const DESKTOP_SLIDE_REPEATS = 3;
 
-function chunk<T>(items: T[], size: number): T[][] {
-  const chunks: T[][] = [];
-  for (let i = 0; i < items.length; i += size) {
-    chunks.push(items.slice(i, i + size));
-  }
-  return chunks;
-}
+// Desktop lays out a fixed 6-column x 2-row masonry grid per slide so the
+// block is always a clean rectangle (flush top and bottom, per the
+// client's reference) instead of a true bin-packed masonry, which can't
+// guarantee equal column heights. Mobile keeps a single row of 2 square
+// cards, matching the earlier "max 2 per slide" requirement.
+const DESKTOP_COLUMNS = 6;
+const DESKTOP_ROWS = 2;
+const DESKTOP_SLIDE_COUNT = 3;
+const MOBILE_COLUMNS = 2;
+const MOBILE_ROWS = 1;
 
-function buildRepeatingSlides<T>(items: T[], repeats: number): T[][] {
+// Builds `slideCount` slides of `columns` x `rows` media grids, cycling
+// through `items` with wraparound so every cell always has real media —
+// no blank cells — even when the slot count exceeds the media count.
+function buildMasonrySlides(
+  items: GalleryMedia[],
+  columns: number,
+  rows: number,
+  slideCount: number
+): GalleryMedia[][][] {
   if (items.length === 0) return [];
-  const step = Math.max(1, Math.ceil(items.length / repeats));
-  return Array.from({ length: repeats }, (_, i) => {
-    const offset = (i * step) % items.length;
-    return [...items.slice(offset), ...items.slice(0, offset)];
+  const perSlide = columns * rows;
+  return Array.from({ length: slideCount }, (_, slideIndex) => {
+    const slideOffset = slideIndex * perSlide;
+    return Array.from({ length: columns }, (_, colIndex) =>
+      Array.from({ length: rows }, (_, rowIndex) => {
+        const flatIndex = slideOffset + colIndex * rows + rowIndex;
+        return items[flatIndex % items.length];
+      })
+    );
   });
 }
 
@@ -50,9 +60,13 @@ function useIsMobile(breakpoint: number) {
 
 export default function Gallery() {
   const isMobile = useIsMobile(MOBILE_BREAKPOINT);
-  const slides = isMobile
-    ? chunk(galleryMedia, MOBILE_MEDIA_PER_SLIDE)
-    : buildRepeatingSlides(galleryMedia, DESKTOP_SLIDE_REPEATS);
+  const columns = isMobile ? MOBILE_COLUMNS : DESKTOP_COLUMNS;
+  const rows = isMobile ? MOBILE_ROWS : DESKTOP_ROWS;
+  const slideCount = isMobile
+    ? Math.ceil(galleryMedia.length / (MOBILE_COLUMNS * MOBILE_ROWS))
+    : DESKTOP_SLIDE_COUNT;
+  const slides = buildMasonrySlides(galleryMedia, columns, rows, slideCount);
+
   const [activeId, setActiveId] = useState<string | null>(null);
   const activeMedia = galleryMedia.find((m) => m.id === activeId) ?? null;
 
@@ -68,15 +82,31 @@ export default function Gallery() {
         slides={slides}
         autoPlayInterval={AUTO_PLAY_INTERVAL}
         arrowLabel="photos"
-        slideClassName="grid grid-cols-2 gap-3 sm:grid-cols-5"
-        renderSlide={(slideMedia) => (
+        slideClassName={`grid gap-3 ${isMobile ? "grid-cols-2" : "grid-cols-6"}`}
+        renderSlide={(slideColumns) => (
           <>
-            {slideMedia.map((media) => (
-              <GalleryCard
-                key={media.id}
-                media={media}
-                onClick={() => setActiveId(media.id)}
-              />
+            {slideColumns.map((column, colIndex) => (
+              <div
+                key={colIndex}
+                className={`flex flex-col gap-3 ${isMobile ? "h-44" : "h-130"}`}
+              >
+                {column.map((media, rowIndex) => {
+                  // Alternate tall-top/short-bottom and short-top/tall-bottom
+                  // columns so the grid reads as masonry while every column
+                  // still sums to the exact same total height.
+                  const isTall =
+                    rows === 1 ||
+                    (colIndex % 2 === 0) === (rowIndex === 0);
+                  return (
+                    <GalleryCard
+                      key={`${media.id}-${colIndex}-${rowIndex}`}
+                      media={media}
+                      onClick={() => setActiveId(media.id)}
+                      className={isTall ? "flex-3" : "flex-2"}
+                    />
+                  );
+                })}
+              </div>
             ))}
           </>
         )}
