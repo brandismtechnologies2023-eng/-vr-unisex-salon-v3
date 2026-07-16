@@ -1,36 +1,52 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import SectionHeading from "@/components/shared/SectionHeading";
 import { services } from "@/lib/data";
 
 export default function AboutServices() {
-  return (
-    <section className="bg-primary/15 py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Our Services"
-          title="Specialist Treatments We Offer"
-          subtitle="In-depth guides for every service we provide — tap any one to see what's included, the options and FAQs."
-        />
+  const midpoint = Math.ceil(services.length / 2);
+  const columns = [services.slice(0, midpoint), services.slice(midpoint)];
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {services.map((service) => (
-            <Link
-              key={service.slug}
-              href={`/services/${service.slug}`}
-              className="group flex flex-col rounded-2xl border border-zinc-100 bg-white p-5 shadow-sm transition-shadow hover:shadow-md"
-            >
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-third">
-                {service.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-600">
-                {service.description}
-              </p>
-              <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-medium text-secondary">
-                Learn more
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </span>
-            </Link>
+  return (
+    <section className="bg-secondary py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Written inline rather than via SectionHeading: this band is dark,
+            so the type needs inverted colours. */}
+        <div className="mx-auto mb-12 max-w-2xl text-center">
+          <span className="text-sm font-semibold uppercase tracking-wider text-third">
+            Our Services
+          </span>
+          <h2 className="mt-2 text-3xl font-bold text-white sm:text-4xl">
+            Specialist Treatments We Offer
+          </h2>
+          <p className="mt-4 text-zinc-400">
+            In-depth guides for every service we provide — open any one to see
+            what&apos;s included, the options and FAQs.
+          </p>
+        </div>
+
+        {/* Reads as a salon menu — divided rows rather than a card grid. */}
+        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-x-14 md:grid-cols-2">
+          {columns.map((column, i) => (
+            <ul key={i} className="divide-y divide-white/10 border-t border-white/10">
+              {column.map((service) => (
+                <li key={service.slug}>
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="group flex items-center justify-between gap-6 py-5"
+                  >
+                    <span>
+                      <span className="block font-semibold text-white transition-colors group-hover:text-primary">
+                        {service.title}
+                      </span>
+                      <span className="mt-0.5 block text-sm text-zinc-400">
+                        {service.description}
+                      </span>
+                    </span>
+                    <ArrowRight className="h-4 w-4 shrink-0 text-third transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
           ))}
         </div>
       </div>
