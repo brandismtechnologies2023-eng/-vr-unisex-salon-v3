@@ -489,18 +489,21 @@ export const team: TeamMember[] = [
     id: "1",
     name: "Vishal",
     role: "Founder & Master Stylist",
+    bio: "Vishal began his hairdressing journey at 18, turning passion into a global career across Singapore, Malaysia, and Australia. In 2018, he moved to Dubai, honing his craft with luxury brands like Sofitel, Queen Elizabeth 2, and DoubleTree by Hilton. With his brother and a close-knit team, he founded VR Unisex Salon — a space built on passion, professionalism, and creativity, where clients enjoy world-class expertise, personalized care, and confidence through great style.",
     image: "/images/our-team/team1.webp",
   },
   {
     id: "2",
     name: "Raju",
     role: "Co-Founder & Hair Stylist",
+    bio: "Raju began his journey in sports and video analysis but soon discovered his passion for hairstyling, inspired by his brother Vishal. Starting as a junior hairdresser, his dedication and creativity led him to train with global brands, travel internationally, and master advanced styling and coloring techniques. Today, as co-founder of VR Unisex Salon with Vishal, Raju brings precision, artistry, and a personal touch to every client's experience.",
     image: "/images/our-team/team2.webp",
   },
   {
     id: "3",
     name: "Priyanka",
     role: "Founder & Beauty Expert",
+    bio: "Priyanka is a passionate beauty professional who turned her childhood love for beauty into a successful career. After mastering advanced skincare and beauty techniques in Dubai with international brands, she founded VR Unisex Salon. Her mission is to help every client understand their skin, choose the right care, and feel confident inside and out.",
     image: "/images/our-team/team3.webp",
   },
 ];
