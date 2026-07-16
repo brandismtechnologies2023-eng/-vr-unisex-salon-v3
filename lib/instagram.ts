@@ -30,7 +30,10 @@ export async function getInstagramPosts(limit = 6): Promise<InstagramPost[] | nu
   try {
     const res = await fetch(url, { next: { revalidate: 3600 } });
     if (!res.ok) {
-      console.error("Instagram Graph API request failed:", res.status, await res.text());
+      // warn, not error: falling back to placeholder posts is the designed
+      // behaviour here, and console.error would surface it as a crash in the
+      // Next.js dev overlay even though the page renders fine.
+      console.warn("Instagram Graph API request failed:", res.status, await res.text());
       return null;
     }
 
@@ -46,7 +49,9 @@ export async function getInstagramPosts(limit = 6): Promise<InstagramPost[] | nu
       permalink: item.permalink,
     }));
   } catch (err) {
-    console.error("Failed to fetch Instagram feed:", err);
+    // Network-level failure (DNS, timeout, blocked host). Same rationale as
+    // above: the placeholder fallback keeps the page working.
+    console.warn("Failed to fetch Instagram feed:", err);
     return null;
   }
 }
