@@ -28,6 +28,8 @@ export const services: Service[] = [
       "Premium products",
       "Relaxing salon ambience",
     ],
+    treatmentsSubtitle:
+      "Pick the option that fits your time and how much pampering you're after.",
     treatments: [
       {
         id: "classic-manicure",
@@ -382,6 +384,112 @@ export const services: Service[] = [
     title: "Women Haircut",
     description: "Precision cuts styled to suit your face and lifestyle.",
     startingPrice: 399,
+    tagline: "Hair Styling",
+    heroBadge: "Cut, Shaped & Styled for You",
+    heroSubtitle: "More Than Just a Change in Length",
+    longDescription:
+      "A haircut is a reflection of your personality, lifestyle and confidence. At VR Unisex Salon in Dubai we specialise in haircuts and styling for women — tailored to your face shape, hair texture and daily routine, so every cut feels fresh, flattering and easy to maintain.",
+    highlights: [
+      "Consultation before every cut",
+      "Shaped to your face & hair texture",
+      "Experienced women's stylists",
+      "Finishes that are easy to maintain",
+    ],
+    treatmentsSubtitle:
+      "Every cut starts with a consultation — here's what we can do for you.",
+    treatmentColumns: 2,
+    treatments: [
+      {
+        id: "womens-haircut-styling",
+        category: "Haircut",
+        name: "Women's Haircut & Styling",
+        tagline: "Complete Transformation or Refreshed Look",
+        description:
+          "Designed for those who want a complete transformation or a refreshed everyday look. We begin with a detailed consultation, analysing your face shape, hair density and styling preferences before crafting a cut that complements you perfectly.",
+        featuresLabel: "What you get",
+        features: [
+          "Personalised consultation based on face shape and hair texture",
+          "Professional finishing that enhances movement and shape",
+          "Ideal for exploring new trends or shorter styles",
+        ],
+        bestFor: "First-time clients, style makeovers, trend-led haircuts",
+        result:
+          "A personalised haircut with a salon-finished look that elevates your overall appearance",
+      },
+      {
+        id: "hair-trim-shape-up",
+        category: "Haircut",
+        name: "Hair Trim & Shape-Up",
+        tagline: "Maintain Your Style, Restore Your Balance",
+        description:
+          "Focuses on maintaining your current style while improving its structure. We carefully remove split ends and redefine the outline to restore balance and freshness without altering the length drastically.",
+        featuresLabel: "Perfect for",
+        features: [
+          "Regular maintenance between major cuts",
+          "Healthy hair upkeep and split end removal",
+          "Keeping your existing style with improved structure",
+        ],
+        bestFor: "Regular maintenance, healthy hair upkeep",
+        result: "Cleaner shape, healthier ends and improved manageability",
+      },
+      {
+        id: "layered-haircut",
+        category: "Haircut",
+        name: "Layered Haircut",
+        tagline: "Add Dimension, Volume & Natural Movement",
+        description:
+          "A layered haircut adds dimension, volume and natural movement to your hair. Our stylists customise the layering around your hair texture and face shape, so it enhances your features rather than overwhelming them.",
+        featuresLabel: "Benefits",
+        features: [
+          "Adds volume and reduces bulk",
+          "Enhances hair texture naturally",
+          "Works beautifully for both casual and styled looks",
+        ],
+        bestFor: "Adding volume, reducing bulk, enhancing texture",
+        result: "Flowy, dynamic hair with depth and effortless styling",
+      },
+      {
+        id: "blow-dry-styling",
+        category: "Haircut",
+        name: "Blow Dry & Styling",
+        tagline: "Polished, Salon-Perfect Finish",
+        description:
+          "Perfect for finishing your haircut or preparing for a special occasion. Using professional techniques and tools, we create smooth, voluminous or softly waved styles that last.",
+        featuresLabel: "Styling options",
+        features: [
+          "Smooth and sleek finish",
+          "Voluminous styling for body and bounce",
+          "Soft waves for elegant occasions",
+        ],
+        bestFor: "Events, meetings, or post-haircut finishing",
+        result: "Long-lasting shine, smoothness and beautifully styled hair",
+      },
+    ],
+    faqs: [
+      {
+        id: "wh-1",
+        question: "How long does a women's haircut take?",
+        answer:
+          "Most haircuts take 45 minutes to an hour, a little longer if you add blow dry and styling.",
+      },
+      {
+        id: "wh-2",
+        question: "Do you consult before cutting?",
+        answer:
+          "Yes — every cut starts with a consultation about your face shape, hair texture and daily routine.",
+      },
+      {
+        id: "wh-3",
+        question: "Can I bring a reference photo?",
+        answer:
+          "Please do. Reference photos help our stylists understand exactly the look you're after.",
+      },
+      {
+        id: "wh-4",
+        question: "Do you cut curly and textured hair?",
+        answer: "Yes, our stylists cut and layer all hair types and textures.",
+      },
+    ],
   },
   {
     id: "4",

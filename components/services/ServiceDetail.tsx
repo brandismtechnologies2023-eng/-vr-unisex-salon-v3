@@ -167,27 +167,37 @@ export default function ServiceDetail({ service }: ServiceDetailProps) {
           <SectionHeading
             eyebrow="Treatment Options"
             title={`Choose Your ${service.title} Treatment`}
-            subtitle="Pick the option that fits your time and how much pampering you're after."
+            subtitle={
+              service.treatmentsSubtitle ??
+              "Choose the option that fits what you're looking for."
+            }
           />
 
-          <div className="mb-10 flex justify-center gap-2">
-            {categories.map((category) => (
-              <button
-                key={category}
-                type="button"
-                onClick={() => setActiveCategory(category)}
-                className={`rounded-full px-6 py-2.5 text-sm font-medium transition-colors ${
-                  activeCategory === category
-                    ? "bg-secondary text-white"
-                    : "bg-primary/30 text-secondary hover:bg-primary/50"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
+          {/* A lone category isn't a choice — don't render a one-tab bar. */}
+          {categories.length > 1 && (
+            <div className="mb-10 flex flex-wrap justify-center gap-2">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  type="button"
+                  onClick={() => setActiveCategory(category)}
+                  className={`rounded-full px-6 py-2.5 text-sm font-medium transition-colors ${
+                    activeCategory === category
+                      ? "bg-secondary text-white"
+                      : "bg-primary/30 text-secondary hover:bg-primary/50"
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          )}
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div
+            className={`mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 ${
+              service.treatmentColumns === 2 ? "max-w-5xl" : "lg:grid-cols-3"
+            }`}
+          >
             {visibleTreatments.map((treatment) => (
               <TreatmentCard key={treatment.id} treatment={treatment} />
             ))}

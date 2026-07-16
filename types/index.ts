@@ -10,6 +10,12 @@ export interface ServiceTreatment {
   name: string;
   description: string;
   features: string[];
+  tagline?: string;
+  // Heading above the feature list — varies per treatment ("What you get",
+  // "Benefits", "Styling options"). Defaults to "Features".
+  featuresLabel?: string;
+  bestFor?: string;
+  result?: string;
 }
 
 export interface ProcessStep {
@@ -39,6 +45,10 @@ export interface Service {
   journeyIntro?: { title: string; description: string };
   benefits?: ServiceBenefit[];
   treatments?: ServiceTreatment[];
+  treatmentsSubtitle?: string;
+  // Wider cards suit treatments carrying a tagline/best-for/result; the
+  // default 3 suits shorter ones.
+  treatmentColumns?: 2 | 3;
   process?: ProcessStep[];
   processTitle?: string;
   processSubtitle?: string;
