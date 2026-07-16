@@ -592,6 +592,144 @@ export const services: Service[] = [
     title: "Hair Treatment",
     description: "Nourishing treatments for healthy, shiny hair.",
     startingPrice: 999,
+    tagline: "Hair Care",
+    heroBadge: "Repair, Smooth & Strengthen",
+    heroSubtitle: "Advanced Treatments for Smooth, Strong & Healthy Hair",
+    longDescription:
+      "We offer advanced hair treatments designed to repair damage, control frizz, improve hair texture and give you long-lasting, salon-perfect results. Our expert stylists use premium products and personalised techniques to treat every hair type safely and effectively.",
+    highlights: [
+      "Consultation before every treatment",
+      "Premium treatment products",
+      "Personalised to your hair type",
+      "Safe for coloured & treated hair",
+    ],
+    treatmentsSubtitle:
+      "Each treatment targets a different concern — we'll help you pick the right one.",
+    treatments: [
+      {
+        id: "anti-frizz-treatment",
+        category: "Treatment",
+        name: "Anti-Frizz Treatment",
+        tagline: "For Hair That Refuses to Behave",
+        description:
+          "If your hair looks dry, rough or puffy even after oiling and conditioning, an anti-frizz treatment smooths the hair surface and locks in moisture.",
+        featuresLabel: "This treatment",
+        features: [
+          "Controls humidity-caused frizz",
+          "Makes hair softer and easier to manage",
+          "Reduces daily styling time",
+        ],
+        bestForLabel: "Best suited for",
+        bestFor: "Mildly frizzy, wavy or dry hair that needs control, not straightening.",
+      },
+      {
+        id: "keratin-treatment",
+        category: "Treatment",
+        name: "Keratin Treatment",
+        tagline: "Smooth Hair Without Losing Natural Movement",
+        description:
+          "A keratin treatment restores lost keratin in the hair shaft, making hair smoother, shinier and stronger — without making it look flat or artificial.",
+        featuresLabel: "What you'll notice",
+        features: [
+          "Reduced frizz and flyaways",
+          "Softer, glossier texture",
+          "Easier blow-dry and styling",
+        ],
+        resultLabel: "Results",
+        result: "Typically last 3–6 months with proper after-care.",
+        note: "Suitable for coloured and chemically treated hair after consultation.",
+      },
+      {
+        id: "hair-smoothening",
+        category: "Treatment",
+        name: "Hair Smoothening",
+        tagline: "For a Naturally Straight, Polished Look",
+        description:
+          "Ideal if you want straighter hair with a natural finish — not pin-straight, not puffy.",
+        featuresLabel: "This treatment",
+        features: [
+          "Relaxes hair structure gently",
+          "Reduces volume and frizz",
+          "Gives a smooth, flowing look",
+        ],
+        bestForLabel: "Recommended for",
+        bestFor: "People with wavy or frizzy hair who want long-lasting manageability.",
+      },
+      {
+        id: "hair-perming-curling",
+        category: "Treatment",
+        name: "Hair Perming / Curling",
+        tagline: "Permanent Curls That Actually Hold Shape",
+        description:
+          "If styling curls every day feels tiring, perming or curling gives you long-lasting waves or curls that stay defined.",
+        featuresLabel: "We customise",
+        features: [
+          "Curl size (soft waves to tight curls)",
+          "Volume and shape",
+          "Hair health protection",
+        ],
+        bestForLabel: "Perfect for",
+        bestFor: "Adding bounce, texture and personality to straight or flat hair.",
+      },
+      {
+        id: "protein-hair-botox",
+        category: "Treatment",
+        name: "Protein Treatment / Hair Botox",
+        tagline: "Repair First. Style Later.",
+        description:
+          "When hair feels weak, lifeless or damaged from heat styling or chemical treatments, a protein or hair botox treatment focuses on repair — not appearance alone.",
+        featuresLabel: "This treatment",
+        features: [
+          "Strengthens hair internally",
+          "Improves elasticity and smoothness",
+          "Restores shine and softness",
+        ],
+        resultLabel: "Results",
+        result:
+          "Visible immediately, and ideal for hair that feels thin, dry or over-processed.",
+      },
+      {
+        id: "hair-rebonding",
+        category: "Treatment",
+        name: "Hair Rebonding",
+        tagline: "Permanent Straight Hair With a Sleek Finish",
+        description:
+          "Rebonding restructures the hair bonds to give a permanently straight look.",
+        featuresLabel: "Best for",
+        features: [
+          "Extremely curly or coarse hair",
+          "People who want pin-straight hair",
+          "Those ready to commit to after-care",
+        ],
+        noteLabel: "Important",
+        note: "We only recommend rebonding after a detailed consultation, to ensure hair safety and long-term results.",
+      },
+    ],
+    faqs: [
+      {
+        id: "ht-1",
+        question: "How long does a keratin treatment last?",
+        answer: "Typically 3–6 months, depending on your hair and how you care for it.",
+      },
+      {
+        id: "ht-2",
+        question: "What's the difference between smoothening and rebonding?",
+        answer:
+          "Smoothening gently relaxes the hair for a natural, softly straight finish. Rebonding restructures the hair bonds for a permanently pin-straight look, so it's a bigger commitment.",
+      },
+      {
+        id: "ht-3",
+        question: "Can I get a treatment on coloured hair?",
+        answer:
+          "Yes — keratin is suitable for coloured and chemically treated hair after a consultation.",
+      },
+      {
+        id: "ht-4",
+        question: "Which treatment is right for damaged hair?",
+        answer:
+          "A protein treatment or hair botox is usually the answer — it repairs hair internally rather than only improving how it looks.",
+      },
+    ],
   },
   {
     id: "6",

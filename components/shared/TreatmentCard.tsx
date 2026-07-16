@@ -1,4 +1,4 @@
-import { Check, Sparkles } from "lucide-react";
+import { Check, Info, Sparkles } from "lucide-react";
 import Button from "@/components/shared/Button";
 import { siteConfig, whatsappLink } from "@/lib/site-config";
 import type { ServiceTreatment } from "@/types";
@@ -45,7 +45,9 @@ export default function TreatmentCard({ treatment }: TreatmentCardProps) {
         <div className="mt-5 space-y-1.5 rounded-xl bg-primary/20 p-4 text-sm">
           {treatment.bestFor && (
             <p className="text-zinc-700">
-              <span className="font-semibold text-secondary">Best for: </span>
+              <span className="font-semibold text-secondary">
+                {treatment.bestForLabel ?? "Best for"}:{" "}
+              </span>
               {treatment.bestFor}
             </p>
           )}
@@ -61,6 +63,16 @@ export default function TreatmentCard({ treatment }: TreatmentCardProps) {
             </p>
           )}
         </div>
+      )}
+
+      {treatment.note && (
+        <p className="mt-3 flex gap-1.5 text-xs leading-relaxed text-zinc-500">
+          <Info className="mt-0.5 h-3.5 w-3.5 shrink-0 text-third" />
+          <span>
+            <span className="font-semibold">{treatment.noteLabel ?? "Note"}: </span>
+            {treatment.note}
+          </span>
+        </p>
       )}
 
       {/* mt-auto pins the CTA to the bottom so cards of differing text

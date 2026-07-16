@@ -17,9 +17,15 @@ export interface ServiceTreatment {
   featuresLabel?: string;
   tagline?: string;
   bestFor?: string;
+  // Label for the suitability line — "Best for" by default, but the copy
+  // also uses "Best suited for", "Recommended for", "Perfect for".
+  bestForLabel?: string;
   result?: string;
   // Label for the outcome line — "Result" by default, "Finish" for cuts.
   resultLabel?: string;
+  // Caveat or aftercare advice shown under the summary.
+  note?: string;
+  noteLabel?: string;
 }
 
 export interface ProcessStep {
