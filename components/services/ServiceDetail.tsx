@@ -5,10 +5,14 @@ import Image from "next/image";
 import {
   CalendarCheck,
   Check,
+  Clock,
   Droplets,
+  Gem,
+  Hand,
   HeartPulse,
   Leaf,
   Phone,
+  ShieldCheck,
   Sparkles,
   Star,
   Wind,
@@ -29,6 +33,10 @@ const benefitIcons: Record<string, LucideIcon> = {
   Wind,
   HeartPulse,
   Leaf,
+  Gem,
+  ShieldCheck,
+  Clock,
+  Hand,
 };
 
 const processColsClass: Record<number, string> = {

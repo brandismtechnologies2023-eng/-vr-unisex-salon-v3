@@ -1140,6 +1140,138 @@ export const services: Service[] = [
     title: "Waxing / Threading",
     description: "Smooth, gentle hair removal for face and body.",
     startingPrice: 199,
+    tagline: "Hair Removal",
+    heroBadge: "Gentle, Hygienic & Private",
+    heroSubtitle: "Smooth, Clean & Confident Skin — Done the Right Way",
+    longDescription:
+      "Waxing and threading are personal services that require trust, comfort and expert care. Ours are designed to deliver clean, smooth results while staying gentle on the skin — even for first-time clients. We follow strict hygiene protocols, use skin-friendly products and customise every service around your skin type and sensitivity.",
+    highlights: [
+      "Strict hygiene protocols",
+      "Skin-friendly products",
+      "Gentle on sensitive skin",
+      "Calm, private setting",
+    ],
+    treatmentsSubtitle:
+      "Waxing and threading — every service customised to your skin type and sensitivity.",
+    treatments: [
+      {
+        id: "full-body-wax",
+        category: "Waxing",
+        name: "Full Body Wax",
+        description:
+          "Removes unwanted hair from arms, legs, underarms, back, stomach and face (optional) in one complete session. Ideal if you prefer long-lasting smoothness and even skin texture — perfect before vacations, special occasions, or for overall grooming. Expect soft, clean skin with reduced regrowth over time, in a hygienic and private setting.",
+      },
+      {
+        id: "half-leg-wax",
+        category: "Waxing",
+        name: "Half Leg Wax",
+        description:
+          "Hair removal from knees to ankles — ideal if you like wearing skirts, dresses or cropped outfits. Leaves your lower legs smooth and polished without irritation, making it a quick, comfortable option for regular maintenance.",
+      },
+      {
+        id: "full-leg-wax",
+        category: "Waxing",
+        name: "Full Leg Wax",
+        description:
+          "Removes hair from thighs to ankles for a completely smooth finish. Best if you want longer-lasting results than shaving — it improves how your skin feels and looks, with comfort and care throughout.",
+      },
+      {
+        id: "half-arm-wax",
+        category: "Waxing",
+        name: "Half Arm Wax",
+        description:
+          "Focuses on hair removal from elbow to wrist. Suitable if you want neat, clean arms while keeping the experience quick and gentle — ideal for everyday grooming and professional settings.",
+      },
+      {
+        id: "full-arm-wax",
+        category: "Waxing",
+        name: "Full Arm Wax",
+        description:
+          "Removes hair from shoulders to wrists, leaving arms smooth and evenly toned. Perfect for sleeveless outfits and special events, using skin-friendly wax to minimise discomfort and redness.",
+      },
+      {
+        id: "underarm-wax",
+        category: "Waxing",
+        name: "Underarm Wax",
+        description:
+          "Clean, smooth underarms with longer-lasting results than shaving. Helps reduce hair thickness over time and keeps the area fresh and neat — ideal for sensitive skin, performed to strict hygiene standards.",
+      },
+      {
+        id: "bikini-wax",
+        category: "Waxing",
+        name: "Bikini Wax",
+        description:
+          "Removes unwanted hair along the bikini line while always respecting your comfort level, in a private setting. Suitable for first-time clients and regular maintenance, leaving skin smooth without harsh irritation.",
+      },
+      {
+        id: "face-wax",
+        category: "Waxing",
+        name: "Face Wax",
+        description:
+          "Removes unwanted hair from the upper lip, chin, cheeks and sides of the face. Ideal for quick, effective hair removal — it improves makeup finish and leaves skin looking clean and fresh, using gentle wax suitable for facial skin.",
+      },
+      {
+        id: "eyebrow-threading",
+        category: "Threading",
+        name: "Eyebrow Threading",
+        description:
+          "Shapes and defines your brows with precision. Ideal if you want clean, natural-looking brows without chemicals — threading gives sharp definition while staying gentle on sensitive skin.",
+      },
+      {
+        id: "upper-lip-threading",
+        category: "Threading",
+        name: "Upper Lip Threading",
+        description:
+          "Removes fine facial hair safely and effectively without irritation. Best for sensitive skin, giving a smooth finish while keeping the skin comfortable.",
+      },
+      {
+        id: "forehead-threading",
+        category: "Threading",
+        name: "Forehead Threading",
+        description:
+          "Removes unwanted hair along the hairline for a cleaner, more balanced look. Enhances facial symmetry and is ideal if you prefer precise hair removal without waxing.",
+      },
+      {
+        id: "chin-threading",
+        category: "Threading",
+        name: "Chin Threading",
+        description:
+          "Targets unwanted hair with accuracy, making it suitable for sensitive or acne-prone skin. The result is a clean, smooth chin area without harsh products.",
+      },
+      {
+        id: "full-face-threading",
+        category: "Threading",
+        name: "Full Face Threading",
+        description:
+          "Removes hair from eyebrows, upper lip, chin, forehead and the sides of the face. Ideal if you want a complete, natural-looking finish — it improves skin texture and enhances overall facial clarity.",
+      },
+    ],
+    faqs: [
+      {
+        id: "wt-1",
+        question: "Does waxing hurt?",
+        answer:
+          "We use skin-friendly wax and adjust to your sensitivity to minimise discomfort and redness. Do tell your therapist if it's your first time — we'll take it gently.",
+      },
+      {
+        id: "wt-2",
+        question: "How is threading different from waxing?",
+        answer:
+          "Threading uses no chemicals and gives sharper definition, so it's often the better choice for brows and for sensitive or acne-prone skin.",
+      },
+      {
+        id: "wt-3",
+        question: "I'm a first-time client — is bikini waxing comfortable?",
+        answer:
+          "Yes. It's done in a private setting and always at your comfort level. Our therapists work with first-time clients regularly.",
+      },
+      {
+        id: "wt-4",
+        question: "How long do the results last?",
+        answer:
+          "Waxing lasts noticeably longer than shaving, and regular sessions can reduce hair thickness over time.",
+      },
+    ],
   },
   {
     id: "10",
@@ -1147,6 +1279,70 @@ export const services: Service[] = [
     title: "Couple Services",
     description: "Pamper sessions designed for two.",
     startingPrice: 1999,
+    tagline: "For Two",
+    heroBadge: "Shared Self-Care",
+    heroSubtitle: "Relax. Reconnect. Refresh — Together.",
+    longDescription:
+      "Experience the joy of shared self-care. Our couple services are designed to help you unwind side by side in a calm, hygienic environment while enjoying premium treatments tailored to both partners.",
+    highlights: [
+      "Treated side by side",
+      "Coordinated care for both",
+      "Sanitized tools, fresh products",
+      "Never rushed",
+    ],
+    journeyIntro: {
+      title: "Couples Manicure & Pedicure",
+      description:
+        "Designed for partners who want to unwind side by side, this service combines professional nail and foot care with a peaceful, hygienic environment. Both partners receive coordinated care — nail shaping, cuticle care, gentle exfoliation, and a relaxing hand and foot massage — without rushing. Perfect for date days, special occasions, or simple quality time.",
+    },
+    benefits: [
+      {
+        icon: "Gem",
+        title: "Professional Nail Care",
+        description: "Expert shaping, cuticle care and polish application for both partners.",
+      },
+      {
+        icon: "Hand",
+        title: "Relaxing Massage",
+        description: "Soothing hand and foot massage to relieve tension and promote relaxation.",
+      },
+      {
+        icon: "ShieldCheck",
+        title: "Strict Hygiene Standards",
+        description: "Sanitized tools, fresh products and a clean environment, guaranteed.",
+      },
+      {
+        icon: "Clock",
+        title: "Unhurried Experience",
+        description: "Take your time and enjoy quality moments together, without rushing.",
+      },
+    ],
+    faqs: [
+      {
+        id: "cs-1",
+        question: "What's included in a couples manicure & pedicure?",
+        answer:
+          "Both partners receive coordinated care: nail shaping, cuticle care, gentle exfoliation, and a relaxing hand and foot massage.",
+      },
+      {
+        id: "cs-2",
+        question: "Do we sit together during the treatment?",
+        answer:
+          "Yes — that's the whole idea. You're treated side by side so you can relax and enjoy the time together.",
+      },
+      {
+        id: "cs-3",
+        question: "Should we book in advance?",
+        answer:
+          "We'd recommend it. Booking ahead lets us seat you together and have the team ready for both of you.",
+      },
+      {
+        id: "cs-4",
+        question: "Is it suitable for a special occasion?",
+        answer:
+          "Absolutely — it's a favourite for date days, anniversaries, birthdays, or simply quality time together.",
+      },
+    ],
   },
   {
     id: "11",
@@ -1154,6 +1350,134 @@ export const services: Service[] = [
     title: "Eyelash Extensions",
     description: "Natural to dramatic lash extensions, done right.",
     startingPrice: 899,
+    tagline: "Lash Artistry",
+    heroBadge: "Natural to Glam",
+    heroSubtitle: "Enhance Your Eyes with Professionally Crafted Lashes",
+    longDescription:
+      "Our eyelash services elevate your natural beauty with precision, comfort and care. Whether you prefer soft, natural extensions or bold, dramatic volume, our certified lash artists customise every set to suit your eye shape, lifestyle and desired look. We follow strict hygiene protocols, use premium products and prioritise lash health — so you enjoy stunning results with complete peace of mind.",
+    highlights: [
+      "Certified lash artists",
+      "Customised to your eye shape",
+      "Lash health prioritised",
+      "Strict hygiene protocols",
+    ],
+    treatmentsSubtitle:
+      "From a soft everyday look to high-impact glam — plus refills, removal and lifts.",
+    treatments: [
+      {
+        id: "classic-eyelash-extensions",
+        category: "Lashes",
+        name: "Classic Eyelash Extensions",
+        description:
+          "One extension applied to one natural lash, creating a clean, elegant and natural-looking enhancement. Ideal if you want subtle definition without heaviness.",
+        featuresLabel: "Best for",
+        features: ["First-time lash clients", "Anyone who prefers a soft, everyday look"],
+        resultLabel: "Results",
+        result:
+          "Naturally longer, darker lashes that enhance your eyes while staying lightweight and comfortable — a polished, effortless look.",
+      },
+      {
+        id: "volume-eyelash-extensions",
+        category: "Lashes",
+        name: "Volume Eyelash Extensions",
+        description:
+          "Ultra-fine extensions applied in handcrafted fans to each natural lash, creating fullness and drama without weighing your lashes down.",
+        featuresLabel: "Best for",
+        features: [
+          "Anyone who loves bold, glamorous eyes",
+          "Sparse natural lashes that need more density",
+        ],
+        resultLabel: "Results",
+        result:
+          "A fuller, fluffier lash line with customisable intensity — from soft volume to high-impact glam.",
+      },
+      {
+        id: "hybrid-eyelash-extensions",
+        category: "Lashes",
+        name: "Hybrid Eyelash Extensions",
+        description:
+          "Combines classic and volume techniques for a balanced, textured look — the best of both worlds: definition and fullness.",
+        featuresLabel: "Best for",
+        features: [
+          "More volume than classic lashes",
+          "A softer finish than full volume",
+        ],
+        resultLabel: "Results",
+        result:
+          "A layered, wispy effect that enhances your natural beauty while adding noticeable depth.",
+      },
+      {
+        id: "eyelash-refill",
+        category: "Lashes",
+        name: "Eyelash Refill",
+        description:
+          "Maintains the beauty of your extensions by replacing lashes that have naturally shed over time. We assess lash health before every refill to ensure safe application.",
+        featuresLabel: "Best for",
+        features: [
+          "Existing lash extension clients",
+          "Keeping your look fresh and well-defined",
+        ],
+        resultLabel: "Results",
+        result:
+          "Restored fullness and symmetry, extending the life of your extensions while keeping them neat and refined.",
+      },
+      {
+        id: "eyelash-removal",
+        category: "Lashes",
+        name: "Eyelash Removal",
+        description:
+          "Professional removal that safely dissolves lash adhesive without pulling or damaging your natural lashes. A gentle process that protects eye comfort and lash integrity.",
+        featuresLabel: "Best for",
+        features: [
+          "Switching styles",
+          "Taking a break from extensions",
+          "Correcting a previous application",
+        ],
+        resultLabel: "Results",
+        result: "Clean, healthy natural lashes — ready for a new set or a natural reset.",
+      },
+      {
+        id: "lash-lifting",
+        category: "Lashes",
+        name: "Lash Lifting",
+        description:
+          "Enhances your natural lashes by lifting and curling them from the root, creating the illusion of longer, more open eyes — without extensions.",
+        featuresLabel: "Best for",
+        features: [
+          "A low-maintenance, natural enhancement",
+          "Lifting your lashes effortlessly",
+        ],
+        resultLabel: "Results",
+        result:
+          "Beautifully curled lashes with a wide-eyed effect that lasts for weeks — minimal yet polished.",
+      },
+    ],
+    faqs: [
+      {
+        id: "el-1",
+        question: "Which lash style should I choose?",
+        answer:
+          "Classic suits a soft, everyday look, volume gives bold glam or adds density to sparse lashes, and hybrid sits in between. Your lash artist will help you decide.",
+      },
+      {
+        id: "el-2",
+        question: "How often do I need a refill?",
+        answer:
+          "Lashes shed naturally over time, so most clients book a refill every few weeks to restore fullness and symmetry.",
+      },
+      {
+        id: "el-3",
+        question: "Will extensions damage my natural lashes?",
+        answer:
+          "Not when applied and removed properly. We assess lash health before every refill and our removal dissolves the adhesive rather than pulling.",
+      },
+      {
+        id: "el-4",
+        question: "What's the difference between a lash lift and extensions?",
+        answer:
+          "A lift curls your own lashes from the root for a natural, low-maintenance look. Extensions add length and volume with lashes applied to your natural ones.",
+      },
+    ],
   },
   {
     id: "12",
@@ -1161,6 +1485,92 @@ export const services: Service[] = [
     title: "Makeup",
     description: "Party, bridal and everyday makeup by experts.",
     startingPrice: 1499,
+    tagline: "Day & Evening",
+    heroBadge: "Precision, Balance & Elegance",
+    heroSubtitle: "Enhance Your Natural Beauty",
+    longDescription:
+      "Makeup isn't about heavy layers — it's about enhancing your natural features with precision, balance and elegance. Whether you need subtle day makeup, glamorous party makeup, or flawless bridal and occasion makeup, our artists customise every look to your skin tone, outfit, occasion and personal style. We focus on proper skin prep, premium products, strict hygiene and techniques that deliver a long-lasting, comfortable finish.",
+    highlights: [
+      "Professional makeup artists",
+      "Proper skin prep every time",
+      "Premium-quality products",
+      "Long-lasting, comfortable finish",
+    ],
+    treatmentsSubtitle:
+      "From a fresh daytime look to bridal — matched to your occasion and lighting.",
+    treatments: [
+      {
+        id: "day-makeup",
+        category: "Makeup",
+        name: "Day Makeup",
+        description:
+          "A fresh, natural, polished look — perfect for office wear, daytime events, casual outings or photoshoots. Kept light, breathable and skin-friendly, enhancing your features without looking overdone. Includes skin prep, lightweight base, soft eye definition, natural brows and subtle lip shades.",
+        bestFor: "Office wear, daytime events and casual outings.",
+        result: "A fresh, natural and polished look, all day.",
+      },
+      {
+        id: "evening-party-makeup",
+        category: "Makeup",
+        name: "Evening / Party Makeup",
+        description:
+          "Perfect for parties, celebrations, dinners and special nights out. More defined and glamorous while staying refined and balanced. Includes detailed skin prep, a smooth base, enhanced eye makeup, contouring and statement lips to your preference.",
+        bestFor: "Parties, celebrations and special nights out.",
+        result: "A glamorous, photogenic finish.",
+      },
+      {
+        id: "hd-makeup",
+        category: "Makeup",
+        name: "HD Makeup",
+        description:
+          "Ideal for high-definition cameras, events and close-up photography. Finely milled, premium products create a seamless, skin-like finish that won't settle into fine lines — a smooth, natural appearance even under bright lights.",
+        bestFor: "Weddings, photography and special events.",
+        result: "A flawless finish under any lighting.",
+      },
+      {
+        id: "airbrush-makeup",
+        category: "Makeup",
+        name: "Airbrush Makeup",
+        description:
+          "A lightweight, long-lasting, ultra-smooth finish using advanced airbrush technology. Applied evenly as a fine mist for flawless yet natural-looking skin — ideal for long events, humid conditions, and anyone who prefers minimal product feel.",
+        bestFor: "Long events, weddings and humid conditions.",
+        result: "An ultra-smooth, transfer-resistant finish.",
+      },
+      {
+        id: "bridal-occasion-makeup",
+        category: "Makeup",
+        name: "Bridal & Occasion Makeup",
+        description:
+          "Fully customised for weddings, engagements, receptions, festive events and milestone celebrations. We take time to understand your outfit, jewellery, skin type and preferences to create a timeless, confident look — with detailed skin prep, high-quality products and precise finishing.",
+        bestFor: "Weddings, engagements and milestone events.",
+        result: "Radiant, timeless and long-lasting beauty.",
+      },
+    ],
+    faqs: [
+      {
+        id: "mk-1",
+        question: "What's the difference between HD and airbrush makeup?",
+        answer:
+          "HD uses finely milled products for a seamless finish that photographs beautifully up close. Airbrush is applied as a fine mist for an ultra-smooth, transfer-resistant finish that holds up through long events and humidity.",
+      },
+      {
+        id: "mk-2",
+        question: "Which makeup is best for my wedding?",
+        answer:
+          "HD and airbrush are both popular for weddings — HD for photography, airbrush for long wear in humid conditions. Our bridal service is fully customised around your outfit, jewellery and skin type.",
+      },
+      {
+        id: "mk-3",
+        question: "Do you do makeup for photoshoots?",
+        answer:
+          "Yes. Day makeup suits natural, everyday shoots, while HD makeup is designed for close-up and high-definition photography.",
+      },
+      {
+        id: "mk-4",
+        question: "Will the makeup last all day?",
+        answer:
+          "Yes — we focus on proper skin prep and long-lasting techniques. For very long events or humid weather, airbrush holds up best.",
+      },
+    ],
   },
 ];
 
