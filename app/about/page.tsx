@@ -3,7 +3,6 @@ import AboutHero from "@/components/about/AboutHero";
 import WhatMakesUsDifferent from "@/components/about/WhatMakesUsDifferent";
 import AboutServices from "@/components/about/AboutServices";
 import MeetTheTeam from "@/components/home/MeetTheTeam";
-import FindUs from "@/components/about/FindUs";
 import ContactCta from "@/components/home/ContactCta";
 import { siteConfig } from "@/lib/site-config";
 
@@ -19,8 +18,7 @@ export default function AboutPage() {
       <AboutHero />
       <WhatMakesUsDifferent />
       <AboutServices />
-      <MeetTheTeam />
-      <FindUs />
+      <MeetTheTeam variant="compact" />
       <ContactCta />
     </>
   );
