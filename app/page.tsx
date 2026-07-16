@@ -18,7 +18,7 @@ export default function Home() {
       <AboutConnect />
       <WhyChooseUs />
       <MeetTheTeam />
-      <Services />
+      <Services limit={6} showViewAll />
       <Pricing />
       <Gallery />
       <InstagramFeed />

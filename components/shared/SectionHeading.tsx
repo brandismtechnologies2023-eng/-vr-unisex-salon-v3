@@ -3,6 +3,9 @@ interface SectionHeadingProps {
   title: string;
   subtitle?: string;
   align?: "center" | "left";
+  // Pages that lead with this heading need it to be their h1; sections
+  // inside a page should stay h2.
+  as?: "h1" | "h2";
 }
 
 export default function SectionHeading({
@@ -10,6 +13,7 @@ export default function SectionHeading({
   title,
   subtitle,
   align = "center",
+  as: Heading = "h2",
 }: SectionHeadingProps) {
   const alignClasses = align === "center" ? "text-center mx-auto" : "text-left";
 
@@ -20,9 +24,9 @@ export default function SectionHeading({
           {eyebrow}
         </span>
       )}
-      <h2 className="mt-2 text-3xl sm:text-4xl font-bold text-secondary">
+      <Heading className="mt-2 text-3xl sm:text-4xl font-bold text-secondary">
         {title}
-      </h2>
+      </Heading>
       {subtitle && <p className="mt-4 text-zinc-600">{subtitle}</p>}
     </div>
   );
