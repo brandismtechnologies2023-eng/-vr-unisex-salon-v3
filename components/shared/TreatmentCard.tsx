@@ -1,6 +1,6 @@
 import { Check } from "lucide-react";
 import Button from "@/components/shared/Button";
-import { whatsappLink } from "@/lib/site-config";
+import { siteConfig, whatsappLink } from "@/lib/site-config";
 import type { ServiceTreatment } from "@/types";
 
 interface TreatmentCardProps {
@@ -21,7 +21,9 @@ export default function TreatmentCard({ treatment }: TreatmentCardProps) {
         ))}
       </ul>
       <Button
-        href={whatsappLink(`Hi, I'd like to book the ${treatment.name}.`)}
+        href={whatsappLink(
+          `Hi ${siteConfig.shortName}! I saw the ${treatment.name} on your website and would like to book it. Could you please share your available slots?`
+        )}
         target="_blank"
         rel="noopener noreferrer"
         variant="outline"
