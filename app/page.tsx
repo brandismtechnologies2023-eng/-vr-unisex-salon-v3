@@ -1,6 +1,7 @@
 import Hero from "@/components/home/Hero";
 import AboutConnect from "@/components/home/AboutConnect";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
+import MeetTheTeam from "@/components/home/MeetTheTeam";
 import Services from "@/components/home/Services";
 import Pricing from "@/components/home/Pricing";
 import Gallery from "@/components/home/Gallery";
@@ -16,6 +17,7 @@ export default function Home() {
       <Hero />
       <AboutConnect />
       <WhyChooseUs />
+      <MeetTheTeam />
       <Services />
       <Pricing />
       <Gallery />

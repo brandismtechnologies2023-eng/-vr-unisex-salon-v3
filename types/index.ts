@@ -45,6 +45,13 @@ export interface Service {
   faqs?: FaqItem[];
 }
 
+export interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  image: string;
+}
+
 export interface Testimonial {
   id: string;
   name: string;

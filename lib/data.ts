@@ -5,6 +5,7 @@ import type {
   NavLink,
   PricingPackage,
   Service,
+  TeamMember,
   Testimonial,
 } from "@/types";
 
@@ -480,6 +481,27 @@ export const pricingPackages: PricingPackage[] = [
     name: "Gents Grooming Package",
     price: 999,
     features: ["Haircut", "Beard Styling", "Face Cleanup"],
+  },
+];
+
+export const team: TeamMember[] = [
+  {
+    id: "1",
+    name: "Vishal",
+    role: "Founder & Master Stylist",
+    image: "/images/our-team/team1.webp",
+  },
+  {
+    id: "2",
+    name: "Raju",
+    role: "Co-Founder & Hair Stylist",
+    image: "/images/our-team/team2.webp",
+  },
+  {
+    id: "3",
+    name: "Priyanka",
+    role: "Founder & Beauty Expert",
+    image: "/images/our-team/team3.webp",
   },
 ];
 
