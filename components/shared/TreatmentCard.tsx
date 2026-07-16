@@ -22,7 +22,7 @@ export default function TreatmentCard({ treatment }: TreatmentCardProps) {
       </ul>
       <Button
         href={whatsappLink(
-          `Hi ${siteConfig.shortName}! I saw the ${treatment.name} on your website and would like to book it. Could you please share your available slots?`
+          `Hi ${siteConfig.shortName}! I saw the ${treatment.name} service on your website and would like to book it. Could you please share your available slots?`
         )}
         target="_blank"
         rel="noopener noreferrer"
