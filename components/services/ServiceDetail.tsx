@@ -8,7 +8,6 @@ import {
   Droplets,
   HeartPulse,
   Leaf,
-  MessageCircle,
   Phone,
   Sparkles,
   Star,
@@ -17,6 +16,7 @@ import {
 } from "lucide-react";
 import Button from "@/components/shared/Button";
 import Badge from "@/components/shared/Badge";
+import { WhatsAppIcon } from "@/components/shared/SocialIcons";
 import SectionHeading from "@/components/shared/SectionHeading";
 import TreatmentCard from "@/components/shared/TreatmentCard";
 import FaqAccordion from "@/components/shared/FaqAccordion";
@@ -99,9 +99,9 @@ export default function ServiceDetail({ service }: ServiceDetailProps) {
                 href={whatsappLink(`Hi, I'd like to know more about ${service.title}.`)}
                 target="_blank"
                 rel="noopener noreferrer"
-                variant="outline"
                 size="lg"
-                icon={<MessageCircle className="h-5 w-5" />}
+                className="bg-[#25D366] text-white hover:bg-[#1ebe5d]"
+                icon={<WhatsAppIcon className="h-5 w-5" />}
               >
                 WhatsApp Us
               </Button>
@@ -237,9 +237,9 @@ export default function ServiceDetail({ service }: ServiceDetailProps) {
               href={whatsappLink(`Hi, I'd like to book ${service.title}.`)}
               target="_blank"
               rel="noopener noreferrer"
-              variant="secondary"
               size="lg"
-              icon={<MessageCircle className="h-5 w-5" />}
+              className="bg-[#25D366] text-white hover:bg-[#1ebe5d]"
+              icon={<WhatsAppIcon className="h-5 w-5" />}
             >
               WhatsApp
             </Button>

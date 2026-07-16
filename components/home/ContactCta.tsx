@@ -1,5 +1,6 @@
-import { CalendarCheck, MessageCircle, Phone } from "lucide-react";
+import { CalendarCheck, Phone } from "lucide-react";
 import Button from "@/components/shared/Button";
+import { WhatsAppIcon } from "@/components/shared/SocialIcons";
 import { siteConfig, telLink, whatsappLink } from "@/lib/site-config";
 
 export default function ContactCta() {
@@ -18,9 +19,9 @@ export default function ContactCta() {
             href={whatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
-            variant="secondary"
             size="lg"
-            icon={<MessageCircle className="h-5 w-5" />}
+            className="bg-[#25D366] text-white hover:bg-[#1ebe5d]"
+            icon={<WhatsAppIcon className="h-5 w-5" />}
           >
             WhatsApp
           </Button>
