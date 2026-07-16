@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Check } from "lucide-react";
 import SectionHeading from "@/components/shared/SectionHeading";
 import Button from "@/components/shared/Button";
@@ -54,9 +55,9 @@ export default function Pricing() {
 
         <p className="mt-8 text-center text-sm text-zinc-500">
           Looking for something specific?{" "}
-          <a href="/services" className="font-medium text-secondary">
+          <Link href="/services" className="font-medium text-secondary">
             Browse individual services
-          </a>
+          </Link>
         </p>
       </div>
     </section>
