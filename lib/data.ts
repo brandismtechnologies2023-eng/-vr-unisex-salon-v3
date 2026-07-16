@@ -993,6 +993,146 @@ export const services: Service[] = [
     title: "Hair Color",
     description: "Global and highlight coloring with premium brands.",
     startingPrice: 1499,
+    tagline: "Colour & Highlights",
+    heroBadge: "Precision, Protection & Premium Results",
+    heroSubtitle: "More Than a Shade Change — a Personalised Transformation",
+    longDescription:
+      "Our colourists combine premium products, advanced techniques and a deep consultation to deliver safe, precise and long-lasting results. Whether you're after subtle dimension or a bold trend, every service is designed around your hair type, skin tone and lifestyle.",
+    highlights: [
+      "Consultation before every colour",
+      "Premium colour products",
+      "Matched to your skin tone",
+      "Colour for women & men",
+    ],
+    treatmentsSubtitle:
+      "From natural enhancements to bold fashion statements — for women and men.",
+    treatments: [
+      {
+        id: "global-hair-color",
+        category: "For Women",
+        name: "Global Hair Color",
+        description:
+          "A uniform, rich shade from roots to ends. Ideal for a complete refresh or a dramatic change, delivering even coverage, vibrant depth and a polished finish.",
+        bestFor: "A complete colour refresh or dramatic change.",
+        result: "Even coverage with a vibrant, glossy finish.",
+      },
+      {
+        id: "root-touch-up",
+        category: "For Women",
+        name: "Root Touch-Up",
+        description:
+          "Perfect for maintaining your existing colour and keeping regrowth seamless. Best for visible roots or grey regrowth, blending new growth with your current shade for a clean, fresh look.",
+        bestFor: "Maintaining colour and covering grey regrowth.",
+        result: "Seamless blending with a salon-fresh appearance.",
+      },
+      {
+        id: "highlights",
+        category: "For Women",
+        name: "Highlights",
+        description:
+          "Adds brightness and dimension by lightening selected strands. Ideal for a sun-kissed glow or face-framing definition, enhancing movement and texture without overpowering your base colour.",
+        bestFor: "A sun-kissed glow and added dimension.",
+        result: "Natural brightness with enhanced texture.",
+      },
+      {
+        id: "lowlights",
+        category: "For Women",
+        name: "Lowlights",
+        description:
+          "Deepens and enriches your hair by adding darker tones for contrast and balance. Often paired with highlights — perfect for restoring depth or softening overly light hair.",
+        bestFor: "Adding depth and balancing highlights.",
+        result: "A multi-dimensional, natural finish.",
+      },
+      {
+        id: "balayage",
+        category: "For Women",
+        name: "Balayage",
+        description:
+          "A hand-painted technique that creates soft, natural gradients with minimal maintenance — lighter ends, subtle roots and a beautifully blended finish.",
+        bestFor: "Low-maintenance, natural elegance.",
+        result: "Soft gradients with a lived-in look.",
+      },
+      {
+        id: "ombre-hair-color",
+        category: "For Women",
+        name: "Ombre",
+        description:
+          "A striking transition from darker roots to lighter lengths — bold yet balanced, and carefully blended for smooth transitions. Best if you want noticeable contrast without frequent touch-ups.",
+        bestFor: "Bold contrast with minimal maintenance.",
+        result: "A striking gradient with smooth transitions.",
+      },
+      {
+        id: "fashion-hair-color",
+        category: "For Women",
+        name: "Fashion Hair Color",
+        description:
+          "For those who love to stand out. From vibrant reds and cool blues to soft pastels, we tailor bold shades to your personality and hair condition using advanced techniques and premium pigments.",
+        bestFor: "Bold self-expression and unique styles.",
+        result: "Vibrant, glossy fashion colours.",
+      },
+      {
+        id: "grey-coverage",
+        category: "For Women",
+        name: "Grey Coverage",
+        description:
+          "Natural-looking, long-lasting results for both partial and full greys. We carefully match tones to your natural hair for seamless blending and reliable coverage.",
+        bestFor: "Natural grey coverage and a youthful look.",
+        result: "Seamless blending without harsh lines.",
+      },
+      {
+        id: "full-hair-color-men",
+        category: "For Men",
+        name: "Full Hair Color",
+        description:
+          "Ideal for changing or refreshing your overall hair tone with a clean, uniform finish. We start with a consultation to choose a shade that complements your skin tone and style, then apply with careful sectioning and precise processing for even coverage.",
+        bestFor: "A complete colour change or consistent tone.",
+        result: "An even, natural finish with a polished look.",
+      },
+      {
+        id: "hair-highlights-men",
+        category: "For Men",
+        name: "Hair Highlights",
+        description:
+          "Designed for subtle enhancement, not bold contrast. Soft, well-placed highlights create dimension, texture and movement, customised around your haircut, hair density and desired intensity — easy to maintain for both corporate and casual lifestyles.",
+        bestFor: "Depth, texture and a modern edge.",
+        result: "Natural highlights with low maintenance.",
+      },
+      {
+        id: "grey-coverage-men",
+        category: "For Men",
+        name: "Grey Coverage",
+        description:
+          "Blends and covers greys while keeping a natural, age-appropriate appearance. We select shades matching your original colour so the result never looks dyed, applied for longevity, scalp comfort and an even finish.",
+        bestFor: "Visible greys that need a subtle refresh.",
+        result: "Natural coverage with a youthful finish.",
+      },
+    ],
+    faqs: [
+      {
+        id: "hc-1",
+        question: "What's the difference between balayage and ombre?",
+        answer:
+          "Balayage is hand-painted for soft, natural gradients that grow out gently. Ombre is a more defined transition from darker roots to lighter lengths — bolder contrast, but still low maintenance.",
+      },
+      {
+        id: "hc-2",
+        question: "How often do I need a root touch-up?",
+        answer:
+          "It depends on how fast your roots show, but most clients come in every few weeks to keep the blend seamless.",
+      },
+      {
+        id: "hc-3",
+        question: "Do you colour men's hair too?",
+        answer:
+          "Yes — full colour, subtle highlights and grey coverage, all designed to look natural rather than obviously dyed.",
+      },
+      {
+        id: "hc-4",
+        question: "Will colouring damage my hair?",
+        answer:
+          "We use premium products and always consult first. If your hair is fragile or you're bleaching, ask about our Olaplex treatment — it's designed to reduce damage from colouring and bleaching.",
+      },
+    ],
   },
   {
     id: "9",
