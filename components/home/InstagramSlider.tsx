@@ -43,6 +43,7 @@ export default function InstagramSlider({ posts, isLive }: InstagramSliderProps)
         autoPlayInterval={AUTO_PLAY_INTERVAL}
         pausedExternally={activeIndex !== null}
         arrowLabel="posts"
+        onDark
         slideClassName="grid grid-cols-3 gap-3 sm:grid-cols-5"
         renderSlide={(slidePosts, { isActive, justDraggedRef }) => (
           <>

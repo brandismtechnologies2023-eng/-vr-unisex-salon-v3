@@ -19,3 +19,34 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
 }
+
+/* Slow, aquarium-like drifting for decorative background shapes. Each
+   keyframe returns to its start so the loop is seamless without alternate. */
+@keyframes drift-1 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(32px, -26px) rotate(5deg); }
+  66% { transform: translate(-20px, 18px) rotate(-4deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+@keyframes drift-2 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-36px, 28px) rotate(-6deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+@keyframes drift-3 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(26px, 34px) rotate(8deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.animate-drift-1 { animation: drift-1 23s ease-in-out infinite; }
+.animate-drift-2 { animation: drift-2 29s ease-in-out infinite; }
+.animate-drift-3 { animation: drift-3 26s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-drift-1,
+  .animate-drift-2,
+  .animate-drift-3 {
+    animation: none;
+  }
+}

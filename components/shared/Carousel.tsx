@@ -17,6 +17,9 @@ interface CarouselProps<T> {
   pausedExternally?: boolean;
   slideClassName?: string;
   arrowLabel?: string;
+  // Flip the pagination dots to light colours for placement on a dark
+  // background (the arrows are already white pills, so they stay).
+  onDark?: boolean;
 }
 
 export default function Carousel<T>({
@@ -26,6 +29,7 @@ export default function Carousel<T>({
   pausedExternally,
   slideClassName = "",
   arrowLabel = "items",
+  onDark = false,
 }: CarouselProps<T>) {
   const {
     loop,
@@ -112,7 +116,13 @@ export default function Carousel<T>({
               onClick={() => goTo(i)}
               aria-label={`Go to ${arrowLabel} group ${i + 1}`}
               className={`h-2.5 rounded-full transition-all ${
-                i === slideIndex ? "w-6 bg-secondary" : "w-2.5 bg-third/30"
+                i === slideIndex
+                  ? onDark
+                    ? "w-6 bg-primary"
+                    : "w-6 bg-secondary"
+                  : onDark
+                    ? "w-2.5 bg-white/30"
+                    : "w-2.5 bg-third/30"
               }`}
             />
           ))}
