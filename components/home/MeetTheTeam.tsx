@@ -13,28 +13,27 @@ interface MeetTheTeamProps {
 }
 
 function SocialLinks({ member, className = "" }: { member: TeamMember; className?: string }) {
-  const linkClass =
-    "flex h-9 w-9 items-center justify-center rounded-full border border-primary/50 bg-white text-secondary transition-colors hover:bg-primary";
-
   return (
-    <div className={`flex gap-3 ${className}`}>
+    <div className={`flex flex-wrap items-center gap-3 ${className}`}>
       <a
         href={siteConfig.instagramUrl}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`${member.name} on Instagram`}
-        className={linkClass}
+        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-primary/50 bg-white text-secondary transition-colors hover:bg-primary"
       >
         <InstagramIcon className="h-4 w-4" />
       </a>
       <a
-        href={whatsappLink(`Hi, I'd like to book an appointment with ${member.name}.`)}
+        href={whatsappLink(
+          `Hi ${siteConfig.shortName}! I'd like to book an appointment with ${member.name}.`
+        )}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`Book ${member.name} on WhatsApp`}
-        className={linkClass}
+        className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#1ebe5d]"
       >
-        <WhatsAppIcon className="h-4 w-4" />
+        <WhatsAppIcon className="h-4 w-4 shrink-0" />
+        Chat with {member.name}
       </a>
     </div>
   );
