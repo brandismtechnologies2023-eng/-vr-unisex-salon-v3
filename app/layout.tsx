@@ -4,8 +4,6 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import GlobalBreadcrumb from "@/components/layout/GlobalBreadcrumb";
-import WhatsAppButton from "@/components/shared/WhatsAppButton";
-import CallButton from "@/components/shared/CallButton";
 import ScrollToTop from "@/components/shared/ScrollToTop";
 import { siteConfig } from "@/lib/site-config";
 
@@ -32,8 +30,6 @@ export default function RootLayout({
         <GlobalBreadcrumb />
         <main className="flex-1">{children}</main>
         <Footer />
-        <WhatsAppButton />
-        <CallButton />
         <ScrollToTop />
       </body>
     </html>
