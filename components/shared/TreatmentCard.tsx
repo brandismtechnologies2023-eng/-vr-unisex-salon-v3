@@ -1,5 +1,6 @@
 import { Check, Info, Sparkles } from "lucide-react";
 import Button from "@/components/shared/Button";
+import { WhatsAppIcon } from "@/components/shared/SocialIcons";
 import { siteConfig, whatsappLink } from "@/lib/site-config";
 import type { ServiceTreatment } from "@/types";
 
@@ -84,9 +85,9 @@ export default function TreatmentCard({ treatment }: TreatmentCardProps) {
           )}
           target="_blank"
           rel="noopener noreferrer"
-          variant="outline"
           size="sm"
-          className="w-full"
+          className="w-full border border-[#25D366] bg-transparent text-[#25D366] hover:bg-[#25D366] hover:text-white"
+          icon={<WhatsAppIcon className="h-4 w-4" />}
         >
           Book This Treatment
         </Button>
