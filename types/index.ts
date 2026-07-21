@@ -118,4 +118,10 @@ export interface InstagramPost {
   comments: number;
   timestamp?: string;
   permalink: string;
+  isVideo?: boolean;
+}
+
+export interface InstagramProfile {
+  followersCount: number;
+  mediaCount: number;
 }

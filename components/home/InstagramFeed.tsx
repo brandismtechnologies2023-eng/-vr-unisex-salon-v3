@@ -1,8 +1,10 @@
+import Image from "next/image";
+import { CalendarCheck } from "lucide-react";
 import Button from "@/components/shared/Button";
 import InstagramSlider from "@/components/home/InstagramSlider";
 import { InstagramIcon } from "@/components/shared/SocialIcons";
 import { instagramPosts as placeholderPosts } from "@/lib/data";
-import { getInstagramPosts } from "@/lib/instagram";
+import { getInstagramPosts, getInstagramProfile } from "@/lib/instagram";
 import { siteConfig } from "@/lib/site-config";
 
 // Dark navy body that fades from white at the top (matching the Gallery
@@ -15,9 +17,25 @@ const FADE = 140;
 const sectionGradient =
   `linear-gradient(180deg, #ffffff 0px, #272939 ${FADE}px, #272939 calc(100% - ${FADE}px), #fbf7f5 100%)`;
 
+function formatCount(n: number): string {
+  if (n >= 1000) return `${(n / 1000).toFixed(n % 1000 === 0 ? 0 : 1)}K+`;
+  return `${n}+`;
+}
+
 export default async function InstagramFeed() {
-  const livePosts = await getInstagramPosts(30);
+  const [livePosts, profile] = await Promise.all([
+    getInstagramPosts(30),
+    getInstagramProfile(),
+  ]);
   const posts = livePosts ?? placeholderPosts;
+
+  const stats = [
+    ...(profile
+      ? [{ value: formatCount(profile.followersCount), label: "Followers" }]
+      : []),
+    { value: `${siteConfig.rating}★`, label: "Google" },
+    { value: `${siteConfig.reviewCount}+`, label: "Reviews" },
+  ];
 
   return (
     <section className="relative overflow-hidden" style={{ background: sectionGradient }}>
@@ -29,30 +47,67 @@ export default async function InstagramFeed() {
         <span className="animate-drift-1 absolute right-[16%] bottom-28 h-40 w-40 rounded-full bg-primary/5 shadow-[0_0_110px_45px_rgba(236,215,208,0.08)]" />
       </div>
 
-      {/* Padding exceeds the fade length so the heading and CTA sit on solid
+      {/* Padding exceeds the fade length so the header and CTA sit on solid
           navy, clear of the light ramps where white text would wash out. */}
       <div className="relative mx-auto max-w-7xl px-4 py-44 sm:px-6 lg:px-8">
-        <div className="mx-auto mb-12 max-w-2xl text-center">
-          <span className="text-sm font-semibold uppercase tracking-wider text-primary">
-            Follow Along
-          </span>
-          <h2 className="mt-2 text-3xl font-bold text-white sm:text-4xl">
-            Latest From Our Instagram
-          </h2>
+        {/* Profile header */}
+        <div className="mx-auto max-w-2xl text-center">
+          <div className="mx-auto h-20 w-20 overflow-hidden rounded-full ring-2 ring-primary/40">
+            <Image
+              src="/images/logo.webp"
+              alt={siteConfig.name}
+              width={80}
+              height={80}
+              className="h-full w-full object-cover"
+            />
+          </div>
+
+          <p className="mt-4 text-xl font-bold text-white">
+            @{siteConfig.instagramHandle}
+          </p>
+
+          <dl className="mt-5 flex items-center justify-center gap-8">
+            {stats.map((stat) => (
+              <div key={stat.label}>
+                <dt className="text-lg font-bold text-white">{stat.value}</dt>
+                <dd className="mt-0.5 text-[11px] uppercase tracking-wider text-zinc-400">
+                  {stat.label}
+                </dd>
+              </div>
+            ))}
+          </dl>
+
+          <p className="mt-5 text-sm leading-relaxed text-zinc-300">
+            Real transformations from {siteConfig.name}, Burjuman — hair, skin,
+            nails and beauty. Follow along on Instagram for our latest looks.
+          </p>
+
+          <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
+            <Button
+              href={siteConfig.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="secondary"
+              icon={<InstagramIcon />}
+            >
+              Follow @{siteConfig.instagramHandle}
+            </Button>
+            <Button
+              href="/contact"
+              className="border border-white/30 bg-white/5 text-white hover:bg-white/15"
+              icon={<CalendarCheck className="h-4 w-4" />}
+            >
+              Book a Similar Look
+            </Button>
+          </div>
         </div>
 
-        <InstagramSlider posts={posts} isLive={!!livePosts} />
-
-        <div className="mt-10 flex justify-center">
-          <Button
-            href={siteConfig.instagramUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border border-white/30 bg-white/5 text-white hover:bg-white/15"
-            icon={<InstagramIcon />}
-          >
-            Follow @{siteConfig.instagramHandle}
-          </Button>
+        {/* Reels */}
+        <div className="mt-14">
+          <p className="mb-8 text-center text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+            Our Instagram Reels
+          </p>
+          <InstagramSlider posts={posts} isLive={!!livePosts} />
         </div>
       </div>
     </section>

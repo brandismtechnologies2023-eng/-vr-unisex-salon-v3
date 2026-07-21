@@ -8,7 +8,7 @@ import Modal from "@/components/shared/Modal";
 import { siteConfig } from "@/lib/site-config";
 import type { InstagramPost } from "@/types";
 
-const POSTS_PER_SLIDE = 15;
+const POSTS_PER_SLIDE = 5;
 const AUTO_PLAY_INTERVAL = 4000;
 
 function chunk<T>(items: T[], size: number): T[][] {
@@ -44,13 +44,14 @@ export default function InstagramSlider({ posts, isLive }: InstagramSliderProps)
         pausedExternally={activeIndex !== null}
         arrowLabel="posts"
         onDark
-        slideClassName="grid grid-cols-3 gap-3 sm:grid-cols-5"
+        slideClassName="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5"
         renderSlide={(slidePosts, { isActive, justDraggedRef }) => (
           <>
             {slidePosts.map((post, i) => (
               <InstagramPostCard
                 key={post.id}
                 post={post}
+                moreHref={isLive ? post.permalink : siteConfig.instagramUrl}
                 onClick={() => {
                   if (justDraggedRef.current) return;
                   if (isActive) openPost(slidePosts, i);

@@ -1,4 +1,4 @@
-import type { InstagramPost } from "@/types";
+import type { InstagramPost, InstagramProfile } from "@/types";
 
 const GRAPH_API_VERSION = "v21.0";
 
@@ -47,11 +47,43 @@ export async function getInstagramPosts(limit = 6): Promise<InstagramPost[] | nu
       comments: item.comments_count ?? 0,
       timestamp: item.timestamp,
       permalink: item.permalink,
+      isVideo: item.media_type === "VIDEO",
     }));
   } catch (err) {
     // Network-level failure (DNS, timeout, blocked host). Same rationale as
     // above: the placeholder fallback keeps the page working.
     console.warn("Failed to fetch Instagram feed:", err);
+    return null;
+  }
+}
+
+// Follower/media counts for the profile header. Returns null when the API
+// isn't configured or the request fails, so the header can fall back to the
+// stats we always know (Google rating and review count).
+export async function getInstagramProfile(): Promise<InstagramProfile | null> {
+  const accessToken = process.env.INSTAGRAM_ACCESS_TOKEN;
+  const businessAccountId = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
+
+  if (!accessToken || !businessAccountId) return null;
+
+  const url = `https://graph.facebook.com/${GRAPH_API_VERSION}/${businessAccountId}?fields=followers_count,media_count&access_token=${accessToken}`;
+
+  try {
+    const res = await fetch(url, { next: { revalidate: 3600 } });
+    if (!res.ok) {
+      console.warn("Instagram profile request failed:", res.status, await res.text());
+      return null;
+    }
+    const json = (await res.json()) as {
+      followers_count?: number;
+      media_count?: number;
+    };
+    return {
+      followersCount: json.followers_count ?? 0,
+      mediaCount: json.media_count ?? 0,
+    };
+  } catch (err) {
+    console.warn("Failed to fetch Instagram profile:", err);
     return null;
   }
 }
