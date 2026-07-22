@@ -181,7 +181,7 @@ export default function ServiceDetail({ service }: ServiceDetailProps) {
         <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Treatment Options"
-            title={`Choose Your ${service.title} Treatment`}
+            title={service.treatmentsTitle ?? `Choose Your ${service.title} Treatment`}
             subtitle={
               service.treatmentsSubtitle ??
               "Choose the option that fits what you're looking for."
@@ -307,8 +307,11 @@ export default function ServiceDetail({ service }: ServiceDetailProps) {
       {service.expert && (
         <section className="bg-primary/15 py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <SectionHeading eyebrow="Your Specialist" title="Meet Your Expert" />
-            <div className="mx-auto flex max-w-5xl flex-col gap-8 rounded-3xl border border-primary/40 bg-white p-6 lg:flex-row lg:items-center lg:gap-10 lg:p-8">
+            <SectionHeading
+              eyebrow="Your Specialist"
+              title={service.expert.title ?? "Meet Your Expert"}
+            />
+            <div className="mx-auto flex max-w-5xl flex-col gap-8 rounded-3xl border border-primary/40 bg-white p-6 lg:flex-row lg:items-start lg:gap-10 lg:p-8">
               <div className="relative mx-auto aspect-square w-full max-w-64 shrink-0 overflow-hidden rounded-2xl bg-primary/40 lg:mx-0">
                 <Image
                   src={service.expert.image}
@@ -391,7 +394,10 @@ export default function ServiceDetail({ service }: ServiceDetailProps) {
 
       {faqItems.length > 0 && (
         <section className="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="FAQ" title={`${service.title} — Common Questions`} />
+          <SectionHeading
+            eyebrow="FAQ"
+            title={service.faqTitle ?? `${service.title} — Common Questions`}
+          />
           <FaqAccordion items={faqItems} />
         </section>
       )}

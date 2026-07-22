@@ -19,268 +19,218 @@ const coreServices: Service[] = [
     title: "Manicure & Pedicure in Dubai",
     description: "Relaxing hand and foot care with premium products.",
     startingPrice: 499,
-    // tagline: "Nail Care",
+    tagline: "Nail Care",
+    heroBadge: "Healthy Nails, Beautifully Finished",
     longDescription:
-      "Healthy, well-maintained hands and feet are an important part of looking and feeling your best. At VR Unisex Salon, our professional manicure and pedicure services go beyond nail polishing—they're designed to improve nail health, nourish your skin, and provide a relaxing self-care experience. Whether you're booking your regular nail maintenance or treating yourself to some well-deserved pampering, our beauty specialists deliver every service with precision, hygiene, and exceptional care. ",
-    // highlights: [
-    //   "Certified nail technicians",
-    //   "Sanitized tools for every client",
-    //   "Premium products",
-    //   "Relaxing salon ambience",
-    // ],
+      "Healthy, well-maintained hands and feet are an important part of looking and feeling your best. Our professional manicure and pedicure services go beyond nail polishing — they're designed to improve nail health, nourish your skin, and provide a relaxing self-care experience. Whether you're booking your regular nail maintenance or treating yourself to some well-deserved pampering, our beauty specialists deliver every service with precision, hygiene, and exceptional care.",
+    highlights: [
+      "Certified beauty specialists",
+      "Sanitised tools for every client",
+      "Premium salon products",
+      "Calm, relaxing environment",
+    ],
+    benefitsTitle: "Why Choose VR Salon for Your Nail Care",
+    benefitsSubtitle:
+      "Beautiful nails begin with healthy care. Every manicure and pedicure combines professional techniques, premium products, and meticulous attention to detail, ensuring your hands and feet receive the care they deserve.",
+    benefits: [
+      {
+        icon: "Hand",
+        title: "Professional Nail Care",
+        description:
+          "Every treatment focuses on maintaining healthy nails, neat cuticles, and beautifully groomed hands and feet that look naturally elegant.",
+      },
+      {
+        icon: "ShieldCheck",
+        title: "Hygiene You Can Trust",
+        description:
+          "We maintain strict hygiene standards by thoroughly sanitising our tools and workstations, providing a clean, safe, and comfortable experience for every client.",
+      },
+      {
+        icon: "Leaf",
+        title: "Relaxing Self-Care Experience",
+        description:
+          "Enjoy a peaceful break from your busy schedule while our specialists refresh, nourish, and care for your hands and feet in a calming salon environment.",
+      },
+      {
+        icon: "Gem",
+        title: "Premium Salon Products",
+        description:
+          "We use trusted professional products that help nourish your skin, strengthen your nails, and deliver long-lasting, beautiful results.",
+      },
+      {
+        icon: "ClipboardList",
+        title: "Personalised Attention",
+        description:
+          "Every client has different nail care needs. Our team recommends treatments based on your lifestyle, nail condition, and personal preferences.",
+      },
+    ],
+    treatmentsTitle: "Our Professional Nail Care Services",
     treatmentsSubtitle:
-      "Pick the option that fits your time and how much pampering you're after.",
+      "Whether you prefer classic elegance or long-lasting finishes, we offer a complete range of manicure and pedicure services to help keep your hands and feet healthy, polished, and beautifully maintained.",
+    treatmentColumns: 2,
     treatments: [
       {
-        id: "classic-manicure",
-        category: "Manicure",
-        name: "Classic Manicure",
+        id: "classic-nail-care",
+        category: "Nail Care",
+        name: "Classic Nail Care",
         description:
-          "Nail shaping, cuticle care and polish for clean, healthy-looking hands.",
+          "Ideal for routine nail maintenance, healthy cuticle care, nail shaping, and an elegant everyday finish.",
+        featuresLabel: "Includes",
         features: [
-          "Nail shaping & buffing",
-          "Cuticle care",
-          "Hand massage",
-          "Polish of your choice",
+          "Classic Manicure",
+          "Classic Pedicure",
+          "Classic Manicure & Pedicure",
         ],
       },
       {
-        id: "spa-manicure",
-        category: "Manicure",
-        name: "Spa Manicure",
+        id: "french-finish",
+        category: "Nail Care",
+        name: "French Finish",
         description:
-          "A deeper hand treatment with exfoliation and an extended massage for softer skin.",
+          "A timeless choice featuring clean white tips and a sophisticated finish that's suitable for both everyday wear and special occasions.",
+        featuresLabel: "Includes",
         features: [
-          "Exfoliating scrub",
-          "Extended hand massage",
-          "Hydrating mask",
-          "Nail shaping & polish",
+          "French Manicure",
+          "French Pedicure",
+          "French Manicure & Pedicure",
         ],
       },
       {
-        id: "gel-manicure",
-        category: "Manicure",
-        name: "Gel Manicure",
+        id: "gelish-nail-care",
+        category: "Nail Care",
+        name: "Gelish Nail Care",
         description:
-          "Chip-resistant gel polish for a glossy, long-lasting finish.",
+          "Perfect if you're looking for a glossy, chip-resistant finish that stays beautiful for longer than traditional nail polish.",
+        featuresLabel: "Includes",
         features: [
-          "Nail prep & shaping",
-          "Long-lasting gel polish",
-          "UV/LED cure finish",
-          "Cuticle care",
+          "Gelish Manicure",
+          "Gelish Pedicure",
+          "Gelish Manicure & Pedicure",
+          "Gelish French Manicure",
+          "Gelish French Pedicure",
+          "Gelish French Manicure & Pedicure",
         ],
       },
       {
-        id: "classic-pedicure",
-        category: "Pedicure",
-        name: "Classic Pedicure",
-        description: "Nail care and grooming for clean, comfortable feet.",
+        id: "nail-maintenance",
+        category: "Nail Care",
+        name: "Nail Maintenance Services",
+        description:
+          "Quick maintenance services designed to keep your nails neat, healthy, and polished between regular manicure appointments.",
+        featuresLabel: "Includes",
         features: [
-          "Nail shaping & buffing",
-          "Cuticle care",
-          "Foot massage",
-          "Polish of your choice",
+          "Classic Polish Change",
+          "Gelish Polish Change",
+          "Gelish Removal",
+          "Cut, Buff & Shine",
         ],
       },
       {
-        id: "spa-pedicure",
-        category: "Pedicure",
-        name: "Spa Pedicure",
+        id: "advanced-hand-foot-care",
+        category: "Nail Care",
+        name: "Advanced Hand & Foot Care",
         description:
-          "A relaxing foot soak with exfoliation and massage to soften and refresh.",
+          "Targeted treatments that deeply nourish dry skin, soften rough areas, improve comfort, and leave your hands and feet feeling refreshed and rejuvenated.",
+        featuresLabel: "Includes",
         features: [
-          "Warm foot soak",
-          "Exfoliating scrub",
-          "Extended foot massage",
-          "Hydrating mask",
+          "Paraffin Manicure",
+          "Paraffin Pedicure",
+          "Heel Peel Pedicure",
+          "Callus Treatment",
         ],
-      },
-      {
-        id: "gel-pedicure",
-        category: "Pedicure",
-        name: "Gel Pedicure",
-        description:
-          "Glossy, chip-resistant gel polish that stays fresh for weeks.",
-        features: [
-          "Nail prep & shaping",
-          "Long-lasting gel polish",
-          "UV/LED cure finish",
-          "Foot massage",
-        ],
-      },
-      {
-        id: "french-manicure",
-        category: "Manicure",
-        name: "French Manicure",
-        description:
-          "A timeless, elegant look with a soft nude base and crisp white tips.",
-        features: ["Soft nude base", "Crisp white tips", "Clean, classic finish"],
-      },
-      {
-        id: "luxury-manicure",
-        category: "Manicure",
-        name: "Luxury Manicure",
-        description:
-          "An indulgent treatment with premium products, deep hydration and an extended massage.",
-        features: ["Premium product range", "Deep hydration", "Extended hand massage"],
-      },
-      {
-        id: "cuticle-care",
-        category: "Manicure",
-        name: "Cuticle Care",
-        description:
-          "Focused care for healthy, neat cuticles — the foundation of great-looking nails.",
-        features: ["Gentle softening", "Precise trimming", "Nourishing oil finish"],
-      },
-      {
-        id: "hand-massage",
-        category: "Manicure",
-        name: "Hand Massage",
-        description:
-          "A relaxing standalone or add-on massage to ease tension and improve circulation.",
-        features: ["Tension relief", "Improved circulation", "Nourishing cream"],
-      },
-      {
-        id: "hand-polishing",
-        category: "Manicure",
-        name: "Hand Polishing",
-        description:
-          "Removes dead skin and brightens hands for a visibly smoother, fresher look.",
-        features: ["Dead skin removal", "Brighter skin tone", "Smooth, soft finish"],
-      },
-      {
-        id: "paraffin-wax-manicure",
-        category: "Manicure",
-        name: "Paraffin Wax Manicure",
-        description:
-          "Warm paraffin wax therapy that deeply moisturizes and softens tired hands.",
-        features: ["Intense moisture therapy", "Deep hydration", "Soft, rejuvenated skin"],
-      },
-      {
-        id: "french-pedicure",
-        category: "Pedicure",
-        name: "French Pedicure",
-        description:
-          "A clean, elegant look with natural tones and crisp white tips, suited to any occasion.",
-        features: ["Natural tone base", "Crisp white tips", "Timeless finish"],
-      },
-      {
-        id: "luxury-pedicure",
-        category: "Pedicure",
-        name: "Luxury Pedicure",
-        description:
-          "A premium foot care experience with advanced exfoliation, hydration and an extended massage.",
-        features: ["Advanced exfoliation", "Hydration therapy", "Extended foot massage"],
-      },
-      {
-        id: "foot-spa",
-        category: "Pedicure",
-        name: "Foot Spa",
-        description:
-          "A soothing warm-water soak that relaxes tired muscles and eases daily stress.",
-        features: ["Warm water therapy", "Muscle relaxation", "Improved circulation"],
-      },
-      {
-        id: "callus-removal",
-        category: "Pedicure",
-        name: "Callus Removal",
-        description:
-          "Gently smooths hardened, rough skin for more comfortable, healthier-looking feet.",
-        features: ["Smooths hardened skin", "Reduces roughness", "Improved comfort"],
-      },
-      {
-        id: "heel-crack-treatment",
-        category: "Pedicure",
-        name: "Heel Crack Treatment",
-        description: "Deep hydration and targeted care to soften dry, cracked heels.",
-        features: ["Deep hydration", "Targeted heel care", "Softer, smoother skin"],
-      },
-      {
-        id: "foot-polishing",
-        category: "Pedicure",
-        name: "Foot Polishing",
-        description:
-          "Removes dead skin and brightens feet for a smoother, refreshed finish.",
-        features: ["Dead skin removal", "Brighter skin tone", "Smooth finish"],
-      },
-      {
-        id: "paraffin-wax-pedicure",
-        category: "Pedicure",
-        name: "Paraffin Wax Pedicure",
-        description:
-          "Warm paraffin wax therapy that locks in moisture for soft, hydrated feet.",
-        features: ["Intense moisture therapy", "Deep hydration", "Soft, soothed skin"],
-      },
-      {
-        id: "mens-classic-mani-pedi",
-        category: "For Men",
-        name: "Classic Manicure & Pedicure",
-        description:
-          "Essential all-round grooming for hands and feet — nail shaping, cuticle care and hydration.",
-        features: ["Nail shaping & cuticle care", "Hydrating scrub", "Neat, groomed finish"],
-      },
-      {
-        id: "mens-spa-mani-pedi",
-        category: "For Men",
-        name: "Spa Manicure & Pedicure",
-        description:
-          "Extra relaxation and care with exfoliation, a hydrating scrub and massage for hands and feet.",
-        features: ["Hand & foot exfoliation", "Hydrating scrub", "Relaxing massage"],
-      },
-      {
-        id: "nail-cleaning-shaping",
-        category: "For Men",
-        name: "Nail Cleaning & Shaping",
-        description: "A quick, effective grooming service for clean, well-shaped nails.",
-        features: ["Nail cleaning", "Precise shaping", "Tidy, groomed finish"],
       },
     ],
-    process: [
-      {
-        step: 1,
-        title: "Book Your Slot",
-        description: "Reach out on WhatsApp, call, or online and pick your treatment.",
-      },
-      {
-        step: 2,
-        title: "Quick Consultation",
-        description: "Tell us what you're after — shape, polish, or anything to watch for.",
-      },
-      {
-        step: 3,
-        title: "Relax & Enjoy",
-        description: "Sit back while our technicians take care of the rest.",
-      },
-      {
-        step: 4,
-        title: "Aftercare Tips",
-        description: "Leave with polish that lasts and tips to keep it looking fresh.",
-      },
-    ],
+    highlightGroup: {
+      title: "More Than Just Beautiful Nails",
+      description:
+        "Regular manicure and pedicure appointments don't just improve your appearance — they also help maintain healthier nails and provide an opportunity to relax and recharge.",
+      items: [
+        {
+          title: "Healthier Nails",
+          description:
+            "Routine professional nail care supports stronger nails, healthier cuticles, and improved nail growth while reducing common concerns like dryness and brittleness.",
+        },
+        {
+          title: "Softer, Smoother Skin",
+          description:
+            "Deep cleansing, exfoliation, and nourishing treatments leave your hands and feet feeling soft, refreshed, and beautifully cared for.",
+        },
+        {
+          title: "Relaxation & Wellbeing",
+          description:
+            "Take time out for yourself and enjoy a calming experience that helps relieve everyday stress while giving your hands and feet the attention they deserve.",
+        },
+        {
+          title: "A Well-Groomed Appearance",
+          description:
+            "Beautifully maintained nails complete your overall look, helping you feel polished and confident in every professional, social, or special occasion.",
+        },
+      ],
+    },
+    expert: {
+      title: "The Expert Behind Your Nail Care",
+      name: "Priyanka",
+      role: "Senior Beauty Therapist",
+      image: "/images/our-team/team3.webp",
+      bio: [
+        "Priyanka believes beautiful nails start with healthy nail care. Her gentle approach, attention to detail, and commitment to hygiene ensure every manicure and pedicure is both relaxing and beautifully finished.",
+        "Whether you're visiting for regular nail maintenance or preparing for a special occasion, Priyanka focuses on delivering treatments that leave your hands and feet healthy, refreshed, and beautifully groomed.",
+      ],
+      expertise: [
+        "Professional Manicures",
+        "Professional Pedicures",
+        "French Nail Care",
+        "Gelish Nail Care",
+        "Hand & Foot Treatments",
+        "Nail Care Consultations",
+      ],
+    },
+    faqTitle: "Before Your Appointment",
     faqs: [
       {
         id: "mp-1",
-        question: "How long does a manicure & pedicure session take?",
+        question: "How often should I get a manicure or pedicure?",
         answer:
-          "Most sessions take between 45 minutes to 1.5 hours depending on the treatment you choose.",
+          "For healthy nails and well-maintained hands and feet, we recommend scheduling a manicure or pedicure every two to four weeks, depending on your lifestyle and nail growth.",
       },
       {
         id: "mp-2",
-        question: "Can I get gel polish removed and reapplied?",
+        question: "What's the difference between Classic and Gelish?",
         answer:
-          "Yes, gel removal is included when you book a new gel manicure or pedicure with us.",
+          "Classic manicures and pedicures use traditional nail polish, while Gelish provides a longer-lasting, chip-resistant finish with superior shine and durability.",
       },
       {
         id: "mp-3",
-        question: "Are your tools sanitized between clients?",
-        answer: "Yes, all tools are sanitized after every single client.",
+        question: "What is a French Manicure?",
+        answer:
+          "A French Manicure features a natural-looking base with elegant white tips, creating a timeless style that's suitable for both everyday wear and formal occasions.",
       },
       {
         id: "mp-4",
-        question: "Can I book a manicure and pedicure together?",
-        answer: "Absolutely — most clients combine both in a single visit to save time.",
+        question: "Do you follow proper hygiene standards?",
+        answer:
+          "Absolutely. Every tool is thoroughly cleaned and sanitised before each treatment to ensure a safe and hygienic experience.",
+      },
+      {
+        id: "mp-5",
+        question: "Can I combine my manicure and pedicure in one appointment?",
+        answer:
+          "Yes. Many clients choose to enjoy both services together for a complete hand and foot care experience.",
+      },
+      {
+        id: "mp-6",
+        question: "Which manicure or pedicure is right for me?",
+        answer:
+          "Our beauty specialists will assess your nail condition, lifestyle, and preferences before recommending the most suitable treatment for your needs.",
       },
     ],
+    ctaTitle: "Healthy Nails Start with Professional Care",
+    ctaDescription:
+      "Whether you're maintaining your regular nail care routine or simply taking time to relax and recharge, our experienced beauty specialists are here to provide professional manicure and pedicure services that leave your hands and feet healthy, refreshed, and beautifully cared for.",
+    metaTitle:
+      "Manicure & Pedicure in Dubai | Classic, French & Gelish Nail Care | VR Unisex Salon",
+    metaDescription:
+      "Enjoy professional manicure and pedicure services in Dubai at VR Unisex Salon. Choose from Classic, French, and Gelish manicures and pedicures, nail maintenance, paraffin treatments, heel peel pedicures, and expert hand & foot care in a hygienic, relaxing salon.",
   },
   {
     id: "2",
@@ -1837,22 +1787,22 @@ export const navLinks: NavLink[] = [
 export const pricingPackages: PricingPackage[] = [
   {
     id: "1",
-    name: "Glow Package",
-    price: 1999,
-    features: ["Haircut", "Head Spa", "Manicure", "Threading"],
+    name: "Couple's Mani-Pedi + Foot Spa",
+    price: 299,
+    features: ["Couple's Mani-Pedi", "Foot Spa"],
   },
   {
     id: "2",
-    name: "Bridal Package",
+    name: "Anti-Frizz package details",
     price: 7999,
-    features: ["Makeup", "Hair Styling", "Nail Extensions", "Facial", "Draping"],
+    features: ["Summer offer to control a freeziness and damage hair with healthy hair", "Keratin", "Anti frizz treatment", "Protein", "Botox", "Smoothening", "straightening", "nanoplastria", "Botox", "Any length any volume"],
     popular: true,
   },
   {
     id: "3",
-    name: "Gents Grooming Package",
-    price: 999,
-    features: ["Haircut", "Beard Styling", "Face Cleanup"],
+    name: "Men's 4-step Grooming Ritual",
+    price: 79,
+    features: ["Get the ultimate 4-step grooming experience that feels like a luxury ritual, priced for the smart gentleman.", "Bespoke Haircut & Professional Styling", "Deep Cleansing Hairwash", "Crisp Shave & Beard Line-up", "Soothing Hot Towel Finish"],
   },
 ];
 

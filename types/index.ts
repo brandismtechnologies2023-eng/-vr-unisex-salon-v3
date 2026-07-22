@@ -71,6 +71,8 @@ export interface ServiceExpert {
   bio: string[];
   expertiseLabel?: string;
   expertise: string[];
+  // Heading for the section; defaults to "Meet Your Expert".
+  title?: string;
 }
 
 export interface Service {
@@ -94,6 +96,7 @@ export interface Service {
   careTips?: ServiceCareTips;
   expert?: ServiceExpert;
   treatments?: ServiceTreatment[];
+  treatmentsTitle?: string;
   treatmentsSubtitle?: string;
   // Wider cards suit treatments carrying a tagline/best-for/result; the
   // default 3 suits shorter ones.
@@ -102,10 +105,14 @@ export interface Service {
   processTitle?: string;
   processSubtitle?: string;
   faqs?: FaqItem[];
+  faqTitle?: string;
   // Wording for the shared closing CTA; its layout and colours live in the
   // ContactCta component so a restyle there applies site-wide.
   ctaTitle?: string;
   ctaDescription?: string;
+  // Search-result copy; falls back to the title and description.
+  metaTitle?: string;
+  metaDescription?: string;
 }
 
 export interface TeamMember {

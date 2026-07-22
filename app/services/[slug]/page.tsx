@@ -20,8 +20,8 @@ export async function generateMetadata({
   if (!service) return {};
 
   return {
-    title: `${service.title} | ${siteConfig.name}`,
-    description: service.description,
+    title: service.metaTitle ?? `${service.title} | ${siteConfig.name}`,
+    description: service.metaDescription ?? service.description,
   };
 }
 
