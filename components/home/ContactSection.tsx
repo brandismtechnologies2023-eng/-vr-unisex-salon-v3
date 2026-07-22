@@ -16,6 +16,18 @@ export default function ContactSection() {
       {/* 5-column grid so the map column takes 40% and the form 60%. */}
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-5">
         <div className="lg:col-span-2">
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold text-secondary sm:text-3xl">
+              Your Next Beauty Experience Starts Here
+            </h2>
+            <p className="mt-4 text-zinc-600">
+              Whether you&apos;re planning your next appointment or visiting us
+              for the first time, we&apos;re here to make the process simple and
+              stress-free. Complete the form, and our team will contact you
+              shortly to confirm your appointment and help you plan your visit.
+            </p>
+          </div>
+
           <ul className="mb-8 space-y-3">
             {points.map((point) => (
               <li
@@ -41,21 +53,9 @@ export default function ContactSection() {
         </div>
 
         <div className="lg:col-span-3">
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold text-secondary sm:text-3xl">
-              Your Next Beauty Experience Starts Here
-            </h2>
-            <p className="mt-4 text-zinc-600">
-              Whether you&apos;re planning your next appointment or visiting us
-              for the first time, we&apos;re here to make the process simple and
-              stress-free. Complete the form, and our team will contact you
-              shortly to confirm your appointment and help you plan your visit.
-            </p>
-          </div>
-
           <div className="rounded-2xl border border-zinc-100 bg-white p-6 shadow-sm sm:p-8">
-            {/* The intro above already explains the form, so this header
-                stays short rather than repeating it. */}
+            {/* The intro in the left column already explains the form, so
+                this header stays short rather than repeating it. */}
             <div className="mb-8 text-center">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-third">
                 Schedule Appointment
