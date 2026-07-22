@@ -3,14 +3,17 @@
 import { useState } from "react";
 import Image from "next/image";
 import {
+  BookOpen,
   CalendarCheck,
   Check,
+  ClipboardList,
   Clock,
   Droplets,
   Gem,
   Hand,
   HeartPulse,
   Leaf,
+  Scissors,
   ShieldCheck,
   Sparkles,
   Star,
@@ -28,6 +31,9 @@ import { siteConfig, whatsappLink } from "@/lib/site-config";
 import type { Service } from "@/types";
 
 const benefitIcons: Record<string, LucideIcon> = {
+  ClipboardList,
+  Scissors,
+  BookOpen,
   Droplets,
   Wind,
   HeartPulse,
@@ -148,7 +154,8 @@ export default function ServiceDetail({ service }: ServiceDetailProps) {
         <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Why It Works"
-            title={`Benefits of ${service.title}`}
+            title={service.benefitsTitle ?? `Benefits of ${service.title}`}
+            subtitle={service.benefitsSubtitle}
           />
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {service.benefits.map((benefit) => {
@@ -233,6 +240,152 @@ export default function ServiceDetail({ service }: ServiceDetailProps) {
               ))}
             </div>
           </div>
+        </section>
+      )}
+
+      {service.comparison && (
+        <section className="bg-primary/15 py-20">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <SectionHeading
+              eyebrow="Find Your Match"
+              title={service.comparison.title}
+              subtitle={service.comparison.description}
+            />
+            <div className="overflow-hidden rounded-2xl border border-zinc-100 bg-white">
+              <table className="w-full text-left text-sm">
+                <thead className="bg-secondary text-white">
+                  <tr>
+                    <th className="px-6 py-4 font-semibold">
+                      {service.comparison.goalLabel ?? "Your Goal"}
+                    </th>
+                    <th className="px-6 py-4 font-semibold">
+                      {service.comparison.recommendedLabel ?? "Recommended"}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-zinc-100">
+                  {service.comparison.rows.map((row) => (
+                    <tr key={row.goal}>
+                      <td className="px-6 py-4 text-zinc-700">{row.goal}</td>
+                      <td className="px-6 py-4 font-medium text-secondary">
+                        {row.recommended}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {service.highlightGroup && (
+        <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          <SectionHeading
+            eyebrow="The Difference"
+            title={service.highlightGroup.title}
+            subtitle={service.highlightGroup.description}
+          />
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-2">
+            {service.highlightGroup.items.map((item, i) => (
+              <div key={item.title} className="flex gap-4 border-t border-third/20 pt-6">
+                <span className="text-2xl font-bold leading-none text-primary">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 className="font-semibold text-secondary">{item.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-zinc-600">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {service.expert && (
+        <section className="bg-primary/15 py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <SectionHeading eyebrow="Your Specialist" title="Meet Your Expert" />
+            <div className="mx-auto flex max-w-5xl flex-col gap-8 rounded-3xl border border-primary/40 bg-white p-6 lg:flex-row lg:items-center lg:gap-10 lg:p-8">
+              <div className="relative mx-auto aspect-square w-full max-w-64 shrink-0 overflow-hidden rounded-2xl bg-primary/40 lg:mx-0">
+                <Image
+                  src={service.expert.image}
+                  alt={service.expert.name}
+                  fill
+                  sizes="256px"
+                  className="object-cover"
+                />
+              </div>
+
+              <div className="flex-1">
+                <h3 className="text-2xl font-bold text-secondary">
+                  {service.expert.name}
+                </h3>
+                <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-third">
+                  {service.expert.role}
+                </p>
+                <span className="mt-4 block h-px w-12 bg-third/40" />
+                {service.expert.bio.map((paragraph) => (
+                  <p key={paragraph} className="mt-4 text-sm leading-relaxed text-zinc-600">
+                    {paragraph}
+                  </p>
+                ))}
+
+                <p className="mt-6 text-sm font-semibold text-secondary">
+                  {service.expert.expertiseLabel ?? "Areas of Expertise"}
+                </p>
+                <ul className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                  {service.expert.expertise.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-zinc-700">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-third" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
+                <Button
+                  href={whatsappLink(
+                    `Hi ${siteConfig.shortName}! I'd like to book a ${service.title} consultation.`
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  size="sm"
+                  className="mt-7 bg-[#25D366] text-white hover:bg-[#1ebe5d]"
+                  icon={<WhatsAppIcon className="h-4 w-4" />}
+                >
+                  Book Your Consultation
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {service.careTips && (
+        <section className="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">
+          <SectionHeading
+            eyebrow="Aftercare"
+            title={service.careTips.title}
+            subtitle={service.careTips.description}
+          />
+          <ul className="space-y-3">
+            {service.careTips.tips.map((tip) => (
+              <li
+                key={tip}
+                className="flex items-start gap-3 rounded-xl border border-zinc-100 bg-white p-4 text-sm text-zinc-700"
+              >
+                <Check className="mt-0.5 h-4 w-4 shrink-0 text-third" />
+                {tip}
+              </li>
+            ))}
+          </ul>
+          {service.careTips.note && (
+            <p className="mt-6 text-center text-sm text-zinc-500">
+              {service.careTips.note}
+            </p>
+          )}
         </section>
       )}
 

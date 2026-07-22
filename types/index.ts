@@ -40,6 +40,39 @@ export interface ServiceBenefit {
   description: string;
 }
 
+// A "which option suits you" table pairing a goal with a recommendation.
+export interface ServiceComparison {
+  title: string;
+  description?: string;
+  goalLabel?: string;
+  recommendedLabel?: string;
+  rows: { goal: string; recommended: string }[];
+}
+
+// A plain titled group of points — for sections that read as reasons or
+// outcomes rather than the icon-led benefits grid.
+export interface ServiceHighlightGroup {
+  title: string;
+  description?: string;
+  items: { title: string; description: string }[];
+}
+
+export interface ServiceCareTips {
+  title: string;
+  description?: string;
+  tips: string[];
+  note?: string;
+}
+
+export interface ServiceExpert {
+  name: string;
+  role: string;
+  image: string;
+  bio: string[];
+  expertiseLabel?: string;
+  expertise: string[];
+}
+
 export interface Service {
   id: string;
   slug: string;
@@ -54,6 +87,12 @@ export interface Service {
   highlights?: string[];
   journeyIntro?: { title: string; description: string };
   benefits?: ServiceBenefit[];
+  benefitsTitle?: string;
+  benefitsSubtitle?: string;
+  comparison?: ServiceComparison;
+  highlightGroup?: ServiceHighlightGroup;
+  careTips?: ServiceCareTips;
+  expert?: ServiceExpert;
   treatments?: ServiceTreatment[];
   treatmentsSubtitle?: string;
   // Wider cards suit treatments carrying a tagline/best-for/result; the

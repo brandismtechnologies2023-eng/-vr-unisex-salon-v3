@@ -12,22 +12,22 @@ import type {
 // Placeholder content. Will be replaced by Sanity-backed queries once the
 // studio schemas are set up.
 
-export const services: Service[] = [
+const coreServices: Service[] = [
   {
     id: "1",
     slug: "manicure-pedicure",
-    title: "Manicure & Pedicure",
+    title: "Manicure & Pedicure in Dubai",
     description: "Relaxing hand and foot care with premium products.",
     startingPrice: 499,
-    tagline: "Nail Care",
+    // tagline: "Nail Care",
     longDescription:
-      "From a quick tidy-up to a full spa-style treatment, our manicure and pedicure menu is built around clean, careful technique and premium products — so your hands and feet leave looking (and feeling) their best.",
-    highlights: [
-      "Certified nail technicians",
-      "Sanitized tools for every client",
-      "Premium products",
-      "Relaxing salon ambience",
-    ],
+      "Healthy, well-maintained hands and feet are an important part of looking and feeling your best. At VR Unisex Salon, our professional manicure and pedicure services go beyond nail polishing—they're designed to improve nail health, nourish your skin, and provide a relaxing self-care experience. Whether you're booking your regular nail maintenance or treating yourself to some well-deserved pampering, our beauty specialists deliver every service with precision, hygiene, and exceptional care. ",
+    // highlights: [
+    //   "Certified nail technicians",
+    //   "Sanitized tools for every client",
+    //   "Premium products",
+    //   "Relaxing salon ambience",
+    // ],
     treatmentsSubtitle:
       "Pick the option that fits your time and how much pampering you're after.",
     treatments: [
@@ -1574,6 +1574,252 @@ export const services: Service[] = [
   },
 ];
 
+export const hairExtensionsService: Service = {
+  id: "13",
+  slug: "hair-extensions",
+  title: "Hair Extensions",
+  description: "Add instant length, volume and confidence with premium extensions.",
+  startingPrice: 1499,
+  // TODO: replace with public/images/services/hair-extensions.webp once the
+  // real photo is supplied — this is a stand-in showing long hair.
+  image: "/images/services/women-haircut.webp",
+  tagline: "Length & Volume",
+  heroBadge: "Premium Extension Techniques",
+  heroSubtitle: "Fuller, Longer, Naturally Beautiful Hair",
+  longDescription:
+    "Transform your look with fuller, longer and naturally beautiful hair. Our professional hair extension services add instant length, volume and confidence while blending seamlessly with your natural hair. Whether you're looking for a subtle enhancement or a complete transformation, our specialists help you achieve a look that feels effortlessly beautiful.",
+  highlights: [
+    "Personalised hair consultation",
+    "Colour & texture matched",
+    "Premium extension products",
+    "Aftercare guidance included",
+  ],
+  benefitsTitle: "Why Choose VR Salon for Hair Extensions",
+  benefitsSubtitle:
+    "Beautiful extensions require more than length — they need expert consultation, precise application and a personalised approach, so the result looks natural and suits your lifestyle.",
+  benefits: [
+    {
+      icon: "ClipboardList",
+      title: "Personalised Hair Consultation",
+      description:
+        "Every appointment begins with understanding your natural hair, lifestyle and the look you want to achieve.",
+    },
+    {
+      icon: "Sparkles",
+      title: "Natural-Looking Results",
+      description:
+        "We match the colour, texture and placement of your extensions for a seamless finish that blends with your own hair.",
+    },
+    {
+      icon: "Gem",
+      title: "Premium Hair Quality",
+      description:
+        "We work with high-quality extension products that provide natural movement, long-lasting wear and exceptional comfort.",
+    },
+    {
+      icon: "Scissors",
+      title: "Expert Application",
+      description:
+        "Our specialists apply every technique carefully to protect your natural hair while achieving stunning results.",
+    },
+    {
+      icon: "BookOpen",
+      title: "Styling & Aftercare Guidance",
+      description:
+        "We'll show you how to maintain your extensions so they keep looking beautiful between salon visits.",
+    },
+  ],
+  treatmentsSubtitle:
+    "Every client has different hair goals — we'll recommend the technique best suited to your hair type and lifestyle.",
+  treatmentColumns: 2,
+  treatments: [
+    {
+      id: "clip-in-hair-extensions",
+      category: "Extensions",
+      name: "Clip-in Hair Extensions",
+      tagline: "Instant Transformation, No Commitment",
+      description:
+        "Perfect if you love changing your hairstyle for parties, weddings, photoshoots, vacations or special occasions — on and off whenever you like.",
+      featuresLabel: "Ideal for",
+      features: [
+        "Temporary hair length",
+        "Added hair volume",
+        "Weddings & parties",
+        "Easy application and removal",
+      ],
+    },
+    {
+      id: "tape-hair-extensions",
+      category: "Extensions",
+      name: "Tape Hair Extensions",
+      tagline: "Lightweight & Discreet for Everyday Wear",
+      description:
+        "Designed for comfortable daily wear, they blend naturally with your existing hair while adding beautiful length and fullness.",
+      featuresLabel: "Ideal for",
+      features: [
+        "Fine to medium hair",
+        "Natural everyday volume",
+        "Longer hairstyles",
+        "Lightweight comfort",
+      ],
+    },
+    {
+      id: "keratin-hair-extensions",
+      category: "Extensions",
+      name: "Keratin Hair Extensions",
+      tagline: "Premium, Durable & Natural Movement",
+      description:
+        "One of the most popular premium methods, offering durable, natural-looking results with excellent movement and long-lasting performance.",
+      featuresLabel: "Ideal for",
+      features: [
+        "Long-term hair enhancement",
+        "Natural movement",
+        "Fuller hairstyles",
+        "Premium transformations",
+      ],
+    },
+    {
+      id: "microlink-hair-extensions",
+      category: "Extensions",
+      name: "Microlink Hair Extensions",
+      tagline: "No Glue, No Heat, Fully Flexible",
+      description:
+        "Applied without glue or heat, making them a flexible option if you want natural-looking extensions with easy maintenance.",
+      featuresLabel: "Ideal for",
+      features: [
+        "Natural appearance",
+        "Hair length & volume",
+        "Flexible styling",
+        "Reusable extension systems",
+      ],
+    },
+  ],
+  comparison: {
+    title: "Which Hair Extension Is Right for You?",
+    description:
+      "Not sure which method suits your hair? During your consultation we assess your hair type, lifestyle and styling preferences before recommending the most suitable solution.",
+    goalLabel: "Your Hair Goal",
+    recommendedLabel: "Recommended Extension",
+    rows: [
+      { goal: "Temporary hair transformation", recommended: "Clip-in Hair Extensions" },
+      { goal: "Everyday length & volume", recommended: "Tape Hair Extensions" },
+      { goal: "Premium long-term results", recommended: "Keratin Hair Extensions" },
+      { goal: "Flexible & reusable solution", recommended: "Microlink Hair Extensions" },
+    ],
+  },
+  highlightGroup: {
+    title: "Why Clients Love Hair Extensions",
+    description:
+      "Professional extensions offer far more than added length — they open up styling possibilities while boosting confidence and enhancing your overall appearance.",
+    items: [
+      {
+        title: "Instant Hair Length",
+        description: "Achieve long, flowing hair in just one appointment.",
+      },
+      {
+        title: "Fuller, Thicker Hair",
+        description:
+          "Extensions add natural-looking body and volume, especially for fine or thin hair.",
+      },
+      {
+        title: "Endless Styling Possibilities",
+        description:
+          "Enjoy braids, curls, ponytails, waves and elegant updos with greater confidence.",
+      },
+      {
+        title: "Confidence Boost",
+        description:
+          "Many clients choose extensions because fuller, healthier-looking hair helps them feel more confident every day.",
+      },
+      {
+        title: "Natural Appearance",
+        description:
+          "Professionally applied extensions blend beautifully with your natural hair for seamless, elegant results.",
+      },
+    ],
+  },
+  expert: {
+    name: "Raju",
+    role: "Founder & Hair Expert",
+    image: "/images/our-team/team2.webp",
+    bio: [
+      "Raju believes hair extensions should enhance your natural beauty rather than overpower it. Every consultation begins with understanding your hair type, lifestyle and desired look before recommending the most suitable method.",
+      "His focus is always on creating beautiful, natural-looking transformations while maintaining the health of your natural hair.",
+    ],
+    expertise: [
+      "Clip-in Hair Extensions",
+      "Tape Hair Extensions",
+      "Keratin Hair Extensions",
+      "Microlink Hair Extensions",
+      "Hair Volume Enhancement",
+      "Hair Length Transformations",
+      "Hair Styling Consultation",
+    ],
+  },
+  careTips: {
+    title: "Hair Extension Care Tips",
+    description:
+      "Proper aftercare keeps your extensions beautiful while protecting your natural hair. We recommend:",
+    tips: [
+      "Using salon-recommended haircare products",
+      "Brushing gently with a suitable extension brush",
+      "Avoiding excessive pulling or tension",
+      "Following your stylist's maintenance schedule",
+      "Returning for professional maintenance appointments",
+    ],
+    note: "Our specialists will provide personalised aftercare instructions before you leave the salon.",
+  },
+  faqs: [
+    {
+      id: "he-1",
+      question: "Which type of hair extension is best for me?",
+      answer:
+        "It depends on your hair type, lifestyle and desired result. During your consultation we'll recommend whether clip-in, tape, keratin or microlink extensions suit you best.",
+    },
+    {
+      id: "he-2",
+      question: "Will hair extensions damage my natural hair?",
+      answer:
+        "When professionally applied and maintained correctly, extensions can be worn safely. Our specialists use techniques designed to protect the health of your natural hair.",
+    },
+    {
+      id: "he-3",
+      question: "How long do hair extensions last?",
+      answer:
+        "The lifespan depends on the method you choose and how well they're maintained. We'll explain the expected longevity during your consultation.",
+    },
+    {
+      id: "he-4",
+      question: "Can I style my hair with extensions?",
+      answer:
+        "Absolutely. Extensions let you enjoy curls, waves, braids, ponytails and many other styles with greater length and volume.",
+    },
+    {
+      id: "he-5",
+      question: "Will the extensions match my natural hair?",
+      answer:
+        "Yes. We carefully match the colour, texture and placement so your extensions blend naturally with your own hair.",
+    },
+    {
+      id: "he-6",
+      question: "How do I care for my hair extensions?",
+      answer:
+        "We provide personalised aftercare instructions, product recommendations and maintenance guidance to keep your extensions looking beautiful.",
+    },
+    {
+      id: "he-7",
+      question: "Do I need a consultation before getting hair extensions?",
+      answer:
+        "Yes. Every appointment begins with a consultation so we can understand your goals and recommend the most suitable method.",
+    },
+  ],
+  ctaTitle: "Love Your Hair Even More",
+  ctaDescription:
+    "Whether you're dreaming of longer hair, more volume or a complete transformation, our specialists are here to create beautiful, natural-looking results tailored to your hair type and personal style.",
+};
+
+export const services: Service[] = [...coreServices, hairExtensionsService];
+
 export const navLinks: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
@@ -1614,22 +1860,22 @@ export const team: TeamMember[] = [
   {
     id: "1",
     name: "Vishal",
-    role: "Founder & Master Stylist",
-    bio: "Vishal began his hairdressing journey at 18, turning passion into a global career across Singapore, Malaysia, and Australia. In 2018, he moved to Dubai, honing his craft with luxury brands like Sofitel, Queen Elizabeth 2, and DoubleTree by Hilton. With his brother and a close-knit team, he founded VR Unisex Salon — a space built on passion, professionalism, and creativity, where clients enjoy world-class expertise, personalized care, and confidence through great style.",
+    role: "Founder & Hair Expert",
+    bio: "Starting his journey in hairdressing at just 18, Vishal transformed his passion into an international career spanning Singapore, Malaysia, Australia, and Dubai. With 8+ years of industry experience, he combines creativity, precision, and personalised consultations to create timeless looks while leading VR Unisex Salon with a vision of delivering world-class beauty experiences.",
     image: "/images/our-team/team1.webp",
   },
   {
     id: "2",
     name: "Raju",
-    role: "Co-Founder & Hair Stylist",
-    bio: "Raju began his journey in sports and video analysis but soon discovered his passion for hairstyling, inspired by his brother Vishal. Starting as a junior hairdresser, his dedication and creativity led him to train with global brands, travel internationally, and master advanced styling and coloring techniques. Today, as co-founder of VR Unisex Salon with Vishal, Raju brings precision, artistry, and a personal touch to every client's experience.",
+    role: "Founder & Beauty Expert",
+    bio: "Inspired by his brother Vishal, Raju discovered his passion for hairstyling and dedicated himself to mastering modern techniques through international learning and hands-on experience. His commitment to innovation, quality, and personalised care continues to shape the welcoming experience that defines VR Unisex Salon.",
     image: "/images/our-team/team2.webp",
   },
   {
     id: "3",
     name: "Priyanka",
-    role: "Founder & Beauty Expert",
-    bio: "Priyanka is a passionate beauty professional who turned her childhood love for beauty into a successful career. After mastering advanced skincare and beauty techniques in Dubai with international brands, she founded VR Unisex Salon. Her mission is to help every client understand their skin, choose the right care, and feel confident inside and out.",
+    role: "Senior Beauty Therapist",
+    bio: "Driven by her passion for beauty and wellness, Priyanka refined her expertise through professional training with internationally recognised beauty brands in Dubai. Known for her warm personality and personalised approach, she creates relaxing beauty experiences that leave every client feeling confident and beautifully cared for.",
     image: "/images/our-team/team3.webp",
   },
 ];
@@ -1848,24 +2094,34 @@ export const instagramPosts: InstagramPost[] = Array.from({ length: 30 }).map(
 export const faqs: FaqItem[] = [
   {
     id: "1",
-    question: "Do I need to book an appointment in advance?",
+    question: "Do I need to book an appointment?",
     answer:
-      "Walk-ins are welcome, but we recommend booking in advance via WhatsApp or call to avoid waiting.",
+      "Appointments are recommended to secure your preferred stylist and time. Walk-ins are always welcome based on availability. ",
   },
   {
     id: "2",
-    question: "What safety and hygiene measures do you follow?",
+    question: "Do you offer services for both men and women?",
     answer:
-      "All tools are sanitized after every use and our stations are cleaned throughout the day.",
+      "Yes. VR Unisex Salon is a premium unisex salon offering professional hair, beauty, nail, and grooming experiences for both men and women. ",
   },
   {
     id: "3",
-    question: "Do you offer services for both men and women?",
-    answer: "Yes, VR Unisex Salon offers a full range of services for everyone.",
+    question: "Which salon products do you use?",
+    answer: "We use carefully selected professional salon brands trusted by beauty experts worldwide to ensure healthy, beautiful, and long-lasting results.",
   },
   {
     id: "4",
-    question: "What payment methods do you accept?",
-    answer: "We accept cash, all major cards, and UPI payments.",
+    question: "Is valet parking available?",
+    answer: "Yes. Complimentary valet parking is available for all our guests. ",
+  },
+  {
+    id: "5",
+    question: "Where is VR Unisex Salon located?",
+    answer: "We're conveniently located inside Crown Park Hotel, just a short walk from BurJuman Metro Station, making us easily accessible from across Dubai.",
+  },
+  {
+    id: "6",
+    question: "How can I book an appointment?",
+    answer: "You can book your appointment online, through WhatsApp, or by calling our team directly. We'll be happy to assist you.",
   },
 ];
