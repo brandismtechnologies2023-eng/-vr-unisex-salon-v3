@@ -3,11 +3,16 @@ import { Resend } from "resend";
 import { z } from "zod";
 import { siteConfig } from "@/lib/site-config";
 
+// Mirrors the appointment form. Service/date/time are optional so a plain
+// enquiry (name, email, phone, message) still validates.
 const contactSchema = z.object({
   name: z.string().min(2),
   email: z.string().email(),
-  phone: z.string().min(10),
-  message: z.string().min(10),
+  phone: z.string().min(7),
+  service: z.string().optional(),
+  date: z.string().optional(),
+  time: z.string().optional(),
+  message: z.string().optional(),
 });
 
 export async function POST(request: Request) {
@@ -29,15 +34,27 @@ export async function POST(request: Request) {
     );
   }
 
-  const { name, email, phone, message } = parsed.data;
+  const { name, email, phone, service, date, time, message } = parsed.data;
   const resend = new Resend(apiKey);
+
+  const lines = [
+    `Name: ${name}`,
+    `Email: ${email}`,
+    `Phone: ${phone}`,
+    service && `Service: ${service}`,
+    date && `Preferred date: ${date}`,
+    time && `Preferred time: ${time}`,
+    message && `\n${message}`,
+  ].filter(Boolean);
 
   const { error } = await resend.emails.send({
     from: `${siteConfig.name} Website <onboarding@resend.dev>`,
     to: toEmail,
     replyTo: email,
-    subject: `New enquiry from ${name}`,
-    text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`,
+    subject: service
+      ? `Appointment request: ${service} — ${name}`
+      : `New enquiry from ${name}`,
+    text: lines.join("\n"),
   });
 
   if (error) {

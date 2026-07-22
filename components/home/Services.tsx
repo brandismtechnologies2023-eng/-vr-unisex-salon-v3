@@ -29,7 +29,9 @@ export default function Services({ limit, showViewAll = false, as }: ServicesPro
         subtitle="From haircuts to bridal makeup, explore our full range of salon services."
       />
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Flex-wrap rather than grid so a trailing partial row centres
+          instead of hugging the left edge. */}
+      <div className="flex flex-wrap justify-center gap-6">
         {shown.map((service, i) => {
           // Only the newly revealed cards animate; the initial six are
           // already on screen and shouldn't re-run on expand.
@@ -38,7 +40,7 @@ export default function Services({ limit, showViewAll = false, as }: ServicesPro
           return (
             <motion.div
               key={service.id}
-              className="h-full"
+              className="w-full sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)]"
               initial={isRevealed ? { opacity: 0, y: 16 } : false}
               animate={{ opacity: 1, y: 0 }}
               transition={{
