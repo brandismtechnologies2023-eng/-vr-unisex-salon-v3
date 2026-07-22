@@ -48,7 +48,7 @@ export default function InstagramPostCard({ post, onClick }: InstagramPostCardPr
             alt={post.caption || "Instagram post"}
             loading="lazy"
             draggable={false}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            className="h-full w-full scale-110 object-cover transition-transform duration-300 group-hover:scale-115"
           />
         ) : (
           <ImagePlaceholder className="h-full w-full" />
