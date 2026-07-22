@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import {
   CalendarDays,
+  ChevronDown,
   Clock,
   Loader2,
   Lock,
@@ -48,9 +49,15 @@ function buildTimeSlots() {
 }
 
 const inputClass =
-  "w-full rounded-lg border border-zinc-200 bg-white py-2.5 pl-10 pr-4 text-sm text-secondary placeholder:text-zinc-400 focus:border-secondary focus:outline-none focus:ring-1 focus:ring-secondary";
-const labelClass = "mb-1.5 block text-sm font-medium text-secondary";
-const iconClass = "pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400";
+  "w-full rounded-xl border border-transparent bg-primary/10 py-3 pl-11 pr-4 text-sm text-secondary transition-colors placeholder:text-zinc-400 hover:bg-primary/15 focus:border-third focus:bg-white focus:outline-none focus:ring-2 focus:ring-third/25";
+// Selects need extra right padding so long option text clears the chevron.
+const selectClass = `${inputClass} appearance-none pr-11`;
+const labelClass =
+  "mb-2 block text-xs font-semibold uppercase tracking-wider text-secondary/70";
+const iconClass =
+  "pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-third";
+const chevronClass =
+  "pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-third";
 
 export default function AppointmentForm() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -92,7 +99,7 @@ export default function AppointmentForm() {
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className={labelClass}>
-            Full Name <span className="text-red-500">*</span>
+            Full Name <span className="text-third">*</span>
           </label>
           <div className="relative">
             <User className={iconClass} />
@@ -109,7 +116,7 @@ export default function AppointmentForm() {
 
         <div>
           <label htmlFor="phone" className={labelClass}>
-            Mobile Number <span className="text-red-500">*</span>
+            Mobile Number <span className="text-third">*</span>
           </label>
           <div className="relative">
             <Phone className={iconClass} />
@@ -137,7 +144,7 @@ export default function AppointmentForm() {
 
       <div className="mt-5">
         <label htmlFor="email" className={labelClass}>
-          Email Address <span className="text-red-500">*</span>
+          Email Address <span className="text-third">*</span>
         </label>
         <div className="relative">
           <Mail className={iconClass} />
@@ -154,7 +161,7 @@ export default function AppointmentForm() {
 
       <div className="mt-5">
         <label htmlFor="service" className={labelClass}>
-          Preferred Service <span className="text-red-500">*</span>
+          Preferred Service <span className="text-third">*</span>
         </label>
         <div className="relative">
           <Scissors className={iconClass} />
@@ -162,7 +169,7 @@ export default function AppointmentForm() {
             id="service"
             defaultValue=""
             {...register("service")}
-            className={`${inputClass} appearance-none`}
+            className={selectClass}
           >
             <option value="" disabled>
               Select a service
@@ -173,6 +180,7 @@ export default function AppointmentForm() {
               </option>
             ))}
           </select>
+          <ChevronDown className={chevronClass} />
         </div>
         {error("service")}
       </div>
@@ -180,7 +188,7 @@ export default function AppointmentForm() {
       <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="date" className={labelClass}>
-            Preferred Date <span className="text-red-500">*</span>
+            Preferred Date <span className="text-third">*</span>
           </label>
           <div className="relative">
             <CalendarDays className={iconClass} />
@@ -197,7 +205,7 @@ export default function AppointmentForm() {
 
         <div>
           <label htmlFor="time" className={labelClass}>
-            Preferred Time <span className="text-red-500">*</span>
+            Preferred Time <span className="text-third">*</span>
           </label>
           <div className="relative">
             <Clock className={iconClass} />
@@ -205,7 +213,7 @@ export default function AppointmentForm() {
               id="time"
               defaultValue=""
               {...register("time")}
-              className={`${inputClass} appearance-none`}
+              className={selectClass}
             >
               <option value="" disabled>
                 Select time
@@ -216,6 +224,7 @@ export default function AppointmentForm() {
                 </option>
               ))}
             </select>
+            <ChevronDown className={chevronClass} />
           </div>
           {error("time")}
         </div>
@@ -226,34 +235,39 @@ export default function AppointmentForm() {
           Message (Optional)
         </label>
         <div className="relative">
-          <MessageSquare className="pointer-events-none absolute left-3 top-3 h-4 w-4 text-zinc-400" />
+          <MessageSquare className="pointer-events-none absolute left-4 top-3.5 h-4 w-4 text-third" />
           <textarea
             id="message"
             rows={4}
             placeholder="Tell us anything else we should know..."
             {...register("message")}
-            className={`${inputClass} resize-y`}
+            className={`${inputClass} resize-y py-3.5`}
           />
         </div>
       </div>
 
-      <Button type="submit" disabled={isSubmitting} size="lg" className="mt-6 w-full">
-        {isSubmitting && <Loader2 className="h-4 w-4 animate-spin" />}
+      <Button
+        type="submit"
+        disabled={isSubmitting}
+        size="lg"
+        className="mt-7 w-full tracking-wider"
+        icon={isSubmitting ? <Loader2 className="h-4 w-4 animate-spin" /> : undefined}
+      >
         {isSubmitting ? "Sending..." : "Schedule Appointment"}
       </Button>
 
       <p className="mt-4 flex items-center justify-center gap-1.5 text-center text-xs text-zinc-500">
-        <Lock className="h-3.5 w-3.5" />
+        <Lock className="h-3.5 w-3.5 shrink-0" />
         Your information is secure and will only be used to confirm your appointment.
       </p>
 
       {status === "success" && (
-        <p className="mt-4 text-center text-sm text-green-600">
+        <p className="mt-4 rounded-xl bg-green-50 px-4 py-3 text-center text-sm text-green-700">
           Thank you! We&apos;ll be in touch shortly to confirm your appointment.
         </p>
       )}
       {status === "error" && (
-        <p className="mt-4 text-center text-sm text-red-600">
+        <p className="mt-4 rounded-xl bg-red-50 px-4 py-3 text-center text-sm text-red-700">
           Something went wrong. Please try again or reach us on WhatsApp.
         </p>
       )}
