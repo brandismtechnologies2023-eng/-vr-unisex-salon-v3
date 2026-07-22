@@ -18,7 +18,7 @@ export default function AboutPage() {
       <AboutHero />
       <WhatMakesUsDifferent />
       <AboutServices />
-      <MeetTheTeam variant="compact" />
+      <MeetTheTeam />
       <ContactCta />
     </>
   );

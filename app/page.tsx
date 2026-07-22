@@ -1,5 +1,4 @@
 import Hero from "@/components/home/Hero";
-import AboutConnect from "@/components/home/AboutConnect";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import MeetTheTeam from "@/components/home/MeetTheTeam";
 import Services from "@/components/home/Services";
@@ -15,7 +14,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <AboutConnect />
+      {/* <AboutConnect /> — disabled for now */}
       <WhyChooseUs />
       <MeetTheTeam />
       <Services limit={6} showViewAll />

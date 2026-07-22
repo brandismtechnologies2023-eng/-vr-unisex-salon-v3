@@ -63,6 +63,10 @@ export interface Service {
   processTitle?: string;
   processSubtitle?: string;
   faqs?: FaqItem[];
+  // Wording for the shared closing CTA; its layout and colours live in the
+  // ContactCta component so a restyle there applies site-wide.
+  ctaTitle?: string;
+  ctaDescription?: string;
 }
 
 export interface TeamMember {
