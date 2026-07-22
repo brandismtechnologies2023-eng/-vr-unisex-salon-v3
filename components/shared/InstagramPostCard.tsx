@@ -7,16 +7,13 @@ import type { InstagramPost } from "@/types";
 interface InstagramPostCardProps {
   post: InstagramPost;
   onClick: () => void;
-  // Where "View profile" and "View more on Instagram" point — the real post
-  // permalink when live, the salon's profile otherwise.
-  moreHref: string;
 }
 
-// A reel-style card: the account header, a 9:16 media frame, and a link out
-// to Instagram — mirroring how a post looks in-app.
-export default function InstagramPostCard({ post, onClick, moreHref }: InstagramPostCardProps) {
+// A reel-style card: the account header above a 9:16 media frame, mirroring
+// how a post looks in-app.
+export default function InstagramPostCard({ post, onClick }: InstagramPostCardProps) {
   return (
-    <div className="flex flex-col overflow-hidden rounded-xl bg-white shadow-lg">
+    <div className="flex flex-col overflow-hidden rounded-xl bg-white">
       <div className="flex items-center gap-2 px-3 py-2.5">
         <Image
           src="/images/logo.webp"
@@ -65,15 +62,6 @@ export default function InstagramPostCard({ post, onClick, moreHref }: Instagram
           </span>
         )}
       </button>
-
-      <a
-        href={moreHref}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="px-3 py-2.5 text-xs font-medium text-blue-600 hover:underline"
-      >
-        View more on Instagram
-      </a>
     </div>
   );
 }
