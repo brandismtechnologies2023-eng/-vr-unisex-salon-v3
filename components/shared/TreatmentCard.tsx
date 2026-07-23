@@ -32,8 +32,8 @@ export default function TreatmentCard({ treatment }: TreatmentCardProps) {
             {treatment.featuresLabel ?? "Features"}
           </p>
           <ul className="mt-3 space-y-2">
-            {treatment.features.map((feature) => (
-              <li key={feature} className="flex items-start gap-2 text-sm text-zinc-700">
+            {treatment.features.map((feature, i) => (
+              <li key={`${feature}-${i}`} className="flex items-start gap-2 text-sm text-zinc-700">
                 <Check className="mt-0.5 h-4 w-4 shrink-0 text-third" />
                 {feature}
               </li>

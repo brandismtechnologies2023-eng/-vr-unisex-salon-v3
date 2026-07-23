@@ -45,7 +45,7 @@ export default function ContactSection() {
             <iframe
               title={`${siteConfig.name} location`}
               src={siteConfig.mapEmbedUrl}
-              className="h-96 w-full border-0"
+              className="h-45 w-full border-0"
               loading="lazy"
             />
           </div>

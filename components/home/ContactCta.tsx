@@ -27,10 +27,10 @@ export default function ContactCta({
   description = DEFAULT_DESCRIPTION,
 }: ContactCtaProps) {
   return (
-    <section className="bg-secondary">
+    <section className="bg-primary/30">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 py-16 text-center sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-white sm:text-4xl">{title}</h2>
-        <p className="max-w-2xl text-primary/80">{description}</p>
+        <h2 className="text-3xl font-bold text-secondary sm:text-4xl">{title}</h2>
+        <p className="max-w-8xl text-secondary">{description}</p>
         <div className="flex flex-col gap-4 sm:flex-row">
           <Button
             href={whatsappLink()}
@@ -45,7 +45,7 @@ export default function ContactCta({
           <Button
             href={telLink()}
             size="lg"
-            className="bg-white text-secondary hover:bg-primary"
+            className="bg-secondary/60 text-white hover:bg-secondary hover:text-primary"
             icon={<Phone className="h-5 w-5" />}
           >
             Call {siteConfig.phone}
@@ -53,7 +53,7 @@ export default function ContactCta({
           <Button
             href="/contact"
             size="lg"
-            className="border border-white bg-transparent text-white hover:bg-white/10"
+            className="border border-secondary bg-primary/50 text-secondary hover:bg-white/10"
             icon={<CalendarCheck className="h-5 w-5" />}
           >
             Book Appointment

@@ -28,7 +28,7 @@ export default function AboutConnect() {
             Connect With Us
           </span>
           <h2 className="mt-2 text-3xl font-bold text-secondary sm:text-4xl">
-            More Than a Salon — A Complete Beauty Experience
+            More Than a Salon - A Complete Beauty Experience
           </h2>
           <p className="mt-4 text-zinc-600">
             For years, VR Unisex Salon has been dedicated to helping clients

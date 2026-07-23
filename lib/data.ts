@@ -19,16 +19,16 @@ const coreServices: Service[] = [
     title: "Manicure & Pedicure in Dubai",
     description: "Relaxing hand and foot care with premium products.",
     startingPrice: 499,
-    tagline: "Nail Care",
-    heroBadge: "Healthy Nails, Beautifully Finished",
+    // tagline: "Nail Care",
+    // heroBadge: "Healthy Nails, Beautifully Finished",
     longDescription:
       "Healthy, well-maintained hands and feet are an important part of looking and feeling your best. Our professional manicure and pedicure services go beyond nail polishing — they're designed to improve nail health, nourish your skin, and provide a relaxing self-care experience. Whether you're booking your regular nail maintenance or treating yourself to some well-deserved pampering, our beauty specialists deliver every service with precision, hygiene, and exceptional care.",
-    highlights: [
-      "Certified beauty specialists",
-      "Sanitised tools for every client",
-      "Premium salon products",
-      "Calm, relaxing environment",
-    ],
+    // highlights: [
+    //   "Certified beauty specialists",
+    //   "Sanitised tools for every client",
+    //   "Premium salon products",
+    //   "Calm, relaxing environment",
+    // ],
     benefitsTitle: "Why Choose VR Salon for Your Nail Care",
     benefitsSubtitle:
       "Beautiful nails begin with healthy care. Every manicure and pedicure combines professional techniques, premium products, and meticulous attention to detail, ensuring your hands and feet receive the care they deserve.",
@@ -37,31 +37,25 @@ const coreServices: Service[] = [
         icon: "Hand",
         title: "Professional Nail Care",
         description:
-          "Every treatment focuses on maintaining healthy nails, neat cuticles, and beautifully groomed hands and feet that look naturally elegant.",
+          "Every treatment is designed to maintain healthy nails, neat cuticles, and beautifully groomed hands and feet.",
       },
       {
         icon: "ShieldCheck",
         title: "Hygiene You Can Trust",
         description:
-          "We maintain strict hygiene standards by thoroughly sanitising our tools and workstations, providing a clean, safe, and comfortable experience for every client.",
+          "We follow strict hygiene standards by thoroughly sanitising our tools and workstations for every client.",
       },
       {
         icon: "Leaf",
-        title: "Relaxing Self-Care Experience",
+        title: "Premium Salon Products",
         description:
-          "Enjoy a peaceful break from your busy schedule while our specialists refresh, nourish, and care for your hands and feet in a calming salon environment.",
+          "We use trusted professional products that nourish your skin, strengthen your nails, and deliver long-lasting results.",
       },
       {
         icon: "Gem",
-        title: "Premium Salon Products",
-        description:
-          "We use trusted professional products that help nourish your skin, strengthen your nails, and deliver long-lasting, beautiful results.",
-      },
-      {
-        icon: "ClipboardList",
         title: "Personalised Attention",
         description:
-          "Every client has different nail care needs. Our team recommends treatments based on your lifestyle, nail condition, and personal preferences.",
+          "Every treatment is tailored to your nail condition, lifestyle, and personal preferences for the best possible results.",
       },
     ],
     treatmentsTitle: "Our Professional Nail Care Services",
@@ -238,237 +232,293 @@ const coreServices: Service[] = [
     title: "Korean Head Spa",
     description: "Deep scalp cleansing and relaxation therapy.",
     startingPrice: 899,
-    tagline: "Scalp Ritual",
-    heroBadge: "Premium Korean Ritual",
-    heroSubtitle: "A Ritual of Scalp Renewal & Deep Relaxation",
+    // tagline: "Scalp Ritual",
+    // heroBadge: "Premium Korean Ritual",
+    // heroSubtitle: "A Ritual of Scalp Renewal & Deep Relaxation",
     longDescription:
-      "A calming, restorative treatment that combines deep scalp cleansing, soothing water therapy and therapeutic massage — designed to reset your scalp and relax your entire being, rooted in authentic Korean wellness traditions.",
-    highlights: [
-      "Certified head spa therapists",
-      "Premium, scalp-safe products",
-      "Warm water ritual therapy",
-      "Deeply relaxing atmosphere",
-    ],
-    journeyIntro: {
-      title: "More Than a Treatment — It's a Journey",
-      description:
-        "At VR Unisex Salon, our Korean Head Spa combines deep cleansing, gentle massage and nourishing care to help you feel lighter, calmer and refreshed from the roots up.",
-    },
+      "Healthy hair begins with a healthy scalp. Experience our signature Korean Head Spa, where expert scalp care, therapeutic massage, and premium hair nourishment come together to refresh your hair, restore balance, and help you completely unwind.",
+    // highlights: [
+    //   "Certified head spa therapists",
+    //   "Premium, scalp-safe products",
+    //   "Warm water ritual therapy",
+    //   "Deeply relaxing atmosphere",
+    // ],
+    // journeyIntro: {
+    //   title: "More Than a Treatment — It's a Journey",
+    //   description:
+    //     "At VR Unisex Salon, our Korean Head Spa combines deep cleansing, gentle massage and nourishing care to help you feel lighter, calmer and refreshed from the roots up.",
+    // },
     benefits: [
       {
         icon: "Droplets",
-        title: "Deep Scalp Cleansing",
-        description: "Removes buildup, oil and impurities that regular shampooing can't reach.",
+        title: "Deeply Cleanses the Scalp",
+        description: "Helps remove excess oil, impurities, and product residue.",
       },
       {
         icon: "Wind",
-        title: "Stress Relief",
-        description: "Gentle massage techniques calm the nervous system and ease tension.",
+        title: "Promotes Healthier Hair",
+        description: "Supports softer, shinier, and more manageable hair.",
       },
       {
         icon: "HeartPulse",
-        title: "Improved Circulation",
-        description: "Stimulates blood flow to hair follicles, supporting healthier hair growth.",
+        title: "Refreshes & Hydrates",
+        description: "Restores comfort to dry or tired scalps.",
       },
       {
         icon: "Leaf",
-        title: "Balanced Scalp Health",
-        description: "Nourishing products help restore natural balance and moisture.",
+        title: "Encourages Relaxation",
+        description: "A calming experience that helps relieve everyday stress.",
       },
     ],
     process: [
       {
         step: 1,
-        title: "Serene Environment",
-        description: "Begin in a softly lit, calming space designed to help you unwind.",
+        title: "Consultation & Scalp Assessment",
+        description: "We begin by understanding your scalp condition, hair type, and concerns before recommending the most suitable treatment.",
       },
       {
         step: 2,
-        title: "Gentle Cleansing",
-        description: "Premium products gently cleanse and nourish your scalp.",
+        title: "Deep Scalp Cleansing",
+        description: "Professional cleansing removes oil, pollution, and product build-up that everyday shampooing often leaves behind.",
       },
       {
         step: 3,
-        title: "Water Ritual Therapy",
-        description: "Warm water flows soothe your senses and ease daily stress.",
+        title: "Nourishment & Hydration",
+        description: "Specialised products restore moisture and comfort while supporting a healthier scalp environment.",
       },
       {
         step: 4,
-        title: "Therapeutic Massage",
-        description: "Traditional massage techniques release tension and boost circulation.",
+        title: "Therapeutic Head Massage",
+        description: "Relaxing massage techniques help stimulate circulation while creating a calming spa experience.",
       },
       {
         step: 5,
-        title: "Complete Renewal",
-        description: "Leave with a refreshed scalp, softer hair and a calmer mind.",
+        title: "Hair Conditioning",
+        description: "Professional conditioning treatments leave your hair softer, shinier, and easier to manage.",
+      },
+      {
+        step: 6,
+        title: "Styling & Finish",
+        description: "Your experience concludes with beautifully refreshed hair that's clean, healthy, and ready for the day ahead.",
       },
     ],
-    processTitle: "Your Journey in 5 Steps",
-    processSubtitle: "Each stage is designed to deepen relaxation and renewal.",
+    expert: {
+      title: "The Expert Behind Your Nail Care",
+      name: "Raju",
+      role: "Founder & Hair Expert",
+      image: "/images/our-team/team2.webp",
+      bio: [
+        "Raju believes every great hairstyle begins with a healthy scalp. His personalised approach combines professional scalp analysis, premium haircare products, and therapeutic massage techniques to create a Korean Head Spa experience that's both restorative and deeply relaxing.",
+      ],
+      expertise: [
+        "Korean Head Spa",
+        "Scalp Wellness",
+        "Hair Spa Treatments",
+        "Hair Nourishment",
+        "Luxury Hair Care",
+        "Hair & Scalp Consultation",
+      ],
+    },
+    processTitle: "Your Korean Head Spa Journey",
+    processSubtitle: "Every appointment follows a carefully designed process that balances professional scalp care with complete relaxation.",
     faqs: [
       {
         id: "khs-1",
         question: "How long does a Korean Head Spa session take?",
-        answer: "Most sessions take around 60–75 minutes for the full ritual.",
+        answer: "Most treatments take approximately 60–90 minutes, depending on your hair type and selected services.",
       },
       {
         id: "khs-2",
-        question: "Is it suitable for all hair and scalp types?",
-        answer: "Yes, the treatment is gentle enough for all hair types and scalp conditions.",
+        question: "Is it suitable for coloured or chemically treated hair?",
+        answer: "Yes. We personalise every treatment and select products suitable for your hair condition.",
       },
       {
         id: "khs-3",
-        question: "How often should I get a head spa treatment?",
-        answer: "Once every 3–4 weeks is ideal for maintaining scalp health.",
+        question: "How often should I book a Korean Head Spa?",
+        answer: "For optimal scalp health, we recommend a session every 3–4 weeks.",
       },
       {
         id: "khs-4",
-        question: "Do I need to wash my hair before coming in?",
-        answer: "No, just come as you are — cleansing is part of the ritual.",
+        question: "Can this help with dandruff or oily scalp?",
+        answer: "Deep cleansing helps remove excess oil and impurities. During your consultation, we'll recommend the most suitable treatment based on your scalp's condition.",
+      },
+      {
+        id: "khs-5",
+        question: "Is the massage painful?",
+        answer: "No. The massage is gentle, soothing, and designed to help you relax.",
+      },
+            {
+        id: "khs-6",
+        question: "Can I combine it with other hair services?",
+        answer: "Absolutely. Many clients combine their Korean Head Spa with a haircut, hair colour, or hair treatment for a complete haircare experience.",
       },
     ],
+        ctaTitle: "Restore Your Scalp. Refresh Your Mind.",
+    ctaDescription:
+      "Give yourself the time to pause, relax, and care for your hair from the roots up. Book your Korean Head Spa at VR Unisex Salon and enjoy a luxurious treatment designed to leave your scalp healthier, your hair beautifully refreshed, and your mind completely at ease.",
+    metaTitle:
+      "Korean Head Spa in Dubai | Luxury Scalp & Hair Spa | VR Unisex Salon",
+    metaDescription:
+      "Experience a luxury Korean Head Spa in Dubai at VR Unisex Salon. Enjoy professional scalp cleansing, therapeutic head massage, premium haircare products, and personalised scalp treatments for healthier hair and complete relaxation.",
   },
   {
     id: "3",
     slug: "women-haircut",
-    title: "Women Haircut",
+    title: "Women's Haircut in Dubai",
     description: "Precision cuts styled to suit your face and lifestyle.",
     startingPrice: 399,
-    tagline: "Hair Styling",
-    heroBadge: "Cut, Shaped & Styled for You",
-    heroSubtitle: "More Than Just a Change in Length",
+    // tagline: "Hair Styling",
+    // heroBadge: "Cut, Shaped & Styled for You",
+    // heroSubtitle: "More Than Just a Change in Length",
     longDescription:
-      "A haircut is a reflection of your personality, lifestyle and confidence. At VR Unisex Salon in Dubai we specialise in haircuts and styling for women — tailored to your face shape, hair texture and daily routine, so every cut feels fresh, flattering and easy to maintain.",
-    highlights: [
-      "Consultation before every cut",
-      "Shaped to your face & hair texture",
-      "Experienced women's stylists",
-      "Finishes that are easy to maintain",
-    ],
-    treatmentsSubtitle:
-      "Every cut starts with a consultation — here's what we can do for you.",
+      "A great haircut is more than just a change in length, it's about expressing your personality, enhancing your natural features, and giving you confidence every day. At VR Unisex Salon, every haircut begins with understanding your face shape, hair texture, lifestyle, and styling preferences. Whether you're looking for a subtle refresh or a complete makeover, our experienced stylists create hairstyles that are elegant, practical, and uniquely yours.",
+    // highlights: [
+    //   "Consultation before every cut",
+    //   "Shaped to your face & hair texture",
+    //   "Experienced women's stylists",
+    //   "Finishes that are easy to maintain",
+    // ],
+    // treatmentsSubtitle:
+    //   "Every cut starts with a consultation — here's what we can do for you.",
     treatmentColumns: 2,
     treatments: [
       {
         id: "womens-haircut-styling",
         category: "Haircut",
-        name: "Women's Haircut & Styling",
-        tagline: "Complete Transformation or Refreshed Look",
+        name: "Classic Haircuts ",
+        // tagline: "Complete Transformation or Refreshed Look",
         description:
-          "Designed for those who want a complete transformation or a refreshed everyday look. We begin with a detailed consultation, analysing your face shape, hair density and styling preferences before crafting a cut that complements you perfectly.",
-        featuresLabel: "What you get",
-        features: [
-          "Personalised consultation based on face shape and hair texture",
-          "Professional finishing that enhances movement and shape",
-          "Ideal for exploring new trends or shorter styles",
-        ],
-        bestFor: "First-time clients, style makeovers, trend-led haircuts",
-        result:
-          "A personalised haircut with a salon-finished look that elevates your overall appearance",
+          "Elegant, timeless styles that remain versatile, sophisticated, and easy to maintain.",
       },
       {
         id: "hair-trim-shape-up",
         category: "Haircut",
-        name: "Hair Trim & Shape-Up",
-        tagline: "Maintain Your Style, Restore Your Balance",
+        name: "Layered Haircuts",
+        // tagline: "Maintain Your Style, Restore Your Balance",
         description:
-          "Focuses on maintaining your current style while improving its structure. We carefully remove split ends and redefine the outline to restore balance and freshness without altering the length drastically.",
-        featuresLabel: "Perfect for",
-        features: [
-          "Regular maintenance between major cuts",
-          "Healthy hair upkeep and split end removal",
-          "Keeping your existing style with improved structure",
-        ],
-        bestFor: "Regular maintenance, healthy hair upkeep",
-        result: "Cleaner shape, healthier ends and improved manageability",
+          "Create natural movement, volume, and texture while maintaining softness and shape.",
       },
       {
         id: "layered-haircut",
         category: "Haircut",
-        name: "Layered Haircut",
-        tagline: "Add Dimension, Volume & Natural Movement",
+        name: "Bob & Lob Styles",
+        // tagline: "Add Dimension, Volume & Natural Movement",
         description:
-          "A layered haircut adds dimension, volume and natural movement to your hair. Our stylists customise the layering around your hair texture and face shape, so it enhances your features rather than overwhelming them.",
-        featuresLabel: "Benefits",
-        features: [
-          "Adds volume and reduces bulk",
-          "Enhances hair texture naturally",
-          "Works beautifully for both casual and styled looks",
-        ],
-        bestFor: "Adding volume, reducing bulk, enhancing texture",
-        result: "Flowy, dynamic hair with depth and effortless styling",
+          "Modern cuts that beautifully frame your face while offering effortless styling and versatility.",
       },
       {
         id: "blow-dry-styling",
         category: "Haircut",
-        name: "Blow Dry & Styling",
-        tagline: "Polished, Salon-Perfect Finish",
+        name: "Long Hair Shaping",
+        // tagline: "Polished, Salon-Perfect Finish",
         description:
-          "Perfect for finishing your haircut or preparing for a special occasion. Using professional techniques and tools, we create smooth, voluminous or softly waved styles that last.",
-        featuresLabel: "Styling options",
-        features: [
-          "Smooth and sleek finish",
-          "Voluminous styling for body and bounce",
-          "Soft waves for elegant occasions",
-        ],
-        bestFor: "Events, meetings, or post-haircut finishing",
-        result: "Long-lasting shine, smoothness and beautifully styled hair",
+          "Maintain your length while improving structure, movement, and the overall health of your hair.",
+      },
+      {
+        id: "blow-dry-styling",
+        category: "Haircut",
+        name: "Fringe & Face-Framing Styles",
+        // tagline: "Polished, Salon-Perfect Finish",
+        description:
+          "Refresh your appearance with thoughtfully designed fringes and face-framing layers that highlight your best features.",
+      },
+      {
+        id: "blow-dry-styling",
+        category: "Haircut",
+        name: "Hair Restyling & Complete Makeovers",
+        // tagline: "Polished, Salon-Perfect Finish",
+        description:
+          "Looking for a complete transformation? Our personalized consultations help you confidently discover a hairstyle that reflects your personality and lifestyle.",
       },
     ],
+    expert: {
+      title: "The Expert Behind Your Nail Care",
+      name: "Raju",
+      role: "Founder & Hair Expert",
+      image: "/images/our-team/team2.webp",
+      bio: [
+        "Raju believes every haircut should feel as unique as the person wearing it. Rather than simply following trends, he focuses on understanding your facial features, hair texture, lifestyle, and personal preferences before creating a hairstyle that complements your individuality.",
+                "Whether you're looking for a subtle refresh, elegant layers, or a complete transformation, Raju combines creativity, technical precision, and personalized consultations to create hairstyles that continue looking beautiful long after your salon visit.",
+      ],
+      expertise: [
+        "Women's Haircuts",
+        "Hair Restyling & Makeovers",
+        "Layered Haircuts",
+        "Face-Framing Styles",
+        "Long Hair Styling",
+        "Personalized Hair Consultations",
+      ],
+    },
     faqs: [
       {
         id: "wh-1",
-        question: "How long does a women's haircut take?",
+        question: "How do I know which haircut will suit me?",
         answer:
-          "Most haircuts take 45 minutes to an hour, a little longer if you add blow dry and styling.",
+          "Every appointment begins with a personalized consultation where we assess your face shape, hair texture, lifestyle, and styling preferences before recommending the most suitable haircut.",
       },
       {
         id: "wh-2",
-        question: "Do you consult before cutting?",
+        question: "Can you help me choose a completely new hairstyle?",
         answer:
-          "Yes — every cut starts with a consultation about your face shape, hair texture and daily routine.",
+          "Absolutely. Whether you're looking for a subtle change or a complete makeover, we'll recommend styles that complement your features while matching your lifestyle.",
       },
       {
         id: "wh-3",
-        question: "Can I bring a reference photo?",
+        question: "How often should I get a haircut?",
         answer:
-          "Please do. Reference photos help our stylists understand exactly the look you're after.",
+          "Most clients benefit from a haircut every six to eight weeks to maintain healthy ends, shape, and overall style. Your stylist will recommend the ideal schedule based on your hairstyle and hair growth.",
       },
       {
         id: "wh-4",
-        question: "Do you cut curly and textured hair?",
-        answer: "Yes, our stylists cut and layer all hair types and textures.",
+        question: "Should I wash my hair before coming?",
+        answer: "No. Simply arrive comfortably. Our team will prepare your hair appropriately before beginning your haircut.",
+      },
+      {
+        id: "wh-5",
+        question: "Can I combine my haircut with other services?",
+        answer: "Yes. Many clients choose to add a Hair Wash & Blow Dry, Hair Styling, Hair Spa, or Hair Ironing service to complete their salon experience.",
+      },
+      {
+        id: "wh-6",
+        question: "Do you work with all hair types?",
+        answer: "Yes. We work with straight, wavy, curly, and textured hair, tailoring every haircut to your natural hair type and styling preferences.",
       },
     ],
+    
+    ctaTitle: "Your Next Favorite Haircut Starts with a Conversation",
+    ctaDescription:
+      "Every beautiful haircut begins with understanding you. Whether you're maintaining your signature style or ready for a fresh new look, our experienced team is here to create a hairstyle that complements your personality, enhances your confidence, and fits seamlessly into your everyday life.",
+    metaTitle:
+      "Women's Haircut in Dubai | Ladies Hair Salon & Professional Hair Styling | VR Unisex Salon",
+    metaDescription:
+      "Looking for a woman’s haircut in Dubai? Visit VR Unisex Salon for personalized ladies’ haircuts, layered styles, bob cuts, long hair styling, blow dry, hair spa, and professional styling tailored to your face shape and lifestyle.",
   },
   {
     id: "4",
     slug: "mens-haircut",
-    title: "Mens Haircut",
+    title: "Men's Grooming & Styling in Dubai",
     description: "Sharp, modern cuts from experienced stylists.",
     startingPrice: 249,
-    tagline: "Grooming",
-    heroBadge: "Sharp Cuts, Clean Finishes",
-    heroSubtitle: "Precision Grooming for Modern Men",
+    // tagline: "Grooming",
+    // heroBadge: "Sharp Cuts, Clean Finishes",
+    // heroSubtitle: "Precision Grooming for Modern Men",
     longDescription:
-      "Our haircut and wash services are built for men who value sharp style, clean grooming and a professional finish. From timeless cuts to modern trends, every service starts with understanding your face shape, hair texture and lifestyle — so you leave with precision, hygiene and confidence, every visit.",
-    highlights: [
-      "Consultation before every cut",
-      "Precise scissor & clipper work",
-      "Sanitized tools for every client",
-      "Sharp, easy-to-maintain finishes",
-    ],
+      "Looking well-groomed isn't just about appearance—it's about confidence, professionalism, and feeling your best every day. At VR Unisex Salon, we offer a complete range of men's grooming and styling services under one roof, from precision haircuts and beard grooming to scalp treatments, hair colouring, manicures, pedicures, and body grooming. Whether you're preparing for an important meeting, a special occasion, or simply maintaining your signature look, our experienced team ensures every service is tailored to your style and comfort.",
+    // highlights: [
+    //   "Consultation before every cut",
+    //   "Precise scissor & clipper work",
+    //   "Sanitized tools for every client",
+    //   "Sharp, easy-to-maintain finishes",
+    // ],
     treatmentsSubtitle:
-      "From timeless cuts to modern trends — pick the one that suits your style.",
+      "Whether you're maintaining your everyday style or preparing for an important occasion, our comprehensive men's grooming services are designed to help you look sharp, feel confident, and leave a lasting impression.",
     treatments: [
       {
         id: "classic-haircut",
         category: "Grooming",
-        name: "Classic Haircut",
+        name: "Hair Styling",
         description:
-          "Perfect for men who prefer a clean, well-structured look that never goes out of style. Includes a detailed consultation, precise scissor or clipper work, neckline cleanup and a neat finish. Ideal for professionals, students, and anyone who wants a sharp everyday haircut that's easy to maintain.",
-        resultLabel: "Finish",
-        result: "Balanced, tidy and polished — perfect for daily wear and formal settings.",
+          "A great hairstyle starts with a precise cut and professional styling. Whether you prefer a classic business look or a modern hairstyle, our stylists create clean, well-balanced cuts that are easy to maintain.",
       },
       {
         id: "fade-haircut",
@@ -476,495 +526,520 @@ const coreServices: Service[] = [
         name: "Fade Haircut",
         description:
           "Focuses on seamless blending from skin or short lengths to fuller hair on top. Best for men who like a modern, stylish appearance with clean transitions. Our stylists ensure smooth gradients, sharp edges and symmetry for a premium finish.",
-        resultLabel: "Finish",
-        result: "Crisp, modern and photo-ready — one of the most requested men's styles today.",
       },
       {
         id: "taper-cut",
         category: "Grooming",
-        name: "Taper Cut",
+        name: "Beard Grooming",
         description:
-          "A subtle, refined transition around the sides and back without an extreme fade. Ideal for men who want a professional look with a modern touch — it maintains natural volume while keeping the edges clean and controlled.",
-        resultLabel: "Finish",
-        result:
-          "Neat, sophisticated and low-maintenance — great for office and everyday grooming.",
+          "From perfectly shaped beards to clean shaves, we help define your facial features while maintaining a neat, well-groomed appearance.",
       },
       {
         id: "modern-trendy-styles",
         category: "Grooming",
-        name: "Modern & Trendy Styles",
+        name: "Hair & Beard Colour",
         description:
-          "For men who like to experiment with current grooming trends. Whether it's textured crops, undercuts, messy styles or fully customised looks, our stylists tailor the haircut to your personality, hair type and styling routine.",
-        resultLabel: "Finish",
-        result:
-          "Fashion-forward, confident and customised — perfect for men looking to stand out.",
+          "Refresh your appearance with natural-looking colour that blends seamlessly while remaining gentle on your hair, beard, and skin.",
       },
       {
         id: "hair-wash-blow-dry",
         category: "Grooming",
-        name: "Hair Wash & Blow Dry",
+        name: "Hair & Scalp Care",
         description:
-          "Complete your grooming with a professional wash and blow dry. Includes a relaxing scalp cleanse using quality products for freshness and scalp cleanliness, followed by a controlled blow dry for shape and volume. Ideal before meetings, events, or straight after a haircut.",
-        resultLabel: "Finish",
-        result: "Clean, refreshed and styled — enhancing the overall haircut result.",
-      },
+          "Healthy hair starts with a healthy scalp. Our nourishing treatments help reduce dryness, improve scalp health, relieve tension, and leave you feeling refreshed.",
+        },
+        {
+        id: "hand-foot-care",
+        category: "Grooming",
+        name: "Hand & Foot Care ",
+        description:
+          "Well-groomed hands and feet complete your overall appearance. Our treatments help maintain clean, healthy nails while providing a relaxing self-care experience.",
+        },
+        {
+        id: "hand-foot-care",
+        category: "Grooming",
+        name: "Men's Waxing",
+        description:
+          "Professional waxing services designed for men who prefer a cleaner, more refined appearance with long-lasting results.",
+        },
     ],
+    expert: {
+      title: "The Expert Behind Your Nail Care",
+      name: "Raju",
+      role: "Founder & Hair Expert",
+      image: "/images/our-team/team2.webp",
+      bio: [
+        "Raju believes that great grooming goes beyond a haircut—it's about creating a look that reflects your personality and fits seamlessly into your lifestyle. Every consultation begins with understanding your preferences, hair type, beard style, and daily routine before recommending the most suitable grooming services.",
+                "Whether you're visiting for a precision haircut, beard grooming, hair colour, or a complete grooming session, Raju combines technical expertise with a personalised approach to help you look your best with confidence.",
+      ],
+      expertise: [
+        "Men's Hair Styling",
+        "Precision Haircuts",
+        "Beard Grooming",
+        "Hair & Beard Colour",
+        "Hair & Scalp Care",
+        "Personalised Grooming Consultations",
+      ],
+    },
     faqs: [
       {
         id: "mh-1",
-        question: "How long does a men's haircut take?",
+        question: "Do I need an appointment?",
         answer:
-          "Most cuts take around 30–45 minutes, a little longer if you add a wash and blow dry.",
+          "While walk-ins are welcome when possible, we recommend booking your appointment in advance to minimise waiting time and ensure your preferred stylist is available.",
       },
       {
         id: "mh-2",
-        question: "What's the difference between a fade and a taper?",
+        question: "Can I combine multiple grooming services in one visit?",
         answer:
-          "A fade blends much shorter — often down to the skin — while a taper is a subtler, gradual transition that keeps more length around the sides and back.",
+          "Yes. Many clients choose to combine haircuts with beard grooming, hair spa, scalp treatments, or manicures and pedicures for a complete grooming experience.",
       },
       {
         id: "mh-3",
-        question: "Can I bring a reference photo?",
+        question: "Do you offer ammonia-free hair and beard colouring?",
         answer:
-          "Please do. A photo is the easiest way for our stylists to match exactly the cut you have in mind.",
+          "Yes. We offer professional ammonia-free colour options that provide natural-looking results while being gentle on your hair and skin.",
       },
       {
         id: "mh-4",
-        question: "Do you clean up the neckline and edges?",
+        question: "How often should I get a haircut or beard trim?",
         answer:
-          "Yes — every cut finishes with a neckline cleanup and clean, controlled edges.",
+          "Most clients visit every three to six weeks, depending on their hairstyle, beard growth, and personal grooming preferences.",
+      },
+            {
+        id: "mh-5",
+        question: "Are your waxing services suitable for men?",
+        answer:
+          "Absolutely. Our waxing services are specifically designed to provide a clean, hygienic, and comfortable grooming experience for men.",
+      },
+       {
+        id: "mh-6",
+        question: "Which grooming service is right for me?",
+        answer:
+          "Our team will guide you during your consultation and recommend services based on your hair, beard, skin, lifestyle, and grooming goals.",
       },
     ],
+    ctaTitle: "Your Best Look Starts Here",
+    ctaDescription:
+      "Looking sharp isn't reserved for special occasions—it's part of feeling confident every day. Whether you're after a fresh haircut, expert beard grooming, relaxing scalp care, or a complete grooming session, our experienced team is here to help you look polished, professional, and effortlessly well-groomed.",
+    metaTitle:
+      "Men's Grooming & Styling in Dubai | Haircuts, Beard Grooming & Hair Spa | VR Unisex Salon",
+    metaDescription:
+      "Experience premium men's grooming in Dubai at VR Unisex Salon. From precision haircuts and beard grooming to hair spa, scalp treatments, hair colouring, manicures, pedicures, and waxing, enjoy complete grooming services under one roof.",
   },
   {
     id: "5",
     slug: "hair-treatment",
-    title: "Hair Treatment",
+    title: "Hair Treatments in Dubai",
     description: "Nourishing treatments for healthy, shiny hair.",
     startingPrice: 999,
-    tagline: "Hair Care",
-    heroBadge: "Repair, Smooth & Strengthen",
-    heroSubtitle: "Advanced Treatments for Smooth, Strong & Healthy Hair",
+    // tagline: "Hair Care",
+    // heroBadge: "Repair, Smooth & Strengthen",
+    // heroSubtitle: "Advanced Treatments for Smooth, Strong & Healthy Hair",
     longDescription:
-      "We offer advanced hair treatments designed to repair damage, control frizz, improve hair texture and give you long-lasting, salon-perfect results. Our expert stylists use premium products and personalised techniques to treat every hair type safely and effectively.",
-    highlights: [
-      "Consultation before every treatment",
-      "Premium treatment products",
-      "Personalised to your hair type",
-      "Safe for coloured & treated hair",
-    ],
+      "Healthy, beautiful hair starts with the right treatment—not a one-size-fits-all solution. At VR Unisex Salon, we offer professional hair treatments designed to repair damage, control frizz, restore moisture, strengthen weakened hair, and improve overall hair health. Whether you're looking for smoother, shinier, straighter, or healthier hair, our experts will recommend the treatment that's best suited to your hair type and goals.",
+    // highlights: [
+    //   "Consultation before every treatment",
+    //   "Premium treatment products",
+    //   "Personalised to your hair type",
+    //   "Safe for coloured & treated hair",
+    // ],
     treatmentsSubtitle:
-      "Each treatment targets a different concern — we'll help you pick the right one.",
+      "Not every hair concern needs the same solution. Explore our professional treatments to discover what works best for your hair.",
     treatments: [
       {
         id: "anti-frizz-treatment",
         category: "Treatment",
-        name: "Anti-Frizz Treatment",
-        tagline: "For Hair That Refuses to Behave",
+        name: "Keratin Treatment",
+        // tagline: "For Hair That Refuses to Behave",
         description:
-          "If your hair looks dry, rough or puffy even after oiling and conditioning, an anti-frizz treatment smooths the hair surface and locks in moisture.",
-        featuresLabel: "This treatment",
-        features: [
-          "Controls humidity-caused frizz",
-          "Makes hair softer and easier to manage",
-          "Reduces daily styling time",
-        ],
-        bestForLabel: "Best suited for",
-        bestFor: "Mildly frizzy, wavy or dry hair that needs control, not straightening.",
+          "Perfect for reducing frizz, improving manageability, and leaving your hair smoother, shinier, and easier to style without sacrificing natural movement.",
       },
       {
         id: "keratin-treatment",
         category: "Treatment",
-        name: "Keratin Treatment",
-        tagline: "Smooth Hair Without Losing Natural Movement",
+        name: "GK Keratin",
+        // tagline: "Smooth Hair Without Losing Natural Movement",
         description:
-          "A keratin treatment restores lost keratin in the hair shaft, making hair smoother, shinier and stronger — without making it look flat or artificial.",
-        featuresLabel: "What you'll notice",
-        features: [
-          "Reduced frizz and flyaways",
-          "Softer, glossier texture",
-          "Easier blow-dry and styling",
-        ],
-        resultLabel: "Results",
-        result: "Typically last 3–6 months with proper after-care.",
-        note: "Suitable for coloured and chemically treated hair after consultation.",
+          "An advanced smoothing treatment designed to repair dry, damaged hair while improving softness, shine, and overall manageability.",
       },
       {
         id: "hair-smoothening",
         category: "Treatment",
-        name: "Hair Smoothening",
-        tagline: "For a Naturally Straight, Polished Look",
+        name: "Brazilian Blowout",
+        // tagline: "For a Naturally Straight, Polished Look",
         description:
-          "Ideal if you want straighter hair with a natural finish — not pin-straight, not puffy.",
-        featuresLabel: "This treatment",
-        features: [
-          "Relaxes hair structure gently",
-          "Reduces volume and frizz",
-          "Gives a smooth, flowing look",
-        ],
-        bestForLabel: "Recommended for",
-        bestFor: "People with wavy or frizzy hair who want long-lasting manageability.",
+          "A premium smoothing treatment that controls frizz, enhances shine, and leaves your hair naturally smooth without making it feel flat.",
       },
       {
         id: "hair-perming-curling",
         category: "Treatment",
-        name: "Hair Perming / Curling",
-        tagline: "Permanent Curls That Actually Hold Shape",
+        name: "Ola plex Hair Therapy",
+        // tagline: "Permanent Curls That Actually Hold Shape",
         description:
-          "If styling curls every day feels tiring, perming or curling gives you long-lasting waves or curls that stay defined.",
-        featuresLabel: "We customise",
-        features: [
-          "Curl size (soft waves to tight curls)",
-          "Volume and shape",
-          "Hair health protection",
-        ],
-        bestForLabel: "Perfect for",
-        bestFor: "Adding bounce, texture and personality to straight or flat hair.",
+          "Ideal for chemically treated or colour-damaged hair, Olaplex helps rebuild broken hair bonds, strengthening hair from within while reducing breakage.",
       },
       {
         id: "protein-hair-botox",
         category: "Treatment",
-        name: "Protein Treatment / Hair Botox",
-        tagline: "Repair First. Style Later.",
+        name: "Hair Spa",
+        // tagline: "Repair First. Style Later.",
         description:
-          "When hair feels weak, lifeless or damaged from heat styling or chemical treatments, a protein or hair botox treatment focuses on repair — not appearance alone.",
-        featuresLabel: "This treatment",
-        features: [
-          "Strengthens hair internally",
-          "Improves elasticity and smoothness",
-          "Restores shine and softness",
-        ],
-        resultLabel: "Results",
-        result:
-          "Visible immediately, and ideal for hair that feels thin, dry or over-processed.",
+          "Deep-conditioning therapy that replenishes moisture, restores softness, improves shine, and revitalises dry, tired-looking hair.",
       },
       {
         id: "hair-rebonding",
         category: "Treatment",
-        name: "Hair Rebonding",
-        tagline: "Permanent Straight Hair With a Sleek Finish",
+        name: "Scalp Treatment",
+        // tagline: "Permanent Straight Hair With a Sleek Finish",
         description:
-          "Rebonding restructures the hair bonds to give a permanently straight look.",
-        featuresLabel: "Best for",
-        features: [
-          "Extremely curly or coarse hair",
-          "People who want pin-straight hair",
-          "Those ready to commit to after-care",
-        ],
-        noteLabel: "Important",
-        note: "We only recommend rebonding after a detailed consultation, to ensure hair safety and long-term results.",
+          "Healthy hair starts with a healthy scalp. Our scalp treatments help remove build-up, rebalance the scalp, and create an ideal foundation for stronger hair growth.",
+      },
+      {
+        id: "hair-rebonding",
+        category: "Treatment",
+        name: "Japanese Straightening",
+        // tagline: "Permanent Straight Hair With a Sleek Finish",
+        description:
+          "For clients seeking permanently straighter, sleek hair with long-lasting smoothness and reduced daily styling time.",
+      },
+      {
+        id: "hair-rebonding",
+        category: "Treatment",
+        name: "Xtenso Smoothing",
+        // tagline: "Permanent Straight Hair With a Sleek Finish",
+        description:
+          "Achieve soft, naturally straight, and manageable hair while maintaining movement and reducing unwanted frizz.",
       },
     ],
+    expert: {
+      title: "The Expert Behind Your Nail Care",
+      name: "Raju",
+      role: "Founder & Beauty Expert",
+      image: "/images/our-team/team2.webp",
+      bio: [
+        "Healthy hair begins with understanding what it truly needs. Raju takes a personalised approach to every consultation, carefully assessing your hair's condition before recommending the most suitable treatment.",
+                "Whether your goal is smoother hair, stronger strands, deep repair, or improved scalp health, Raju combines professional expertise with premium treatment solutions to help you achieve healthier, more manageable hair that looks as good as it feels.",
+      ],
+      expertise: [
+        "Keratin Treatments",
+        "Hair Repair  ",
+        "Hair Smoothing  ",
+        "Olaplex Therapy  ",
+        "Scalp Care  ",
+        "Personalised Hair Consultations  ",
+      ],
+    },
     faqs: [
       {
         id: "ht-1",
-        question: "How long does a keratin treatment last?",
-        answer: "Typically 3–6 months, depending on your hair and how you care for it.",
+        question: "Which hair treatment is best for me? ",
+        answer: "That depends on your hair type, current condition, and desired results. We'll assess your hair during your consultation before recommending the most suitable treatment. ",
       },
       {
         id: "ht-2",
-        question: "What's the difference between smoothening and rebonding?",
+        question: "What's the difference between Keratin and Brazilian Blowout? ",
         answer:
-          "Smoothening gently relaxes the hair for a natural, softly straight finish. Rebonding restructures the hair bonds for a permanently pin-straight look, so it's a bigger commitment.",
+          "Both treatments reduce frizz and improve manageability. During your consultation, we'll explain the differences and recommend the option that's best suited to your hair and lifestyle. ",
       },
       {
         id: "ht-3",
-        question: "Can I get a treatment on coloured hair?",
+        question: "Can I colour my hair after a treatment? ",
         answer:
-          "Yes — keratin is suitable for coloured and chemically treated hair after a consultation.",
+          "In many cases, yes. The ideal timing depends on the treatment you choose. Our team will guide you on the best sequence for optimal results. ",
       },
       {
         id: "ht-4",
-        question: "Which treatment is right for damaged hair?",
+        question: "Is Olaplex a hair treatment? ",
         answer:
-          "A protein treatment or hair botox is usually the answer — it repairs hair internally rather than only improving how it looks.",
+          "Yes. Olaplex is a professional bond-building treatment designed to repair damaged hair and strengthen it from within, especially after colouring or chemical services. ",
+      },
+      {
+        id: "ht-5",
+        question: "How long do professional hair treatments last? ",
+        answer:
+          "The longevity varies depending on the treatment, your hair type, and your aftercare routine. We'll provide personalised maintenance advice to help you enjoy longer-lasting results. ",
+      },
+      {
+        id: "ht-6",
+        question: "How often should I get a hair treatment? ",
+        answer:
+          "This depends on your hair's condition and goals. Some treatments are recommended monthly, while others provide results that last several months. ",
       },
     ],
+    ctaTitle: "Healthy Hair Starts Here ",
+    ctaDescription:
+      "Beautiful hair begins with healthy hair. Whether you're looking to repair damage, reduce frizz, restore moisture, or completely transform your hair's texture, our experienced team is here to recommend the right treatment and deliver results you'll love. ",
+    metaTitle:
+      "Hair Treatments in Dubai | Keratin, Olaplex, Hair Spa & Hair Repair | VR Unisex Salon ",
+    metaDescription:
+      "Discover professional hair treatments in Dubai at VR Unisex Salon. From Keratin, Brazilian Blowout, Olaplex, Hair Spa, Scalp Treatments, Xtenso, and Japanese Straightening to personalised hair repair solutions, achieve healthier, smoother, and more manageable hair.",
   },
-  {
-    id: "6",
-    slug: "hair-repair-therapy",
-    title: "Hair Repair Therapy",
-    description: "Restorative therapy for damaged, weak hair.",
-    startingPrice: 1299,
-    tagline: "Repair & Scalp Care",
-    heroBadge: "Salon-Grade Repair",
-    heroSubtitle: "Restore Strength, Softness & Scalp Comfort",
-    longDescription:
-      "Our Hair Repair Therapy restores damaged hair and improves overall scalp comfort using advanced, salon-grade techniques. Whether your hair is affected by heat styling, chemical treatments, dryness or scalp concerns, our expert care helps bring back strength, softness and shine.",
-    highlights: [
-      "Salon-grade repair techniques",
-      "Scalp comfort, not just hair",
-      "Consultation before every session",
-      "Gentle on coloured hair",
-    ],
-    treatmentsSubtitle:
-      "Repair for the hair, relief for the scalp — pick what your hair needs most.",
-    treatments: [
-      {
-        id: "olaplex-treatment",
-        category: "Repair",
-        name: "Olaplex Treatment",
-        tagline: "Rebuild Hair Strength from Within",
-        description:
-          "Works on the internal structure of the hair to reduce damage caused by colouring, bleaching and heat styling. It improves strength, manageability and smoothness while keeping a natural look and feel.",
-        featuresLabel: "Key benefits",
-        features: [
-          "Reduces damage from chemical treatments and heat styling",
-          "Improves hair strength and manageability",
-          "Maintains natural look and feel",
-          "Restores smoothness and shine",
-        ],
-        bestForLabel: "Perfect for",
-        bestFor: "Hair damaged by colouring, bleaching or frequent heat styling.",
-      },
-      {
-        id: "anti-dandruff-treatment",
-        category: "Repair",
-        name: "Anti-Dandruff Treatment",
-        tagline: "Professional Scalp Cleansing & Care",
-        description:
-          "A salon-grade treatment that cleanses the scalp and reduces visible flakes while maintaining moisture balance — keeping the scalp fresh and clean without leaving hair dry or heavy.",
-        featuresLabel: "What it does",
-        features: [
-          "Cleanses scalp and reduces visible flakes",
-          "Maintains moisture balance",
-          "Keeps scalp fresh and clean",
-          "Prevents dryness and heaviness",
-        ],
-        bestForLabel: "Recommended for",
-        bestFor: "Flaky or itchy scalps that need a deep but balanced cleanse.",
-      },
-      {
-        id: "dry-scalp-therapy",
-        category: "Repair",
-        name: "Dry Scalp Therapy",
-        tagline: "Targeted Hydration for Scalp Comfort",
-        description:
-          "Provides targeted hydration and nourishment to improve scalp comfort and support healthier-looking hair. Designed for clients experiencing dryness from weather, lifestyle or styling habits.",
-        featuresLabel: "Benefits include",
-        features: [
-          "Targeted hydration for a dry scalp",
-          "Nourishes and improves scalp comfort",
-          "Supports healthier-looking hair",
-          "Addresses dryness from weather and styling",
-        ],
-        bestFor: "Scalp dryness caused by weather, lifestyle or styling habits.",
-      },
-    ],
-    faqs: [
-      {
-        id: "hrt-1",
-        question: "What does Olaplex actually do?",
-        answer:
-          "It works on the internal structure of the hair, repairing damage from colouring, bleaching and heat styling rather than just coating the surface.",
-      },
-      {
-        id: "hrt-2",
-        question: "Will an anti-dandruff treatment dry out my hair?",
-        answer:
-          "No — it cleanses the scalp and reduces flakes while maintaining moisture balance, so your hair doesn't end up dry or heavy.",
-      },
-      {
-        id: "hrt-3",
-        question: "How do I know if I need dry scalp therapy?",
-        answer:
-          "If your scalp feels dry or uncomfortable because of the weather, your lifestyle or your styling habits, this is the one to ask about.",
-      },
-      {
-        id: "hrt-4",
-        question: "Can I have repair therapy if my hair is coloured?",
-        answer:
-          "Yes — Olaplex in particular is designed to reduce damage from colouring and bleaching. Mention your colour history during the consultation.",
-      },
-    ],
-  },
+  // {
+  //   id: "6",
+  //   slug: "hair-repair-therapy",
+  //   title: "Hair Repair Therapy",
+  //   description: "Restorative therapy for damaged, weak hair.",
+  //   startingPrice: 1299,
+  //   // tagline: "Repair & Scalp Care",
+  //   // heroBadge: "Salon-Grade Repair",
+  //   // heroSubtitle: "Restore Strength, Softness & Scalp Comfort",
+  //   longDescription:
+  //     "Our Hair Repair Therapy restores damaged hair and improves overall scalp comfort using advanced, salon-grade techniques. Whether your hair is affected by heat styling, chemical treatments, dryness or scalp concerns, our expert care helps bring back strength, softness and shine.",
+  //   // highlights: [
+  //   //   "Salon-grade repair techniques",
+  //   //   "Scalp comfort, not just hair",
+  //   //   "Consultation before every session",
+  //   //   "Gentle on coloured hair",
+  //   // ],
+  //   treatmentsSubtitle:
+  //     "Repair for the hair, relief for the scalp — pick what your hair needs most.",
+  //   treatments: [
+  //     {
+  //       id: "olaplex-treatment",
+  //       category: "Repair",
+  //       name: "Olaplex Treatment",
+  //       tagline: "Rebuild Hair Strength from Within",
+  //       description:
+  //         "Works on the internal structure of the hair to reduce damage caused by colouring, bleaching and heat styling. It improves strength, manageability and smoothness while keeping a natural look and feel.",
+  //       featuresLabel: "Key benefits",
+  //       features: [
+  //         "Reduces damage from chemical treatments and heat styling",
+  //         "Improves hair strength and manageability",
+  //         "Maintains natural look and feel",
+  //         "Restores smoothness and shine",
+  //       ],
+  //       bestForLabel: "Perfect for",
+  //       bestFor: "Hair damaged by colouring, bleaching or frequent heat styling.",
+  //     },
+  //     {
+  //       id: "anti-dandruff-treatment",
+  //       category: "Repair",
+  //       name: "Anti-Dandruff Treatment",
+  //       tagline: "Professional Scalp Cleansing & Care",
+  //       description:
+  //         "A salon-grade treatment that cleanses the scalp and reduces visible flakes while maintaining moisture balance — keeping the scalp fresh and clean without leaving hair dry or heavy.",
+  //       featuresLabel: "What it does",
+  //       features: [
+  //         "Cleanses scalp and reduces visible flakes",
+  //         "Maintains moisture balance",
+  //         "Keeps scalp fresh and clean",
+  //         "Prevents dryness and heaviness",
+  //       ],
+  //       bestForLabel: "Recommended for",
+  //       bestFor: "Flaky or itchy scalps that need a deep but balanced cleanse.",
+  //     },
+  //     {
+  //       id: "dry-scalp-therapy",
+  //       category: "Repair",
+  //       name: "Dry Scalp Therapy",
+  //       tagline: "Targeted Hydration for Scalp Comfort",
+  //       description:
+  //         "Provides targeted hydration and nourishment to improve scalp comfort and support healthier-looking hair. Designed for clients experiencing dryness from weather, lifestyle or styling habits.",
+  //       featuresLabel: "Benefits include",
+  //       features: [
+  //         "Targeted hydration for a dry scalp",
+  //         "Nourishes and improves scalp comfort",
+  //         "Supports healthier-looking hair",
+  //         "Addresses dryness from weather and styling",
+  //       ],
+  //       bestFor: "Scalp dryness caused by weather, lifestyle or styling habits.",
+  //     },
+  //   ],
+  //   faqs: [
+  //     {
+  //       id: "hrt-1",
+  //       question: "What does Olaplex actually do?",
+  //       answer:
+  //         "It works on the internal structure of the hair, repairing damage from colouring, bleaching and heat styling rather than just coating the surface.",
+  //     },
+  //     {
+  //       id: "hrt-2",
+  //       question: "Will an anti-dandruff treatment dry out my hair?",
+  //       answer:
+  //         "No — it cleanses the scalp and reduces flakes while maintaining moisture balance, so your hair doesn't end up dry or heavy.",
+  //     },
+  //     {
+  //       id: "hrt-3",
+  //       question: "How do I know if I need dry scalp therapy?",
+  //       answer:
+  //         "If your scalp feels dry or uncomfortable because of the weather, your lifestyle or your styling habits, this is the one to ask about.",
+  //     },
+  //     {
+  //       id: "hrt-4",
+  //       question: "Can I have repair therapy if my hair is coloured?",
+  //       answer:
+  //         "Yes — Olaplex in particular is designed to reduce damage from colouring and bleaching. Mention your colour history during the consultation.",
+  //     },
+  //   ],
+  // },
   {
     id: "7",
     slug: "nail-extensions",
-    title: "Nail Extensions",
+    title: "Nail Extensions in Dubai",
     description: "Durable, salon-perfect nail extensions and art.",
     startingPrice: 799,
-    tagline: "Nail Artistry",
-    heroBadge: "Shaped, Sculpted & Designed",
-    heroSubtitle: "Luxury Nail Extensions Designed to Elevate Your Style",
+    // tagline: "Nail Artistry",
+    // heroBadge: "Shaped, Sculpted & Designed",
+    // heroSubtitle: "Luxury Nail Extensions Designed to Elevate Your Style",
     longDescription:
-      "Our nail extensions are crafted for those who love perfectly shaped, long-lasting and beautifully designed nails. Whether you prefer a clean, classic look or bold, artistic designs, our nail technicians deliver precision, hygiene and premium finishes every time — using high-quality products, advanced techniques and a personalised consultation.",
-    highlights: [
-      "Certified nail technicians",
-      "Sanitized tools for every client",
-      "High-quality products",
-      "Personalised consultation",
-    ],
+      "Your nails are an extension of your personality. Whether you prefer timeless elegance, bold statement nails, or trendy seasonal designs, professionally crafted nail extensions instantly elevate your overall look. At VR Unisex Salon, we specialise in creating beautiful, durable, and customised nail extensions using premium products and expert techniques. From natural-looking enhancements to artistic nail designs, our beauty specialists help you achieve nails that are as unique as you are.",
+    // highlights: [
+    //   "Certified nail technicians",
+    //   "Sanitized tools for every client",
+    //   "High-quality products",
+    //   "Personalised consultation",
+    // ],
     treatmentsSubtitle:
-      "From a first set to refills, art and safe removal — the full nail menu.",
+      "From classic elegance to bold fashion statements, we offer a variety of nail extension techniques and finishes to suit every occasion and personal preference.",
     treatments: [
       {
         id: "acrylic-nail-extensions",
         category: "Nails",
         name: "Acrylic Nail Extensions",
-        tagline: "Strong, Durable & Flawlessly Shaped",
+        // tagline: "Strong, Durable & Flawlessly Shaped",
         description:
-          "Ideal if you want strong, durable, long-lasting nails with a flawless shape. A protective acrylic layer adds length and structure, making it perfect for brittle or weak nails.",
-        featuresLabel: "What you'll get",
+          "Strong, durable, and versatile, acrylic extensions are ideal for clients looking for long-lasting nails with endless styling possibilities.",
+          featuresLabel: "Available Services",
         features: [
-          "Bold lengths with defined shapes",
-          "Extended wear with minimal breakage",
-          "Sturdy nails with a smooth, polished finish",
+          "Acrylic Full Set  ",
+          "Acrylic Refills  ",
+          "Natural Finish  ",
+          "French Finish  ",
+          "Ombre Finish  ",
         ],
-        bestFor: "Bold lengths, defined shapes and extended wear with minimal breakage.",
       },
       {
         id: "gel-nail-extensions",
         category: "Nails",
-        name: "Gel Nail Extensions",
-        tagline: "Lightweight & Naturally Glossy",
+        name: "Brisa Gel Extensions",
+        // tagline: "Lightweight & Naturally Glossy",
         description:
-          "A lighter, more natural-looking alternative with a glossy, flexible finish. Cured under a UV/LED lamp, so your nails feel lightweight yet strong.",
-        featuresLabel: "Perfect for",
+          "Brisa Gel extensions provide a lightweight, natural-looking finish with exceptional flexibility and a beautiful glossy appearance.",
+        featuresLabel: "Available Services ",
         features: [
-          "Natural appearance with added length and shine",
-          "Lightweight yet strong nails",
-          "Everyday elegance and comfort",
+          "Brisa Gel Full Set  ",
+          "Brisa Gel Refills  ",
+          "Natural Finish  ",
+          "French Finish  ",
+          "Ombre Finish  ",
         ],
-        bestForLabel: "Ideal for",
-        bestFor: "Anyone who prefers a natural appearance with added length and shine.",
       },
       {
         id: "nail-refilling",
         category: "Nails",
-        name: "Nail Refilling",
-        tagline: "Maintain Beauty & Longevity",
+        name: "Press-On Nails ",
+        // tagline: "Maintain Beauty & Longevity",
         description:
-          "Essential for keeping your extensions looking their best. As your natural nails grow, refilling restores balance, strength and shape without removing the entire set.",
-        featuresLabel: "This service",
-        features: [
-          "Refreshes your nails and restores balance",
-          "Fixes minor lifting and maintains strength",
-          "Keeps extensions neat and salon-fresh",
-        ],
-        bestFor:
-          "Regular maintenance — refreshing your set, fixing minor lifting and keeping nails polished.",
+          "Perfect for special occasions or clients looking for temporary glamour, our premium press-on nails offer a stylish and convenient solution.",
       },
       {
         id: "nail-removal",
         category: "Nails",
-        name: "Nail Removal",
-        tagline: "Safe & Gentle Removal",
+        name: "Nail Art & Custom Designs",
+        // tagline: "Safe & Gentle Removal",
         description:
-          "Professional removal that takes your extensions off without damaging your natural nails. We use gentle techniques that protect nail health and prepare them for your next set.",
-        featuresLabel: "We ensure",
+          "Your nail extensions become truly unique with customised nail art. Whether you love subtle elegance or eye-catching creativity, our nail artists transform every set into a personalised work of art. ",
+        featuresLabel: "Popular Nail Art Options ",
         features: [
-          "Safe removal without damage",
-          "Protection of natural nail health",
-          "Clean, smooth and healthy nails",
+          "Minimal Nail Art  ",
+          "Premium Artistic Designs  ",
+          "Nail Art with Stones  ",
+          "Seasonal & Festive Designs  ",
+          "Custom Colour Combinations  ",
         ],
-        bestForLabel: "Ideal for",
-        bestFor: "Switching styles or taking a break, while keeping nails healthy.",
-      },
-      {
-        id: "nail-art",
-        category: "Nails",
-        name: "Nail Art (Basic / Advanced)",
-        tagline: "Let Your Personality Shine",
-        description:
-          "From minimal accents to detailed creative designs. Basic nail art covers clean patterns, subtle designs and elegant finishes, while advanced art features intricate detailing, textures, stones and fully customised concepts.",
-        featuresLabel: "Choose from",
-        features: [
-          "Basic: clean patterns and elegant finishes",
-          "Advanced: intricate details with stones & textures",
-          "Customised concepts for any occasion",
-        ],
-        bestForLabel: "Perfect for",
-        bestFor: "Everyday wear, special occasions or statement looks.",
-      },
-      {
-        id: "french-nail-extensions",
-        category: "Nails",
-        name: "French Nail Extensions",
-        tagline: "Timeless, Elegant & Effortlessly Stylish",
-        description:
-          "A soft base with crisp white tips — perfect for professionals, brides and lovers of classic beauty.",
-        featuresLabel: "Features",
-        features: [
-          "Neat, refined nails with a premium finish",
-          "Perfect symmetry and durability",
-          "A clean aesthetic that never goes out of style",
-        ],
-        bestFor: "Neat, refined nails with a premium, classic finish.",
-      },
-      {
-        id: "ombre-nail-extensions",
-        category: "Nails",
-        name: "Ombre Nail Extensions",
-        tagline: "Modern Gradient Perfection",
-        description:
-          "Blends two or more shades seamlessly, creating a soft gradient that looks modern and luxurious — adding depth, elegance and uniqueness to your nails.",
-        featuresLabel: "What to expect",
-        features: [
-          "Smooth colour transitions",
-          "Customised shades to match your style",
-          "Flawless, trendy finish",
-        ],
-        bestForLabel: "Ideal for",
-        bestFor: "Anyone who wants a trendy yet sophisticated look.",
       },
     ],
+    expert: {
+      title: "The Expert Behind Your Nail Care",
+      name: "Priyanka",
+      role: "Senior Beauty Therapist",
+      image: "/images/our-team/team3.webp",
+      bio: [
+        "For Priyanka, creating beautiful nails is where technical precision meets artistic creativity. She carefully understands each client's style before recommending the ideal extension technique, nail shape, and finish.",
+        "Whether you're looking for elegant everyday nails or a glamorous design for a special occasion, Priyanka ensures every set is beautifully crafted, comfortable to wear, and tailored to your personality.",
+      ],
+      expertise: [
+        "Acrylic Nail Extensions  ",
+        "Brisa Gel Extensions  ",
+        "Nail Refills  ",
+        "French & Ombre Extensions  ",
+        "Nail Art  ",
+        "Custom Nail Designs  ",
+      ],
+    },
     faqs: [
       {
         id: "ne-1",
-        question: "What's the difference between acrylic and gel extensions?",
+        question: "How long do nail extensions last? ",
         answer:
-          "Acrylic is stronger and more structured, so it suits bold lengths and weak or brittle nails. Gel is lighter and more flexible with a naturally glossy finish.",
+          "Most nail extensions last between two and four weeks before a refill is recommended, depending on your lifestyle and nail growth. ",
       },
       {
         id: "ne-2",
-        question: "How often do I need a refill?",
+        question: "What's the difference between Acrylic and Brisa Gel extensions? ",
         answer:
-          "As your natural nails grow out, a refill restores the balance and shape without removing the whole set — most clients come back every few weeks.",
+          "Acrylic extensions offer maximum strength and durability, while Brisa Gel extensions provide a lighter, more flexible, and natural-looking finish. ",
       },
       {
         id: "ne-3",
-        question: "Will extensions damage my natural nails?",
+        question: "How often should I schedule a refill? ",
         answer:
-          "Not when they're removed properly. Our removal service uses gentle techniques that protect your natural nail health.",
+          "We generally recommend a refill every two to three weeks to maintain the appearance and strength of your extensions. ",
       },
       {
         id: "ne-4",
-        question: "Can I get nail art on my extensions?",
+        question: "Can I customise my nail design? ",
         answer:
-          "Yes — anything from clean, minimal patterns to intricate detailing with stones and textures.",
+          "Absolutely. You can choose from French finishes, ombré styles, minimalist nail art, premium artistic designs, stone embellishments, and custom colour combinations. ",
+      },
+      {
+        id: "ne-5",
+        question: "Will nail extensions damage my natural nails? ",
+        answer:
+          "When professionally applied, maintained, and removed, nail extensions can be worn safely. Our specialists follow proper techniques to help maintain the health of your natural nails.",
+      },
+      {
+        id: "ne-6",
+        question: "Can I get nail art with any extension? ",
+        answer:
+          "Yes. Nail art can be added to both Acrylic and Brisa Gel extensions, allowing you to create a look that's completely unique to you. ",
       },
     ],
+    ctaTitle: "Create Nails That Reflect Your Style ",
+    ctaDescription:
+      "Whether you're dreaming of elegant French nails, trendy ombré designs, artistic nail creations, or beautifully natural extensions, our experienced beauty specialists are here to bring your vision to life with premium craftsmanship and personalised care. ",
+    metaTitle:
+      "Nail Extensions in Dubai | Acrylic, Brisa Gel & Nail Art | VR Unisex Salon ",
+    metaDescription:
+      "Get beautiful nail extensions in Dubai at VR Unisex Salon. Choose from Acrylic and Brisa Gel extensions, French and ombré finishes, custom nail art, stone embellishments, and professional refills for stunning, long-lasting results. ",
   },
   {
     id: "8",
     slug: "hair-color",
-    title: "Hair Color",
+    title: "Professional Hair Colour in Dubai ",
     description: "Global and highlight coloring with premium brands.",
     startingPrice: 1499,
-    tagline: "Colour & Highlights",
-    heroBadge: "Precision, Protection & Premium Results",
-    heroSubtitle: "More Than a Shade Change — a Personalised Transformation",
+    // tagline: "Colour & Highlights",
+    // heroBadge: "Precision, Protection & Premium Results",
+    // heroSubtitle: "More Than a Shade Change — a Personalised Transformation",
     longDescription:
-      "Our colourists combine premium products, advanced techniques and a deep consultation to deliver safe, precise and long-lasting results. Whether you're after subtle dimension or a bold trend, every service is designed around your hair type, skin tone and lifestyle.",
-    highlights: [
-      "Consultation before every colour",
-      "Premium colour products",
-      "Matched to your skin tone",
-      "Colour for women & men",
-    ],
+      "Your hair colour should do more than change your appearance it should reflect your personality, complement your features, and make you feel confident every time you look in the mirror. Whether you're refreshing your current shade, covering greys, or embracing a bold new transformation, every colour service at VR Unisex Salon begins with understanding your vision. Using advanced colouring techniques and internationally trusted salon products, we create beautiful, healthy-looking colour that's tailored exclusively to you.",
+    // highlights: [
+    //   "Consultation before every colour",
+    //   "Premium colour products",
+    //   "Matched to your skin tone",
+    //   "Colour for women & men",
+    // ],
     treatmentsSubtitle:
-      "From natural enhancements to bold fashion statements — for women and men.",
+      "Whether you're looking for a subtle enhancement or a complete colour makeover, our personalised colour services are designed to suit every hair type, style, and occasion.",
     treatments: [
       {
         id: "global-hair-color",
         category: "For Women",
-        name: "Global Hair Color",
+        name: "Global Hair Colour",
         description:
-          "A uniform, rich shade from roots to ends. Ideal for a complete refresh or a dramatic change, delivering even coverage, vibrant depth and a polished finish.",
-        bestFor: "A complete colour refresh or dramatic change.",
-        result: "Even coverage with a vibrant, glossy finish.",
+          "Achieve rich, even colour from roots to ends with customised shades that complement your skin tone and personal style. ",
       },
       {
         id: "root-touch-up",
@@ -978,549 +1053,605 @@ const coreServices: Service[] = [
       {
         id: "highlights",
         category: "For Women",
-        name: "Highlights",
+        name: "Root Touch-Up ",
         description:
-          "Adds brightness and dimension by lightening selected strands. Ideal for a sun-kissed glow or face-framing definition, enhancing movement and texture without overpowering your base colour.",
-        bestFor: "A sun-kissed glow and added dimension.",
-        result: "Natural brightness with enhanced texture.",
-      },
+          "Keep your colour looking fresh with seamless root coverage that blends naturally with your existing shade.",
+        },
       {
         id: "lowlights",
         category: "For Women",
-        name: "Lowlights",
+        name: "Highlights ",
         description:
-          "Deepens and enriches your hair by adding darker tones for contrast and balance. Often paired with highlights — perfect for restoring depth or softening overly light hair.",
-        bestFor: "Adding depth and balancing highlights.",
-        result: "A multi-dimensional, natural finish.",
+          "Add dimension, brightness, and movement with professionally placed highlights that create a naturally radiant finish. ",
       },
       {
         id: "balayage",
         category: "For Women",
         name: "Balayage",
         description:
-          "A hand-painted technique that creates soft, natural gradients with minimal maintenance — lighter ends, subtle roots and a beautifully blended finish.",
-        bestFor: "Low-maintenance, natural elegance.",
-        result: "Soft gradients with a lived-in look.",
-      },
+          "Enjoy soft, hand-painted colour transitions that create a modern, effortless, sun-kissed look with minimal maintenance. ",
+        },
       {
         id: "ombre-hair-color",
         category: "For Women",
         name: "Ombre",
         description:
-          "A striking transition from darker roots to lighter lengths — bold yet balanced, and carefully blended for smooth transitions. Best if you want noticeable contrast without frequent touch-ups.",
-        bestFor: "Bold contrast with minimal maintenance.",
-        result: "A striking gradient with smooth transitions.",
+          "Create a striking yet elegant colour gradient that blends darker roots into lighter ends for a contemporary finish. ",
       },
       {
         id: "fashion-hair-color",
         category: "For Women",
-        name: "Fashion Hair Color",
+        name: "Fashion Hair Colours",
         description:
-          "For those who love to stand out. From vibrant reds and cool blues to soft pastels, we tailor bold shades to your personality and hair condition using advanced techniques and premium pigments.",
-        bestFor: "Bold self-expression and unique styles.",
-        result: "Vibrant, glossy fashion colours.",
+          "Express your individuality with creative shades including silver, ash, grey, and other fashion-inspired colour transformations. ",
       },
       {
         id: "grey-coverage",
         category: "For Women",
-        name: "Grey Coverage",
+        name: "Grey Coverage ",
         description:
-          "Natural-looking, long-lasting results for both partial and full greys. We carefully match tones to your natural hair for seamless blending and reliable coverage.",
-        bestFor: "Natural grey coverage and a youthful look.",
-        result: "Seamless blending without harsh lines.",
-      },
-      {
-        id: "full-hair-color-men",
-        category: "For Men",
-        name: "Full Hair Color",
-        description:
-          "Ideal for changing or refreshing your overall hair tone with a clean, uniform finish. We start with a consultation to choose a shade that complements your skin tone and style, then apply with careful sectioning and precise processing for even coverage.",
-        bestFor: "A complete colour change or consistent tone.",
-        result: "An even, natural finish with a polished look.",
-      },
-      {
-        id: "hair-highlights-men",
-        category: "For Men",
-        name: "Hair Highlights",
-        description:
-          "Designed for subtle enhancement, not bold contrast. Soft, well-placed highlights create dimension, texture and movement, customised around your haircut, hair density and desired intensity — easy to maintain for both corporate and casual lifestyles.",
-        bestFor: "Depth, texture and a modern edge.",
-        result: "Natural highlights with low maintenance.",
-      },
-      {
-        id: "grey-coverage-men",
-        category: "For Men",
-        name: "Grey Coverage",
-        description:
-          "Blends and covers greys while keeping a natural, age-appropriate appearance. We select shades matching your original colour so the result never looks dyed, applied for longevity, scalp comfort and an even finish.",
-        bestFor: "Visible greys that need a subtle refresh.",
-        result: "Natural coverage with a youthful finish.",
-      },
+          "Restore youthful, natural-looking colour with personalised grey coverage that blends beautifully while maintaining a soft, authentic appearance.",
+        },
     ],
+    expert: {
+      title: "The Expert Behind Your Nail Care",
+      name: "Raju",
+      role: "Founder & Beauty Expert ",
+      image: "/images/our-team/team2.webp",
+      bio: [
+        "Raju believes exceptional hair colour begins with understanding the individual—not simply choosing a shade. Every consultation focuses on your skin tone, hair condition, lifestyle, and personal preferences before recommending colours and techniques that truly complement you. ",
+        "Whether you're looking for a subtle refresh, elegant highlights, seamless grey coverage, or a complete colour transformation, Raju combines technical expertise with a personalised approach to create colour that feels naturally yours while maintaining the health and beauty of your hair. ",
+      ],
+      expertise: [
+        "Global Hair Colour  ",
+        "Root Touch-Ups  ",
+        "Balayage & Highlights  ",
+        "Fashion Hair Colours  ",
+        "Grey Coverage  ",
+        "Personalised Colour Consultations  ",
+      ],
+    },
     faqs: [
       {
         id: "hc-1",
-        question: "What's the difference between balayage and ombre?",
+        question: "Which hair colour is right for me? ",
         answer:
-          "Balayage is hand-painted for soft, natural gradients that grow out gently. Ombre is a more defined transition from darker roots to lighter lengths — bolder contrast, but still low maintenance.",
+          "Every appointment begins with a personalised consultation where we recommend shades and colouring techniques based on your skin tone, hair type, lifestyle, and desired look. ",
       },
       {
         id: "hc-2",
-        question: "How often do I need a root touch-up?",
+        question: "Do you offer ammonia-free hair colour? ",
         answer:
-          "It depends on how fast your roots show, but most clients come in every few weeks to keep the blend seamless.",
+          "Yes. We offer professional ammonia-free colour options that provide excellent coverage while being gentler on the hair and scalp.  ",
       },
       {
         id: "hc-3",
-        question: "Do you colour men's hair too?",
+        question: "What's the difference between balayage and highlights? ",
         answer:
-          "Yes — full colour, subtle highlights and grey coverage, all designed to look natural rather than obviously dyed.",
+          "Highlights create defined sections of lighter hair using foils, while balayage is a hand-painted technique that creates a softer, more natural-looking transition. ",
       },
       {
         id: "hc-4",
-        question: "Will colouring damage my hair?",
+        question: "Can I colour previously treated or damaged hair? ",
         answer:
-          "We use premium products and always consult first. If your hair is fragile or you're bleaching, ask about our Olaplex treatment — it's designed to reduce damage from colouring and bleaching.",
+          "In many cases, yes. We'll assess your hair's condition during your consultation and recommend the safest approach to achieve your desired results. ",
+      },
+      {
+        id: "hc-5",
+        question: "How long does a hair colouring appointment take? ",
+        answer:
+          "The duration depends on the service you choose. Root touch-ups generally take less time, while balayage, highlights, or complete colour transformations may require a longer appointment. ",
+      },
+      {
+        id: "hc-6",
+        question: "How can I maintain my hair colour for longer? ",
+        answer:
+          "Using salon-recommended products, protecting your hair from excessive heat, and following our aftercare guidance will help keep your colour vibrant between appointments. ",
       },
     ],
+    
+    ctaTitle: "Your Perfect Hair Colour Starts with a Conversation ",
+    ctaDescription:
+      "The best colour transformations begin with understanding your vision. Whether you're refreshing your signature shade or trying something completely new, our experienced team is here to create personalised hair colour that enhances your confidence while keeping your hair healthy, vibrant, and beautiful. ",
+    metaTitle:
+      "Professional Hair Colour in Dubai | Balayage, Highlights & Hair Colour | VR Unisex Salon ",
+    metaDescription:
+      "Looking for professional hair colour in Dubai? Visit VR Unisex Salon for global hair colour, balayage, highlights, root touch-ups, grey coverage, and ammonia-free colour services using premium salon brands for vibrant, healthy-looking results.  ",
   },
   {
     id: "9",
     slug: "waxing-threading",
-    title: "Waxing / Threading",
+    title: "Ladies Waxing, Threading & Bleach Services in Dubai ",
     description: "Smooth, gentle hair removal for face and body.",
     startingPrice: 199,
-    tagline: "Hair Removal",
-    heroBadge: "Gentle, Hygienic & Private",
-    heroSubtitle: "Smooth, Clean & Confident Skin — Done the Right Way",
+    // tagline: "Hair Removal",
+    // heroBadge: "Gentle, Hygienic & Private",
+    // heroSubtitle: "Smooth, Clean & Confident Skin — Done the Right Way",
     longDescription:
-      "Waxing and threading are personal services that require trust, comfort and expert care. Ours are designed to deliver clean, smooth results while staying gentle on the skin — even for first-time clients. We follow strict hygiene protocols, use skin-friendly products and customise every service around your skin type and sensitivity.",
-    highlights: [
-      "Strict hygiene protocols",
-      "Skin-friendly products",
-      "Gentle on sensitive skin",
-      "Calm, private setting",
-    ],
+      "Feel confident with beautifully groomed, smooth, and radiant skin. At VR Unisex Salon, we offer professional waxing, threading, and bleach services exclusively for women, helping you maintain a polished appearance with comfort, hygiene, and personalised care. Whether it's your regular beauty routine or preparation for a special occasion, our experienced beauty specialists ensure every treatment is tailored to your skin and comfort. ",
+    // highlights: [
+    //   "Strict hygiene protocols",
+    //   "Skin-friendly products",
+    //   "Gentle on sensitive skin",
+    //   "Calm, private setting",
+    // ],
     treatmentsSubtitle:
-      "Waxing and threading — every service customised to your skin type and sensitivity.",
+      "Professional waxing removes unwanted hair from the root, leaving your skin smoother for longer while reducing the need for frequent shaving. ",
     treatments: [
       {
         id: "full-body-wax",
         category: "Waxing",
-        name: "Full Body Wax",
+        name: "Facial Waxing ",
         description:
-          "Removes unwanted hair from arms, legs, underarms, back, stomach and face (optional) in one complete session. Ideal if you prefer long-lasting smoothness and even skin texture — perfect before vacations, special occasions, or for overall grooming. Expect soft, clean skin with reduced regrowth over time, in a hygienic and private setting.",
+          "Gently removes unwanted facial hair while helping your skin feel smooth and refreshed. ",
       },
       {
         id: "half-leg-wax",
         category: "Waxing",
-        name: "Half Leg Wax",
+        name: "Arm Waxing ",
         description:
-          "Hair removal from knees to ankles — ideal if you like wearing skirts, dresses or cropped outfits. Leaves your lower legs smooth and polished without irritation, making it a quick, comfortable option for regular maintenance.",
+          "Professional waxing for beautifully smooth arms with longer-lasting results. ",
       },
       {
         id: "full-leg-wax",
         category: "Waxing",
-        name: "Full Leg Wax",
+        name: "Underarm Waxing ",
         description:
-          "Removes hair from thighs to ankles for a completely smooth finish. Best if you want longer-lasting results than shaving — it improves how your skin feels and looks, with comfort and care throughout.",
+          "Enjoy cleaner, smoother underarms with professional hair removal that's quick, hygienic, and effective. ",
       },
       {
         id: "half-arm-wax",
         category: "Waxing",
-        name: "Half Arm Wax",
+        name: "Leg Waxing ",
         description:
-          "Focuses on hair removal from elbow to wrist. Suitable if you want neat, clean arms while keeping the experience quick and gentle — ideal for everyday grooming and professional settings.",
+          "Choose full leg waxing for beautifully smooth skin that's ready for every occasion. ",
       },
       {
         id: "full-arm-wax",
         category: "Waxing",
-        name: "Full Arm Wax",
+        name: "Back & Stomach Waxing ",
         description:
-          "Removes hair from shoulders to wrists, leaving arms smooth and evenly toned. Perfect for sleeveless outfits and special events, using skin-friendly wax to minimise discomfort and redness.",
+          "Professional waxing for women looking for clean, smooth skin across larger body areas. ",
       },
       {
         id: "underarm-wax",
         category: "Waxing",
-        name: "Underarm Wax",
+        name: "Full Body Waxing ",
         description:
-          "Clean, smooth underarms with longer-lasting results than shaving. Helps reduce hair thickness over time and keeps the area fresh and neat — ideal for sensitive skin, performed to strict hygiene standards.",
-      },
-      {
-        id: "bikini-wax",
-        category: "Waxing",
-        name: "Bikini Wax",
-        description:
-          "Removes unwanted hair along the bikini line while always respecting your comfort level, in a private setting. Suitable for first-time clients and regular maintenance, leaving skin smooth without harsh irritation.",
-      },
-      {
-        id: "face-wax",
-        category: "Waxing",
-        name: "Face Wax",
-        description:
-          "Removes unwanted hair from the upper lip, chin, cheeks and sides of the face. Ideal for quick, effective hair removal — it improves makeup finish and leaves skin looking clean and fresh, using gentle wax suitable for facial skin.",
+          "A complete hair removal solution for women who want beautifully smooth skin from head to toe. ",
       },
       {
         id: "eyebrow-threading",
         category: "Threading",
-        name: "Eyebrow Threading",
+        name: "Ladies Threading Services ",
         description:
-          "Shapes and defines your brows with precision. Ideal if you want clean, natural-looking brows without chemicals — threading gives sharp definition while staying gentle on sensitive skin.",
+          "Threading is one of the most precise methods of facial hair removal, making it ideal for shaping eyebrows and removing fine facial hair while being gentle on sensitive skin. ",
       },
       {
         id: "upper-lip-threading",
         category: "Threading",
-        name: "Upper Lip Threading",
+        name: "Ladies Bleach Services ",
         description:
-          "Removes fine facial hair safely and effectively without irritation. Best for sensitive skin, giving a smooth finish while keeping the skin comfortable.",
+          "Bleach treatments help reduce the visibility of facial and body hair while creating a brighter, more even complexion without removing the hair. ",
       },
       {
         id: "forehead-threading",
         category: "Threading",
-        name: "Forehead Threading",
+        name: "Body Bleach ",
         description:
-          "Removes unwanted hair along the hairline for a cleaner, more balanced look. Enhances facial symmetry and is ideal if you prefer precise hair removal without waxing.",
-      },
-      {
-        id: "chin-threading",
-        category: "Threading",
-        name: "Chin Threading",
-        description:
-          "Targets unwanted hair with accuracy, making it suitable for sensitive or acne-prone skin. The result is a clean, smooth chin area without harsh products.",
-      },
-      {
-        id: "full-face-threading",
-        category: "Threading",
-        name: "Full Face Threading",
-        description:
-          "Removes hair from eyebrows, upper lip, chin, forehead and the sides of the face. Ideal if you want a complete, natural-looking finish — it improves skin texture and enhances overall facial clarity.",
+          "Perfect for women looking for a brighter, more even appearance across different body areas. ",
       },
     ],
+    
+    expert: {
+      title: "The Expert Behind Your Nail Care",
+      name: "Priyanka",
+      role: "Senior Beauty Therapist",
+      image: "/images/our-team/team3.webp",
+      bio: [
+        "Priyanka believes every woman deserves beauty treatments that are both comfortable and effective. She carefully understands your skin type, sensitivity, and personal preferences before recommending the most suitable waxing, threading, or bleach treatment. ",
+        "Her gentle approach, attention to detail, and commitment to hygiene ensure every appointment leaves you feeling refreshed, confident, and beautifully groomed. ",
+      ],
+      expertise: [
+        "Ladies Waxing  ",
+        "Ladies Threading  ",
+        "Eyebrow Shaping  ",
+        "Facial Hair Removal  ",
+        "Ladies Bleach Services  ",
+        "Personalised Beauty Consultations  ",
+      ],
+    },
     faqs: [
       {
         id: "wt-1",
-        question: "Does waxing hurt?",
+        question: "Is threading better than waxing for facial hair? ",
         answer:
-          "We use skin-friendly wax and adjust to your sensitivity to minimise discomfort and redness. Do tell your therapist if it's your first time — we'll take it gently.",
+          "Threading offers exceptional precision and is ideal for eyebrow shaping and delicate facial areas, while waxing is often preferred for larger body areas. ",
       },
       {
         id: "wt-2",
-        question: "How is threading different from waxing?",
+        question: "How long do waxing results last? ",
         answer:
-          "Threading uses no chemicals and gives sharper definition, so it's often the better choice for brows and for sensitive or acne-prone skin.",
+          "Most women enjoy smooth skin for approximately 3–4 weeks, depending on individual hair growth. ",
       },
       {
         id: "wt-3",
-        question: "I'm a first-time client — is bikini waxing comfortable?",
+        question: "Does bleach remove hair? ",
         answer:
-          "Yes. It's done in a private setting and always at your comfort level. Our therapists work with first-time clients regularly.",
+          "No. Bleach lightens the colour of facial and body hair, making it less visible while maintaining a natural appearance. ",
       },
       {
         id: "wt-4",
-        question: "How long do the results last?",
+        question: "Is waxing suitable for sensitive skin? ",
         answer:
-          "Waxing lasts noticeably longer than shaving, and regular sessions can reduce hair thickness over time.",
+          "Our beauty specialists assess your skin before treatment and use professional techniques to make the experience as comfortable as possible. ",
+      },
+      {
+        id: "wt-5",
+        question: "Which treatment is best for eyebrow shaping? ",
+        answer:
+          "Eyebrow threading provides the cleanest, most precise shaping while maintaining a natural look. ",
+      },
+      {
+        id: "wt-6",
+        question: "Can I combine waxing, threading, and bleach in one appointment? ",
+        answer:
+          "Yes. Many of our clients combine multiple beauty services in a single visit for a complete grooming experience. ",
       },
     ],
+    ctaTitle: "Beautifully Groomed Skin Starts Here ",
+    ctaDescription:
+      "Whether you're maintaining your regular beauty routine or preparing for a special occasion, our experienced beauty specialists are here to help you achieve beautifully smooth skin and a polished, confident look with professional ladies waxing, threading, and bleach services. ",
+    metaTitle:
+      "Ladies Waxing, Threading & Bleach Services in Dubai | VR Unisex Salon ",
+    metaDescription:
+      "Discover professional ladies waxing, threading, and bleach services in Dubai at VR Unisex Salon. Enjoy eyebrow threading, full body waxing, facial and body bleach treatments, and personalised beauty care in a hygienic, comfortable salon environment. ",
   },
   {
     id: "10",
     slug: "couple-services",
-    title: "Couple Services",
+    title: "Couple Spa & Salon Experience in Dubai ",
     description: "Pamper sessions designed for two.",
     startingPrice: 1999,
-    tagline: "For Two",
-    heroBadge: "Shared Self-Care",
-    heroSubtitle: "Relax. Reconnect. Refresh — Together.",
+    // tagline: "For Two",
+    // heroBadge: "Shared Self-Care",
+    // heroSubtitle: "Relax. Reconnect. Refresh — Together.",
     longDescription:
-      "Experience the joy of shared self-care. Our couple services are designed to help you unwind side by side in a calm, hygienic environment while enjoying premium treatments tailored to both partners.",
-    highlights: [
-      "Treated side by side",
-      "Coordinated care for both",
-      "Sanitized tools, fresh products",
-      "Never rushed",
-    ],
-    journeyIntro: {
-      title: "Couples Manicure & Pedicure",
-      description:
-        "Designed for partners who want to unwind side by side, this service combines professional nail and foot care with a peaceful, hygienic environment. Both partners receive coordinated care — nail shaping, cuticle care, gentle exfoliation, and a relaxing hand and foot massage — without rushing. Perfect for date days, special occasions, or simple quality time.",
-    },
+      "Because the best moments are even more special when shared. Whether you're celebrating a birthday, anniversary, honeymoon, or simply spending quality time together, our Couple Services are designed to help you relax, refresh, and reconnect in a calm and luxurious salon environment. Enjoy personalised beauty and wellness treatments side by side while our experienced team takes care of every detail, creating an experience that's as memorable as it is relaxing.",
+    // journeyIntro: {
+    //   title: "Couple Experiences We Offer",
+    //   description:
+    //     "Every couple is different, which is why our experiences can be customised according to your preferences. Whether you're looking for complete relaxation or a beauty makeover together, we'll help create an experience that's right for both of you.",
+    // },
     benefits: [
       {
         icon: "Gem",
-        title: "Professional Nail Care",
-        description: "Expert shaping, cuticle care and polish application for both partners.",
+        title: "Hair Care Together ",
+        description: "Refresh your look together with personalised hair services including haircuts, hair treatments, hair spa experiences, and professional styling. ",
       },
       {
         icon: "Hand",
-        title: "Relaxing Massage",
-        description: "Soothing hand and foot massage to relieve tension and promote relaxation.",
+        title: "Relaxing Head Spa Experience ",
+        description: "Enjoy one of our signature Korean Head Spa treatments side by side while experiencing deep scalp care, therapeutic massage, and complete relaxation. ",
       },
       {
         icon: "ShieldCheck",
-        title: "Strict Hygiene Standards",
-        description: "Sanitized tools, fresh products and a clean environment, guaranteed.",
+        title: "Beauty & Grooming ",
+        description: "Couples can combine beauty and grooming services such as facials, hair care, nail care, and other personalised treatments during the same appointment. ",
       },
       {
         icon: "Clock",
-        title: "Unhurried Experience",
-        description: "Take your time and enjoy quality moments together, without rushing.",
+        title: "Celebrate Special Moments ",
+        description: "Planning a birthday surprise, anniversary, engagement, honeymoon, or pre-wedding pampering session? We'll help create a customised salon experience for your special occasion. ",
       },
     ],
     faqs: [
       {
         id: "cs-1",
-        question: "What's included in a couples manicure & pedicure?",
+        question: "Can we choose different treatments? ",
         answer:
-          "Both partners receive coordinated care: nail shaping, cuticle care, gentle exfoliation, and a relaxing hand and foot massage.",
+          "Absolutely. Every guest can select treatments based on their own preferences while enjoying the experience together. ",
       },
       {
         id: "cs-2",
-        question: "Do we sit together during the treatment?",
+        question: "Do we need to book in advance? ",
         answer:
-          "Yes — that's the whole idea. You're treated side by side so you can relax and enjoy the time together.",
+          "We highly recommend booking ahead, especially on weekends and during festive seasons, so we can prepare the best possible experience for both of you. ",
       },
       {
         id: "cs-3",
-        question: "Should we book in advance?",
+        question: "Can Couple Services be customised? ",
         answer:
-          "We'd recommend it. Booking ahead lets us seat you together and have the team ready for both of you.",
+          "Yes. We'll happily create a personalised package based on your preferred treatments and occasion. ",
       },
       {
         id: "cs-4",
-        question: "Is it suitable for a special occasion?",
+        question: "Is this suitable for anniversaries and birthdays? ",
         answer:
-          "Absolutely — it's a favourite for date days, anniversaries, birthdays, or simply quality time together.",
+          "Definitely. Many couples book our services to celebrate birthdays, anniversaries, engagements, and other memorable occasions.",
+      },
+      {
+        id: "cs-5",
+        question: "How long does the experience take?",
+        answer:
+          "The duration depends on the treatments you choose. During booking, we'll provide an estimated schedule for your visit. ",
+      },
+      {
+        id: "cs-6",
+        question: "Can we purchase this as a gift? ",
+        answer:
+          "Yes. Couple experiences make a thoughtful gift for anniversaries, birthdays, weddings, or simply to surprise someone special. ",
       },
     ],
+        ctaTitle: "Relax. Refresh. Reconnect. ",
+    ctaDescription:
+      "Life gets busy, but spending meaningful time together should never be an afterthought. Whether you're celebrating a special milestone or simply treating yourselves to a well-deserved break, our Couple Services offer the perfect opportunity to relax, reconnect, and create lasting memories together. ",
+    metaTitle:
+      "Couple Spa & Salon Experience in Dubai | Premium Couple Beauty Services | VR Unisex Salon ",
+    metaDescription:
+      "Enjoy a relaxing couple spa and salon experience in Dubai at VR Unisex Salon. Celebrate anniversaries, birthdays, honeymoons, or simply unwind together with personalised beauty and wellness treatments in a luxurious setting. ",
   },
   {
     id: "11",
     slug: "eyelash-extensions",
-    title: "Eyelash Extensions",
+    title: "Eyelash Extensions in Dubai ",
     description: "Natural to dramatic lash extensions, done right.",
     startingPrice: 899,
-    tagline: "Lash Artistry",
-    heroBadge: "Natural to Glam",
-    heroSubtitle: "Enhance Your Eyes with Professionally Crafted Lashes",
+    // tagline: "Lash Artistry",
+    // heroBadge: "Natural to Glam",
+    // heroSubtitle: "Enhance Your Eyes with Professionally Crafted Lashes",
     longDescription:
-      "Our eyelash services elevate your natural beauty with precision, comfort and care. Whether you prefer soft, natural extensions or bold, dramatic volume, our certified lash artists customise every set to suit your eye shape, lifestyle and desired look. We follow strict hygiene protocols, use premium products and prioritise lash health — so you enjoy stunning results with complete peace of mind.",
-    highlights: [
-      "Certified lash artists",
-      "Customised to your eye shape",
-      "Lash health prioritised",
-      "Strict hygiene protocols",
-    ],
+      "Beautiful lashes have the power to transform your entire look. At VR Unisex Salon, our professional eyelash extension services are designed to enhance your natural beauty with lightweight, comfortable, and beautifully styled lashes. Whether you prefer a soft everyday look or fuller lashes for a glamorous occasion, our beauty specialists personalise every application to complement your unique features. ",
+    // highlights: [
+    //   "Certified lash artists",
+    //   "Customised to your eye shape",
+    //   "Lash health prioritised",
+    //   "Strict hygiene protocols",
+    // ],
     treatmentsSubtitle:
-      "From a soft everyday look to high-impact glam — plus refills, removal and lifts.",
+      "Whether you're looking for subtle elegance, glamorous volume, or temporary lashes for a special occasion, we offer eyelash extension services to suit every style. ",
     treatments: [
       {
         id: "classic-eyelash-extensions",
         category: "Lashes",
-        name: "Classic Eyelash Extensions",
+        name: "Classic Full Set Lashes ",
         description:
-          "One extension applied to one natural lash, creating a clean, elegant and natural-looking enhancement. Ideal if you want subtle definition without heaviness.",
-        featuresLabel: "Best for",
-        features: ["First-time lash clients", "Anyone who prefers a soft, everyday look"],
-        resultLabel: "Results",
-        result:
-          "Naturally longer, darker lashes that enhance your eyes while staying lightweight and comfortable — a polished, effortless look.",
+          "Classic lashes enhance your natural lashes by adding length and gentle fullness while maintaining an elegant, everyday appearance.",
+        featuresLabel: "Perfect For ",
+        features: ["First-time lash clients  ", "Natural enhancement  ", "Everyday beauty  ", "Office professionals  ",],
       },
       {
         id: "volume-eyelash-extensions",
         category: "Lashes",
-        name: "Volume Eyelash Extensions",
+        name: "Volume Full Set Lashes ",
         description:
-          "Ultra-fine extensions applied in handcrafted fans to each natural lash, creating fullness and drama without weighing your lashes down.",
-        featuresLabel: "Best for",
+          "Volume lashes create a fuller, fluffier appearance for clients who love beautifully defined eyes and a more glamorous finish. ",
+        featuresLabel: "Perfect For ",
         features: [
-          "Anyone who loves bold, glamorous eyes",
-          "Sparse natural lashes that need more density",
+          "Fuller lashes",
+          "Evening events  ",
+          "Weddings  ",
+          "Glamorous everyday style  ",
         ],
-        resultLabel: "Results",
-        result:
-          "A fuller, fluffier lash line with customisable intensity — from soft volume to high-impact glam.",
-      },
+        },
       {
         id: "hybrid-eyelash-extensions",
         category: "Lashes",
-        name: "Hybrid Eyelash Extensions",
+        name: "Lash Refills ",
         description:
-          "Combines classic and volume techniques for a balanced, textured look — the best of both worlds: definition and fullness.",
-        featuresLabel: "Best for",
+          "Beautiful lashes require regular maintenance. Our refill services help replace naturally shed extensions, keeping your lashes looking full and perfectly balanced. ",
+        featuresLabel: "Available Options ",
         features: [
-          "More volume than classic lashes",
-          "A softer finish than full volume",
+          "Classic Lash Refill  ",
+          "Volume Lash Refill  ",
         ],
-        resultLabel: "Results",
-        result:
-          "A layered, wispy effect that enhances your natural beauty while adding noticeable depth.",
       },
       {
         id: "eyelash-refill",
         category: "Lashes",
-        name: "Eyelash Refill",
+        name: "Weekly Lashes ",
         description:
-          "Maintains the beauty of your extensions by replacing lashes that have naturally shed over time. We assess lash health before every refill to ensure safe application.",
-        featuresLabel: "Best for",
-        features: [
-          "Existing lash extension clients",
-          "Keeping your look fresh and well-defined",
-        ],
-        resultLabel: "Results",
-        result:
-          "Restored fullness and symmetry, extending the life of your extensions while keeping them neat and refined.",
-      },
+          "Need stunning lashes for a wedding, celebration, holiday, or special event? Weekly lashes provide a temporary enhancement that's lightweight, comfortable, and easy to remove. ",
+        },
       {
         id: "eyelash-removal",
         category: "Lashes",
-        name: "Eyelash Removal",
+        name: "Professional Eyelash Removal ",
         description:
-          "Professional removal that safely dissolves lash adhesive without pulling or damaging your natural lashes. A gentle process that protects eye comfort and lash integrity.",
-        featuresLabel: "Best for",
-        features: [
-          "Switching styles",
-          "Taking a break from extensions",
-          "Correcting a previous application",
-        ],
-        resultLabel: "Results",
-        result: "Clean, healthy natural lashes — ready for a new set or a natural reset.",
-      },
-      {
-        id: "lash-lifting",
-        category: "Lashes",
-        name: "Lash Lifting",
-        description:
-          "Enhances your natural lashes by lifting and curling them from the root, creating the illusion of longer, more open eyes — without extensions.",
-        featuresLabel: "Best for",
-        features: [
-          "A low-maintenance, natural enhancement",
-          "Lifting your lashes effortlessly",
-        ],
-        resultLabel: "Results",
-        result:
-          "Beautifully curled lashes with a wide-eyed effect that lasts for weeks — minimal yet polished.",
-      },
+          "When you're ready for a fresh start, our specialists safely remove existing lash extensions using professional techniques that help protect your natural lashes. ",
+        },
     ],
+    expert: {
+      title: "The Expert Behind Your Nail Care",
+      name: "Priyanka",
+      role: "Senior Beauty Therapist ",
+      image: "/images/our-team/team3.webp",
+      bio: [
+        "Priyanka believes beautiful lashes should enhance your natural features rather than overpower them. Every appointment begins with understanding your eye shape, lifestyle, and personal preferences before recommending the most suitable lash style. ",
+        "Using gentle application techniques and premium-quality lash products, she creates comfortable, elegant lash extensions that complement your individual beauty. ",
+      ],
+      expertise: [
+        "Classic Full Set Lashes  ",
+        "Volume Full Set Lashes  ",
+        "Lash Refills  ",
+        "Weekly Lashes  ",
+        "Eyelash Removal  ",
+        "Lash Styling Consultation  ",
+      ],
+    },
     faqs: [
       {
         id: "el-1",
-        question: "Which lash style should I choose?",
+        question: "How long do eyelash extensions last? ",
         answer:
-          "Classic suits a soft, everyday look, volume gives bold glam or adds density to sparse lashes, and hybrid sits in between. Your lash artist will help you decide.",
+          "Most eyelash extensions last between 3 and 5 weeks, depending on your natural lash growth cycle and how well you care for them. ",
       },
       {
         id: "el-2",
-        question: "How often do I need a refill?",
+        question: "What's the difference between Classic and Volume lashes? ",
         answer:
-          "Lashes shed naturally over time, so most clients book a refill every few weeks to restore fullness and symmetry.",
+          "Classic lashes create a natural, elegant enhancement, while Volume lashes provide a fuller, fluffier, and more dramatic appearance. ",
       },
       {
         id: "el-3",
-        question: "Will extensions damage my natural lashes?",
+        question: "How often should I book a lash refill? ",
         answer:
-          "Not when applied and removed properly. We assess lash health before every refill and our removal dissolves the adhesive rather than pulling.",
+          "Most clients schedule refill appointments every 2 to 3 weeks to maintain a full, balanced look.",
       },
       {
         id: "el-4",
-        question: "What's the difference between a lash lift and extensions?",
+        question: "What are Weekly Lashes? ",
         answer:
-          "A lift curls your own lashes from the root for a natural, low-maintenance look. Extensions add length and volume with lashes applied to your natural ones.",
+          "Weekly lashes are temporary lash extensions designed for short-term wear, making them ideal for weddings, holidays, parties, and special occasions. ",
+      },
+      {
+        id: "el-5",
+        question: "Can you remove eyelash extensions applied at another salon? ",
+        answer:
+          "Yes. Our professional eyelash removal service safely removes existing extensions while helping protect your natural lashes. ",
+      },
+      {
+        id: "el-6",
+        question: "Will eyelash extensions damage my natural lashes? ",
+        answer:
+          "When professionally applied, maintained, and removed, eyelash extensions are safe and should not damage healthy natural lashes. ",
       },
     ],
+            ctaTitle: "Let Your Eyes Do the Talking ",
+    ctaDescription:
+      "Whether you prefer subtle elegance or glamorous volume, our beauty specialists are here to create eyelash extensions that complement your natural beauty and leave you feeling confident every day. ",
+    metaTitle:
+      "Eyelash Extensions in Dubai | Classic & Volume Lashes | VR Unisex Salon ",
+    metaDescription:
+      "Enhance your natural beauty with professional eyelash extensions in Dubai at VR Unisex Salon. Choose from Classic Full Set, Volume Full Set, lash refills, weekly lashes, and professional eyelash removal for beautiful, long-lasting results. ",
   },
   {
     id: "12",
     slug: "makeup",
-    title: "Makeup",
+    title: "Professional Makeup Services in Dubai ",
     description: "Party, bridal and everyday makeup by experts.",
     startingPrice: 1499,
-    tagline: "Day & Evening",
-    heroBadge: "Precision, Balance & Elegance",
-    heroSubtitle: "Enhance Your Natural Beauty",
+    // tagline: "Day & Evening",
+    // heroBadge: "Precision, Balance & Elegance",
+    // heroSubtitle: "Enhance Your Natural Beauty",
     longDescription:
-      "Makeup isn't about heavy layers — it's about enhancing your natural features with precision, balance and elegance. Whether you need subtle day makeup, glamorous party makeup, or flawless bridal and occasion makeup, our artists customise every look to your skin tone, outfit, occasion and personal style. We focus on proper skin prep, premium products, strict hygiene and techniques that deliver a long-lasting, comfortable finish.",
-    highlights: [
-      "Professional makeup artists",
-      "Proper skin prep every time",
-      "Premium-quality products",
-      "Long-lasting, comfortable finish",
-    ],
+      "Whether you're attending a party, celebrating your wedding, or preparing for a special occasion, the right makeup enhances your confidence and complements your personal style. At VR Unisex Salon, our professional makeup artists create elegant, natural, and glamorous looks tailored to your features, outfit, and occasion.  From subtle daytime makeup to luxurious bridal transformations, we ensure you look and feel your absolute best.",
+    // highlights: [
+    //   "Professional makeup artists",
+    //   "Proper skin prep every time",
+    //   "Premium-quality products",
+    //   "Long-lasting, comfortable finish",
+    // ],
     treatmentsSubtitle:
-      "From a fresh daytime look to bridal — matched to your occasion and lighting.",
+      "Every event calls for a different style. Explore our professional makeup services designed for every occasion. ",
     treatments: [
       {
         id: "day-makeup",
         category: "Makeup",
-        name: "Day Makeup",
+        name: "Day Light Expression Makeup ",
         description:
-          "A fresh, natural, polished look — perfect for office wear, daytime events, casual outings or photoshoots. Kept light, breathable and skin-friendly, enhancing your features without looking overdone. Includes skin prep, lightweight base, soft eye definition, natural brows and subtle lip shades.",
-        bestFor: "Office wear, daytime events and casual outings.",
-        result: "A fresh, natural and polished look, all day.",
+          "Perfect for daytime events, family gatherings, brunches, office functions, and casual celebrations. This look focuses on fresh, radiant skin with soft colours that enhance your natural beauty while maintaining an elegant appearance. ",
       },
       {
         id: "evening-party-makeup",
         category: "Makeup",
-        name: "Evening / Party Makeup",
+        name: "Evening Glam Makeup",
         description:
-          "Perfect for parties, celebrations, dinners and special nights out. More defined and glamorous while staying refined and balanced. Includes detailed skin prep, a smooth base, enhanced eye makeup, contouring and statement lips to your preference.",
-        bestFor: "Parties, celebrations and special nights out.",
-        result: "A glamorous, photogenic finish.",
+          "Create a sophisticated evening look with beautifully defined eyes, flawless skin, and elegant finishes designed for dinners, receptions, and evening celebrations. ",
       },
       {
         id: "hd-makeup",
         category: "Makeup",
-        name: "HD Makeup",
+        name: "Party Makeup ",
         description:
-          "Ideal for high-definition cameras, events and close-up photography. Finely milled, premium products create a seamless, skin-like finish that won't settle into fine lines — a smooth, natural appearance even under bright lights.",
-        bestFor: "Weddings, photography and special events.",
-        result: "A flawless finish under any lighting.",
+          "Whether you're attending a birthday, engagement, festive celebration, or special event, our party makeup helps you look glamorous while complementing your outfit and personal style. ",
       },
       {
         id: "airbrush-makeup",
         category: "Makeup",
-        name: "Airbrush Makeup",
+        name: "Bridal Makeup (HD & Airbrush) ",
         description:
-          "A lightweight, long-lasting, ultra-smooth finish using advanced airbrush technology. Applied evenly as a fine mist for flawless yet natural-looking skin — ideal for long events, humid conditions, and anyone who prefers minimal product feel.",
-        bestFor: "Long events, weddings and humid conditions.",
-        result: "An ultra-smooth, transfer-resistant finish.",
+          "Your wedding day deserves nothing less than perfection. Our bridal makeup service includes personalised consultations to create a timeless bridal look that photographs beautifully and stays flawless throughout your special day.",
       },
       {
         id: "bridal-occasion-makeup",
         category: "Makeup",
-        name: "Bridal & Occasion Makeup",
+        name: "Groom's Grooming Package ",
         description:
-          "Fully customised for weddings, engagements, receptions, festive events and milestone celebrations. We take time to understand your outfit, jewellery, skin type and preferences to create a timeless, confident look — with detailed skin prep, high-quality products and precise finishing.",
-        bestFor: "Weddings, engagements and milestone events.",
-        result: "Radiant, timeless and long-lasting beauty.",
+          "Our Groom Package combines Facial + Hair Spa to help you feel refreshed, confident, and camera-ready before your wedding celebrations. ",
+      },
+      {
+        id: "bridal-occasion-makeup",
+        category: "Makeup",
+        name: "Couple Pre-Wedding Package ",
+        description:
+          "Prepare for your big day together. Our Couple Pre-Wedding Package includes Facial + Hair Spa for both partners, allowing you to relax, refresh, and enjoy quality time together before your wedding celebrations begin.",
       },
     ],
+    
+    expert: {
+      title: "The Expert Behind Your Nail Care",
+      name: "Priyanka",
+      role: "Senior Beauty Therapist ",
+      image: "/images/our-team/team3.webp",
+      bio: [
+        "Priyanka believes makeup should enhance your natural beauty rather than hide it. She works closely with every client to understand their style, occasion, and preferences before creating a personalised look that complements their personality. ",
+        "Whether it's a subtle daytime glow or a glamorous bridal transformation, her attention to detail ensures every client leaves feeling confident and beautiful. ",
+      ],
+      expertise: [
+        "Professional Makeup  ",
+        "Bridal Makeup  ",
+        "Party Makeup  ",
+        "HD Makeup  ",
+        "Airbrush Makeup  ",
+        "Bridal Beauty Consultation  ",
+      ],
+    },
     faqs: [
       {
         id: "mk-1",
-        question: "What's the difference between HD and airbrush makeup?",
+        question: "Which makeup service is suitable for weddings? ",
         answer:
-          "HD uses finely milled products for a seamless finish that photographs beautifully up close. Airbrush is applied as a fine mist for an ultra-smooth, transfer-resistant finish that holds up through long events and humidity.",
+          "Our HD and Airbrush Bridal Makeup services are specially designed for wedding ceremonies and long event hours. ",
       },
       {
         id: "mk-2",
-        question: "Which makeup is best for my wedding?",
+        question: "What's the difference between HD and Airbrush makeup? ",
         answer:
-          "HD and airbrush are both popular for weddings — HD for photography, airbrush for long wear in humid conditions. Our bridal service is fully customised around your outfit, jewellery and skin type.",
+          "HD Makeup provides a natural, flawless finish using professional products, while Airbrush Makeup uses spray technology for an ultra-light, long-lasting finish that's especially popular for weddings and photography. ",
       },
       {
         id: "mk-3",
-        question: "Do you do makeup for photoshoots?",
+        question: "How long does professional makeup last?",
         answer:
-          "Yes. Day makeup suits natural, everyday shoots, while HD makeup is designed for close-up and high-definition photography.",
+          "With proper preparation and professional products, your makeup can remain fresh throughout your event. ",
       },
       {
         id: "mk-4",
-        question: "Will the makeup last all day?",
+        question: "Should I book a bridal consultation before my wedding? ",
         answer:
-          "Yes — we focus on proper skin prep and long-lasting techniques. For very long events or humid weather, airbrush holds up best.",
+          "Yes. We recommend scheduling a consultation to discuss your preferred look, outfit, and skincare requirements. ",
+      },
+      {
+        id: "mk-5",
+        question: "Can I book makeup along with hairstyling? ",
+        answer:
+          "Absolutely. Our team can help create a complete look for your special occasion.",
+      },
+      {
+        id: "mk-6",
+        question: "How early should I book my bridal makeup? ",
+        answer:
+          "We recommend booking several weeks in advance, especially during peak wedding seasons, to secure your preferred date and time. ",
       },
     ],
+    ctaTitle: "Look Beautiful. Feel Confident. ",
+    ctaDescription:
+      "Whether it's your wedding day, an elegant evening event, or a memorable celebration, our professional makeup artists are here to create a look that reflects your personality and enhances your confidence. ",
+    metaTitle:
+      "Professional Makeup Services in Dubai | Bridal, Party & HD Makeup | VR Unisex Salon ",
+    metaDescription:
+      "Discover professional makeup services in Dubai at VR Unisex Salon. From bridal HD and airbrush makeup to party and evening glam looks, our expert makeup artists create flawless, long-lasting transformations for every special occasion. ",
   },
 ];
 
@@ -1795,7 +1926,7 @@ export const pricingPackages: PricingPackage[] = [
     id: "2",
     name: "Anti-Frizz package details",
     price: 7999,
-    features: ["Summer offer to control a freeziness and damage hair with healthy hair", "Keratin", "Anti frizz treatment", "Protein", "Botox", "Smoothening", "straightening", "nanoplastria", "Botox", "Any length any volume"],
+    features: ["Summer offer to control a freeziness and damage hair with healthy hair", "Keratin", "Anti frizz treatment", "Protein", "Botox", "Smoothening", "straightening", "nanoplastria", "Any length any volume"],
     popular: true,
   },
   {

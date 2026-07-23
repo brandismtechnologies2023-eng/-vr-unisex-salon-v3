@@ -30,8 +30,8 @@ export default function ContactPage() {
           <SectionHeading
             as="h1"
             eyebrow="Contact Us"
-            title="We'd Love to Hear From You"
-            subtitle="Book an appointment, ask a question, or simply drop by — our team is here to help."
+            title="Get in Touch with VR Unisex Salon"
+            subtitle="Book your appointment, ask a question, or connect with our team. We're here to help you enjoy a premium salon experience in Dubai."
           />
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">

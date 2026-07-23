@@ -98,7 +98,7 @@ export default function InstagramSlider({ posts, isLive }: InstagramSliderProps)
               type="button"
               onClick={() => step(-1)}
               aria-label="Previous posts"
-              className="absolute left-0 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white text-zinc-700 shadow-md hover:bg-primary/40 hover:text-secondary sm:flex"
+              className="absolute left-0 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white text-zinc-700 shadow-md hover:bg-secondary hover:text-primary sm:flex"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
@@ -106,7 +106,7 @@ export default function InstagramSlider({ posts, isLive }: InstagramSliderProps)
               type="button"
               onClick={() => step(1)}
               aria-label="Next posts"
-              className="absolute right-0 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white text-zinc-700 shadow-md hover:bg-primary/40 hover:text-secondary sm:flex"
+              className="absolute right-0 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white text-zinc-700 shadow-md hover:bg-secondary hover:text-primary sm:flex"
             >
               <ChevronRight className="h-5 w-5" />
             </button>

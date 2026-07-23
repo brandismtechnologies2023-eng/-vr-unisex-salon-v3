@@ -5,7 +5,7 @@ export const siteConfig = {
   name: "VR Unisex Salon",
   shortName: "VR Salon",
   description:
-    "Premium unisex hair, skin and beauty salon offering expert stylists, luxury treatments and a hygienic, relaxing experience.",
+    "Personalised beauty experiences, thoughtfully crafted for every style.",
   phone: "+971 55 956 6627",
   whatsappNumber: "971559566627",
   email: "info@vrunisexsalon.com",

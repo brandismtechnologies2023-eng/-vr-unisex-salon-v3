@@ -19,25 +19,19 @@ export default function AboutHero() {
     <section className="bg-primary/15">
       <div className="mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:px-8 lg:pt-24">
         {/* Centered editorial intro rather than a text/image split. */}
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-8xl text-center">
           <span className="text-sm font-semibold uppercase tracking-[0.2em] text-third">
-            About the Salon
+            Where Passion, Expertise & Beauty Come Together
           </span>
           <h1 className="mt-3 text-4xl font-bold leading-tight text-secondary sm:text-5xl">
-            More Than a Salon — A Beauty Experience
+            ABOUT VR UNISEX SALON
           </h1>
           <span className="mx-auto mt-6 block h-px w-16 bg-third/50" />
           <p className="mt-6 text-lg text-zinc-600">
-            At {siteConfig.name}, beauty meets experience. Founded by brothers
-            Vishal and Raju, with over 8 years in the industry, our team of
-            passionate stylists and grooming experts focus on one thing —
-            making you look and feel your best.
+            {siteConfig.name} was founded with a simple belief—that every client deserves more than a beauty service; they deserve a premium salon experience built on trust, expertise, and genuine care.
           </p>
           <p className="mt-4 text-zinc-600">
-            Whether you walk in for a quick trim or settle in for a full colour
-            and treatment appointment, every visit starts with a proper
-            consultation — so the result suits your hair, your face shape and
-            the way you actually live.
+            Inspired by years of international experience across Singapore, Malaysia, Australia, and Dubai, founders Vishal and Raju created a luxury hair & beauty salon in Dubai where personalised attention, modern techniques, and exceptional hospitality come together to create experiences clients trust, recommend, and look forward to returning to. 
           </p>
         </div>
 

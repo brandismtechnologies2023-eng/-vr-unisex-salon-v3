@@ -60,18 +60,16 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-6 text-5xl font-bold leading-[1.05] text-white sm:text-6xl lg:text-7xl"
           >
-            Look Good,
+            Luxury Hair & 
             <br />
-            Feel Great at <span className="text-primary">VR Salon</span>
+             <span className="text-primary">Beauty Salon.</span>
           </motion.h1>
 
           <motion.p
             {...fadeUp}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-6 max-w-xl text-lg text-zinc-300"
-          >
-            Expert stylists, premium products and a luxury unisex salon
-            experience — hair, skin, nails and beauty, all under one roof.
+            className="mt-6 max-w-xl text-lg text-white"
+          >At VR Unisex Salon, every appointment begins with understanding you. Through expert consultation, personalised care, and skilled craftsmanship, we create beautiful transformations that reflect your unique style.
           </motion.p>
 
           <motion.div

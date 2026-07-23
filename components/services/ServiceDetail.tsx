@@ -151,7 +151,7 @@ export default function ServiceDetail({ service }: ServiceDetailProps) {
       )}
 
       {service.benefits && service.benefits.length > 0 && (
-        <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-7xl px-4 pt-10 pb-20 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Why It Works"
             title={service.benefitsTitle ?? `Benefits of ${service.title}`}
@@ -180,11 +180,10 @@ export default function ServiceDetail({ service }: ServiceDetailProps) {
       {categories.length > 0 && (
         <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <SectionHeading
-            eyebrow="Treatment Options"
             title={service.treatmentsTitle ?? `Choose Your ${service.title} Treatment`}
             subtitle={
               service.treatmentsSubtitle ??
-              "Choose the option that fits what you're looking for."
+              "Whether you're maintaining your signature style or embracing a fresh new look, we offer personalized haircut experiences designed to suit every hair type and personality."
             }
           />
 

@@ -61,9 +61,8 @@ export default function MeetTheTeam({ variant = "detailed" }: MeetTheTeamProps) 
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
       <SectionHeading
-        eyebrow="Our Team"
-        title="Meet the Skilled Hands Behind VR Salon"
-        subtitle="The founders and stylists who make every visit feel effortless."
+        title="Meet the Experts Behind VR Salon"
+        subtitle="Behind every beautiful experience is a passionate team committed to helping every client look and feel their absolute best."
       />
 
       {variant === "compact" ? (

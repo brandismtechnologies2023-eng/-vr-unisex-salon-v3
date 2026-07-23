@@ -1,6 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { Play } from "lucide-react";
-import ImagePlaceholder from "./ImagePlaceholder";
 import { siteConfig } from "@/lib/site-config";
 import type { InstagramPost } from "@/types";
 
@@ -12,6 +14,12 @@ interface InstagramPostCardProps {
 // A reel-style card: the account header above a 9:16 media frame, mirroring
 // how a post looks in-app.
 export default function InstagramPostCard({ post, onClick }: InstagramPostCardProps) {
+  // Instagram serves media from short-lived signed URLs; once they expire the
+  // image 403s. Track that so a failed load shows a branded panel instead of
+  // a black frame with the caption bleeding through as alt text.
+  const [imageFailed, setImageFailed] = useState(false);
+  const showImage = post.image && !imageFailed;
+
   return (
     <div className="flex flex-col overflow-hidden rounded-xl bg-white">
       <div className="flex items-center gap-2 px-3 py-2.5">
@@ -39,19 +47,31 @@ export default function InstagramPostCard({ post, onClick }: InstagramPostCardPr
         type="button"
         onClick={onClick}
         aria-label="Open post"
-        className="group relative block aspect-9/16 w-full overflow-hidden bg-black"
+        className="group relative block aspect-9/16 w-full overflow-hidden bg-secondary"
       >
-        {post.image ? (
+        {showImage ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={post.image}
-            alt={post.caption || "Instagram post"}
+            alt="Instagram reel"
             loading="lazy"
             draggable={false}
+            onError={() => setImageFailed(true)}
             className="h-full w-full scale-110 object-cover transition-transform duration-300 group-hover:scale-115"
           />
         ) : (
-          <ImagePlaceholder className="h-full w-full" />
+          <span className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-linear-to-br from-primary via-primary/60 to-third/40 px-4 text-center">
+            <Image
+              src="/images/logo.webp"
+              alt={siteConfig.name}
+              width={64}
+              height={64}
+              className="h-14 w-14 rounded-full object-cover shadow-sm"
+            />
+            <span className="text-xs font-medium text-secondary/80">
+              @{siteConfig.instagramHandle}
+            </span>
+          </span>
         )}
 
         {post.isVideo && (

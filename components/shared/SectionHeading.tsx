@@ -18,7 +18,7 @@ export default function SectionHeading({
   const alignClasses = align === "center" ? "text-center mx-auto" : "text-left";
 
   return (
-    <div className={`max-w-2xl mb-12 ${alignClasses}`}>
+    <div className={`max-w-6xl mb-12 ${alignClasses}`}>
       {eyebrow && (
         <span className="text-sm font-semibold uppercase tracking-wider text-third">
           {eyebrow}

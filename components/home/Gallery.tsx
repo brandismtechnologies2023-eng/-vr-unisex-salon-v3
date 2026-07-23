@@ -73,9 +73,8 @@ export default function Gallery() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
       <SectionHeading
-        eyebrow="Gallery"
-        title="A Glimpse Inside VR Salon"
-        subtitle="Real transformations and moments from our salon floor."
+        title="Beautiful Results. Genuine Experiences."
+        subtitle="Every visit to VR Unisex Salon is more than a beauty appointment it's a story of confidence, care, and transformation. Here's a glimpse of the moments we've been privileged to create for our clients."
       />
 
       <Carousel

@@ -10,9 +10,8 @@ export default function Pricing() {
     <section className="bg-primary/10 py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Pricing"
-          title="Popular Packages"
-          subtitle="Bundled packages for the best value, or book individual services à la carte."
+          title="Curated Beauty Experiences"
+          subtitle="Whether you're preparing for a special occasion, planning a day of self-care, or simply treating yourself, our thoughtfully curated beauty experiences are designed to help you relax, refresh, and leave feeling your absolute best. "
         />
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -35,8 +34,8 @@ export default function Pricing() {
                 {siteConfig.currency} {pkg.price}
               </p>
               <ul className="mt-6 flex-1 space-y-3">
-                {pkg.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-2 text-sm text-zinc-600">
+                {pkg.features.map((feature, i) => (
+                  <li key={`${feature}-${i}`} className="flex items-center gap-2 text-sm text-zinc-600">
                     <Check className="h-4 w-4 shrink-0 text-secondary" />
                     {feature}
                   </li>

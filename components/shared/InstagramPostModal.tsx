@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { Heart, MessageCircle, Send } from "lucide-react";
 import type { InstagramPost } from "@/types";
 import { siteConfig } from "@/lib/site-config";
@@ -22,14 +25,18 @@ function renderCaption(caption: string) {
 }
 
 export default function InstagramPostModal({ post, href }: InstagramPostModalProps) {
+  const [imageFailed, setImageFailed] = useState(false);
+  const showImage = post.image && !imageFailed;
+
   return (
     <div className="flex max-h-[85vh] w-[92vw] max-w-4xl flex-col overflow-hidden rounded-xl bg-white sm:h-[75vh] sm:flex-row">
-      <div className="h-72 shrink-0 bg-black sm:h-full sm:flex-1">
-        {post.image ? (
+      <div className="h-72 shrink-0 bg-secondary sm:h-full sm:flex-1">
+        {showImage ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={post.image}
-            alt={post.caption || "Instagram post"}
+            alt="Instagram reel"
+            onError={() => setImageFailed(true)}
             className="h-full w-full object-cover"
           />
         ) : (

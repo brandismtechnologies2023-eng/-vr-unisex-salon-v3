@@ -2,31 +2,31 @@ import SectionHeading from "@/components/shared/SectionHeading";
 
 const points = [
   {
-    title: "An Exceptional Team of Experts",
+    title: "We Listen First",
     description:
-      "Founded by brothers Vishal and Raju, our stylists and grooming experts bring over 8 years in the industry to every chair.",
+      "Every appointment begins with understanding your needs, preferences, and expectations before making recommendations.",
   },
   {
-    title: "The Latest Treatments & Technology",
+    title: "We Create Thoughtfully",
     description:
-      "From keratin care to skin glow therapies, we offer the newest hair, skin and grooming treatments using advanced products and tools.",
+      "Every haircut, beauty treatment, and transformation is approached with creativity, precision, and attention to detail.",
   },
   {
-    title: "Proven Results",
+    title: "We Care Beyond the Appointment",
     description:
-      "Our clients return because they see the difference — a fresh haircut, flawless colour or glowing skin that speaks for itself.",
+      "Our goal isn't simply to deliver great results today-it's to become the salon you'll confidently return to for years to come.",
   },
   {
-    title: "Hygiene, Every Time",
+    title: "We Use Trusted Products",
     description:
-      "Sanitized tools and freshly cleaned stations for every single client, with no exceptions.",
+      "Every treatment is performed using carefully selected professional products to ensure healthy hair, beautiful skin, and long-lasting results.",
   },
 ];
 
 export default function WhatMakesUsDifferent() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-      <SectionHeading eyebrow="What Sets Us Apart" title="What Makes Us Different" />
+      <SectionHeading title="The VR Promise" subtitle="Luxury isn't defined by the services we offer—it's reflected in how we make every client feel. These values guide every consultation, every recommendation, and every experience we create." />
 
       {/* Oversized numerals instead of icon cards — echoes the salon's own
           numbered "what sets us apart" list. */}
