@@ -15,21 +15,26 @@ interface ServicesProps {
   limit?: number;
   showViewAll?: boolean;
   as?: "h1" | "h2";
+  // Set when a page already renders its own hero heading (e.g. the full
+  // services page) so this section doesn't repeat it.
+  hideHeading?: boolean;
 }
 
-export default function Services({ limit, showViewAll = false, as }: ServicesProps) {
+export default function Services({ limit, showViewAll = false, as, hideHeading = false }: ServicesProps) {
   const [expanded, setExpanded] = useState(false);
   const isTrimmed = limit !== undefined && !expanded;
   const shown = isTrimmed ? services.slice(0, limit) : services;
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-      <SectionHeading
-        as={as}
-        eyebrow={content.eyebrow}
-        title={content.title}
-        subtitle={content.subtitle}
-      />
+      {!hideHeading && (
+        <SectionHeading
+          as={as}
+          eyebrow={content.eyebrow}
+          title={content.title}
+          subtitle={content.subtitle}
+        />
+      )}
 
       {/* Flex-wrap rather than grid so a trailing partial row centres
           instead of hugging the left edge. */}

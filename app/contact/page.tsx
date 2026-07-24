@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import SectionHeading from "@/components/shared/SectionHeading";
 import ContactSection from "@/components/home/ContactSection";
 import ContactCta from "@/components/home/ContactCta";
 import { siteContent } from "@/lib/data";
-import { siteConfig, telLink } from "@/lib/site-config";
+import { siteConfig } from "@/lib/site-config";
 
 const content = siteContent.contactPage;
 
@@ -12,17 +11,6 @@ export const metadata: Metadata = {
   title: `${content.meta.titlePrefix} | ${siteConfig.name}`,
   description: content.meta.description,
 };
-
-const details = [
-  { icon: MapPin, label: content.visitUsLabel, value: siteConfig.address },
-  { icon: Phone, label: content.callUsLabel, value: siteConfig.phone, href: telLink() },
-  {
-    icon: Mail,
-    label: content.emailUsLabel,
-    value: siteConfig.email,
-    href: `mailto:${siteConfig.email}`,
-  },
-];
 
 export default function ContactPage() {
   return (
@@ -35,44 +23,6 @@ export default function ContactPage() {
             title={content.title}
             subtitle={content.subtitle}
           />
-
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {details.map((detail) => (
-              <div
-                key={detail.label}
-                className="rounded-2xl border border-zinc-100 bg-white p-6 shadow-sm"
-              >
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/40">
-                  <detail.icon className="h-5 w-5 text-secondary" strokeWidth={1.5} />
-                </span>
-                <h2 className="mt-4 font-semibold text-secondary">{detail.label}</h2>
-                {detail.href ? (
-                  <a
-                    href={detail.href}
-                    className="mt-1 block text-sm text-zinc-600 hover:text-secondary"
-                  >
-                    {detail.value}
-                  </a>
-                ) : (
-                  <p className="mt-1 text-sm text-zinc-600">{detail.value}</p>
-                )}
-              </div>
-            ))}
-
-            <div className="rounded-2xl border border-zinc-100 bg-white p-6 shadow-sm">
-              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/40">
-                <Clock className="h-5 w-5 text-secondary" strokeWidth={1.5} />
-              </span>
-              <h2 className="mt-4 font-semibold text-secondary">{content.openingHoursLabel}</h2>
-              <div className="mt-1 space-y-0.5 text-sm text-zinc-600">
-                {siteConfig.hours.map((h) => (
-                  <p key={h.day}>
-                    {h.day}: {h.time}
-                  </p>
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 

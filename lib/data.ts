@@ -307,11 +307,6 @@ const coreServices: Service[] = [
         },
       ],
     },
-    journeyIntro: {
-      title: "What Is a Korean Head Spa?",
-      description:
-        "Unlike a regular hair wash, a Korean Head Spa is a specialised scalp wellness treatment that focuses on improving the health of your scalp while deeply nourishing your hair. The experience combines professional cleansing, scalp hydration, therapeutic massage, and conditioning treatments to remove product build-up, excess oil, and impurities while creating the ideal environment for healthier-looking hair. Whether you're dealing with scalp concerns or simply looking for a relaxing beauty ritual, this treatment offers both visible results and complete relaxation.",
-    },
     benefitsTitle: "Why Your Scalp Deserves Professional Care",
     benefitsSubtitle:
       "Healthy hair doesn't start with styling—it starts with a healthy scalp. Regular scalp care helps maintain the natural balance of your scalp while improving the condition and appearance of your hair.",
@@ -3875,10 +3870,6 @@ export const siteContent = {
       description:
         "Book an appointment at VR Unisex Salon — inside Crown Park Hotel, Burjuman, Dubai. Call, WhatsApp, or send us a booking request.",
     },
-    visitUsLabel: "Visit Us",
-    callUsLabel: "Call Us",
-    emailUsLabel: "Email Us",
-    openingHoursLabel: "Opening Hours",
     eyebrow: "Contact Us",
     title: "Get in Touch with VR Unisex Salon",
     subtitle: "Book your appointment, ask a question, or connect with our team. We're here to help you enjoy a premium salon experience in Dubai.",
@@ -3923,6 +3914,17 @@ export const siteContent = {
       titlePrefix: "Services",
       description:
         "Explore the full range of services at VR Unisex Salon — haircuts, colour, treatments, nails, lashes, waxing, makeup and more, in Burjuman, Dubai.",
+    },
+    hero: {
+      eyebrow: "Our Services",
+      title: "Luxury Hair & Beauty Services in Dubai",
+      description:
+        "From everyday self-care to special occasion transformations, discover a complete range of premium hair, beauty, wellness, and nail services at VR Unisex Salon. Every experience is personalised, thoughtfully delivered, and designed to help you look and feel your absolute best.",
+      photos: [
+        { src: "/images/gallery/salon-03.jpg", alt: "Styling stations at VR Unisex Salon" },
+        { src: "/images/services/hair-color.webp", alt: "Hair colour service at VR Unisex Salon" },
+        { src: "/images/services/makeup.webp", alt: "Makeup service at VR Unisex Salon" },
+      ],
     },
   },
 
