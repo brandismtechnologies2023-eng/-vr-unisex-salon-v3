@@ -2,8 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { WhatsAppIcon } from "@/components/shared/SocialIcons";
+import { siteContent } from "@/lib/data";
 import { siteConfig, whatsappLink } from "@/lib/site-config";
 import type { Service } from "@/types";
+
+const content = siteContent.serviceCard;
+const { common } = siteContent;
 
 interface ServiceCardProps {
   service: Service;
@@ -50,14 +54,14 @@ export default function ServiceCard({ service }: ServiceCardProps) {
         <div className="mt-auto flex justify-end pt-4">
           <a
             href={whatsappLink(
-              `Hi ${siteConfig.shortName}! I saw the ${service.title} service on your website and would like to book it. Could you please share your available slots?`
+              common.serviceWhatsappMessage(siteConfig.shortName, service.shortTitle ?? service.title)
             )}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg border border-[#25D366] px-3.5 py-2 text-sm font-medium text-[#25D366] transition-colors hover:bg-[#25D366] hover:text-white"
           >
             <WhatsAppIcon className="h-4 w-4" />
-            Book Now
+            {content.bookNowLabel}
           </a>
         </div>
       </div>

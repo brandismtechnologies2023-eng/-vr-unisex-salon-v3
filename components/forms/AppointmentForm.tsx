@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -16,22 +17,78 @@ import {
   Scissors,
   User,
 } from "lucide-react";
+import {
+  getCountryCallingCode,
+  isValidPhoneNumber,
+  parsePhoneNumber,
+  type CountryCode,
+} from "libphonenumber-js";
+import examplePhoneNumbers from "libphonenumber-js/examples.mobile.json";
 import Button from "@/components/shared/Button";
-import { services } from "@/lib/data";
+import { services, siteContent } from "@/lib/data";
 
-const appointmentSchema = z.object({
-  name: z.string().min(2, "Please enter your full name"),
-  // Digits only — the input also strips anything else as you type.
-  phone: z
-    .string()
-    .min(7, "Please enter a valid mobile number")
-    .regex(/^\d+$/, "Mobile number can only contain digits"),
-  email: z.string().email("Please enter a valid email address"),
-  service: z.string().min(1, "Please choose a service"),
-  date: z.string().min(1, "Please choose a date"),
-  time: z.string().min(1, "Please choose a time"),
-  message: z.string().optional(),
-});
+const content = siteContent.appointmentForm;
+
+// Countries most relevant to the salon's clientele — UAE first as the
+// default. Digit limits aren't hardcoded here; libphonenumber-js's own
+// metadata enforces the correct length per country as the user types.
+const countryOptions: { code: CountryCode; name: string }[] = [
+  { code: "AE", name: "United Arab Emirates" },
+  { code: "IN", name: "India" },
+  { code: "PK", name: "Pakistan" },
+  { code: "PH", name: "Philippines" },
+  { code: "BD", name: "Bangladesh" },
+  { code: "NP", name: "Nepal" },
+  { code: "LK", name: "Sri Lanka" },
+  { code: "EG", name: "Egypt" },
+  { code: "SA", name: "Saudi Arabia" },
+  { code: "OM", name: "Oman" },
+  { code: "QA", name: "Qatar" },
+  { code: "BH", name: "Bahrain" },
+  { code: "KW", name: "Kuwait" },
+  { code: "JO", name: "Jordan" },
+  { code: "LB", name: "Lebanon" },
+  { code: "GB", name: "United Kingdom" },
+  { code: "US", name: "United States" },
+  { code: "CA", name: "Canada" },
+  { code: "AU", name: "Australia" },
+  { code: "RU", name: "Russia" },
+];
+
+// The exact digit count for a real mobile number in this country, read
+// from libphonenumber-js's own example-number metadata rather than
+// hardcoded (its generic length-validator only rejects absurdly long
+// input, not "too long for a normal mobile number").
+function expectedDigitCount(country: CountryCode): number {
+  const example = (examplePhoneNumbers as Record<string, string>)[country];
+  if (!example) return 15;
+  try {
+    return parsePhoneNumber(example, country).nationalNumber.length;
+  } catch {
+    return 15;
+  }
+}
+
+function capToCountryLength(digits: string, country: CountryCode) {
+  return digits.slice(0, expectedDigitCount(country));
+}
+
+const appointmentSchema = z
+  .object({
+    name: z.string().min(2, content.validation.name),
+    country: z.string(),
+    phone: z.string().min(1, content.validation.phone),
+    email: z.string().email(content.validation.email),
+    service: z.string().min(1, content.validation.service),
+    date: z.string().min(1, content.validation.date),
+    time: z.string().min(1, content.validation.time),
+    message: z.string().optional(),
+  })
+  .superRefine((data, ctx) => {
+    if (!isValidPhoneNumber(data.phone, data.country as CountryCode)) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, path: ["phone"], message: content.validation.phone });
+    }
+  });
 
 type AppointmentValues = z.infer<typeof appointmentSchema>;
 
@@ -61,6 +118,11 @@ const chevronClass =
 
 export default function AppointmentForm() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [country, setCountry] = useState<CountryCode>("AE");
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const [recaptchaError, setRecaptchaError] = useState(false);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
   const timeSlots = useMemo(buildTimeSlots, []);
   // Blocks past dates in the picker; the value is also re-checked on submit.
   const today = useMemo(() => new Date().toISOString().split("T")[0], []);
@@ -70,22 +132,43 @@ export default function AppointmentForm() {
     handleSubmit,
     reset,
     setValue,
+    getValues,
     formState: { errors, isSubmitting },
-  } = useForm<AppointmentValues>({ resolver: zodResolver(appointmentSchema) });
+  } = useForm<AppointmentValues>({
+    resolver: zodResolver(appointmentSchema),
+    defaultValues: { country: "AE" },
+  });
 
   const onSubmit = async (values: AppointmentValues) => {
     setStatus("idle");
+    // Only gate on a token when the widget is actually configured — lets
+    // the form keep working before the site key/secret are both set up.
+    if (recaptchaSiteKey && !recaptchaToken) {
+      setRecaptchaError(true);
+      return;
+    }
+    setRecaptchaError(false);
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          ...values,
+          // Send the full international number so it's usable as-is.
+          phone: `+${getCountryCallingCode(values.country as CountryCode)}${values.phone}`,
+          recaptchaToken,
+        }),
       });
       if (!res.ok) throw new Error("Request failed");
       setStatus("success");
       reset();
+      setCountry("AE");
+      setRecaptchaToken(null);
+      recaptchaRef.current?.reset();
     } catch {
       setStatus("error");
+      setRecaptchaToken(null);
+      recaptchaRef.current?.reset();
     }
   };
 
@@ -99,14 +182,15 @@ export default function AppointmentForm() {
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className={labelClass}>
-            Full Name <span className="text-third">*</span>
+            {content.labels.name} <span className="text-third">*</span>
           </label>
           <div className="relative">
             <User className={iconClass} />
             <input
               id="name"
               type="text"
-              placeholder="Enter your full name"
+              autoComplete="name"
+              placeholder={content.placeholders.name}
               {...register("name")}
               className={inputClass}
             />
@@ -116,26 +200,53 @@ export default function AppointmentForm() {
 
         <div>
           <label htmlFor="phone" className={labelClass}>
-            Mobile Number <span className="text-third">*</span>
+            {content.labels.phone} <span className="text-third">*</span>
           </label>
-          <div className="relative">
-            <Phone className={iconClass} />
+          <div className="flex items-center rounded-xl border border-transparent bg-primary/10 pl-4 transition-colors hover:bg-primary/15 focus-within:border-third focus-within:bg-white focus-within:ring-2 focus-within:ring-third/25">
+            <Phone className="h-4 w-4 shrink-0 text-third" />
+            <div className="relative shrink-0">
+              <select
+                id="country"
+                value={country}
+                autoComplete="tel-country-code"
+                onChange={(e) => {
+                  const nextCountry = e.target.value as CountryCode;
+                  setCountry(nextCountry);
+                  setValue("country", nextCountry, { shouldValidate: false });
+                  // Re-cap the existing digits to the newly selected
+                  // country's length so a stale, too-long number isn't left
+                  // behind after switching countries.
+                  const trimmed = capToCountryLength(getValues("phone") ?? "", nextCountry);
+                  setValue("phone", trimmed, { shouldValidate: true });
+                }}
+                className="appearance-none bg-transparent py-3 pl-2 pr-6 text-sm text-secondary focus:outline-none"
+              >
+                {countryOptions.map((c) => (
+                  <option key={c.code} value={c.code}>
+                    +{getCountryCallingCode(c.code)}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown className="pointer-events-none absolute right-1 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-third" />
+            </div>
+            <span className="h-5 w-px shrink-0 bg-third/30" />
             <input
               id="phone"
               type="tel"
               inputMode="numeric"
-              placeholder="Enter your mobile number"
+              autoComplete="tel-national"
+              placeholder={content.placeholders.phone}
               {...register("phone")}
-              // Strip anything non-numeric as the user types, so letters
-              // simply can't be entered rather than only failing on submit.
+              // Strip anything non-numeric as the user types, and cap the
+              // length to whatever the selected country's numbers allow.
               onInput={(e) => {
                 const el = e.currentTarget;
-                const digits = el.value.replace(/\D/g, "");
+                const digits = capToCountryLength(el.value.replace(/\D/g, ""), country);
                 if (el.value !== digits) {
                   setValue("phone", digits, { shouldValidate: false });
                 }
               }}
-              className={inputClass}
+              className="w-full min-w-0 bg-transparent py-3 pl-2 pr-4 text-sm text-secondary placeholder:text-zinc-400 focus:outline-none"
             />
           </div>
           {error("phone")}
@@ -144,14 +255,15 @@ export default function AppointmentForm() {
 
       <div className="mt-5">
         <label htmlFor="email" className={labelClass}>
-          Email Address <span className="text-third">*</span>
+          {content.labels.email} <span className="text-third">*</span>
         </label>
         <div className="relative">
           <Mail className={iconClass} />
           <input
             id="email"
             type="email"
-            placeholder="Enter your email address"
+            autoComplete="email"
+            placeholder={content.placeholders.email}
             {...register("email")}
             className={inputClass}
           />
@@ -161,7 +273,7 @@ export default function AppointmentForm() {
 
       <div className="mt-5">
         <label htmlFor="service" className={labelClass}>
-          Preferred Service <span className="text-third">*</span>
+          {content.labels.service} <span className="text-third">*</span>
         </label>
         <div className="relative">
           <Scissors className={iconClass} />
@@ -172,7 +284,7 @@ export default function AppointmentForm() {
             className={selectClass}
           >
             <option value="" disabled>
-              Select a service
+              {content.serviceSelectPlaceholder}
             </option>
             {services.map((service) => (
               <option key={service.slug} value={service.title}>
@@ -188,7 +300,7 @@ export default function AppointmentForm() {
       <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="date" className={labelClass}>
-            Preferred Date <span className="text-third">*</span>
+            {content.labels.date} <span className="text-third">*</span>
           </label>
           <div className="relative">
             <CalendarDays className={iconClass} />
@@ -205,7 +317,7 @@ export default function AppointmentForm() {
 
         <div>
           <label htmlFor="time" className={labelClass}>
-            Preferred Time <span className="text-third">*</span>
+            {content.labels.time} <span className="text-third">*</span>
           </label>
           <div className="relative">
             <Clock className={iconClass} />
@@ -216,7 +328,7 @@ export default function AppointmentForm() {
               className={selectClass}
             >
               <option value="" disabled>
-                Select time
+                {content.timeSelectPlaceholder}
               </option>
               {timeSlots.map((slot) => (
                 <option key={slot} value={slot}>
@@ -232,19 +344,36 @@ export default function AppointmentForm() {
 
       <div className="mt-5">
         <label htmlFor="message" className={labelClass}>
-          Message (Optional)
+          {content.labels.message}
         </label>
         <div className="relative">
           <MessageSquare className="pointer-events-none absolute left-4 top-3.5 h-4 w-4 text-third" />
           <textarea
             id="message"
             rows={4}
-            placeholder="Tell us anything else we should know..."
+            placeholder={content.placeholders.message}
             {...register("message")}
             className={`${inputClass} resize-y py-3.5`}
           />
         </div>
       </div>
+
+      {recaptchaSiteKey && (
+        <div className="mt-5 flex flex-col items-center">
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            sitekey={recaptchaSiteKey}
+            onChange={(token) => {
+              setRecaptchaToken(token);
+              if (token) setRecaptchaError(false);
+            }}
+            onExpired={() => setRecaptchaToken(null)}
+          />
+          {recaptchaError && (
+            <p className="mt-2 text-xs text-red-600">{content.validation.recaptcha}</p>
+          )}
+        </div>
+      )}
 
       <Button
         type="submit"
@@ -253,22 +382,22 @@ export default function AppointmentForm() {
         className="mt-7 w-full tracking-wider"
         icon={isSubmitting ? <Loader2 className="h-4 w-4 animate-spin" /> : undefined}
       >
-        {isSubmitting ? "Sending..." : "Schedule Appointment"}
+        {isSubmitting ? content.submittingLabel : content.submitLabel}
       </Button>
 
       <p className="mt-4 flex items-center justify-center gap-1.5 text-center text-xs text-zinc-500">
         <Lock className="h-3.5 w-3.5 shrink-0" />
-        Your information is secure and will only be used to confirm your appointment.
+        {content.disclaimer}
       </p>
 
       {status === "success" && (
         <p className="mt-4 rounded-xl bg-green-50 px-4 py-3 text-center text-sm text-green-700">
-          Thank you! We&apos;ll be in touch shortly to confirm your appointment.
+          {content.successMessage}
         </p>
       )}
       {status === "error" && (
         <p className="mt-4 rounded-xl bg-red-50 px-4 py-3 text-center text-sm text-red-700">
-          Something went wrong. Please try again or reach us on WhatsApp.
+          {content.errorMessage}
         </p>
       )}
     </form>

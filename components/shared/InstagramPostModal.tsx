@@ -3,9 +3,12 @@
 import { useState } from "react";
 import { Heart, MessageCircle, Send } from "lucide-react";
 import type { InstagramPost } from "@/types";
+import { siteContent } from "@/lib/data";
 import { siteConfig } from "@/lib/site-config";
 import { formatInstagramTimestamp } from "@/utils/formatInstagramTimestamp";
 import ImagePlaceholder from "./ImagePlaceholder";
+
+const content = siteContent.instagramPost;
 
 interface InstagramPostModalProps {
   post: InstagramPost;
@@ -35,7 +38,7 @@ export default function InstagramPostModal({ post, href }: InstagramPostModalPro
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={post.image}
-            alt="Instagram reel"
+            alt={content.reelAlt}
             onError={() => setImageFailed(true)}
             className="h-full w-full object-cover"
           />
@@ -47,7 +50,7 @@ export default function InstagramPostModal({ post, href }: InstagramPostModalPro
       <div className="flex w-full flex-1 flex-col overflow-hidden sm:w-80 sm:flex-none">
         <div className="flex items-center gap-3 border-b border-zinc-100 p-4">
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-xs font-semibold text-secondary">
-            VR
+            {content.avatarFallbackInitials}
           </div>
           <span className="text-sm font-semibold text-secondary">
             {siteConfig.instagramHandle}
@@ -76,7 +79,7 @@ export default function InstagramPostModal({ post, href }: InstagramPostModalPro
             </a>
           </div>
           <p className="mt-2 text-sm font-semibold text-secondary">
-            {post.likes} likes · {post.comments} comments
+            {content.likesCommentsLabel(post.likes, post.comments)}
           </p>
           {post.timestamp && (
             <p className="mt-1 text-xs uppercase tracking-wide text-zinc-400">
@@ -89,7 +92,7 @@ export default function InstagramPostModal({ post, href }: InstagramPostModalPro
             rel="noopener noreferrer"
             className="mt-3 block text-center text-sm font-medium text-secondary"
           >
-            View on Instagram
+            {content.viewOnInstagramLabel}
           </a>
         </div>
       </div>

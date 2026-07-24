@@ -1,8 +1,12 @@
 import { Check, Info, Sparkles } from "lucide-react";
 import Button from "@/components/shared/Button";
 import { WhatsAppIcon } from "@/components/shared/SocialIcons";
+import { siteContent } from "@/lib/data";
 import { siteConfig, whatsappLink } from "@/lib/site-config";
 import type { ServiceTreatment } from "@/types";
+
+const content = siteContent.treatmentCard;
+const { common } = siteContent;
 
 interface TreatmentCardProps {
   treatment: ServiceTreatment;
@@ -29,7 +33,7 @@ export default function TreatmentCard({ treatment }: TreatmentCardProps) {
       {treatment.features && treatment.features.length > 0 && (
         <>
           <p className="mt-5 text-sm font-semibold text-secondary">
-            {treatment.featuresLabel ?? "Features"}
+            {treatment.featuresLabel ?? content.featuresLabelFallback}
           </p>
           <ul className="mt-3 space-y-2">
             {treatment.features.map((feature, i) => (
@@ -47,7 +51,7 @@ export default function TreatmentCard({ treatment }: TreatmentCardProps) {
           {treatment.bestFor && (
             <p className="text-zinc-700">
               <span className="font-semibold text-secondary">
-                {treatment.bestForLabel ?? "Best for"}:{" "}
+                {treatment.bestForLabel ?? content.bestForLabelFallback}:{" "}
               </span>
               {treatment.bestFor}
             </p>
@@ -57,7 +61,7 @@ export default function TreatmentCard({ treatment }: TreatmentCardProps) {
               <Sparkles className="mt-0.5 h-3.5 w-3.5 shrink-0 text-third" />
               <span>
                 <span className="font-semibold text-secondary">
-                  {treatment.resultLabel ?? "Result"}:{" "}
+                  {treatment.resultLabel ?? content.resultLabelFallback}:{" "}
                 </span>
                 {treatment.result}
               </span>
@@ -70,7 +74,7 @@ export default function TreatmentCard({ treatment }: TreatmentCardProps) {
         <p className="mt-3 flex gap-1.5 text-xs leading-relaxed text-zinc-500">
           <Info className="mt-0.5 h-3.5 w-3.5 shrink-0 text-third" />
           <span>
-            <span className="font-semibold">{treatment.noteLabel ?? "Note"}: </span>
+            <span className="font-semibold">{treatment.noteLabel ?? content.noteLabelFallback}: </span>
             {treatment.note}
           </span>
         </p>
@@ -80,16 +84,14 @@ export default function TreatmentCard({ treatment }: TreatmentCardProps) {
           length still line their buttons up. */}
       <div className="mt-auto pt-6">
         <Button
-          href={whatsappLink(
-            `Hi ${siteConfig.shortName}! I saw the ${treatment.name} service on your website and would like to book it. Could you please share your available slots?`
-          )}
+          href={whatsappLink(common.serviceWhatsappMessage(siteConfig.shortName, treatment.name))}
           target="_blank"
           rel="noopener noreferrer"
           size="sm"
           className="w-full border border-[#25D366] bg-transparent text-[#25D366] hover:bg-[#25D366] hover:text-white"
           icon={<WhatsAppIcon className="h-4 w-4" />}
         >
-          Book This Treatment
+          {content.bookLabel}
         </Button>
       </div>
     </div>

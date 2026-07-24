@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { navLinks, services } from "@/lib/data";
+import { navLinks, services, siteContent } from "@/lib/data";
 import { siteConfig } from "@/lib/site-config";
 import { FacebookIcon, InstagramIcon } from "@/components/shared/SocialIcons";
+
+const content = siteContent.footer;
 
 export default function Footer() {
   const midpoint = Math.ceil(services.length / 2);
@@ -14,7 +16,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-secondary text-zinc-300">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-[1.1fr_0.7fr_1.5fr_1.1fr] lg:px-8">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-[0.7fr_0.4fr_2fr_1.2fr] lg:px-8">
         {/* Column 1 */}
         <div>
           <Link href="/" className="flex items-center gap-2">
@@ -52,7 +54,7 @@ export default function Footer() {
         {/* Column 2 */}
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
-            Quick Links
+            {content.quickLinksHeading}
           </h3>
           <ul className="mt-4 space-y-2 text-sm">
             {navLinks.map((link) => (
@@ -68,9 +70,9 @@ export default function Footer() {
         {/* Column 3 */}
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
-            Services
+            {content.servicesHeading}
           </h3>
-          <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+          <div className="mt-4 grid grid-cols-2 gap-x-1 gap-y-2 text-sm">
             {serviceColumns.map((column, i) => (
               <ul key={i} className="space-y-2">
                 {column.map((service) => (
@@ -79,7 +81,7 @@ export default function Footer() {
                       href={`/services/${service.slug}`}
                       className="hover:text-primary"
                     >
-                      {service.title}
+                      {service.shortTitle ?? service.title}
                     </Link>
                   </li>
                 ))}
@@ -91,7 +93,7 @@ export default function Footer() {
         {/* Column 4 */}
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
-            Get In Touch
+            {content.getInTouchHeading}
           </h3>
           <ul className="mt-4 space-y-3 text-sm">
             <li className="flex items-start gap-2">
@@ -122,7 +124,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10 py-6 text-center text-xs text-zinc-500">
-        © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+        © {new Date().getFullYear()} {siteConfig.name}. {content.rightsReservedSuffix}
       </div>
     </footer>
   );

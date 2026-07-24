@@ -1,7 +1,10 @@
 import { ExternalLink, Star } from "lucide-react";
 import type { Testimonial } from "@/types";
+import { siteContent } from "@/lib/data";
 import { siteConfig } from "@/lib/site-config";
 import { GoogleIcon } from "./SocialIcons";
+
+const content = siteContent.reviewCard;
 
 interface ReviewCardProps {
   testimonial: Testimonial;
@@ -54,7 +57,7 @@ export default function ReviewCard({ testimonial }: ReviewCardProps) {
         rel="noopener noreferrer"
         className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-sky-600 hover:underline"
       >
-        Verified on Google
+        {content.verifiedOnGoogleLabel}
         <ExternalLink className="h-3.5 w-3.5" />
       </a>
     </div>

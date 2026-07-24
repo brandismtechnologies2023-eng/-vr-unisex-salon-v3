@@ -3,9 +3,11 @@ import { CalendarCheck } from "lucide-react";
 import Button from "@/components/shared/Button";
 import InstagramSlider from "@/components/home/InstagramSlider";
 import { InstagramIcon } from "@/components/shared/SocialIcons";
-import { instagramPosts as placeholderPosts } from "@/lib/data";
+import { instagramPosts as placeholderPosts, siteContent } from "@/lib/data";
 import { getInstagramPosts, getInstagramProfile } from "@/lib/instagram";
 import { siteConfig } from "@/lib/site-config";
+
+const content = siteContent.instagramFeed;
 
 function formatCount(n: number): string {
   if (n >= 1000) return `${(n / 1000).toFixed(n % 1000 === 0 ? 0 : 1)}K+`;
@@ -21,10 +23,10 @@ export default async function InstagramFeed() {
 
   const stats = [
     ...(profile
-      ? [{ value: formatCount(profile.followersCount), label: "Followers" }]
+      ? [{ value: formatCount(profile.followersCount), label: content.statLabels.followers }]
       : []),
-    { value: `${siteConfig.rating}★`, label: "Google" },
-    { value: `${siteConfig.reviewCount}+`, label: "Reviews" },
+    { value: `${siteConfig.rating}★`, label: content.statLabels.google },
+    { value: `${siteConfig.reviewCount}+`, label: content.statLabels.reviews },
   ];
 
   return (
@@ -58,7 +60,7 @@ export default async function InstagramFeed() {
           </dl>
 
           <p className="mt-5 text-sm leading-relaxed text-zinc-700">
-            Beauty is constantly evolving, and so are we. Follow us for the latest transformations, styling inspiration, beauty tips, and behind-the-scenes moments from everyday life at VR Unisex Salon. 
+            {content.bio}
           </p>
 
           <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
@@ -68,10 +70,10 @@ export default async function InstagramFeed() {
               rel="noopener noreferrer"
               icon={<InstagramIcon />}
             >
-              Follow @{siteConfig.instagramHandle}
+              {content.followLabel(siteConfig.instagramHandle)}
             </Button>
             <Button href="/contact" variant="outline" icon={<CalendarCheck className="h-4 w-4" />}>
-              Book a Similar Look
+              {content.bookSimilarLookLabel}
             </Button>
           </div>
         </div>
@@ -79,7 +81,7 @@ export default async function InstagramFeed() {
         {/* Reels */}
         <div className="mt-14">
           <p className="mb-8 text-center text-sm font-semibold uppercase tracking-[0.2em] text-secondary">
-            Our Instagram Reels
+            {content.reelsLabel}
           </p>
           <InstagramSlider posts={posts} isLive={!!livePosts} />
         </div>

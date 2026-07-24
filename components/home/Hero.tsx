@@ -5,21 +5,25 @@ import { CalendarCheck, Sparkles } from "lucide-react";
 import Button from "@/components/shared/Button";
 import CoverflowSlider from "@/components/shared/CoverflowSlider";
 import { WhatsAppIcon } from "@/components/shared/SocialIcons";
-import { services } from "@/lib/data";
+import { services, siteContent } from "@/lib/data";
 import { whatsappLink } from "@/lib/site-config";
 
+const { hero: heroContent, common } = siteContent;
+
 const heroSlideSlugs = [
-  "women-haircut",
-  "hair-color",
-  "korean-head-spa",
-  "makeup",
-  "nail-extensions",
+  "womens-haircut-in-dubai",
+  "professional-hair-colour-in-dubai",
+  "korean-head-spa-in-dubai",
+  "professional-makeup-services-in-dubai",
+  "nail-extensions-in-dubai",
 ];
 
 const heroSlides = heroSlideSlugs.map((slug) => {
   const service = services.find((s) => s.slug === slug);
   return {
-    src: `/images/services/${slug}.webp`,
+    // `image` overrides keep pointing at the original filenames — renaming
+    // the slug doesn't rename the file on disk.
+    src: service?.image ?? `/images/services/${slug}.webp`,
     title: service?.title ?? slug,
   };
 });
@@ -51,7 +55,7 @@ export default function Hero() {
             <span className="h-px w-10 bg-primary/70" />
             <span className="inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
               <Sparkles className="h-4 w-4" />
-              Unisex Salon · Burjuman, Dubai
+              {heroContent.eyebrow}
             </span>
           </motion.div>
 
@@ -60,16 +64,17 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-6 text-5xl font-bold leading-[1.05] text-white sm:text-6xl lg:text-7xl"
           >
-            Luxury Hair & 
+            {heroContent.titleLine1}
             <br />
-             <span className="text-primary">Beauty Salon.</span>
+            <span className="text-primary">{heroContent.titleLine2}</span>
           </motion.h1>
 
           <motion.p
             {...fadeUp}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-6 max-w-xl text-lg text-white"
-          >At VR Unisex Salon, every appointment begins with understanding you. Through expert consultation, personalised care, and skilled craftsmanship, we create beautiful transformations that reflect your unique style.
+          >
+            {heroContent.subtitle}
           </motion.p>
 
           <motion.div
@@ -83,7 +88,7 @@ export default function Hero() {
               size="lg"
               icon={<CalendarCheck className="h-5 w-5" />}
             >
-              Book Appointment
+              {common.bookAppointmentLabel}
             </Button>
             <Button
               href={whatsappLink()}
@@ -93,7 +98,7 @@ export default function Hero() {
               className="bg-[#25D366] text-white hover:bg-[#1ebe5d]"
               icon={<WhatsAppIcon className="h-5 w-5" />}
             >
-              WhatsApp Us
+              {common.whatsappUsLabel}
             </Button>
           </motion.div>
         </div>

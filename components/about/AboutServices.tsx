@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { services } from "@/lib/data";
+import { services, siteContent } from "@/lib/data";
+
+const content = siteContent.about.services;
 
 export default function AboutServices() {
   const midpoint = Math.ceil(services.length / 2);
@@ -13,15 +15,12 @@ export default function AboutServices() {
             so the type needs inverted colours. */}
         <div className="mx-auto mb-12 max-w-2xl text-center">
           <span className="text-sm font-semibold uppercase tracking-wider text-third">
-            Our Services
+            {content.eyebrow}
           </span>
           <h2 className="mt-2 text-3xl font-bold text-white sm:text-4xl">
-            Specialist Treatments We Offer
+            {content.title}
           </h2>
-          <p className="mt-4 text-zinc-400">
-            In-depth guides for every service we provide — open any one to see
-            what&apos;s included, the options and FAQs.
-          </p>
+          <p className="mt-4 text-zinc-400">{content.subtitle}</p>
         </div>
 
         {/* Reads as a salon menu — divided rows rather than a card grid. */}

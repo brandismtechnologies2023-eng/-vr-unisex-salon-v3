@@ -1,18 +1,15 @@
 import Image from "next/image";
-import { Car, MapPin, TrainFront } from "lucide-react";
+import { Car, MapPin, TrainFront, type LucideIcon } from "lucide-react";
+import { siteContent } from "@/lib/data";
 import { siteConfig } from "@/lib/site-config";
 
-const perks = [
-  { icon: TrainFront, label: "2 minutes' walk from Burjuman Metro Station" },
-  { icon: MapPin, label: "Inside the 5-star Crown Park Hotel" },
-  { icon: Car, label: "Free valet parking available" },
-];
+const content = siteContent.about.hero;
 
-const photos = [
-  { src: "/images/gallery/02.jpg", alt: "Precision haircut in progress at VR Unisex Salon" },
-  { src: "/images/connect-with-us.webp", alt: "Stylist working on a client's hair at VR Unisex Salon" },
-  { src: "/images/gallery/03.jpg", alt: "Manicure and pedicure at VR Unisex Salon" },
-];
+const perkIcons: Record<string, LucideIcon> = {
+  TrainFront,
+  MapPin,
+  Car,
+};
 
 export default function AboutHero() {
   return (
@@ -21,24 +18,22 @@ export default function AboutHero() {
         {/* Centered editorial intro rather than a text/image split. */}
         <div className="mx-auto max-w-8xl text-center">
           <span className="text-sm font-semibold uppercase tracking-[0.2em] text-third">
-            Where Passion, Expertise & Beauty Come Together
+            {content.eyebrow}
           </span>
           <h1 className="mt-3 text-4xl font-bold leading-tight text-secondary sm:text-5xl">
-            ABOUT VR UNISEX SALON
+            {content.title}
           </h1>
           <span className="mx-auto mt-6 block h-px w-16 bg-third/50" />
           <p className="mt-6 text-lg text-zinc-600">
-            {siteConfig.name} was founded with a simple belief—that every client deserves more than a beauty service; they deserve a premium salon experience built on trust, expertise, and genuine care.
+            {content.paragraph1(siteConfig.name)}
           </p>
-          <p className="mt-4 text-zinc-600">
-            Inspired by years of international experience across Singapore, Malaysia, Australia, and Dubai, founders Vishal and Raju created a luxury hair & beauty salon in Dubai where personalised attention, modern techniques, and exceptional hospitality come together to create experiences clients trust, recommend, and look forward to returning to. 
-          </p>
+          <p className="mt-4 text-zinc-600">{content.paragraph2}</p>
         </div>
 
         {/* Staggered photo row: the centre image drops lower than its
             neighbours so the strip doesn't read as a plain grid. */}
         <div className="mt-14 grid grid-cols-3 gap-3 sm:gap-5">
-          {photos.map((photo, i) => (
+          {content.photos.map((photo, i) => (
             <div
               key={photo.src}
               className={`relative aspect-3/4 overflow-hidden rounded-2xl sm:aspect-square ${
@@ -62,15 +57,18 @@ export default function AboutHero() {
           not bullet points buried under the copy. */}
       <div className="mt-16 border-t border-third/20 bg-white/50 sm:mt-24">
         <ul className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-8 sm:grid-cols-3 sm:divide-x sm:divide-third/20 sm:px-6 lg:px-8">
-          {perks.map((perk) => (
-            <li
-              key={perk.label}
-              className="flex items-center justify-center gap-3 text-center text-sm text-zinc-700"
-            >
-              <perk.icon className="h-5 w-5 shrink-0 text-third" strokeWidth={1.5} />
-              {perk.label}
-            </li>
-          ))}
+          {content.perks.map((perk) => {
+            const Icon = perkIcons[perk.icon] ?? MapPin;
+            return (
+              <li
+                key={perk.label}
+                className="flex items-center justify-center gap-3 text-center text-sm text-zinc-700"
+              >
+                <Icon className="h-5 w-5 shrink-0 text-third" strokeWidth={1.5} />
+                {perk.label}
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>

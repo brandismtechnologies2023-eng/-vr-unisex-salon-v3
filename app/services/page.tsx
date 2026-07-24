@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Services from "@/components/home/Services";
+import { siteContent } from "@/lib/data";
 import { siteConfig } from "@/lib/site-config";
 
+const { meta } = siteContent.servicesPage;
+
 export const metadata: Metadata = {
-  title: `Services | ${siteConfig.name}`,
-  description:
-    "Explore the full range of services at VR Unisex Salon — haircuts, colour, treatments, nails, lashes, waxing, makeup and more, in Burjuman, Dubai.",
+  title: `${meta.titlePrefix} | ${siteConfig.name}`,
+  description: meta.description,
 };
 
 export default function ServicesPage() {

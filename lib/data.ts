@@ -15,10 +15,12 @@ import type {
 const coreServices: Service[] = [
   {
     id: "1",
-    slug: "manicure-pedicure",
+    slug: "manicure-pedicure-in-dubai",
     title: "Manicure & Pedicure in Dubai",
+    shortTitle: "Manicure & Pedicure",
     description: "Relaxing hand and foot care with premium products.",
     startingPrice: 499,
+    image: "/images/services/manicure-pedicure.webp",
     // tagline: "Nail Care",
     // heroBadge: "Healthy Nails, Beautifully Finished",
     longDescription:
@@ -179,6 +181,26 @@ const coreServices: Service[] = [
         "Nail Care Consultations",
       ],
     },
+    reviews: [
+      {
+        id: "mp-r1",
+        name: "Archana Rengasayee",
+        rating: 5,
+        service: "Salon Services",
+        review:
+          "VR Salon is located very near Exit 4, Burjuman, and has some of the finest services in Mankhool and around. I highly recommend this salon if you're keen to refresh your hair colour and styling, or simply want to give your hair some good pampering. Raju and Vishal's team have talented people for almost all salon services — from the highly recommended Korean hair spa and frizz-free hair treatments to hair colouring and regular services like mani-pedi and waxing. I've always felt Raju is one of the best hair stylists around, and I'm happy to say it again. Visit VR Salon soon for the real transformation you're yearning for.",
+        source: "google",
+      },
+      {
+        id: "mp-r2",
+        name: "Vetri Velan",
+        rating: 5,
+        service: "Manicure & Pedicure",
+        review:
+          "Huge love to the VR Salon team! My manicure & pedicure came out absolutely stunning — clean, elegant, and so well done, thank you Ms. Jaja and Ms. Priyanka. The whole vibe was relaxing and the team was super professional. 10/10 recommend! Will be back soon.",
+        source: "google",
+      },
+    ],
     faqTitle: "Before Your Appointment",
     faqs: [
       {
@@ -218,6 +240,11 @@ const coreServices: Service[] = [
           "Our beauty specialists will assess your nail condition, lifestyle, and preferences before recommending the most suitable treatment for your needs.",
       },
     ],
+    portfolio: {
+      title: "Beautifully Cared-For Hands & Feet",
+      description:
+        "Every manicure and pedicure reflects our commitment to healthy nail care, precision, and attention to detail. Explore real client results showcasing beautifully maintained hands and feet, elegant finishes, and relaxing salon experiences.",
+    },
     ctaTitle: "Healthy Nails Start with Professional Care",
     ctaDescription:
       "Whether you're maintaining your regular nail care routine or simply taking time to relax and recharge, our experienced beauty specialists are here to provide professional manicure and pedicure services that leave your hands and feet healthy, refreshed, and beautifully cared for.",
@@ -228,10 +255,12 @@ const coreServices: Service[] = [
   },
   {
     id: "2",
-    slug: "korean-head-spa",
+    slug: "korean-head-spa-in-dubai",
     title: "Korean Head Spa",
+    shortTitle: "Korean Head Spa",
     description: "Deep scalp cleansing and relaxation therapy.",
     startingPrice: 899,
+    image: "/images/services/korean-head-spa.webp",
     // tagline: "Scalp Ritual",
     // heroBadge: "Premium Korean Ritual",
     // heroSubtitle: "A Ritual of Scalp Renewal & Deep Relaxation",
@@ -243,11 +272,49 @@ const coreServices: Service[] = [
     //   "Warm water ritual therapy",
     //   "Deeply relaxing atmosphere",
     // ],
-    // journeyIntro: {
-    //   title: "More Than a Treatment — It's a Journey",
-    //   description:
-    //     "At VR Unisex Salon, our Korean Head Spa combines deep cleansing, gentle massage and nourishing care to help you feel lighter, calmer and refreshed from the roots up.",
-    // },
+    whyChooseUs: {
+      title: "Why Choose VR Salon for Korean Head Spa",
+      subtitle:
+        "At VR Unisex Salon, we believe scalp care is the foundation of beautiful hair. Our Korean Head Spa combines professional techniques, premium haircare products, and a calming spa environment to deliver an experience that benefits both your hair and your wellbeing.",
+      items: [
+        {
+          icon: "Leaf",
+          title: "Authentic Korean-Inspired Care",
+          description:
+            "Inspired by Korean scalp wellness rituals that focus on cleansing, hydration, nourishment, and relaxation.",
+        },
+        {
+          icon: "ClipboardList",
+          title: "Personalised Scalp Analysis",
+          description:
+            "Every treatment begins with understanding your scalp condition so we can recommend the most suitable care.",
+        },
+        {
+          icon: "Hand",
+          title: "Relaxing Head Massage",
+          description:
+            "Gentle massage techniques help improve circulation while relieving stress and tension.",
+        },
+        {
+          icon: "ShieldCheck",
+          title: "Professional Haircare Products",
+          description: "We use salon-grade products selected according to your scalp and hair needs.",
+        },
+        {
+          icon: "Gem",
+          title: "Luxury Wellness Experience",
+          description: "More than a salon service, it's dedicated time to relax, recharge, and care for yourself.",
+        },
+      ],
+    },
+    journeyIntro: {
+      title: "What Is a Korean Head Spa?",
+      description:
+        "Unlike a regular hair wash, a Korean Head Spa is a specialised scalp wellness treatment that focuses on improving the health of your scalp while deeply nourishing your hair. The experience combines professional cleansing, scalp hydration, therapeutic massage, and conditioning treatments to remove product build-up, excess oil, and impurities while creating the ideal environment for healthier-looking hair. Whether you're dealing with scalp concerns or simply looking for a relaxing beauty ritual, this treatment offers both visible results and complete relaxation.",
+    },
+    benefitsTitle: "Why Your Scalp Deserves Professional Care",
+    benefitsSubtitle:
+      "Healthy hair doesn't start with styling—it starts with a healthy scalp. Regular scalp care helps maintain the natural balance of your scalp while improving the condition and appearance of your hair.",
     benefits: [
       {
         icon: "Droplets",
@@ -268,6 +335,11 @@ const coreServices: Service[] = [
         icon: "Leaf",
         title: "Encourages Relaxation",
         description: "A calming experience that helps relieve everyday stress.",
+      },
+      {
+        icon: "ShieldCheck",
+        title: "Supports Your Haircare Routine",
+        description: "A healthier scalp allows your everyday products to perform more effectively.",
       },
     ],
     process: [
@@ -321,6 +393,26 @@ const coreServices: Service[] = [
     },
     processTitle: "Your Korean Head Spa Journey",
     processSubtitle: "Every appointment follows a carefully designed process that balances professional scalp care with complete relaxation.",
+    reviews: [
+      {
+        id: "khs-r1",
+        name: "Archana Rengasayee",
+        rating: 5,
+        service: "Korean Head Spa",
+        review:
+          "VR Salon is located very near Exit 4, Burjuman, and has some of the finest services in Mankhool and around. I highly recommend this salon if you're keen to refresh your hair colour and styling, or simply want to give your hair some good pampering. Raju and Vishal's team have talented people for almost all salon services — from the highly recommended Korean hair spa and frizz-free hair treatments to hair colouring and regular services like mani-pedi and waxing. I've always felt Raju is one of the best hair stylists around, and I'm happy to say it again. Visit VR Salon soon for the real transformation you're yearning for.",
+        source: "google",
+      },
+      {
+        id: "khs-r2",
+        name: "Vidhi Mehta",
+        rating: 5,
+        service: "Korean Head Spa",
+        review:
+          "I had the most amazing experience with Priyanka at VR Salon! She did my hair spa, and honestly, it was one of the best I've ever had. From start to finish, she was so gentle, professional, and attentive. The hair spa itself was super relaxing — my hair feels soft, smooth, and full of life now. But what really made it special was the extra care Priyanka put in: her head massage was heavenly, and she even gave a relaxing back and hand massage that made the whole experience feel like a mini spa day. If you're planning a pamper session, I'd highly recommend booking with Priyanka — she truly has magic hands! 💆‍♀️✨",
+        source: "google",
+      },
+    ],
     faqs: [
       {
         id: "khs-1",
@@ -353,7 +445,40 @@ const coreServices: Service[] = [
         answer: "Absolutely. Many clients combine their Korean Head Spa with a haircut, hair colour, or hair treatment for a complete haircare experience.",
       },
     ],
-        ctaTitle: "Restore Your Scalp. Refresh Your Mind.",
+        brandsTrust: {
+      title: "Premium Haircare Products We Trust",
+      description:
+        "Exceptional treatments deserve exceptional products. During your Korean Head Spa, we use carefully selected salon-grade brands trusted by professional stylists worldwide. Every product is chosen based on your scalp condition, hair texture, and treatment goals.",
+      brands: [
+        { name: "Olaplex", logo: "/images/products-uses/olaplex.webp", description: "Strengthens weakened hair while improving softness, shine, and resilience." },
+        { name: "GK Hair", logo: "/images/products-uses/gk-hair-professional.webp", description: "Helps restore moisture, smoothness, and manageability." },
+        { name: "Brazilian Blowout", logo: "/images/products-uses/brazilian-blowout.webp", description: "Professional nourishing formulas that leave hair silky, smooth, and healthy-looking." },
+        { name: "L'Oréal Professionnel", logo: "/images/products-uses/loreal-professionnel.webp", description: "Advanced professional haircare for a wide variety of scalp and hair concerns." },
+        { name: "Matrix", logo: "/images/products-uses/matrix.webp", description: "Trusted salon-quality products for cleansing, hydration, and nourishment." },
+        { name: "Goldwell", logo: "/images/products-uses/goldwell.webp", description: "Professional formulas that enhance hair condition and overall scalp health." },
+      ],
+      note: "Products used during your treatment may vary depending on your hair and scalp assessment.",
+    },
+    idealFor: {
+      title: "Is a Korean Head Spa Right for You?",
+      description: "This treatment is ideal if you:",
+      items: [
+        "Have an oily scalp",
+        "Experience dryness or itchiness",
+        "Regularly use styling products",
+        "Colour or chemically treat your hair",
+        "Spend long hours in Dubai's climate",
+        "Want healthier-looking hair",
+        "Need a relaxing self-care experience",
+        "Simply love premium wellness treatments",
+      ],
+    },
+    portfolio: {
+      title: "Our Recent Korean Head Spa Experiences",
+      description:
+        "Discover why our Korean Head Spa has become one of VR Unisex Salon's most loved signature treatments. Explore real client experiences, treatment videos, and beautiful hair transformations shared by our team.",
+    },
+    ctaTitle: "Restore Your Scalp. Refresh Your Mind.",
     ctaDescription:
       "Give yourself the time to pause, relax, and care for your hair from the roots up. Book your Korean Head Spa at VR Unisex Salon and enjoy a luxurious treatment designed to leave your scalp healthier, your hair beautifully refreshed, and your mind completely at ease.",
     metaTitle:
@@ -363,10 +488,12 @@ const coreServices: Service[] = [
   },
   {
     id: "3",
-    slug: "women-haircut",
+    slug: "womens-haircut-in-dubai",
     title: "Women's Haircut in Dubai",
+    shortTitle: "Women's Haircut",
     description: "Precision cuts styled to suit your face and lifestyle.",
     startingPrice: 399,
+    image: "/images/services/women-haircut.webp",
     // tagline: "Hair Styling",
     // heroBadge: "Cut, Shaped & Styled for You",
     // heroSubtitle: "More Than Just a Change in Length",
@@ -378,6 +505,41 @@ const coreServices: Service[] = [
     //   "Experienced women's stylists",
     //   "Finishes that are easy to maintain",
     // ],
+    benefitsTitle: "Why Choose VR Salon for Your Women's Haircut",
+    benefitsSubtitle:
+      "The perfect haircut isn't about following trends—it's about creating a style that works beautifully for you. Every appointment at VR Unisex Salon is personalized to ensure your haircut complements your individuality while remaining easy to maintain long after you leave the salon.",
+    benefits: [
+      {
+        icon: "ClipboardList",
+        title: "Personalized Consultation",
+        description:
+          "Every haircut begins with understanding your face shape, hair texture, lifestyle, and personal style before recommending a look that enhances your natural beauty.",
+      },
+      {
+        icon: "Scissors",
+        title: "Precision Styling",
+        description:
+          "Our experienced stylists focus on balance, movement, and attention to detail, creating haircuts that look beautiful from every angle and grow out gracefully.",
+      },
+      {
+        icon: "Gem",
+        title: "International Expertise",
+        description:
+          "Inspired by global salon techniques and modern beauty trends, we create hairstyles that are stylish, timeless, and tailored to your personality.",
+      },
+      {
+        icon: "HeartPulse",
+        title: "Healthy Hair First",
+        description:
+          "Beautiful hair starts with healthy hair. Every haircut is designed to preserve your hair's natural strength while improving movement and manageability.",
+      },
+      {
+        icon: "Sparkles",
+        title: "Designed for Everyday Life",
+        description:
+          "Whether you prefer effortless styling or enjoy experimenting with different looks, your haircut is created to suit your daily routine and lifestyle.",
+      },
+    ],
     // treatmentsSubtitle:
     //   "Every cut starts with a consultation — here's what we can do for you.",
     treatmentColumns: 2,
@@ -407,7 +569,7 @@ const coreServices: Service[] = [
           "Modern cuts that beautifully frame your face while offering effortless styling and versatility.",
       },
       {
-        id: "blow-dry-styling",
+        id: "long-hair-shaping",
         category: "Haircut",
         name: "Long Hair Shaping",
         // tagline: "Polished, Salon-Perfect Finish",
@@ -415,7 +577,7 @@ const coreServices: Service[] = [
           "Maintain your length while improving structure, movement, and the overall health of your hair.",
       },
       {
-        id: "blow-dry-styling",
+        id: "fringe-face-framing-styles",
         category: "Haircut",
         name: "Fringe & Face-Framing Styles",
         // tagline: "Polished, Salon-Perfect Finish",
@@ -423,7 +585,7 @@ const coreServices: Service[] = [
           "Refresh your appearance with thoughtfully designed fringes and face-framing layers that highlight your best features.",
       },
       {
-        id: "blow-dry-styling",
+        id: "hair-restyling-complete-makeovers",
         category: "Haircut",
         name: "Hair Restyling & Complete Makeovers",
         // tagline: "Polished, Salon-Perfect Finish",
@@ -449,6 +611,63 @@ const coreServices: Service[] = [
         "Personalized Hair Consultations",
       ],
     },
+    highlightGroup: {
+      title: "Complete Your Hair Experience",
+      description:
+        "A beautiful haircut is only the beginning. Complete your salon visit with professional styling and haircare services that help your hair look polished, healthy, and ready for any occasion.",
+      items: [
+        {
+          title: "Hair Wash & Blow Dry",
+          description:
+            "Enjoy a refreshing hair wash followed by a professional blow dry that leaves your hair soft, smooth, and beautifully finished.",
+        },
+        {
+          title: "Hair Styling",
+          description:
+            "Whether it's a party, celebration, business event, or special occasion, our styling services help you achieve a polished and elegant look that complements your haircut.",
+        },
+        {
+          title: "Blow Dry Styling",
+          description:
+            "From sleek finishes to soft waves and glamorous volume, our professional blow-dry styling creates salon-perfect hair with lasting results.",
+        },
+        {
+          title: "Hair Ironing",
+          description:
+            "Achieve silky straight hair or beautifully defined curls using professional styling techniques that deliver a smooth, polished finish while protecting your hair.",
+        },
+        {
+          title: "Hair Spa",
+          description:
+            "Deep-conditioning treatments designed to nourish your hair, restore moisture, reduce frizz, and improve overall hair health and shine.",
+        },
+      ],
+    },
+    portfolio: {
+      title: "Beautiful Hair, Beautiful Stories",
+      description:
+        "Every haircut tells a different story. Explore real transformations created for our clients—from timeless everyday styles to complete makeovers—each designed to celebrate individual beauty and confidence.",
+    },
+    reviews: [
+      {
+        id: "wh-r1",
+        name: "Sumayya Tafeez",
+        rating: 5,
+        service: "Women's Haircut",
+        review:
+          "I had an amazing experience at the salon on my first visit. The staff was incredibly welcoming, friendly, and professional. A special mention to Mr. Raju for the excellent haircut service — he did an amazing job! Overall, it was a wonderful experience with such warm and friendly staff. Highly recommended!",
+        source: "google",
+      },
+      {
+        id: "wh-r2",
+        name: "Nivedya B.K.",
+        rating: 5,
+        service: "Haircut & Colour",
+        review:
+          "Vishal and Raju are truly among the most artistic and talented hairdressers in Dubai! I've been trusting them with my hair since 2018, and I can honestly say I trust them blindly. I've donated my hair twice with them, done hair colouring and various treatments — and not once has my hair been damaged (touch wood 😉). Vishal is incredibly patient, gentle, and caring; he treats your hair like silk, with so much attention to detail. Even after relocating to Europe, I still make it a point to travel all the way to Dubai just to get my hair done by them! Now that they've opened their own venture, you can get your hair done, enjoy manicures and pedicures, and truly pamper yourself. I've brought many friends here and every single one has loved it — this is absolutely my go-to place.",
+        source: "google",
+      },
+    ],
     faqs: [
       {
         id: "wh-1",
@@ -495,10 +714,12 @@ const coreServices: Service[] = [
   },
   {
     id: "4",
-    slug: "mens-haircut",
+    slug: "mens-grooming-and-styling-dubai",
     title: "Men's Grooming & Styling in Dubai",
+    shortTitle: "Men's Grooming & Styling",
     description: "Sharp, modern cuts from experienced stylists.",
     startingPrice: 249,
+    image: "/images/services/mens-haircut.webp",
     // tagline: "Grooming",
     // heroBadge: "Sharp Cuts, Clean Finishes",
     // heroSubtitle: "Precision Grooming for Modern Men",
@@ -510,6 +731,42 @@ const coreServices: Service[] = [
     //   "Sanitized tools for every client",
     //   "Sharp, easy-to-maintain finishes",
     // ],
+    benefitsTitle: "Why Choose VR Salon for Men's Grooming",
+    benefitsSubtitle:
+      "Every man has a different grooming routine and personal style. At VR Unisex Salon, we take the time to understand your preferences before recommending services that help you look polished, confident, and effortlessly well-groomed.",
+    benefits: [
+      {
+        icon: "Scissors",
+        title: "Precision Grooming",
+        description:
+          "Every haircut, beard trim, and styling service is performed with attention to detail, ensuring a clean, sharp, and well-balanced finish.",
+      },
+      {
+        icon: "ClipboardList",
+        title: "Personalised Styling",
+        description:
+          "We recommend hairstyles and grooming solutions based on your face shape, hair type, beard growth, and lifestyle, helping you maintain a look that suits you best.",
+      },
+      {
+        icon: "ShieldCheck",
+        title: "Premium Products",
+        description:
+          "From professional haircare to ammonia-free colouring products, we use trusted salon brands that deliver excellent results while protecting your hair and skin.",
+      },
+      {
+        icon: "HeartPulse",
+        title: "Relaxing Experience",
+        description:
+          "Grooming should be enjoyable. Our welcoming salon environment and attentive service ensure every visit is both comfortable and refreshing.",
+      },
+      {
+        icon: "Gem",
+        title: "Complete Grooming Under One Roof",
+        description:
+          "From haircuts and beard care to scalp treatments, manicures, pedicures, and waxing, everything you need to maintain a polished appearance is available in one place.",
+      },
+    ],
+    treatmentsTitle: "Complete Men's Grooming Under One Roof",
     treatmentsSubtitle:
       "Whether you're maintaining your everyday style or preparing for an important occasion, our comprehensive men's grooming services are designed to help you look sharp, feel confident, and leave a lasting impression.",
     treatments: [
@@ -556,7 +813,7 @@ const coreServices: Service[] = [
           "Well-groomed hands and feet complete your overall appearance. Our treatments help maintain clean, healthy nails while providing a relaxing self-care experience.",
         },
         {
-        id: "hand-foot-care",
+        id: "mens-waxing",
         category: "Grooming",
         name: "Men's Waxing",
         description:
@@ -581,6 +838,35 @@ const coreServices: Service[] = [
         "Personalised Grooming Consultations",
       ],
     },
+    reviews: [
+      {
+        id: "mg-r1",
+        name: "Amey Dhure",
+        rating: 5,
+        service: "Haircut & Beard Trim",
+        review:
+          "This is a newly opened unisex salon near Burjuman. My haircut and beard were exactly as I expected — these guys know client expectations and just deliver. Thanks to Pramod for the best haircut. It was a great experience having my six-month-long hair trimmed off and getting a stunning look by Pramod — the entire staff was kind and friendly, took care of everything, and Pramod didn't miss a single detail with my hair and beard.",
+        source: "google",
+      },
+      {
+        id: "mg-r2",
+        name: "Sanchit Dokhale",
+        rating: 5,
+        service: "Haircut & Beard",
+        review:
+          "Amazing experience! I had a haircut and beard done, and now I'm looking like Virat Kohli 😀 Thanks to all.",
+        source: "google",
+      },
+      {
+        id: "mg-r3",
+        name: "Imthiaz Ahmed",
+        rating: 5,
+        service: "Family Grooming",
+        review:
+          "We had a wonderful experience at this salon! The team was professional, friendly, and made us feel welcome from the moment we walked in. I got a haircut and beard trim, both done with great attention to detail. My daughter's haircut turned out exactly as we wanted, and the stylist was patient and gentle with her. My wife had her hair coloured, cut, and styled, and the results were absolutely beautiful — she couldn't be happier! The salon was clean, comfortable, and the service was outstanding. We'll definitely be coming back!",
+        source: "google",
+      },
+    ],
     faqs: [
       {
         id: "mh-1",
@@ -619,6 +905,11 @@ const coreServices: Service[] = [
           "Our team will guide you during your consultation and recommend services based on your hair, beard, skin, lifestyle, and grooming goals.",
       },
     ],
+    portfolio: {
+      title: "Confidence in Every Look",
+      description:
+        "Every grooming session is tailored to the individual. Explore real client transformations showcasing precision haircuts, beard grooming, professional styling, and complete grooming experiences created to help men look and feel their best.",
+    },
     ctaTitle: "Your Best Look Starts Here",
     ctaDescription:
       "Looking sharp isn't reserved for special occasions—it's part of feeling confident every day. Whether you're after a fresh haircut, expert beard grooming, relaxing scalp care, or a complete grooming session, our experienced team is here to help you look polished, professional, and effortlessly well-groomed.",
@@ -629,10 +920,12 @@ const coreServices: Service[] = [
   },
   {
     id: "5",
-    slug: "hair-treatment",
+    slug: "hair-treatments-in-dubai",
     title: "Hair Treatments in Dubai",
+    shortTitle: "Hair Treatments",
     description: "Nourishing treatments for healthy, shiny hair.",
     startingPrice: 999,
+    image: "/images/services/hair-treatment.webp",
     // tagline: "Hair Care",
     // heroBadge: "Repair, Smooth & Strengthen",
     // heroSubtitle: "Advanced Treatments for Smooth, Strong & Healthy Hair",
@@ -644,6 +937,42 @@ const coreServices: Service[] = [
     //   "Personalised to your hair type",
     //   "Safe for coloured & treated hair",
     // ],
+    benefitsTitle: "Why Choose VR Salon for Hair Treatments",
+    benefitsSubtitle:
+      "Every head of hair is different, which is why every treatment begins with understanding your hair's unique condition. Our personalized approach ensures you receive the right treatment for long-lasting, healthy-looking results.",
+    benefits: [
+      {
+        icon: "ClipboardList",
+        title: "Personalized Hair Assessment",
+        description:
+          "Before recommending any treatment, we carefully evaluate your hair texture, scalp condition, previous chemical treatments, and styling routine to create a personalized treatment plan.",
+      },
+      {
+        icon: "Wind",
+        title: "Professional Treatment Solutions",
+        description:
+          "From frizz control and deep nourishment to smoothing and repair, we offer a carefully selected range of professional treatments tailored to different hair concerns.",
+      },
+      {
+        icon: "Gem",
+        title: "Premium Salon Products",
+        description:
+          "We use internationally recognized salon brands and advanced formulations that deliver visible results while maintaining the health and integrity of your hair.",
+      },
+      {
+        icon: "HeartPulse",
+        title: "Healthy Hair First",
+        description:
+          "Our focus isn't simply making your hair look better for a day—it's about improving its condition so it stays healthier, stronger, and easier to manage over time.",
+      },
+      {
+        icon: "ShieldCheck",
+        title: "Experienced Professionals",
+        description:
+          "Our team combines technical expertise with personalized consultations to ensure every treatment delivers the best possible outcome for your hair.",
+      },
+    ],
+    treatmentsTitle: "Find the Right Treatment for Your Hair",
     treatmentsSubtitle:
       "Not every hair concern needs the same solution. Explore our professional treatments to discover what works best for your hair.",
     treatments: [
@@ -688,7 +1017,7 @@ const coreServices: Service[] = [
           "Deep-conditioning therapy that replenishes moisture, restores softness, improves shine, and revitalises dry, tired-looking hair.",
       },
       {
-        id: "hair-rebonding",
+        id: "scalp-treatment",
         category: "Treatment",
         name: "Scalp Treatment",
         // tagline: "Permanent Straight Hair With a Sleek Finish",
@@ -696,7 +1025,7 @@ const coreServices: Service[] = [
           "Healthy hair starts with a healthy scalp. Our scalp treatments help remove build-up, rebalance the scalp, and create an ideal foundation for stronger hair growth.",
       },
       {
-        id: "hair-rebonding",
+        id: "japanese-straightening",
         category: "Treatment",
         name: "Japanese Straightening",
         // tagline: "Permanent Straight Hair With a Sleek Finish",
@@ -704,7 +1033,7 @@ const coreServices: Service[] = [
           "For clients seeking permanently straighter, sleek hair with long-lasting smoothness and reduced daily styling time.",
       },
       {
-        id: "hair-rebonding",
+        id: "xtenso-smoothing",
         category: "Treatment",
         name: "Xtenso Smoothing",
         // tagline: "Permanent Straight Hair With a Sleek Finish",
@@ -712,6 +1041,106 @@ const coreServices: Service[] = [
           "Achieve soft, naturally straight, and manageable hair while maintaining movement and reducing unwanted frizz.",
       },
     ],
+    secondaryTreatments: {
+      title: "Explore Our Hair Extension Methods",
+      subtitle:
+        "Every client has different hair goals. Whether you're looking for temporary glamour, everyday volume, or long-lasting length, we'll recommend the extension technique that's best suited to your hair type and lifestyle.",
+      columns: 2,
+      items: [
+        {
+          id: "clip-in-hair-extensions",
+          category: "Extensions",
+          name: "Clip-in Hair Extensions",
+          description:
+            "Clip-in extensions offer an instant transformation without long-term commitment. They're perfect for clients who love changing their hairstyle for parties, weddings, photoshoots, vacations, or special occasions.",
+          featuresLabel: "Ideal For",
+          features: ["Temporary hair length", "Added hair volume", "Weddings & parties", "Easy application and removal"],
+        },
+        {
+          id: "tape-hair-extensions",
+          category: "Extensions",
+          name: "Tape Hair Extensions",
+          description:
+            "Tape Hair Extensions are lightweight, discreet, and designed for comfortable everyday wear. They blend naturally with your existing hair while providing beautiful length and fullness.",
+          featuresLabel: "Ideal For",
+          features: ["Fine to medium hair", "Natural everyday volume", "Longer hairstyles", "Lightweight comfort"],
+        },
+        {
+          id: "keratin-hair-extensions",
+          category: "Extensions",
+          name: "Keratin Hair Extensions",
+          description:
+            "Keratin Hair Extensions are one of the most popular premium extension methods, offering durable, natural-looking results with excellent movement and long-lasting performance.",
+          featuresLabel: "Ideal For",
+          features: ["Long-term hair enhancement", "Natural movement", "Fuller hairstyles", "Premium transformations"],
+        },
+        {
+          id: "microlink-hair-extensions",
+          category: "Extensions",
+          name: "Microlink Hair Extensions",
+          description:
+            "Microlink Hair Extensions are applied without glue or heat, making them a flexible option for clients who want natural-looking extensions with easy maintenance.",
+          featuresLabel: "Ideal For",
+          features: ["Natural appearance", "Hair length & volume", "Flexible styling", "Reusable extension systems"],
+        },
+      ],
+    },
+    comparison: {
+      title: "Which Hair Treatment Is Right for You?",
+      description:
+        "Choosing the right treatment depends on your hair's condition and your desired results. During your consultation, our experts will recommend the most suitable option for your needs.",
+      goalLabel: "Your Hair Concern",
+      recommendedLabel: "Recommended Treatment",
+      rows: [
+        { goal: "Frizzy & Unmanageable Hair", recommended: "Keratin Treatment or Brazilian Blowout" },
+        { goal: "Dry & Dehydrated Hair", recommended: "Hair Spa" },
+        { goal: "Chemically Damaged Hair", recommended: "Olaplex Hair Therapy" },
+        { goal: "Coloured Hair", recommended: "Olaplex Hair Therapy" },
+        { goal: "Oily or Unhealthy Scalp", recommended: "Scalp Treatment" },
+        { goal: "Permanent Hair Straightening", recommended: "Japanese Straightening" },
+        { goal: "Smooth, Naturally Straight Hair", recommended: "Xtenso Smoothing" },
+      ],
+    },
+    brandsTrust: {
+      title: "Professional Haircare Brands We Trust",
+      description:
+        "Great treatments require great products. That's why we use globally trusted professional brands known for delivering reliable, long-lasting results while protecting your hair.",
+      brands: [
+        { name: "Olaplex", logo: "/images/products-uses/olaplex.webp", description: "Strengthens weakened hair while improving softness, shine, and resilience." },
+        { name: "GK Hair", logo: "/images/products-uses/gk-hair-professional.webp", description: "Helps restore moisture, smoothness, and manageability." },
+        { name: "L'Oréal Professionnel", logo: "/images/products-uses/loreal-professionnel.webp", description: "Advanced professional haircare for a wide variety of scalp and hair concerns." },
+        { name: "Brazilian Blowout", logo: "/images/products-uses/brazilian-blowout.webp", description: "Professional nourishing formulas that leave hair silky, smooth, and healthy-looking." },
+        { name: "Matrix", logo: "/images/products-uses/matrix.webp", description: "Trusted salon-quality products for cleansing, hydration, and nourishment." },
+        { name: "Goldwell", logo: "/images/products-uses/goldwell.webp", description: "Professional formulas that enhance hair condition and overall scalp health." },
+      ],
+    },
+    highlightGroup: {
+      title: "Why Clients Love Hair Extensions",
+      description:
+        "Professional hair extensions offer far more than additional length—they open up endless styling possibilities while boosting confidence and enhancing your overall appearance.",
+      items: [
+        {
+          title: "Instant Hair Length",
+          description: "Achieve long, flowing hair in just one appointment.",
+        },
+        {
+          title: "Fuller, Thicker Hair",
+          description: "Hair extensions add natural-looking body and volume, especially for fine or thin hair.",
+        },
+        {
+          title: "Endless Styling Possibilities",
+          description: "Enjoy beautiful braids, curls, ponytails, waves, and elegant updos with greater confidence.",
+        },
+        {
+          title: "Confidence Boost",
+          description: "Many clients choose extensions because fuller, healthier-looking hair helps them feel more confident every day.",
+        },
+        {
+          title: "Natural Appearance",
+          description: "Professionally applied extensions blend beautifully with your natural hair, creating seamless and elegant results.",
+        },
+      ],
+    },
     expert: {
       title: "The Expert Behind Your Nail Care",
       name: "Raju",
@@ -730,6 +1159,47 @@ const coreServices: Service[] = [
         "Personalised Hair Consultations  ",
       ],
     },
+    careTips: {
+      title: "Hair Extension Care Tips",
+      description: "Proper aftercare helps your extensions remain beautiful while protecting your natural hair.",
+      tips: [
+        "Using salon-recommended haircare products",
+        "Brushing gently using suitable extension brushes",
+        "Avoiding excessive pulling or tension",
+        "Following your stylist's maintenance schedule",
+        "Returning for professional maintenance appointments",
+      ],
+      note: "Our specialists will provide personalised aftercare instructions before you leave the salon.",
+    },
+    reviews: [
+      {
+        id: "ht-r1",
+        name: "Malar Kodi",
+        rating: 5,
+        service: "Keratin & Hair Colour",
+        review:
+          "I had a lovely experience at VR Salon near Burjuman Metro. I went for keratin treatment, highlights, and hair colouring, and I'm extremely happy with how my hair turned out. Big thanks to Vishal and Raju, who have 8+ years of experience and truly know what they're doing. The whole process was smooth and comfortable, and the salon has a clean, relaxing environment.",
+        source: "google",
+      },
+      {
+        id: "ht-r2",
+        name: "Kajal Jod",
+        rating: 5,
+        service: "Nails & Keratin Treatment",
+        review:
+          "Best salon in Dubai — nice staff, nice work. I had my nails and a keratin treatment done, and it turned out with amazing results. Thank you VR Salon, highly recommended! 😀",
+        source: "google",
+      },
+      {
+        id: "ht-r3",
+        name: "Tara Gahatraj",
+        rating: 5,
+        service: "Keratin, Nails & Lashes",
+        review:
+          "I visited VR Unisex Salon and the service was absolutely amazing. I got my keratin treatment, nail extensions, and eyelashes done, and all I can say is wow! The staff is professional, the atmosphere is lovely, and the results exceeded my expectations. Highly recommended for anyone looking to feel confident and pampered ✨💅✨",
+        source: "google",
+      },
+    ],
     faqs: [
       {
         id: "ht-1",
@@ -767,6 +1237,11 @@ const coreServices: Service[] = [
           "This depends on your hair's condition and goals. Some treatments are recommended monthly, while others provide results that last several months. ",
       },
     ],
+    portfolio: {
+      title: "Real Hair Transformations",
+      description:
+        "Every treatment delivers a different kind of transformation. Explore real client results showcasing healthier, shinier, smoother, and more manageable hair after personalised treatment plans at VR Unisex Salon.",
+    },
     ctaTitle: "Healthy Hair Starts Here ",
     ctaDescription:
       "Beautiful hair begins with healthy hair. Whether you're looking to repair damage, reduce frizz, restore moisture, or completely transform your hair's texture, our experienced team is here to recommend the right treatment and deliver results you'll love. ",
@@ -875,10 +1350,12 @@ const coreServices: Service[] = [
   // },
   {
     id: "7",
-    slug: "nail-extensions",
+    slug: "nail-extensions-in-dubai",
     title: "Nail Extensions in Dubai",
+    shortTitle: "Nail Extensions",
     description: "Durable, salon-perfect nail extensions and art.",
     startingPrice: 799,
+    image: "/images/services/nail-extensions.webp",
     // tagline: "Nail Artistry",
     // heroBadge: "Shaped, Sculpted & Designed",
     // heroSubtitle: "Luxury Nail Extensions Designed to Elevate Your Style",
@@ -890,6 +1367,37 @@ const coreServices: Service[] = [
     //   "High-quality products",
     //   "Personalised consultation",
     // ],
+    benefitsTitle: "Why Choose VR Salon for Nail Extensions",
+    benefitsSubtitle:
+      "Beautiful nail extensions require the perfect combination of creativity, technical expertise, and premium products. Our specialists take the time to understand your style and create extensions that not only look stunning but also feel comfortable and last longer.",
+    benefits: [
+      {
+        icon: "ClipboardList",
+        title: "Personalised Nail Styling",
+        description: "Every set of nail extensions is customised to match your personality, lifestyle, and desired look.",
+      },
+      {
+        icon: "Hand",
+        title: "Precision Application",
+        description: "Proper nail preparation, shaping, and application ensure beautiful extensions with a comfortable, natural feel.",
+      },
+      {
+        icon: "Gem",
+        title: "Premium Professional Products",
+        description: "We use high-quality products to deliver durable extensions with excellent strength, shine, and finish.",
+      },
+      {
+        icon: "Sparkles",
+        title: "Creative Nail Artists",
+        description: "Whether you love elegant simplicity or detailed nail art, our team creates designs that reflect your individual style.",
+      },
+      {
+        icon: "ShieldCheck",
+        title: "Long-Lasting Results",
+        description: "Our application techniques are designed to maximise durability while maintaining the beauty of your extensions between appointments.",
+      },
+    ],
+    treatmentsTitle: "Find Your Perfect Nail Extension Style",
     treatmentsSubtitle:
       "From classic elegance to bold fashion statements, we offer a variety of nail extension techniques and finishes to suit every occasion and personal preference.",
     treatments: [
@@ -950,6 +1458,21 @@ const coreServices: Service[] = [
         ],
       },
     ],
+    comparison: {
+      title: "Which Nail Extension Is Right for You?",
+      description:
+        "Choosing the right nail extension depends on your lifestyle, maintenance preferences, and the look you want to achieve. Our specialists are always happy to guide you toward the best option.",
+      goalLabel: "Your Preference",
+      recommendedLabel: "Recommended Option",
+      rows: [
+        { goal: "Strong & Durable Nails", recommended: "Acrylic Extensions" },
+        { goal: "Lightweight & Natural Feel", recommended: "Brisa Gel Extensions" },
+        { goal: "Elegant Everyday Look", recommended: "French Finish" },
+        { goal: "Modern Fashion Look", recommended: "Ombre Finish" },
+        { goal: "Creative & Glamorous Style", recommended: "Nail Art & Stones" },
+        { goal: "Temporary Special Occasion Look", recommended: "Press-On Nails" },
+      ],
+    },
     expert: {
       title: "The Expert Behind Your Nail Care",
       name: "Priyanka",
@@ -968,6 +1491,35 @@ const coreServices: Service[] = [
         "Custom Nail Designs  ",
       ],
     },
+    reviews: [
+      {
+        id: "ne-r1",
+        name: "Mia",
+        rating: 5,
+        service: "Nail Art",
+        review:
+          "I am so in love with my nails — Jaja was my technician, what a beautiful lady, and the experience at the salon was amazing. Customer service 10/10; if I could put more than 5 stars I would. Will definitely be back ❤️❤️",
+        source: "google",
+      },
+      {
+        id: "ne-r2",
+        name: "Muskan Thapa Magar",
+        rating: 5,
+        service: "Acrylic Nails",
+        review:
+          "I got my acrylic done and my nails look amazing — they really did a good job. I love the ambience of the place. Highly recommend this salon, 10/10.",
+        source: "google",
+      },
+      {
+        id: "ne-r3",
+        name: "Jahjah Galaraga",
+        rating: 5,
+        service: "Pedicure & Acrylic Nails",
+        review:
+          "I recently got my pedicure and acrylic nails done at VR Salon, and I'm absolutely in love with the results — my nails look gorgeous and the entire experience was amazing. The salon has such a beautiful, premium space: super clean, stylish, and relaxing. I love the location, the vibe, and most importantly, the service. Truly one of the best salon experiences I've had. Highly recommended!",
+        source: "google",
+      },
+    ],
     faqs: [
       {
         id: "ne-1",
@@ -1006,6 +1558,11 @@ const coreServices: Service[] = [
           "Yes. Nail art can be added to both Acrylic and Brisa Gel extensions, allowing you to create a look that's completely unique to you. ",
       },
     ],
+    portfolio: {
+      title: "Our Recent Nail Extension Transformations",
+      description:
+        "Every nail set tells a different story. Browse our latest work featuring acrylic extensions, Brisa Gel nails, elegant French styles, trendy ombré finishes, and creative nail art designed for real clients at VR Unisex Salon.",
+    },
     ctaTitle: "Create Nails That Reflect Your Style ",
     ctaDescription:
       "Whether you're dreaming of elegant French nails, trendy ombré designs, artistic nail creations, or beautifully natural extensions, our experienced beauty specialists are here to bring your vision to life with premium craftsmanship and personalised care. ",
@@ -1016,10 +1573,12 @@ const coreServices: Service[] = [
   },
   {
     id: "8",
-    slug: "hair-color",
+    slug: "professional-hair-colour-in-dubai",
     title: "Professional Hair Colour in Dubai ",
+    shortTitle: "Professional Hair Colour",
     description: "Global and highlight coloring with premium brands.",
     startingPrice: 1499,
+    image: "/images/services/hair-color.webp",
     // tagline: "Colour & Highlights",
     // heroBadge: "Precision, Protection & Premium Results",
     // heroSubtitle: "More Than a Shade Change — a Personalised Transformation",
@@ -1031,6 +1590,42 @@ const coreServices: Service[] = [
     //   "Matched to your skin tone",
     //   "Colour for women & men",
     // ],
+    benefitsTitle: "Why Choose VR Salon for Your Hair Colour",
+    benefitsSubtitle:
+      "Beautiful hair colour isn't created by simply applying colour—it's achieved through expert consultation, precision techniques, and choosing the right products for your unique hair. At VR Unisex Salon, every colour appointment is thoughtfully personalised to deliver vibrant, long-lasting results while protecting the health of your hair.",
+    benefits: [
+      {
+        icon: "ClipboardList",
+        title: "Personalised Colour Consultation",
+        description:
+          "Every colour journey begins with understanding your skin tone, hair history, lifestyle, and desired outcome before recommending the most suitable shades and colouring techniques.",
+      },
+      {
+        icon: "Wind",
+        title: "Advanced Colour Techniques",
+        description:
+          "Whether you prefer a natural refresh or a dramatic transformation, we combine modern colouring methods with meticulous attention to detail to create seamless, beautifully blended results.",
+      },
+      {
+        icon: "HeartPulse",
+        title: "Healthy Hair First",
+        description:
+          "We believe beautiful colour starts with healthy hair. Every colouring service is performed using professional products and techniques that help minimise damage while preserving softness, strength, and shine.",
+      },
+      {
+        icon: "Gem",
+        title: "International Salon Standards",
+        description:
+          "Inspired by international beauty trends and professional colouring practices, we deliver elegant, sophisticated results that suit your individual style rather than simply following trends.",
+      },
+      {
+        icon: "ShieldCheck",
+        title: "Long-Lasting Results",
+        description:
+          "From professional application to personalised aftercare guidance, everything we do is designed to help your colour remain vibrant, fresh, and beautiful between salon visits.",
+      },
+    ],
+    treatmentsTitle: "Explore Our Hair Colour Services",
     treatmentsSubtitle:
       "Whether you're looking for a subtle enhancement or a complete colour makeover, our personalised colour services are designed to suit every hair type, style, and occasion.",
     treatments: [
@@ -1093,6 +1688,44 @@ const coreServices: Service[] = [
           "Restore youthful, natural-looking colour with personalised grey coverage that blends beautifully while maintaining a soft, authentic appearance.",
         },
     ],
+    brandsTrust: {
+      title: "Professional Haircare Brands We Trust",
+      description:
+        "Exceptional colour begins with exceptional products. That's why we work with globally recognised professional brands trusted by leading salons around the world. Every product is selected to enhance colour performance while protecting your hair's health and integrity.",
+      brands: [
+        { name: "Olaplex", logo: "/images/products-uses/olaplex.webp", description: "Strengthens and repairs hair bonds during colouring, helping reduce breakage while improving overall hair health." },
+        { name: "L'Oréal Professionnel", logo: "/images/products-uses/loreal-professionnel.webp", description: "Advanced salon colour technology delivering vibrant shades, brilliant shine, and long-lasting performance." },
+        { name: "GK Hair", logo: "/images/products-uses/gk-hair-professional.webp", description: "Professional formulations that help maintain smoothness, softness, and colour longevity." },
+        { name: "Matrix", logo: "/images/products-uses/matrix.webp", description: "Trusted professional colour systems designed for consistent, vibrant, and beautiful results." },
+        { name: "Goldwell", logo: "/images/products-uses/goldwell.webp", description: "Premium colour technology known for exceptional precision, richness, and brilliant shine." },
+        { name: "Brazilian Blowout", logo: "/images/products-uses/brazilian-blowout.webp", description: "A professional smoothing treatment that pairs beautifully with colour services to create silky, glossy, and more manageable hair." },
+      ],
+    },
+    process: [
+      {
+        step: 1,
+        title: "Personal Consultation",
+        description: "We discuss your expectations, lifestyle, previous colour history, and assess your hair condition before recommending suitable options.",
+      },
+      {
+        step: 2,
+        title: "Colour Planning",
+        description: "Our experts help you choose shades and techniques that complement your skin tone, facial features, and maintenance preferences.",
+      },
+      {
+        step: 3,
+        title: "Professional Colour Application",
+        description: "Using premium salon products and advanced techniques, we carefully create beautiful, even, and healthy-looking colour.",
+      },
+      {
+        step: 4,
+        title: "Styling & Aftercare",
+        description: "Before you leave, we'll style your hair and share personalised aftercare advice to help maintain vibrant colour and healthy hair for longer.",
+      },
+    ],
+    processPosition: "late",
+    processTitle: "Your Hair Colour Journey",
+    processSubtitle: "Every great transformation starts with understanding you.",
     expert: {
       title: "The Expert Behind Your Nail Care",
       name: "Raju",
@@ -1111,6 +1744,35 @@ const coreServices: Service[] = [
         "Personalised Colour Consultations  ",
       ],
     },
+    reviews: [
+      {
+        id: "hc-r1",
+        name: "Malar Kodi",
+        rating: 5,
+        service: "Hair Colour & Highlights",
+        review:
+          "I had a lovely experience at VR Salon near Burjuman Metro. I went for keratin treatment, highlights, and hair colouring, and I'm extremely happy with how my hair turned out. Big thanks to Vishal and Raju, who have 8+ years of experience and truly know what they're doing. The whole process was smooth and comfortable, and the salon has a clean, relaxing environment.",
+        source: "google",
+      },
+      {
+        id: "hc-r2",
+        name: "Priyanca Hemnani",
+        rating: 5,
+        service: "Hair Colour & Haircut",
+        review:
+          "Visited this salon for the first time for hair colour and a haircut, and I'm really happy with the results! The staff was friendly and professional, and they took the time to understand exactly what I wanted. The colour turned out beautiful and the cut suits me perfectly. The place was clean and welcoming too. Definitely coming back! Thank you so much 😊❤️",
+        source: "google",
+      },
+      {
+        id: "hc-r3",
+        name: "Shahithya Chandradas",
+        rating: 5,
+        service: "Hair Colour",
+        review:
+          "I recently got my hair coloured at VR Salon with stylist Raju, and I'm really happy with the results! He understood exactly what I wanted, was very professional, and paid great attention to detail throughout the process. My hair looks beautiful and healthy, and the colour came out perfectly. Highly recommend Raju if you're looking for someone skilled and patient with hair colouring. Thank you for the amazing service!",
+        source: "google",
+      },
+    ],
     faqs: [
       {
         id: "hc-1",
@@ -1150,6 +1812,11 @@ const coreServices: Service[] = [
       },
     ],
     
+    portfolio: {
+      title: "Colour That Speaks for Itself",
+      description:
+        "Every colour transformation tells a unique story. Explore real client results showcasing subtle enhancements, bold makeovers, balayage, highlights, and beautifully personalised colour designed to complement every individual.",
+    },
     ctaTitle: "Your Perfect Hair Colour Starts with a Conversation ",
     ctaDescription:
       "The best colour transformations begin with understanding your vision. Whether you're refreshing your signature shade or trying something completely new, our experienced team is here to create personalised hair colour that enhances your confidence while keeping your hair healthy, vibrant, and beautiful. ",
@@ -1160,10 +1827,12 @@ const coreServices: Service[] = [
   },
   {
     id: "9",
-    slug: "waxing-threading",
+    slug: "ladies-waxing-threading-and-bleach-services-in-dubai",
     title: "Ladies Waxing, Threading & Bleach Services in Dubai ",
+    shortTitle: "Ladies Waxing, Threading & Bleach",
     description: "Smooth, gentle hair removal for face and body.",
     startingPrice: 199,
+    image: "/images/services/waxing-threading.webp",
     // tagline: "Hair Removal",
     // heroBadge: "Gentle, Hygienic & Private",
     // heroSubtitle: "Smooth, Clean & Confident Skin — Done the Right Way",
@@ -1175,6 +1844,36 @@ const coreServices: Service[] = [
     //   "Gentle on sensitive skin",
     //   "Calm, private setting",
     // ],
+    benefitsTitle: "Why Choose VR Salon for Women's Beauty Services",
+    benefitsSubtitle:
+      "Every woman's skin is unique, which is why every treatment at VR Unisex Salon is delivered with personalised attention, gentle techniques, and professional care. From precise eyebrow threading to full body waxing and skin-brightening bleach treatments, we focus on delivering beautiful results while ensuring a comfortable salon experience.",
+    benefits: [
+      {
+        icon: "Sparkles",
+        title: "Designed for Women's Beauty Needs",
+        description: "Our treatments are carefully performed to suit different skin types, hair textures, and personal grooming preferences.",
+      },
+      {
+        icon: "ShieldCheck",
+        title: "Hygiene You Can Trust",
+        description: "We maintain strict hygiene standards by using clean equipment, quality products, and safe treatment practices throughout every appointment.",
+      },
+      {
+        icon: "Hand",
+        title: "Gentle & Comfortable Techniques",
+        description: "Our experienced beauty therapists use professional techniques designed to minimise discomfort while achieving effective results.",
+      },
+      {
+        icon: "ClipboardList",
+        title: "Personalised Recommendations",
+        description: "Whether you're visiting for eyebrow threading or full body waxing, we recommend the most suitable treatment based on your skin type and beauty goals.",
+      },
+      {
+        icon: "HeartPulse",
+        title: "Relaxing Salon Experience",
+        description: "Enjoy a welcoming environment where every treatment is performed with care, professionalism, and attention to detail.",
+      },
+    ],
     treatmentsSubtitle:
       "Professional waxing removes unwanted hair from the root, leaving your skin smoother for longer while reducing the need for frequent shaving. ",
     treatments: [
@@ -1242,7 +1941,52 @@ const coreServices: Service[] = [
           "Perfect for women looking for a brighter, more even appearance across different body areas. ",
       },
     ],
-    
+    comparison: {
+      title: "Which Beauty Treatment Is Right for You?",
+      description:
+        "Not sure which service best suits your needs? Our beauty specialists will guide you based on your skin type, hair growth, and desired results.",
+      goalLabel: "Your Beauty Goal",
+      recommendedLabel: "Recommended Service",
+      rows: [
+        { goal: "Perfectly Shaped Eyebrows", recommended: "Eyebrow Threading" },
+        { goal: "Smooth Facial Skin", recommended: "Full Face Threading" },
+        { goal: "Long-Lasting Hair Removal", recommended: "Waxing" },
+        { goal: "Smooth Skin for Weeks", recommended: "Full Body Waxing" },
+        { goal: "Reduce Visibility of Facial Hair", recommended: "Face Bleach" },
+        { goal: "Brighter Overall Appearance", recommended: "Full Body Bleach" },
+      ],
+    },
+    highlightGroup: {
+      title: "Why Women Choose Professional Beauty Treatments",
+      description: "Professional beauty maintenance isn't just about appearance—it's about feeling confident every day.",
+      items: [
+        {
+          title: "Longer-Lasting Smoothness",
+          description: "Waxing removes hair from the root, helping your skin stay smoother for longer.",
+        },
+        {
+          title: "Precise Facial Grooming",
+          description: "Threading creates beautifully shaped eyebrows while gently removing fine facial hair.",
+        },
+        {
+          title: "Naturally Radiant Skin",
+          description: "Bleach treatments reduce the visibility of facial and body hair while enhancing your natural complexion.",
+        },
+        {
+          title: "Gentle Professional Care",
+          description: "Every treatment is customised according to your skin sensitivity and comfort.",
+        },
+        {
+          title: "Feel Beautiful Every Day",
+          description: "Beautifully maintained skin helps you feel confident whether you're heading to work, attending an event, or enjoying everyday life.",
+        },
+      ],
+    },
+    portfolio: {
+      title: "Our Recent Beauty Transformations",
+      description:
+        "See how professional beauty treatments help women achieve beautifully groomed skin and naturally polished results.",
+    },
     expert: {
       title: "The Expert Behind Your Nail Care",
       name: "Priyanka",
@@ -1261,6 +2005,26 @@ const coreServices: Service[] = [
         "Personalised Beauty Consultations  ",
       ],
     },
+    reviews: [
+      {
+        id: "wx-r1",
+        name: "Vaishnavi Mishra",
+        rating: 5,
+        service: "Hair & Beauty Services",
+        review:
+          "I've done your hair extensions — it was really amazing. You guys have done an amazing job and the salon is so neat and clean. Highly recommended for hair, beauty, and nail services. This will be my salon while I'm in Dubai. Special thanks to the owner, Vishal.",
+        source: "google",
+      },
+      {
+        id: "wx-r2",
+        name: "Imthiaz Ahmed",
+        rating: 5,
+        service: "Family Grooming",
+        review:
+          "We had a wonderful experience at this salon! The team was professional, friendly, and made us feel welcome from the moment we walked in. I got a haircut and beard trim, both done with great attention to detail. My daughter's haircut turned out exactly as we wanted, and the stylist was patient and gentle with her. My wife had her hair coloured, cut, and styled, and the results were absolutely beautiful — she couldn't be happier! The salon was clean, comfortable, and the service was outstanding. We'll definitely be coming back!",
+        source: "google",
+      },
+    ],
     faqs: [
       {
         id: "wt-1",
@@ -1309,10 +2073,12 @@ const coreServices: Service[] = [
   },
   {
     id: "10",
-    slug: "couple-services",
+    slug: "couple-spa-and-salon-experience-in-dubai",
     title: "Couple Spa & Salon Experience in Dubai ",
+    shortTitle: "Couple Spa & Salon",
     description: "Pamper sessions designed for two.",
     startingPrice: 1999,
+    image: "/images/services/couple-services.webp",
     // tagline: "For Two",
     // heroBadge: "Shared Self-Care",
     // heroSubtitle: "Relax. Reconnect. Refresh — Together.",
@@ -1323,6 +2089,106 @@ const coreServices: Service[] = [
     //   description:
     //     "Every couple is different, which is why our experiences can be customised according to your preferences. Whether you're looking for complete relaxation or a beauty makeover together, we'll help create an experience that's right for both of you.",
     // },
+    whyChooseUs: {
+      title: "Why Choose a Couple Experience at VR Salon",
+      subtitle:
+        "Sometimes, self-care is even more meaningful when it's shared. At VR Unisex Salon, our couple experiences are thoughtfully designed to help you unwind together while enjoying professional beauty and wellness treatments in a welcoming, premium setting.",
+      items: [
+        {
+          icon: "Clock",
+          title: "Spend Quality Time Together",
+          description:
+            "Turn your salon visit into a memorable experience that lets you relax and enjoy uninterrupted time with someone special.",
+        },
+        {
+          icon: "ClipboardList",
+          title: "Personalised Treatments",
+          description:
+            "Each guest receives treatments tailored to their individual needs while enjoying the experience together.",
+        },
+        {
+          icon: "Leaf",
+          title: "Calm & Comfortable Ambience",
+          description:
+            "A peaceful environment helps both of you disconnect from busy schedules and simply enjoy the moment.",
+        },
+        {
+          icon: "ShieldCheck",
+          title: "Experienced Professionals",
+          description:
+            "Our beauty specialists ensure both guests receive personalised attention and exceptional service throughout the visit.",
+        },
+        {
+          icon: "Gem",
+          title: "Perfect for Every Occasion",
+          description:
+            "Whether it's a celebration or an ordinary day you want to make extraordinary, our couple experiences are designed to create lasting memories.",
+        },
+      ],
+    },
+    highlightGroup: {
+      title: "Perfect For Every Occasion",
+      description: "Our Couple Services are a wonderful way to celebrate life's special moments together.",
+      items: [
+        {
+          title: "Anniversary Celebrations",
+          description: "Create beautiful memories while enjoying quality time together.",
+        },
+        {
+          title: "Birthdays",
+          description: "Celebrate differently with a relaxing salon experience instead of the usual dinner plans.",
+        },
+        {
+          title: "Pre-Wedding Pampering",
+          description: "Prepare for your special day with professional beauty and grooming services before your wedding celebrations begin.",
+        },
+        {
+          title: "Honeymoon Preparation",
+          description: "Start your journey together feeling refreshed, confident, and looking your best.",
+        },
+        {
+          title: "Weekend Self-Care",
+          description: "Sometimes you don't need a special occasion—just quality time together.",
+        },
+      ],
+    },
+    secondaryHighlightGroup: {
+      title: "Why Couples Love This Experience",
+      description:
+        "Our Couple Services are about much more than beauty treatments. They're about slowing down, reconnecting, and creating memories together.",
+      items: [
+        {
+          title: "Relax Together",
+          description: "Escape busy schedules and enjoy uninterrupted quality time.",
+        },
+        {
+          title: "Feel Refreshed Together",
+          description: "Professional treatments leave both of you looking and feeling your best.",
+        },
+        {
+          title: "Celebrate Meaningful Moments",
+          description: "Turn birthdays, anniversaries, and milestones into unforgettable experiences.",
+        },
+        {
+          title: "Personalised for Both Guests",
+          description: "Every experience is customised according to individual preferences while still being enjoyed together.",
+        },
+        {
+          title: "Create Lasting Memories",
+          description: "The experience doesn't end when you leave—it becomes something you'll remember together.",
+        },
+      ],
+    },
+    closingNote: {
+      title: "Why Choose VR Salon for Your Couple Experience",
+      description:
+        "At VR Unisex Salon, we don't simply schedule two appointments side by side—we create an experience designed around comfort, care, and togetherness. From the moment you arrive, our team focuses on making your visit seamless and enjoyable, allowing you to relax while we take care of everything else.",
+    },
+    portfolio: {
+      title: "Our Couple Experience Gallery",
+      description:
+        "Every shared experience tells a story. Explore moments captured at VR Unisex Salon and see how couples enjoy quality time together while celebrating special occasions and everyday self-care.",
+    },
     benefits: [
       {
         icon: "Gem",
@@ -1343,6 +2209,26 @@ const coreServices: Service[] = [
         icon: "Clock",
         title: "Celebrate Special Moments ",
         description: "Planning a birthday surprise, anniversary, engagement, honeymoon, or pre-wedding pampering session? We'll help create a customised salon experience for your special occasion. ",
+      },
+    ],
+    reviews: [
+      {
+        id: "cs-r1",
+        name: "Chinmai Madhu",
+        rating: 5,
+        service: "Haircut",
+        review:
+          "I had a wonderful experience at VR Salon! I'm extremely happy with my haircut. The staff were very friendly, professional, and made me feel comfortable from the moment I walked in.",
+        source: "google",
+      },
+      {
+        id: "cs-r2",
+        name: "Carmel Nursery",
+        rating: 5,
+        service: "Hair Styling",
+        review:
+          "I had an amazing experience at VR Unisex Salon. A special thanks to Pramod, who did an outstanding job — he is very professional, patient, and really understands what the customer wants. The attention to detail and friendly service made it memorable.",
+        source: "google",
       },
     ],
     faqs: [
@@ -1393,10 +2279,12 @@ const coreServices: Service[] = [
   },
   {
     id: "11",
-    slug: "eyelash-extensions",
+    slug: "eyelash-extensions-in-dubai",
     title: "Eyelash Extensions in Dubai ",
+    shortTitle: "Eyelash Extensions",
     description: "Natural to dramatic lash extensions, done right.",
     startingPrice: 899,
+    image: "/images/services/eyelash-extensions.webp",
     // tagline: "Lash Artistry",
     // heroBadge: "Natural to Glam",
     // heroSubtitle: "Enhance Your Eyes with Professionally Crafted Lashes",
@@ -1408,6 +2296,36 @@ const coreServices: Service[] = [
     //   "Lash health prioritised",
     //   "Strict hygiene protocols",
     // ],
+    benefitsTitle: "Why Choose VR Salon for Eyelash Extensions",
+    benefitsSubtitle:
+      "Every pair of eyes is unique, and your lashes should be too. At VR Unisex Salon, we focus on creating lash extensions that look elegant, feel comfortable, and suit your lifestyle.",
+    benefits: [
+      {
+        icon: "ClipboardList",
+        title: "Personalised Lash Styling",
+        description: "We carefully select the ideal lash length, curl, and volume based on your eye shape and the look you want to achieve.",
+      },
+      {
+        icon: "Wind",
+        title: "Lightweight & Comfortable",
+        description: "Our premium lash extensions are designed to feel natural while providing beautiful, long-lasting results.",
+      },
+      {
+        icon: "Scissors",
+        title: "Precision Application",
+        description: "Each extension is applied with meticulous attention to detail, ensuring a clean, balanced, and seamless finish.",
+      },
+      {
+        icon: "Gem",
+        title: "Long-Lasting Beauty",
+        description: "With proper aftercare and regular maintenance, your lash extensions continue looking beautiful for weeks.",
+      },
+      {
+        icon: "HeartPulse",
+        title: "Relaxing Salon Experience",
+        description: "Enjoy a comfortable, relaxing appointment while our beauty specialists create your perfect lash look.",
+      },
+    ],
     treatmentsSubtitle:
       "Whether you're looking for subtle elegance, glamorous volume, or temporary lashes for a special occasion, we offer eyelash extension services to suit every style. ",
     treatments: [
@@ -1461,6 +2379,47 @@ const coreServices: Service[] = [
           "When you're ready for a fresh start, our specialists safely remove existing lash extensions using professional techniques that help protect your natural lashes. ",
         },
     ],
+    comparison: {
+      title: "Which Lash Service Is Right for You?",
+      description:
+        "Not sure which service best suits your needs? Our beauty specialists will recommend the ideal option based on your lifestyle, occasion, and desired appearance.",
+      goalLabel: "If You're Looking For...",
+      recommendedLabel: "Recommended Service",
+      rows: [
+        { goal: "Natural Everyday Beauty", recommended: "Classic Full Set" },
+        { goal: "Fuller & More Defined Lashes", recommended: "Volume Full Set" },
+        { goal: "Maintain Existing Extensions", recommended: "Classic or Volume Refill" },
+        { goal: "Temporary Lashes for an Event", recommended: "Weekly Lashes" },
+        { goal: "Remove Existing Lash Extensions", recommended: "Professional Eyelash Removal" },
+      ],
+    },
+    highlightGroup: {
+      title: "Why Clients Love Eyelash Extensions",
+      description:
+        "Professional eyelash extensions do more than enhance your appearance—they simplify your daily beauty routine while helping you feel confident every day.",
+      items: [
+        {
+          title: "Wake Up Looking Ready",
+          description: "Enjoy beautifully defined lashes from the moment you wake up.",
+        },
+        {
+          title: "Spend Less Time Getting Ready",
+          description: "Reduce your everyday makeup routine while still enjoying naturally beautiful eyes.",
+        },
+        {
+          title: "Enhance Your Natural Beauty",
+          description: "Professionally applied lash extensions highlight your eyes without looking overdone.",
+        },
+        {
+          title: "Long-Lasting Results",
+          description: "With regular maintenance appointments, your lashes remain beautiful week after week.",
+        },
+        {
+          title: "Feel Confident Every Day",
+          description: "Whether you're heading to work, travelling, or attending a special occasion, beautiful lashes complete your look effortlessly.",
+        },
+      ],
+    },
     expert: {
       title: "The Expert Behind Your Nail Care",
       name: "Priyanka",
@@ -1479,6 +2438,26 @@ const coreServices: Service[] = [
         "Lash Styling Consultation  ",
       ],
     },
+    reviews: [
+      {
+        id: "el-r1",
+        name: "Vaishnavi Mishra",
+        rating: 5,
+        service: "Eyelash Extensions",
+        review:
+          "I've done your hair extensions — it was really amazing. You guys have done an amazing job and the salon is so neat and clean. Highly recommended for hair, beauty, and nail services. This will be my salon while I'm in Dubai. Special thanks to the owner, Vishal.",
+        source: "google",
+      },
+      {
+        id: "el-r2",
+        name: "Tara Gahatraj",
+        rating: 5,
+        service: "Lashes, Keratin & Nails",
+        review:
+          "I visited VR Unisex Salon and the service was absolutely amazing. I got my keratin treatment, nail extensions, and eyelashes done, and all I can say is wow! The staff is professional, the atmosphere is lovely, and the results exceeded my expectations. Highly recommended for anyone looking to feel confident and pampered ✨💅✨",
+        source: "google",
+      },
+    ],
     faqs: [
       {
         id: "el-1",
@@ -1527,10 +2506,12 @@ const coreServices: Service[] = [
   },
   {
     id: "12",
-    slug: "makeup",
+    slug: "professional-makeup-services-in-dubai",
     title: "Professional Makeup Services in Dubai ",
+    shortTitle: "Makeup",
     description: "Party, bridal and everyday makeup by experts.",
     startingPrice: 1499,
+    image: "/images/services/makeup.webp",
     // tagline: "Day & Evening",
     // heroBadge: "Precision, Balance & Elegance",
     // heroSubtitle: "Enhance Your Natural Beauty",
@@ -1542,6 +2523,36 @@ const coreServices: Service[] = [
     //   "Premium-quality products",
     //   "Long-lasting, comfortable finish",
     // ],
+    benefitsTitle: "Why Choose VR Salon for Professional Makeup",
+    benefitsSubtitle:
+      "Every occasion deserves a unique look. Our makeup artists combine professional techniques, premium products, and personalised consultations to create a flawless finish that lasts throughout your event.",
+    benefits: [
+      {
+        icon: "ClipboardList",
+        title: "Personalised Makeup Consultation",
+        description: "Every makeup session begins with understanding your outfit, skin tone, event, and preferred style.",
+      },
+      {
+        icon: "Sparkles",
+        title: "Professional Makeup Artists",
+        description: "Our experienced team creates looks that enhance your natural beauty while ensuring you feel comfortable and confident.",
+      },
+      {
+        icon: "Gem",
+        title: "Premium Makeup Products",
+        description: "We use high-quality professional makeup products to achieve beautiful, long-lasting results suitable for every skin type.",
+      },
+      {
+        icon: "Wind",
+        title: "Natural to Glamorous Looks",
+        description: "Whether you prefer soft elegance or bold glamour, we customise every look according to your vision.",
+      },
+      {
+        icon: "ShieldCheck",
+        title: "Attention to Every Detail",
+        description: "From skin preparation to the final touch, every step is carefully performed for a polished, camera-ready finish.",
+      },
+    ],
     treatmentsSubtitle:
       "Every event calls for a different style. Explore our professional makeup services designed for every occasion. ",
     treatments: [
@@ -1581,14 +2592,54 @@ const coreServices: Service[] = [
           "Our Groom Package combines Facial + Hair Spa to help you feel refreshed, confident, and camera-ready before your wedding celebrations. ",
       },
       {
-        id: "bridal-occasion-makeup",
+        id: "couple-pre-wedding-package",
         category: "Makeup",
         name: "Couple Pre-Wedding Package ",
         description:
           "Prepare for your big day together. Our Couple Pre-Wedding Package includes Facial + Hair Spa for both partners, allowing you to relax, refresh, and enjoy quality time together before your wedding celebrations begin.",
       },
     ],
-    
+    comparison: {
+      title: "Which Makeup Service Is Right for You?",
+      goalLabel: "Occasion",
+      recommendedLabel: "Recommended Service",
+      rows: [
+        { goal: "Office Events", recommended: "Day Light Expression Makeup" },
+        { goal: "Family Functions", recommended: "Day Light Expression Makeup" },
+        { goal: "Evening Parties", recommended: "Evening Glam Makeup" },
+        { goal: "Birthday & Festive Events", recommended: "Party Makeup" },
+        { goal: "Wedding Day", recommended: "HD or Airbrush Bridal Makeup" },
+        { goal: "Groom Preparation", recommended: "Groom Package" },
+        { goal: "Pre-Wedding Pampering", recommended: "Couple Pre-Wedding Package" },
+      ],
+    },
+    highlightGroup: {
+      title: "Why Clients Choose Professional Makeup",
+      description:
+        "Professional makeup is more than applying cosmetics—it's about enhancing your confidence while ensuring your look stays flawless throughout your event.",
+      items: [
+        {
+          title: "Long-Lasting Finish",
+          description: "Professional techniques help your makeup remain fresh for hours.",
+        },
+        {
+          title: "Camera-Ready Look",
+          description: "Look naturally beautiful in both real life and professional photography.",
+        },
+        {
+          title: "Customised to Your Features",
+          description: "Every face is unique, which is why every makeup application is tailored specifically to you.",
+        },
+        {
+          title: "Stress-Free Preparation",
+          description: "Relax while our professionals take care of every detail before your event.",
+        },
+        {
+          title: "Confidence for Every Occasion",
+          description: "Feel your absolute best knowing your makeup has been professionally created.",
+        },
+      ],
+    },
     expert: {
       title: "The Expert Behind Your Nail Care",
       name: "Priyanka",
@@ -1607,6 +2658,26 @@ const coreServices: Service[] = [
         "Bridal Beauty Consultation  ",
       ],
     },
+    reviews: [
+      {
+        id: "mk-r1",
+        name: "Alina Lobo",
+        rating: 5,
+        service: "Hair Colour",
+        review:
+          "Absolutely loved my experience at VR Salon! I got my hair transformed from red to a beautiful caramel blonde, and the results were beyond amazing. The staff was incredibly patient throughout the whole process and put so much effort and care into achieving the perfect shade for me.",
+        source: "google",
+      },
+      {
+        id: "mk-r2",
+        name: "Nischal Lamichhane",
+        rating: 5,
+        service: "Haircut & Styling",
+        review:
+          "I got my haircut at VR Salon and the experience was absolutely amazing. My stylist Pramod is incredibly skilled and very professional — he understood exactly what I wanted and delivered it perfectly. The salon itself is super luxurious, from the ambience to the way they pamper you with premium service. One of the best salons in the Burjuman area!",
+        source: "google",
+      },
+    ],
     faqs: [
       {
         id: "mk-1",
@@ -1645,6 +2716,11 @@ const coreServices: Service[] = [
           "We recommend booking several weeks in advance, especially during peak wedding seasons, to secure your preferred date and time. ",
       },
     ],
+    portfolio: {
+      title: "Our Recent Makeup Transformations",
+      description:
+        "Every makeover tells a unique story. Browse our latest makeup transformations, bridal looks, party makeovers, and behind-the-scenes moments from VR Unisex Salon.",
+    },
     ctaTitle: "Look Beautiful. Feel Confident. ",
     ctaDescription:
       "Whether it's your wedding day, an elegant evening event, or a memorable celebration, our professional makeup artists are here to create a look that reflects your personality and enhances your confidence. ",
@@ -1850,6 +2926,53 @@ export const hairExtensionsService: Service = {
     ],
     note: "Our specialists will provide personalised aftercare instructions before you leave the salon.",
   },
+  reviews: [
+    {
+      id: "he-r1",
+      name: "Vaishnavi Mishra",
+      rating: 5,
+      service: "Hair Extensions",
+      review:
+        "I've done your hair extensions — it was really amazing. You guys have done an amazing job and the salon is so neat and clean. Highly recommended for hair, beauty, and nail services. This will be my salon while I'm in Dubai. Special thanks to the owner, Vishal.",
+      source: "google",
+    },
+    {
+      id: "he-r2",
+      name: "Uthra",
+      rating: 5,
+      service: "Hair Care",
+      review:
+        "Had a great experience at VR Unisex Salon. Raju was very professional and took good care of my hair. He also shared helpful tips about proper shampoo and conditioner usage, which I really appreciated. The salon has a relaxing atmosphere, and the entire team is friendly and professional.",
+      source: "google",
+    },
+    {
+      id: "he-r3",
+      name: "Maryam Nokhodchi",
+      rating: 5,
+      service: "Reception & Service",
+      review:
+        "I'd like to thank the lady named Deeb and the gentleman at reception for the excellent service. They were both very professional, friendly, and attentive throughout my visit, and made sure I was completely satisfied before leaving. Thank you for such a great experience — I'll definitely come back again.",
+      source: "google",
+    },
+    {
+      id: "he-r4",
+      name: "Reshma Jibin",
+      rating: 5,
+      service: "Haircut",
+      review:
+        "Had a really great experience at VR Salon. The staff were super friendly and made me feel comfortable right away — they took the time to understand what I wanted instead of rushing through it. I'm really happy with the haircut; it turned out exactly how I imagined. The whole place is clean with a nice, relaxed vibe too.",
+      source: "google",
+    },
+    {
+      id: "he-r5",
+      name: "Ashok Raj",
+      rating: 5,
+      service: "Hydro Facial",
+      review:
+        "Wow — what an incredibly luxurious and refreshing experience! 🌟 My visit to VR Salon was truly exceptional. Priyanka performed a hydro facial with outstanding professionalism, precision, and care. Her gentle touch and attention to detail made the entire session feel indulgent and relaxing. 💆‍♀️🌸 The results are simply amazing — my skin feels deeply hydrated, radiant, and rejuvenated. I'm beyond satisfied and would highly recommend Priyanka for a premium skincare experience. 💖",
+      source: "google",
+    },
+  ],
   faqs: [
     {
       id: "he-1",
@@ -1899,7 +3022,244 @@ export const hairExtensionsService: Service = {
     "Whether you're dreaming of longer hair, more volume or a complete transformation, our specialists are here to create beautiful, natural-looking results tailored to your hair type and personal style.",
 };
 
-export const services: Service[] = [...coreServices, hairExtensionsService];
+export const facialTreatmentsService: Service = {
+  id: "15",
+  slug: "professional-facial-treatments-in-dubai",
+  title: "Professional Facial Treatments in Dubai",
+  shortTitle: "Professional Facial",
+  description: "Personalised facial treatments for radiant, healthy skin.",
+  startingPrice: 399,
+  // TODO: replace with a dedicated facial-treatment photo once supplied —
+  // this is a stand-in (a relaxed spa/facial-style scene).
+  image: "/images/services/korean-head-spa.webp",
+  longDescription:
+    "Healthy, radiant skin begins with the right care. At VR Unisex Salon, our professional facial treatments are tailored to your skin type, concerns, and beauty goals. Whether you're looking to brighten your complexion, deeply cleanse your skin, reduce signs of ageing, or simply enjoy a relaxing self-care experience, we'll recommend the facial that's right for you.",
+  bookLabel: "Book Your Facial",
+  benefitsTitle: "Why Choose VR Salon for Your Facial Treatments",
+  benefitsSubtitle:
+    "Every facial at VR Unisex Salon is designed around your skin's unique needs. Combining professional skincare techniques, premium products, and personalised care, we help you achieve healthier, brighter, and naturally glowing skin.",
+  benefits: [
+    {
+      icon: "ClipboardList",
+      title: "Personalised Skin Analysis",
+      description: "Every treatment begins with understanding your skin type and recommending the most suitable facial for your concerns.",
+    },
+    {
+      icon: "ShieldCheck",
+      title: "Professional Skincare Products",
+      description: "We use trusted skincare brands that nourish, protect, and rejuvenate your skin with every treatment.",
+    },
+    {
+      icon: "Sparkles",
+      title: "Treatments for Every Skin Concern",
+      description: "From hydration and brightening to acne care and anti-ageing, our facial treatments are tailored to your individual needs.",
+    },
+    {
+      icon: "HeartPulse",
+      title: "Relaxing Beauty Experience",
+      description: "Enjoy a calming facial experience that refreshes both your skin and your mind.",
+    },
+  ],
+  treatmentsTitle: "Explore Our Facial Treatments",
+  treatmentsSubtitle:
+    "Whether your goal is glowing skin, deep cleansing, hydration, or age-defying skincare, our facial treatments are carefully selected to deliver visible results while providing a relaxing salon experience.",
+  treatmentColumns: 2,
+  treatments: [
+    {
+      id: "glow-brightening-facials",
+      category: "Facials",
+      name: "Glow & Brightening Facials",
+      description:
+        "Restore your skin's natural radiance and improve dull or uneven skin tone with treatments designed to brighten and refresh.",
+      featuresLabel: "Treatments",
+      features: ["Fruit Facial", "Gold Facial", "Diamond Facial", "Platinum Facial", "Clean Up Facial"],
+    },
+    {
+      id: "tan-removal-skin-brightening",
+      category: "Facials",
+      name: "Tan Removal & Skin Brightening",
+      description: "Reduce tanning, revive tired-looking skin, and reveal a brighter, healthier complexion.",
+      featuresLabel: "Treatments",
+      features: ["D-Tan", "D-Tan Facial"],
+    },
+    {
+      id: "deep-cleansing-hydration",
+      category: "Facials",
+      name: "Deep Cleansing & Hydration",
+      description: "Perfect for congested, dehydrated, or tired skin that needs intensive cleansing and nourishment.",
+      featuresLabel: "Treatments",
+      features: ["Deep Cleansing Facial", "HydraFacial", "O3 Facial", "O3 Double Mask Facial"],
+    },
+    {
+      id: "anti-ageing-skin-rejuvenation",
+      category: "Facials",
+      name: "Anti-Ageing & Skin Rejuvenation",
+      description: "Designed to improve skin texture, restore firmness, and reduce visible signs of ageing while promoting healthier-looking skin.",
+      featuresLabel: "Treatments",
+      features: ["Dr. Renaud Facial", "Anti-ageing Facial"],
+    },
+    {
+      id: "acne-care-treatments",
+      category: "Facials",
+      name: "Acne Care Treatments",
+      description: "Professional treatments that help cleanse pores, calm irritated skin, and improve the appearance of acne-prone skin.",
+      featuresLabel: "Treatment",
+      features: ["Acne Treatment Facial"],
+    },
+    {
+      id: "korean-japanese-facial-experiences",
+      category: "Facials",
+      name: "Korean & Japanese Facial Experiences",
+      description: "Experience advanced skincare inspired by Korean and Japanese beauty rituals, combining professional skincare with deep relaxation.",
+      featuresLabel: "Treatments",
+      features: ["Korean Facial", "Korean Facial with Spa", "Japanese Spa Facial"],
+    },
+  ],
+  comparison: {
+    title: "Which Facial Is Right for You?",
+    description:
+      "Not sure which facial is best for your skin? Our beauty specialists will assess your skin and recommend the most suitable treatment based on your concerns and desired results.",
+    goalLabel: "Your Skin Concern",
+    recommendedLabel: "Recommended Treatment",
+    rows: [
+      { goal: "Dull Skin", recommended: "Fruit, Gold or Diamond Facial" },
+      { goal: "Tanned Skin", recommended: "D-Tan Facial" },
+      { goal: "Deep Cleansing", recommended: "HydraFacial or O3 Facial" },
+      { goal: "Dry & Dehydrated Skin", recommended: "HydraFacial or O3 Double Mask Facial" },
+      { goal: "Fine Lines & Ageing", recommended: "Dr. Renaud or Anti-ageing Facial" },
+      { goal: "Acne-Prone Skin", recommended: "Acne Treatment Facial" },
+      { goal: "Luxury Relaxation", recommended: "Korean or Japanese Facial" },
+    ],
+  },
+  brandsTrust: {
+    title: "Professional Skincare Brands We Trust",
+    description:
+      "We use internationally trusted skincare brands selected to deliver safe, effective, and visible results for every skin type.",
+    brands: [
+      {
+        name: "O3+",
+        logo: "/images/products-uses/03-plus.webp",
+        description: "Professional skincare formulations designed to cleanse, brighten, and rejuvenate every skin type.",
+      },
+      {
+        name: "Casmara",
+        logo: "/images/products-uses/casmara.webp",
+        description: "Premium facial treatment systems trusted by skincare professionals for visible, lasting results.",
+      },
+    ],
+  },
+  highlightGroup: {
+    title: "Why Clients Choose Professional Facials",
+    description:
+      "Professional facial treatments do more than improve your skin's appearance—they help maintain healthier skin while giving you time to relax and recharge.",
+    items: [
+      {
+        title: "Deeply Cleanses Your Skin",
+        description: "Removes impurities, excess oil, and everyday buildup for fresher, healthier-looking skin.",
+      },
+      {
+        title: "Improves Skin Texture",
+        description: "Leaves your skin feeling smoother, softer, and more refined.",
+      },
+      {
+        title: "Restores Your Natural Glow",
+        description: "Revives tired-looking skin to reveal a brighter, more radiant complexion.",
+      },
+      {
+        title: "Supports Long-Term Skin Health",
+        description: "Regular facials help maintain hydration, balance, and overall skin wellness.",
+      },
+      {
+        title: "Relax & Rejuvenate",
+        description: "Enjoy a peaceful beauty experience that benefits both your skin and your wellbeing.",
+      },
+    ],
+  },
+  expert: {
+    title: "Meet Your Beauty Expert",
+    name: "Priyanka",
+    role: "Senior Beauty Therapist",
+    image: "/images/our-team/team3.webp",
+    bio: [
+      "Priyanka combines professional skincare expertise with personalised recommendations to help every client achieve healthier, more radiant skin. Whether you're visiting for hydration, brightening, acne care, or anti-ageing treatments, she carefully selects the facial that best suits your skin's needs.",
+    ],
+    expertiseLabel: "Areas of Expertise",
+    expertise: [
+      "Professional Facials",
+      "HydraFacial",
+      "O3 Facial",
+      "Korean Facial",
+      "Japanese Spa Facial",
+      "Acne Treatments",
+      "Skin Consultation",
+    ],
+  },
+  portfolio: {
+    title: "Our Recent Skin Transformations",
+    description:
+      "Discover real client results from our facial treatments. Browse glowing skin transformations, skincare journeys, and behind-the-scenes moments from VR Unisex Salon.",
+  },
+  reviews: [
+    {
+      id: "ft-r1",
+      name: "Ashok Raj",
+      rating: 5,
+      service: "Hydro Facial",
+      review:
+        "Wow — what an incredibly luxurious and refreshing experience! 🌟 My visit to VR Salon was truly exceptional. Priyanka performed a hydro facial with outstanding professionalism, precision, and care. Her gentle touch and attention to detail made the entire session feel indulgent and relaxing. 💆‍♀️🌸 The results are simply amazing — my skin feels deeply hydrated, radiant, and rejuvenated. I'm beyond satisfied and would highly recommend Priyanka for a premium skincare experience. 💖",
+      source: "google",
+    },
+    {
+      id: "ft-r2",
+      name: "Maryam Nokhodchi",
+      rating: 5,
+      service: "Reception & Service",
+      review:
+        "I'd like to thank the lady named Deeb and the gentleman at reception for the excellent service. They were both very professional, friendly, and attentive throughout my visit, and made sure I was completely satisfied before leaving. Thank you for such a great experience — I'll definitely come back again.",
+      source: "google",
+    },
+  ],
+  faqs: [
+    {
+      id: "ft-1",
+      question: "Which facial is best for my skin?",
+      answer: "Our beauty specialists assess your skin and recommend the most suitable facial based on your skin type and concerns.",
+    },
+    {
+      id: "ft-2",
+      question: "How often should I get a facial?",
+      answer: "For healthy skin maintenance, we generally recommend a professional facial every 4–6 weeks, depending on your skin's needs.",
+    },
+    {
+      id: "ft-3",
+      question: "Are facials suitable for sensitive skin?",
+      answer: "Yes. Every treatment is personalised according to your skin condition using professional products suitable for different skin types.",
+    },
+    {
+      id: "ft-4",
+      question: "What's the difference between a HydraFacial and an O3 Facial?",
+      answer: "HydraFacial focuses on deep cleansing, exfoliation, and hydration, while O3 Facial is designed to brighten, nourish, and rejuvenate the skin.",
+    },
+    {
+      id: "ft-5",
+      question: "Can facials help with acne?",
+      answer: "Yes. Our acne care treatments help cleanse pores, reduce congestion, and improve the appearance of acne-prone skin.",
+    },
+    {
+      id: "ft-6",
+      question: "Do I need a consultation before my facial?",
+      answer: "Yes. Every appointment begins with a skin consultation to ensure the most suitable facial is recommended for your skin.",
+    },
+  ],
+  ctaTitle: "Reveal Your Natural Glow",
+  ctaDescription:
+    "Whether you're looking to brighten your complexion, deeply hydrate your skin, or simply enjoy a relaxing skincare experience, our professional facial treatments are designed to help you achieve healthy, radiant skin with personalised care.",
+  metaTitle: "Professional Facial Treatments in Dubai | HydraFacial, O3 & Korean Facials | VR Unisex Salon",
+  metaDescription:
+    "Experience professional facial treatments in Dubai at VR Unisex Salon. From HydraFacial and O3 to Korean, Japanese, anti-ageing, and acne facials, enjoy personalised skincare for healthy, radiant skin.",
+};
+
+export const services: Service[] = [...coreServices, hairExtensionsService, facialTreatmentsService];
 
 export const navLinks: NavLink[] = [
   { label: "Home", href: "/" },
@@ -1908,7 +3268,7 @@ export const navLinks: NavLink[] = [
     label: "Services",
     href: "/services",
     children: services.map((s) => ({
-      label: s.title,
+      label: s.shortTitle ?? s.title,
       href: `/services/${s.slug}`,
     })),
   },
@@ -2206,3 +3566,367 @@ export const faqs: FaqItem[] = [
     answer: "You can book your appointment online, through WhatsApp, or by calling our team directly. We'll be happy to assist you.",
   },
 ];
+
+// ---------------------------------------------------------------------------
+// Every other piece of site copy — section eyebrows/titles/subtitles,
+// paragraphs, button labels, form labels/placeholders/validation messages,
+// and page metadata descriptions — lives here so editing any text on the
+// site only ever means editing this one file. Business facts (phone,
+// address, hours) stay in lib/site-config.ts; components combine the two
+// (e.g. calling a `*Message` template function with `siteConfig.shortName`).
+// ---------------------------------------------------------------------------
+export const siteContent = {
+  common: {
+    bookAppointmentLabel: "Book Appointment",
+    whatsappUsLabel: "WhatsApp Us",
+    learnMoreAboutUsLabel: "Learn More About Us",
+    // Shared by ServiceCard and TreatmentCard — identical wording either way.
+    serviceWhatsappMessage: (shortName: string, serviceName: string) =>
+      `Hi ${shortName}! I saw the ${serviceName} service on your website and would like to book it. Could you please share your available slots?`,
+  },
+
+  hero: {
+    eyebrow: "Unisex Salon · Burjuman, Dubai",
+    titleLine1: "Luxury Hair & ",
+    titleLine2: "Beauty Salon.",
+    subtitle:
+      "At VR Unisex Salon, every appointment begins with understanding you. Through expert consultation, personalised care, and skilled craftsmanship, we create beautiful transformations that reflect your unique style.",
+  },
+
+  whyChooseUs: {
+    title: "Why Choose VR Unisex Salon",
+    subtitle:
+      "Every visit to VR Unisex Salon is built around one promise-to deliver an experience that's as exceptional as the results.",
+    imageAlt: "Nail art and a relaxing facial treatment at VR Unisex Salon",
+    features: [
+      {
+        icon: "Globe2",
+        title: "International Expertise",
+        description: "Years of international experience inspire every cut, colour, and beauty transformation.",
+      },
+      {
+        icon: "Heart",
+        title: "Personalised Care",
+        description: "Every service is tailored to your style, preferences, and individual beauty goals.",
+      },
+      {
+        icon: "Sparkles",
+        title: "Premium Products",
+        description: "We use trusted professional salon brands for healthy, long-lasting results.",
+      },
+      {
+        icon: "Wand2",
+        title: "Modern Techniques",
+        description: "Our team stays updated with the latest beauty trends and advanced salon techniques.",
+      },
+      {
+        icon: "ShieldCheck",
+        title: "Hygiene First",
+        description: "Strict hygiene standards ensure a clean, safe, and comfortable salon experience.",
+      },
+      {
+        icon: "MapPin",
+        title: "Prime Location",
+        description: "Conveniently located inside Crown Park Hotel, near BurJuman Metro with complimentary valet parking.",
+      },
+    ],
+  },
+
+  meetTeam: {
+    title: "Meet the Experts Behind VR Salon",
+    subtitle:
+      "Behind every beautiful experience is a passionate team committed to helping every client look and feel their absolute best.",
+    chatWithPrefix: "Chat with",
+    whatsappMessage: (shortName: string, memberName: string) =>
+      `Hi ${shortName}! I'd like to book an appointment with ${memberName}.`,
+  },
+
+  servicesSection: {
+    eyebrow: "Our Services",
+    title: "Everything You Need, In One Place",
+    subtitle: "From haircuts to bridal makeup, explore our full range of salon services.",
+    viewAllLabel: "View All Services",
+  },
+
+  pricing: {
+    title: "Curated Beauty Experiences",
+    subtitle:
+      "Whether you're preparing for a special occasion, planning a day of self-care, or simply treating yourself, our thoughtfully curated beauty experiences are designed to help you relax, refresh, and leave feeling your absolute best.",
+    popularBadge: "Most Popular",
+    bookLabel: "Book This Package",
+    browseIntro: "Looking for something specific?",
+    browseLinkLabel: "Browse individual services",
+  },
+
+  gallery: {
+    title: "Beautiful Results. Genuine Experiences.",
+    subtitle:
+      "Every visit to VR Unisex Salon is more than a beauty appointment it's a story of confidence, care, and transformation. Here's a glimpse of the moments we've been privileged to create for our clients.",
+    arrowLabel: "photos",
+  },
+
+  instagramFeed: {
+    statLabels: { followers: "Followers", google: "Google", reviews: "Reviews" },
+    bio: "Beauty is constantly evolving, and so are we. Follow us for the latest transformations, styling inspiration, beauty tips, and behind-the-scenes moments from everyday life at VR Unisex Salon.",
+    followLabel: (handle: string) => `Follow @${handle}`,
+    bookSimilarLookLabel: "Book a Similar Look",
+    reelsLabel: "Our Instagram Reels",
+  },
+
+  instagramPost: {
+    viewProfileLabel: "View profile",
+    reelAlt: "Instagram reel",
+    avatarFallbackInitials: "VR",
+    likesCommentsLabel: (likes: number, comments: number) => `${likes} likes · ${comments} comments`,
+    viewOnInstagramLabel: "View on Instagram",
+  },
+
+  testimonials: {
+    badgeLabel: "Google Reviews",
+    eyebrow: "Reviews",
+    title: "What our Burjuman clients say",
+    readAllText: "Read all our verified reviews on Google",
+    seeAllLabel: "See All Google Reviews",
+  },
+
+  faqSection: {
+    eyebrow: "FAQ",
+    title: "FAQs",
+    // Was previously a stray copy-paste of the Gallery section's subtitle
+    // (talked about "photos"/"moments" — nothing to do with FAQs).
+    subtitle:
+      "Quick answers to the questions we hear most often. If yours isn't covered here, just reach out — we're happy to help.",
+    stillHaveQuestions: "Still have questions?",
+    chatLabel: "Chat with us on WhatsApp",
+    whatsappMessage: "Hi, I have a question about your services.",
+  },
+
+  contactCta: {
+    title: "Ready to Experience Beauty, Redefined?",
+    descriptionLines: [
+      "Whether it is your regular self-care ritual or a special occasion, we are here to make every visit feel effortless, relaxing, and uniquely yours.",
+      "Visit us, unwind, and discover why so many clients across Dubai trust VR Unisex Salon for exceptional hair and beauty experiences.",
+    ],
+    whatsappLabel: "WhatsApp",
+    callPrefix: "Call",
+  },
+
+  contactSection: {
+    points: [
+      "Personalised Consultation",
+      "International Expertise",
+      "Premium Products",
+      "Luxury Experience",
+      "Prime Location",
+    ],
+    title: "Your Next Beauty Experience Starts Here",
+    paragraph:
+      "Whether you're planning your next appointment or visiting us for the first time, we're here to make the process simple and stress-free. Complete the form, and our team will contact you shortly to confirm your appointment and help you plan your visit.",
+    formEyebrow: "Schedule Appointment",
+    formTitle: "Book Your Appointment",
+  },
+
+  // Currently unused (AboutConnect is commented out on the homepage), kept
+  // centralised so re-enabling it needs no content work.
+  aboutConnect: {
+    eyebrow: "Connect With Us",
+    title: "More Than a Salon - A Complete Beauty Experience",
+    paragraph:
+      "For years, VR Unisex Salon has been dedicated to helping clients look and feel their best, combining skilled craftsmanship with a warm, welcoming atmosphere.",
+    imageAlt: "Stylist working on a client's hair at VR Unisex Salon",
+    features: [
+      "Certified & experienced stylists",
+      "Premium, cruelty-free products",
+      "Hygienic, sanitized tools & stations",
+      "Personalized consultations",
+    ],
+  },
+
+  footer: {
+    quickLinksHeading: "Quick Links",
+    servicesHeading: "Services",
+    getInTouchHeading: "Get In Touch",
+    rightsReservedSuffix: "All rights reserved.",
+  },
+
+  breadcrumb: {
+    homeLabel: "Home",
+  },
+
+  // The generic per-service page renderer (ServiceDetail.tsx): section
+  // eyebrows that aren't configurable per-service, and the fallback copy
+  // shown when a service doesn't set its own title/subtitle for a section.
+  serviceDetail: {
+    eyebrows: {
+      howItWorks: "How It Works",
+      whyItWorks: "Why It Works",
+      findYourMatch: "Find Your Match",
+      productsWeTrust: "Products We Trust",
+      theDifference: "The Difference",
+      // Was hardcoded as "Why Couples Choose Us" — this slot is generic and
+      // used by any service, not just Couple Spa.
+      secondHighlightGroup: "Even More Reasons",
+      isThisForYou: "Is This For You?",
+      yourSpecialist: "Your Specialist",
+      aftercare: "Aftercare",
+      realResults: "Real Results",
+      faq: "FAQ",
+    },
+    processTitleFallback: "Your Visit, Step by Step",
+    benefitsTitleFallback: (serviceTitle: string) => `Benefits of ${serviceTitle}`,
+    treatmentsTitleFallback: (serviceTitle: string) => `Choose Your ${serviceTitle} Treatment`,
+    // Was hardcoded around "haircut" wording, which showed incorrectly on
+    // any non-haircut service that didn't set its own treatmentsSubtitle.
+    treatmentsSubtitleFallback:
+      "Explore our range of options below and find the treatment that's right for you.",
+    comparisonGoalLabelFallback: "Your Goal",
+    comparisonRecommendedLabelFallback: "Recommended",
+    expertTitleFallback: "Meet Your Expert",
+    expertiseLabelFallback: "Areas of Expertise",
+    faqTitleFallback: (serviceTitle: string) => `${serviceTitle} — Common Questions`,
+    ctaTitleFallback: (serviceTitle: string) => `Ready to Book Your ${serviceTitle}?`,
+    ctaDescriptionFallback:
+      "Reach out on WhatsApp, give us a call, or book online — whichever is easiest for you.",
+    whatsappKnowMoreMessage: (serviceName: string) => `Hi, I'd like to know more about ${serviceName}.`,
+    ratingBadge: (rating: number, reviewCount: number) => `${rating} rating from ${reviewCount}+ clients`,
+    consultationMessage: (shortName: string, serviceName: string) =>
+      `Hi ${shortName}! I'd like to book a ${serviceName} consultation.`,
+    bookConsultationLabel: "Book Your Consultation",
+    followOnInstagramLabel: (shortName: string) => `Follow ${shortName} on Instagram`,
+  },
+
+  treatmentCard: {
+    featuresLabelFallback: "Features",
+    bestForLabelFallback: "Best for",
+    resultLabelFallback: "Result",
+    noteLabelFallback: "Note",
+    bookLabel: "Book This Treatment",
+  },
+
+  serviceCard: {
+    bookNowLabel: "Book Now",
+  },
+
+  reviewCard: {
+    verifiedOnGoogleLabel: "Verified on Google",
+  },
+
+  carousel: {
+    defaultArrowLabel: "items",
+  },
+
+  about: {
+    hero: {
+      perks: [
+        { icon: "TrainFront", label: "2 minutes' walk from Burjuman Metro Station" },
+        { icon: "MapPin", label: "Inside the 5-star Crown Park Hotel" },
+        { icon: "Car", label: "Free valet parking available" },
+      ],
+      photos: [
+        { src: "/images/gallery/salon-01.jpg", alt: "Entrance and styling area at VR Unisex Salon" },
+        { src: "/images/gallery/salon-04.jpg", alt: "Pedicure and spa treatment area at VR Unisex Salon" },
+        { src: "/images/gallery/salon-05.jpg", alt: "Reception desk at VR Unisex Salon" },
+      ],
+      eyebrow: "Where Passion, Expertise & Beauty Come Together",
+      title: "ABOUT VR UNISEX SALON",
+      paragraph1: (name: string) =>
+        `${name} was founded with a simple belief—that every client deserves more than a beauty service; they deserve a premium salon experience built on trust, expertise, and genuine care.`,
+      paragraph2:
+        "Inspired by years of international experience across Singapore, Malaysia, Australia, and Dubai, founders Vishal and Raju created a luxury hair & beauty salon in Dubai where personalised attention, modern techniques, and exceptional hospitality come together to create experiences clients trust, recommend, and look forward to returning to.",
+    },
+    services: {
+      eyebrow: "Our Services",
+      title: "Specialist Treatments We Offer",
+      subtitle: "In-depth guides for every service we provide — open any one to see what's included, the options and FAQs.",
+    },
+    whatMakesUsDifferent: {
+      title: "The VR Promise",
+      subtitle:
+        "Luxury isn't defined by the services we offer—it's reflected in how we make every client feel. These values guide every consultation, every recommendation, and every experience we create.",
+      points: [
+        {
+          title: "We Listen First",
+          description: "Every appointment begins with understanding your needs, preferences, and expectations before making recommendations.",
+        },
+        {
+          title: "We Create Thoughtfully",
+          description: "Every haircut, beauty treatment, and transformation is approached with creativity, precision, and attention to detail.",
+        },
+        {
+          title: "We Care Beyond the Appointment",
+          description: "Our goal isn't simply to deliver great results today-it's to become the salon you'll confidently return to for years to come.",
+        },
+        {
+          title: "We Use Trusted Products",
+          description: "Every treatment is performed using carefully selected professional products to ensure healthy hair, beautiful skin, and long-lasting results.",
+        },
+      ],
+    },
+    meta: {
+      titlePrefix: "About Us",
+      description:
+        "Founded by brothers Vishal and Raju, VR Unisex Salon brings over 8 years of hair, skin and beauty expertise to Burjuman, Dubai — inside the 5-star Crown Park Hotel.",
+    },
+  },
+
+  contactPage: {
+    meta: {
+      titlePrefix: "Contact Us",
+      description:
+        "Book an appointment at VR Unisex Salon — inside Crown Park Hotel, Burjuman, Dubai. Call, WhatsApp, or send us a booking request.",
+    },
+    visitUsLabel: "Visit Us",
+    callUsLabel: "Call Us",
+    emailUsLabel: "Email Us",
+    openingHoursLabel: "Opening Hours",
+    eyebrow: "Contact Us",
+    title: "Get in Touch with VR Unisex Salon",
+    subtitle: "Book your appointment, ask a question, or connect with our team. We're here to help you enjoy a premium salon experience in Dubai.",
+  },
+
+  appointmentForm: {
+    validation: {
+      name: "Please enter your full name",
+      phone: "Please enter a valid mobile number for the selected country",
+      email: "Please enter a valid email address",
+      service: "Please choose a service",
+      date: "Please choose a date",
+      time: "Please choose a time",
+      recaptcha: "Please verify that you're not a robot.",
+    },
+    labels: {
+      name: "Full Name",
+      phone: "Mobile Number",
+      email: "Email Address",
+      service: "Preferred Service",
+      date: "Preferred Date",
+      time: "Preferred Time",
+      message: "Message (Optional)",
+    },
+    placeholders: {
+      name: "Enter your full name",
+      phone: "Enter your mobile number",
+      email: "Enter your email address",
+      message: "Tell us anything else we should know...",
+    },
+    serviceSelectPlaceholder: "Select a service",
+    timeSelectPlaceholder: "Select time",
+    submitLabel: "Schedule Appointment",
+    submittingLabel: "Sending...",
+    disclaimer: "Your information is secure and will only be used to confirm your appointment.",
+    successMessage: "Thank you! We'll be in touch shortly to confirm your appointment.",
+    errorMessage: "Something went wrong. Please try again or reach us on WhatsApp.",
+  },
+
+  servicesPage: {
+    meta: {
+      titlePrefix: "Services",
+      description:
+        "Explore the full range of services at VR Unisex Salon — haircuts, colour, treatments, nails, lashes, waxing, makeup and more, in Burjuman, Dubai.",
+    },
+  },
+
+  siteMeta: {
+    titleSuffix: "Premium Unisex Salon",
+  },
+};

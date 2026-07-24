@@ -4,6 +4,7 @@ import type { MutableRefObject, ReactNode } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useLoopingSlider } from "@/hooks/useLoopingSlider";
+import { siteContent } from "@/lib/data";
 
 interface SlideMeta {
   isActive: boolean;
@@ -28,7 +29,7 @@ export default function Carousel<T>({
   autoPlayInterval,
   pausedExternally,
   slideClassName = "",
-  arrowLabel = "items",
+  arrowLabel = siteContent.carousel.defaultArrowLabel,
   onDark = false,
 }: CarouselProps<T>) {
   const {

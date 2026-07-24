@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 import { z } from "zod";
 import { siteConfig } from "@/lib/site-config";
 
@@ -13,7 +13,19 @@ const contactSchema = z.object({
   date: z.string().optional(),
   time: z.string().optional(),
   message: z.string().optional(),
+  recaptchaToken: z.string().optional(),
 });
+
+async function isRecaptchaValid(token: string | undefined, secretKey: string) {
+  if (!token) return false;
+  const res = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({ secret: secretKey, response: token }),
+  });
+  const data = await res.json();
+  return data.success === true;
+}
 
 export async function POST(request: Request) {
   const body = await request.json();
@@ -23,11 +35,21 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid form data" }, { status: 400 });
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
+  // Only enforced once RECAPTCHA_SECRET_KEY is actually configured, so the
+  // form keeps working during setup and isn't silently broken by a missing key.
+  const { RECAPTCHA_SECRET_KEY } = process.env;
+  if (RECAPTCHA_SECRET_KEY) {
+    const verified = await isRecaptchaValid(parsed.data.recaptchaToken, RECAPTCHA_SECRET_KEY);
+    if (!verified) {
+      return NextResponse.json({ error: "Verification failed. Please try again." }, { status: 400 });
+    }
+  }
+
+  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS } = process.env;
   const toEmail = process.env.CONTACT_TO_EMAIL || siteConfig.email;
 
-  if (!apiKey) {
-    console.error("RESEND_API_KEY is not configured");
+  if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS) {
+    console.error("SMTP environment variables are not configured");
     return NextResponse.json(
       { error: "Email service is not configured" },
       { status: 500 }
@@ -35,7 +57,13 @@ export async function POST(request: Request) {
   }
 
   const { name, email, phone, service, date, time, message } = parsed.data;
-  const resend = new Resend(apiKey);
+
+  const transporter = nodemailer.createTransport({
+    host: SMTP_HOST,
+    port: Number(SMTP_PORT),
+    secure: Number(SMTP_PORT) === 465,
+    auth: { user: SMTP_USER, pass: SMTP_PASS },
+  });
 
   const lines = [
     `Name: ${name}`,
@@ -47,18 +75,18 @@ export async function POST(request: Request) {
     message && `\n${message}`,
   ].filter(Boolean);
 
-  const { error } = await resend.emails.send({
-    from: `${siteConfig.name} Website <onboarding@resend.dev>`,
-    to: toEmail,
-    replyTo: email,
-    subject: service
-      ? `Appointment request: ${service} — ${name}`
-      : `New enquiry from ${name}`,
-    text: lines.join("\n"),
-  });
-
-  if (error) {
-    console.error("Resend error:", error);
+  try {
+    await transporter.sendMail({
+      from: `${siteConfig.name} Website <${SMTP_USER}>`,
+      to: toEmail,
+      replyTo: email,
+      subject: service
+        ? `Appointment request: ${service} — ${name}`
+        : `New enquiry from ${name}`,
+      text: lines.join("\n"),
+    });
+  } catch (error) {
+    console.error("SMTP send error:", error);
     return NextResponse.json({ error: "Failed to send message" }, { status: 500 });
   }
 

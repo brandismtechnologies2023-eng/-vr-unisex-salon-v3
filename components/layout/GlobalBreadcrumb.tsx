@@ -3,7 +3,9 @@
 import { usePathname } from "next/navigation";
 import { Home } from "lucide-react";
 import Breadcrumb from "@/components/shared/Breadcrumb";
-import { services } from "@/lib/data";
+import { services, siteContent } from "@/lib/data";
+
+const content = siteContent.breadcrumb;
 
 function humanize(segment: string) {
   return segment
@@ -26,7 +28,7 @@ export default function GlobalBreadcrumb() {
 
   const segments = pathname.split("/").filter(Boolean);
   const items = [
-    { label: "Home", href: "/" },
+    { label: content.homeLabel, href: "/" },
     ...segments.map((segment, i) => {
       const href = "/" + segments.slice(0, i + 1).join("/");
       const isLast = i === segments.length - 1;

@@ -1,14 +1,9 @@
 import { Check } from "lucide-react";
 import AppointmentForm from "@/components/forms/AppointmentForm";
+import { siteContent } from "@/lib/data";
 import { siteConfig } from "@/lib/site-config";
 
-const points = [
-  "Personalised Consultation",
-  "International Expertise",
-  "Premium Products",
-  "Luxury Experience",
-  "Prime Location",
-];
+const content = siteContent.contactSection;
 
 export default function ContactSection() {
   return (
@@ -18,18 +13,13 @@ export default function ContactSection() {
         <div className="lg:col-span-2">
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-secondary sm:text-3xl">
-              Your Next Beauty Experience Starts Here
+              {content.title}
             </h2>
-            <p className="mt-4 text-zinc-600">
-              Whether you&apos;re planning your next appointment or visiting us
-              for the first time, we&apos;re here to make the process simple and
-              stress-free. Complete the form, and our team will contact you
-              shortly to confirm your appointment and help you plan your visit.
-            </p>
+            <p className="mt-4 text-zinc-600">{content.paragraph}</p>
           </div>
 
           <ul className="mb-8 space-y-3">
-            {points.map((point) => (
+            {content.points.map((point) => (
               <li
                 key={point}
                 className="flex items-center gap-3 rounded-xl border border-primary/50 bg-primary/15 px-4 py-3 transition-colors hover:bg-primary/25"
@@ -58,10 +48,10 @@ export default function ContactSection() {
                 this header stays short rather than repeating it. */}
             <div className="mb-8 text-center">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-third">
-                Schedule Appointment
+                {content.formEyebrow}
               </p>
               <h3 className="mt-2 text-2xl font-bold text-secondary sm:text-3xl">
-                Book Your Appointment
+                {content.formTitle}
               </h3>
 
               {/* Small rule-and-diamond flourish under the title. */}

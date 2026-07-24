@@ -23,8 +23,8 @@ export default function Home() {
       <InstagramFeed />
       <Testimonials />
       <Faq />
-      <ContactCta />
       <ContactSection />
+      <ContactCta />
     </>
   );
 }

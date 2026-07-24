@@ -5,7 +5,9 @@ import { motion } from "framer-motion";
 import SectionHeading from "@/components/shared/SectionHeading";
 import ServiceCard from "@/components/shared/ServiceCard";
 import Button from "@/components/shared/Button";
-import { services } from "@/lib/data";
+import { services, siteContent } from "@/lib/data";
+
+const content = siteContent.servicesSection;
 
 interface ServicesProps {
   // Omit to show every service — the home page trims to a teaser that can
@@ -24,9 +26,9 @@ export default function Services({ limit, showViewAll = false, as }: ServicesPro
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
       <SectionHeading
         as={as}
-        eyebrow="Our Services"
-        title="Everything You Need, In One Place"
-        subtitle="From haircuts to bridal makeup, explore our full range of salon services."
+        eyebrow={content.eyebrow}
+        title={content.title}
+        subtitle={content.subtitle}
       />
 
       {/* Flex-wrap rather than grid so a trailing partial row centres
@@ -58,7 +60,7 @@ export default function Services({ limit, showViewAll = false, as }: ServicesPro
       {showViewAll && !expanded && (
         <div className="mt-10 flex justify-center">
           <Button variant="outline" onClick={() => setExpanded(true)}>
-            View All Services
+            {content.viewAllLabel}
           </Button>
         </div>
       )}

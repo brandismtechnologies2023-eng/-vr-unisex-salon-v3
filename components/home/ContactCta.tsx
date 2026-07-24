@@ -1,17 +1,22 @@
 import type { ReactNode } from "react";
+import { Fragment } from "react";
 import { CalendarCheck, Phone } from "lucide-react";
 import Button from "@/components/shared/Button";
 import { WhatsAppIcon } from "@/components/shared/SocialIcons";
+import { siteContent } from "@/lib/data";
 import { siteConfig, telLink, whatsappLink } from "@/lib/site-config";
 
-const DEFAULT_TITLE = "Ready to Experience Beauty, Redefined?";
+const content = siteContent.contactCta;
+const { common } = siteContent;
+
 const DEFAULT_DESCRIPTION = (
   <>
-    Whether it is your regular self-care ritual or a special occasion, we are
-    here to make every visit feel effortless, relaxing, and uniquely yours.
-    <br />
-    Visit us, unwind, and discover why so many clients across Dubai trust VR
-    Unisex Salon for exceptional hair and beauty experiences.
+    {content.descriptionLines.map((line, i) => (
+      <Fragment key={line}>
+        {i > 0 && <br />}
+        {line}
+      </Fragment>
+    ))}
   </>
 );
 
@@ -20,11 +25,13 @@ interface ContactCtaProps {
   // here so restyling this one file updates the CTA everywhere.
   title?: string;
   description?: ReactNode;
+  bookLabel?: string;
 }
 
 export default function ContactCta({
-  title = DEFAULT_TITLE,
+  title = content.title,
   description = DEFAULT_DESCRIPTION,
+  bookLabel = common.bookAppointmentLabel,
 }: ContactCtaProps) {
   return (
     <section className="bg-primary/30">
@@ -40,7 +47,7 @@ export default function ContactCta({
             className="bg-[#25D366] text-white hover:bg-[#1ebe5d]"
             icon={<WhatsAppIcon className="h-5 w-5" />}
           >
-            WhatsApp
+            {content.whatsappLabel}
           </Button>
           <Button
             href={telLink()}
@@ -48,7 +55,7 @@ export default function ContactCta({
             className="bg-secondary/60 text-white hover:bg-secondary hover:text-primary"
             icon={<Phone className="h-5 w-5" />}
           >
-            Call {siteConfig.phone}
+            {content.callPrefix} {siteConfig.phone}
           </Button>
           <Button
             href="/contact"
@@ -56,7 +63,7 @@ export default function ContactCta({
             className="border border-secondary bg-primary/50 text-secondary hover:bg-white/10"
             icon={<CalendarCheck className="h-5 w-5" />}
           >
-            Book Appointment
+            {bookLabel}
           </Button>
         </div>
       </div>

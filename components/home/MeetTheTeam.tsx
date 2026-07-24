@@ -1,9 +1,11 @@
 import Image from "next/image";
 import SectionHeading from "@/components/shared/SectionHeading";
 import { InstagramIcon, WhatsAppIcon } from "@/components/shared/SocialIcons";
-import { team } from "@/lib/data";
+import { siteContent, team } from "@/lib/data";
 import { siteConfig, whatsappLink } from "@/lib/site-config";
 import type { TeamMember } from "@/types";
+
+const content = siteContent.meetTeam;
 
 interface MeetTheTeamProps {
   // "detailed" gives each member a full-width row with their bio;
@@ -25,15 +27,13 @@ function SocialLinks({ member, className = "" }: { member: TeamMember; className
         <InstagramIcon className="h-4 w-4" />
       </a>
       <a
-        href={whatsappLink(
-          `Hi ${siteConfig.shortName}! I'd like to book an appointment with ${member.name}.`
-        )}
+        href={whatsappLink(content.whatsappMessage(siteConfig.shortName, member.name))}
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#1ebe5d]"
       >
         <WhatsAppIcon className="h-4 w-4 shrink-0" />
-        Chat with {member.name}
+        {content.chatWithPrefix} {member.name}
       </a>
     </div>
   );
@@ -60,10 +60,7 @@ function Portrait({ member, className = "" }: { member: TeamMember; className?: 
 export default function MeetTheTeam({ variant = "detailed" }: MeetTheTeamProps) {
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-      <SectionHeading
-        title="Meet the Experts Behind VR Salon"
-        subtitle="Behind every beautiful experience is a passionate team committed to helping every client look and feel their absolute best."
-      />
+      <SectionHeading title={content.title} subtitle={content.subtitle} />
 
       {variant === "compact" ? (
         <div className="mx-auto grid max-w-4xl grid-cols-1 gap-10 sm:grid-cols-3">

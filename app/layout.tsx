@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import GlobalBreadcrumb from "@/components/layout/GlobalBreadcrumb";
 import ScrollToTop from "@/components/shared/ScrollToTop";
+import { siteContent } from "@/lib/data";
 import { siteConfig } from "@/lib/site-config";
 
 const poppins = Poppins({
@@ -14,7 +15,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: `${siteConfig.name} | Premium Unisex Salon`,
+  title: `${siteConfig.name} | ${siteContent.siteMeta.titleSuffix}`,
   description: siteConfig.description,
 };
 

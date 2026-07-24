@@ -6,8 +6,10 @@ import SectionHeading from "@/components/shared/SectionHeading";
 import GalleryCard from "@/components/shared/GalleryCard";
 import Carousel from "@/components/shared/Carousel";
 import Modal from "@/components/shared/Modal";
-import { galleryMedia } from "@/lib/data";
+import { galleryMedia, siteContent } from "@/lib/data";
 import type { GalleryMedia } from "@/types";
+
+const content = siteContent.gallery;
 
 const AUTO_PLAY_INTERVAL = 4000;
 const MOBILE_BREAKPOINT = 640;
@@ -72,15 +74,12 @@ export default function Gallery() {
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-      <SectionHeading
-        title="Beautiful Results. Genuine Experiences."
-        subtitle="Every visit to VR Unisex Salon is more than a beauty appointment it's a story of confidence, care, and transformation. Here's a glimpse of the moments we've been privileged to create for our clients."
-      />
+      <SectionHeading title={content.title} subtitle={content.subtitle} />
 
       <Carousel
         slides={slides}
         autoPlayInterval={AUTO_PLAY_INTERVAL}
-        arrowLabel="photos"
+        arrowLabel={content.arrowLabel}
         slideClassName={`grid gap-3 ${isMobile ? "grid-cols-2" : "grid-cols-6"}`}
         renderSlide={(slideColumns) => (
           <>

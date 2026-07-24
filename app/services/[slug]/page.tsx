@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ServiceDetail from "@/components/services/ServiceDetail";
+import InstagramFeed from "@/components/home/InstagramFeed";
 import { services } from "@/lib/data";
 import { siteConfig } from "@/lib/site-config";
 
@@ -31,5 +32,5 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
   if (!service) notFound();
 
-  return <ServiceDetail service={service} />;
+  return <ServiceDetail service={service} instagramFeed={<InstagramFeed />} />;
 }

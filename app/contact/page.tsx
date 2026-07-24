@@ -3,20 +3,22 @@ import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import SectionHeading from "@/components/shared/SectionHeading";
 import ContactSection from "@/components/home/ContactSection";
 import ContactCta from "@/components/home/ContactCta";
+import { siteContent } from "@/lib/data";
 import { siteConfig, telLink } from "@/lib/site-config";
 
+const content = siteContent.contactPage;
+
 export const metadata: Metadata = {
-  title: `Contact Us | ${siteConfig.name}`,
-  description:
-    "Book an appointment at VR Unisex Salon — inside Crown Park Hotel, Burjuman, Dubai. Call, WhatsApp, or send us a booking request.",
+  title: `${content.meta.titlePrefix} | ${siteConfig.name}`,
+  description: content.meta.description,
 };
 
 const details = [
-  { icon: MapPin, label: "Visit Us", value: siteConfig.address },
-  { icon: Phone, label: "Call Us", value: siteConfig.phone, href: telLink() },
+  { icon: MapPin, label: content.visitUsLabel, value: siteConfig.address },
+  { icon: Phone, label: content.callUsLabel, value: siteConfig.phone, href: telLink() },
   {
     icon: Mail,
-    label: "Email Us",
+    label: content.emailUsLabel,
     value: siteConfig.email,
     href: `mailto:${siteConfig.email}`,
   },
@@ -29,9 +31,9 @@ export default function ContactPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             as="h1"
-            eyebrow="Contact Us"
-            title="Get in Touch with VR Unisex Salon"
-            subtitle="Book your appointment, ask a question, or connect with our team. We're here to help you enjoy a premium salon experience in Dubai."
+            eyebrow={content.eyebrow}
+            title={content.title}
+            subtitle={content.subtitle}
           />
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -61,7 +63,7 @@ export default function ContactPage() {
               <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/40">
                 <Clock className="h-5 w-5 text-secondary" strokeWidth={1.5} />
               </span>
-              <h2 className="mt-4 font-semibold text-secondary">Opening Hours</h2>
+              <h2 className="mt-4 font-semibold text-secondary">{content.openingHoursLabel}</h2>
               <div className="mt-1 space-y-0.5 text-sm text-zinc-600">
                 {siteConfig.hours.map((h) => (
                   <p key={h.day}>

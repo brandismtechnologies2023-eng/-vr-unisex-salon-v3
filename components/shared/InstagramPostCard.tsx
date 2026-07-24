@@ -3,8 +3,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Play } from "lucide-react";
+import { siteContent } from "@/lib/data";
 import { siteConfig } from "@/lib/site-config";
 import type { InstagramPost } from "@/types";
+
+const content = siteContent.instagramPost;
 
 interface InstagramPostCardProps {
   post: InstagramPost;
@@ -39,7 +42,7 @@ export default function InstagramPostCard({ post, onClick }: InstagramPostCardPr
           rel="noopener noreferrer"
           className="ml-auto shrink-0 rounded-md bg-secondary px-2.5 py-1 text-[11px] font-medium text-white transition-colors hover:bg-secondary/85"
         >
-          View profile
+          {content.viewProfileLabel}
         </a>
       </div>
 
@@ -53,7 +56,7 @@ export default function InstagramPostCard({ post, onClick }: InstagramPostCardPr
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={post.image}
-            alt="Instagram reel"
+            alt={content.reelAlt}
             loading="lazy"
             draggable={false}
             onError={() => setImageFailed(true)}
