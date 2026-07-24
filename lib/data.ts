@@ -3254,6 +3254,17 @@ export const facialTreatmentsService: Service = {
 
 export const services: Service[] = [...coreServices, hairExtensionsService, facialTreatmentsService];
 
+export const brandsWeUse: { name: string; logo: string }[] = [
+  { name: "Olaplex", logo: "/images/products-uses/olaplex.webp" },
+  { name: "GK Hair", logo: "/images/products-uses/gk-hair-professional.webp" },
+  { name: "Brazilian Blowout", logo: "/images/products-uses/brazilian-blowout.webp" },
+  { name: "L'Oréal Professionnel", logo: "/images/products-uses/loreal-professionnel.webp" },
+  { name: "Matrix", logo: "/images/products-uses/matrix.webp" },
+  { name: "Goldwell", logo: "/images/products-uses/goldwell.webp" },
+  { name: "O3+", logo: "/images/products-uses/03-plus.webp" },
+  { name: "Casmara", logo: "/images/products-uses/casmara.webp" },
+];
+
 export const navLinks: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
@@ -3639,6 +3650,12 @@ export const siteContent = {
     title: "Everything You Need, In One Place",
     subtitle: "From haircuts to bridal makeup, explore our full range of salon services.",
     viewAllLabel: "View All Services",
+  },
+
+  brandsWeUse: {
+    eyebrow: "Our Products",
+    title: "Brands We Use",
+    subtitle: "We trust globally recognised, salon-grade brands across every treatment we offer.",
   },
 
   pricing: {
