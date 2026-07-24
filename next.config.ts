@@ -17,6 +17,12 @@ const renamedServiceSlugs: [string, string][] = [
 ];
 
 const nextConfig: NextConfig = {
+  // The contact API route embeds the logo in the thank-you email via
+  // fs.readFileSync — explicitly trace it so Vercel's serverless bundle
+  // includes it (public/ assets aren't traced automatically).
+  outputFileTracingIncludes: {
+    "/api/contact": ["./public/images/logo.webp"],
+  },
   async redirects() {
     return renamedServiceSlugs.map(([from, to]) => ({
       source: `/services/${from}`,

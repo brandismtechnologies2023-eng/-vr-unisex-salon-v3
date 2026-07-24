@@ -7,7 +7,7 @@ const content = siteContent.brandsWeUse;
 export default function BrandsWeUse() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-      <SectionHeading title={content.title} subtitle={content.subtitle} />
+      <SectionHeading title={content.title} />
 
       <div className="grid grid-cols-2 gap-5 sm:grid-cols-4">
         {brandsWeUse.map((brand) => (

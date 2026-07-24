@@ -3654,7 +3654,6 @@ export const siteContent = {
 
   brandsWeUse: {
     title: "Brands We Use",
-    subtitle: "We trust globally recognised, salon-grade brands across every treatment we offer.",
   },
 
   pricing: {
@@ -3921,6 +3920,22 @@ export const siteContent = {
     disclaimer: "Your information is secure and will only be used to confirm your appointment.",
     successMessage: "Thank you! We'll be in touch shortly to confirm your appointment.",
     errorMessage: "Something went wrong. Please try again or reach us on WhatsApp.",
+  },
+
+  // Sent to the customer's own inbox right after they submit the
+  // appointment form — separate from the internal notification email.
+  customerThankYouEmail: {
+    subjectWithService: (service: string) => `Thank you for booking ${service} — VR Unisex Salon`,
+    subjectGeneric: "Thank you for contacting VR Unisex Salon",
+    heading: "Thank You for Reaching Out!",
+    greeting: (name: string) => `Hi ${name},`,
+    bodyWithService: (service: string) =>
+      `Thank you for choosing <strong>${service}</strong> at VR Unisex Salon. We've received your request and our team will contact you shortly to confirm your appointment details.`,
+    bodyGeneric:
+      "Thank you for getting in touch with VR Unisex Salon. We've received your message and our team will get back to you shortly.",
+    closing:
+      "If you need anything in the meantime, feel free to call or WhatsApp us — we're always happy to help.",
+    signature: "Warm regards,<br />The VR Unisex Salon Team",
   },
 
   servicesPage: {
