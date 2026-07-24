@@ -3024,9 +3024,7 @@ export const facialTreatmentsService: Service = {
   shortTitle: "Professional Facial",
   description: "Personalised facial treatments for radiant, healthy skin.",
   startingPrice: 399,
-  // TODO: replace with a dedicated facial-treatment photo once supplied —
-  // this is a stand-in (a relaxed spa/facial-style scene).
-  image: "/images/services/korean-head-spa.webp",
+  image: "/images/services/professional-facial-treatments-in-dubai.webp",
   longDescription:
     "Healthy, radiant skin begins with the right care. At VR Unisex Salon, our professional facial treatments are tailored to your skin type, concerns, and beauty goals. Whether you're looking to brighten your complexion, deeply cleanse your skin, reduce signs of ageing, or simply enjoy a relaxing self-care experience, we'll recommend the facial that's right for you.",
   bookLabel: "Book Your Facial",
