@@ -3653,7 +3653,6 @@ export const siteContent = {
   },
 
   brandsWeUse: {
-    eyebrow: "Our Products",
     title: "Brands We Use",
     subtitle: "We trust globally recognised, salon-grade brands across every treatment we offer.",
   },
