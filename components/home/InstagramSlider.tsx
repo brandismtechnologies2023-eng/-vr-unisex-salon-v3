@@ -10,9 +10,9 @@ import { useLoopingSlider } from "@/hooks/useLoopingSlider";
 import { siteConfig } from "@/lib/site-config";
 import type { InstagramPost } from "@/types";
 
-// Peek slider: shows four posts at once on desktop (two on small, one on
-// mobile) but steps a single post per click/swipe, so the loop needs at
-// least as many clones on each end as the widest visible window.
+// Peek slider: shows four posts at once on desktop (two on mobile and up)
+// but steps a single post per click/swipe, so the loop needs at least as
+// many clones on each end as the widest visible window.
 const CLONE_COUNT = 4;
 const AUTO_PLAY_INTERVAL = 4000;
 
@@ -78,7 +78,7 @@ export default function InstagramSlider({ posts, isLive }: InstagramSliderProps)
               <div
                 key={`${post.id}-${idx}`}
                 ref={idx === 0 ? trackRef : undefined}
-                className="w-full shrink-0 sm:w-[calc((100%-16px)/2)] lg:w-[calc((100%-48px)/4)]"
+                className="w-[calc((100%-16px)/2)] shrink-0 lg:w-[calc((100%-48px)/4)]"
               >
                 <InstagramPostCard
                   post={post}
