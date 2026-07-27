@@ -48,3 +48,6 @@ next-env.d.ts
 /dev.db-journal
 /*.db
 /*.db-journal
+
+# admin-uploaded images (local testing only)
+/public/images/uploads

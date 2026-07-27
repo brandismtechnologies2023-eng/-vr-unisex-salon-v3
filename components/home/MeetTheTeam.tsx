@@ -1,7 +1,8 @@
 import Image from "next/image";
 import SectionHeading from "@/components/shared/SectionHeading";
 import { InstagramIcon, WhatsAppIcon } from "@/components/shared/SocialIcons";
-import { siteContent, team } from "@/lib/data";
+import { siteContent } from "@/lib/data";
+import { getTeam } from "@/lib/content/team";
 import { siteConfig, whatsappLink } from "@/lib/site-config";
 import type { TeamMember } from "@/types";
 
@@ -57,7 +58,9 @@ function Portrait({ member, className = "" }: { member: TeamMember; className?: 
   );
 }
 
-export default function MeetTheTeam({ variant = "detailed" }: MeetTheTeamProps) {
+export default async function MeetTheTeam({ variant = "detailed" }: MeetTheTeamProps) {
+  const team = await getTeam();
+
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
       <SectionHeading title={content.title} subtitle={content.subtitle} />
