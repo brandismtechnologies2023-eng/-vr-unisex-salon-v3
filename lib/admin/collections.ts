@@ -1,3 +1,4 @@
+import { teamContent } from "@/lib/content/team";
 import { testimonialsContent } from "@/lib/content/testimonials";
 import { galleryContent } from "@/lib/content/gallery";
 import { faqsContent } from "@/lib/content/faqs";
@@ -41,6 +42,22 @@ export interface CollectionConfig {
 }
 
 export const collections: Record<string, CollectionConfig> = {
+  team: {
+    key: "team",
+    label: "Team",
+    singular: "Team Member",
+    description: "Stylists and staff shown on the homepage and About page.",
+    content: teamContent,
+    revalidate: ["/", "/about"],
+    fields: [
+      { name: "name", label: "Name", type: "text", required: true },
+      { name: "role", label: "Role", type: "text", required: true },
+      { name: "bio", label: "Bio", type: "textarea", required: true },
+      { name: "image", label: "Photo", type: "image" },
+    ],
+    row: (m) => ({ primary: m.name, secondary: m.role, thumb: m.image }),
+  },
+
   testimonials: {
     key: "testimonials",
     label: "Testimonials",
