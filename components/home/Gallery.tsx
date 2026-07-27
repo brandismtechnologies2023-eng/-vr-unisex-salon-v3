@@ -60,17 +60,17 @@ function useIsMobile(breakpoint: number) {
   return isMobile;
 }
 
-export default function Gallery() {
+export default function Gallery({ media = galleryMedia }: { media?: GalleryMedia[] }) {
   const isMobile = useIsMobile(MOBILE_BREAKPOINT);
   const columns = isMobile ? MOBILE_COLUMNS : DESKTOP_COLUMNS;
   const rows = isMobile ? MOBILE_ROWS : DESKTOP_ROWS;
   const slideCount = isMobile
-    ? Math.ceil(galleryMedia.length / (MOBILE_COLUMNS * MOBILE_ROWS))
+    ? Math.ceil(media.length / (MOBILE_COLUMNS * MOBILE_ROWS))
     : DESKTOP_SLIDE_COUNT;
-  const slides = buildMasonrySlides(galleryMedia, columns, rows, slideCount);
+  const slides = buildMasonrySlides(media, columns, rows, slideCount);
 
   const [activeId, setActiveId] = useState<string | null>(null);
-  const activeMedia = galleryMedia.find((m) => m.id === activeId) ?? null;
+  const activeMedia = media.find((m) => m.id === activeId) ?? null;
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">

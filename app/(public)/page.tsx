@@ -10,8 +10,15 @@ import Testimonials from "@/components/home/Testimonials";
 import Faq from "@/components/home/Faq";
 import ContactCta from "@/components/home/ContactCta";
 import ContactSection from "@/components/home/ContactSection";
+import { galleryContent } from "@/lib/content/gallery";
+import { testimonialsContent } from "@/lib/content/testimonials";
 
-export default function Home() {
+export default async function Home() {
+  const [gallery, testimonials] = await Promise.all([
+    galleryContent.getAll(),
+    testimonialsContent.getAll(),
+  ]);
+
   return (
     <>
       <Hero />
@@ -21,9 +28,9 @@ export default function Home() {
       <Services limit={6} showViewAll />
       <BrandsWeUse />
       <Pricing />
-      <Gallery />
+      <Gallery media={gallery} />
       <InstagramFeed />
-      <Testimonials />
+      <Testimonials reviews={testimonials} />
       <Faq />
       <ContactSection />
       <ContactCta />

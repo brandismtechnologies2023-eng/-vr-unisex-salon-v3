@@ -11,10 +11,12 @@ export default function ImageUploadField({
   name,
   label,
   currentValue,
+  accept = "image/*",
 }: {
   name: string;
   label: string;
   currentValue?: string;
+  accept?: string;
 }) {
   const [preview, setPreview] = useState<string | undefined>(currentValue);
 
@@ -34,7 +36,7 @@ export default function ImageUploadField({
         <input
           type="file"
           name={name}
-          accept="image/*"
+          accept={accept}
           onChange={(e) => {
             const file = e.target.files?.[0];
             if (file) setPreview(URL.createObjectURL(file));
