@@ -12,11 +12,13 @@ import ContactCta from "@/components/home/ContactCta";
 import ContactSection from "@/components/home/ContactSection";
 import { galleryContent } from "@/lib/content/gallery";
 import { testimonialsContent } from "@/lib/content/testimonials";
+import { getServices } from "@/lib/content/services";
 import { getSetting } from "@/lib/content/settings";
 
 export default async function Home() {
-  const [gallery, testimonials, heroCopy, servicesCopy, galleryCopy, testimonialsCopy] =
+  const [services, gallery, testimonials, heroCopy, servicesCopy, galleryCopy, testimonialsCopy] =
     await Promise.all([
+      getServices(),
       galleryContent.getAll(),
       testimonialsContent.getAll(),
       getSetting("hero"),
@@ -31,7 +33,7 @@ export default async function Home() {
       {/* <AboutConnect /> — disabled for now */}
       <WhyChooseUs />
       <MeetTheTeam />
-      <Services limit={6} showViewAll heading={servicesCopy} />
+      <Services limit={6} showViewAll heading={servicesCopy} items={services} />
       <BrandsWeUse />
       <Pricing />
       <Gallery media={gallery} heading={galleryCopy} />

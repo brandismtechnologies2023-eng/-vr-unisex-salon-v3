@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 import SectionHeading from "@/components/shared/SectionHeading";
 import ServiceCard from "@/components/shared/ServiceCard";
 import Button from "@/components/shared/Button";
-import { services, siteContent } from "@/lib/data";
+import { services as staticServices, siteContent } from "@/lib/data";
+import type { Service } from "@/types";
 
 const defaultContent = siteContent.servicesSection;
 
@@ -19,6 +20,8 @@ interface ServicesProps {
   // services page) so this section doesn't repeat it.
   hideHeading?: boolean;
   heading?: typeof defaultContent;
+  // DB-backed list; falls back to the static array.
+  items?: Service[];
 }
 
 export default function Services({
@@ -27,10 +30,11 @@ export default function Services({
   as,
   hideHeading = false,
   heading: content = defaultContent,
+  items = staticServices,
 }: ServicesProps) {
   const [expanded, setExpanded] = useState(false);
   const isTrimmed = limit !== undefined && !expanded;
-  const shown = isTrimmed ? services.slice(0, limit) : services;
+  const shown = isTrimmed ? items.slice(0, limit) : items;
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
