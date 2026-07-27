@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import GlobalBreadcrumb from "@/components/layout/GlobalBreadcrumb";
-import ScrollToTop from "@/components/shared/ScrollToTop";
 import { siteContent } from "@/lib/data";
 import { siteConfig } from "@/lib/site-config";
 
@@ -19,6 +15,9 @@ export const metadata: Metadata = {
   description: siteConfig.description,
 };
 
+// Root layout is intentionally bare (just html/body/font). The public site
+// chrome (navbar/footer) lives in app/(public)/layout.tsx; the admin panel
+// has its own shell in app/admin/layout.tsx.
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -26,13 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${poppins.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
-        <Navbar />
-        <GlobalBreadcrumb />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <ScrollToTop />
-      </body>
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }

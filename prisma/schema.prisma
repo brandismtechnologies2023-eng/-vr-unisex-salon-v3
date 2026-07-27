@@ -1,0 +1,75 @@
+// Admin panel data store. Mirrors the shapes in types/index.ts.
+// Repeatable collections are rows (id + order + JSON payload) so that
+// "duplicate" is just cloning a row with a new id. Free-form page copy is
+// one SiteSetting row per top-level siteContent namespace.
+// Local dev uses SQLite; swapping to Postgres later only changes the
+// datasource provider/url below.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Service {
+  id            String   @id
+  slug          String   @unique
+  title         String
+  shortTitle    String?
+  description   String
+  startingPrice Int
+  image         String?
+  order         Int      @default(0)
+  // Everything else on the Service type (all ~18 optional sections plus the
+  // title/subtitle/label overrides), stored as JSON typed against `Service`
+  // in types/index.ts minus the columns above.
+  sections      Json
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Testimonial {
+  id        String   @id
+  order     Int      @default(0)
+  data      Json
+  updatedAt DateTime @updatedAt
+}
+
+model TeamMember {
+  id        String   @id
+  order     Int      @default(0)
+  data      Json
+  updatedAt DateTime @updatedAt
+}
+
+model GalleryItem {
+  id        String   @id
+  order     Int      @default(0)
+  data      Json
+  updatedAt DateTime @updatedAt
+}
+
+model FaqItem {
+  id        String   @id
+  order     Int      @default(0)
+  data      Json
+  updatedAt DateTime @updatedAt
+}
+
+model PricingPkg {
+  id        String   @id
+  order     Int      @default(0)
+  data      Json
+  updatedAt DateTime @updatedAt
+}
+
+// Free-form site copy: one row per top-level siteContent namespace
+// (hero, whyChooseUs, meetTeam, …), the whole subtree stored as JSON.
+model SiteSetting {
+  namespace String   @id
+  data      Json
+  updatedAt DateTime @updatedAt
+}
