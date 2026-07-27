@@ -6,4 +6,5 @@ export const adminNav: { label: string; href: string }[] = [
   { label: "Gallery", href: "/admin/collections/gallery" },
   { label: "Pricing", href: "/admin/collections/pricing" },
   { label: "FAQs", href: "/admin/collections/faqs" },
+  { label: "Site Text", href: "/admin/content" },
 ];

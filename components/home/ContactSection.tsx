@@ -1,11 +1,10 @@
 import { Check } from "lucide-react";
 import AppointmentForm from "@/components/forms/AppointmentForm";
-import { siteContent } from "@/lib/data";
+import { getSetting } from "@/lib/content/settings";
 import { siteConfig } from "@/lib/site-config";
 
-const content = siteContent.contactSection;
-
-export default function ContactSection() {
+export default async function ContactSection() {
+  const content = await getSetting("contactSection");
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
       {/* 5-column grid so the map column takes 40% and the form 60%. */}

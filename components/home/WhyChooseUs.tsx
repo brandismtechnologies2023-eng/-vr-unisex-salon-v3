@@ -4,8 +4,9 @@ import SectionHeading from "@/components/shared/SectionHeading";
 import Card from "@/components/shared/Card";
 import Button from "@/components/shared/Button";
 import { siteContent } from "@/lib/data";
+import { getSetting } from "@/lib/content/settings";
 
-const { whyChooseUs: content, common } = siteContent;
+const { common } = siteContent;
 
 const featureIcons: Record<string, LucideIcon> = {
   Globe2,
@@ -16,7 +17,8 @@ const featureIcons: Record<string, LucideIcon> = {
   Wand2,
 };
 
-export default function WhyChooseUs() {
+export default async function WhyChooseUs() {
+  const content = await getSetting("whyChooseUs");
   return (
     <section className="bg-primary/25 py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

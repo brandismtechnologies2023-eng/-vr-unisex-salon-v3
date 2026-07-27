@@ -8,7 +8,8 @@ import { WhatsAppIcon } from "@/components/shared/SocialIcons";
 import { services, siteContent } from "@/lib/data";
 import { whatsappLink } from "@/lib/site-config";
 
-const { hero: heroContent, common } = siteContent;
+const { hero: defaultHero, common } = siteContent;
+type HeroContent = typeof defaultHero;
 
 const heroSlideSlugs = [
   "womens-haircut-in-dubai",
@@ -39,7 +40,7 @@ const fadeUp = {
   animate: { opacity: 1, y: 0 },
 };
 
-export default function Hero() {
+export default function Hero({ content: heroContent = defaultHero }: { content?: HeroContent }) {
   return (
     <section className="relative overflow-hidden bg-secondary">
       <div className="absolute inset-0" style={{ background: heroGradient }} />

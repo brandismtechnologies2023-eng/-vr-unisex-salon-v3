@@ -1,10 +1,10 @@
 import Image from "next/image";
 import SectionHeading from "@/components/shared/SectionHeading";
-import { brandsWeUse, siteContent } from "@/lib/data";
+import { brandsWeUse } from "@/lib/data";
+import { getSetting } from "@/lib/content/settings";
 
-const content = siteContent.brandsWeUse;
-
-export default function BrandsWeUse() {
+export default async function BrandsWeUse() {
+  const content = await getSetting("brandsWeUse");
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
       <SectionHeading title={content.title} />

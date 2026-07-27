@@ -9,7 +9,7 @@ import Modal from "@/components/shared/Modal";
 import { galleryMedia, siteContent } from "@/lib/data";
 import type { GalleryMedia } from "@/types";
 
-const content = siteContent.gallery;
+const defaultContent = siteContent.gallery;
 
 const AUTO_PLAY_INTERVAL = 4000;
 const MOBILE_BREAKPOINT = 640;
@@ -60,7 +60,13 @@ function useIsMobile(breakpoint: number) {
   return isMobile;
 }
 
-export default function Gallery({ media = galleryMedia }: { media?: GalleryMedia[] }) {
+export default function Gallery({
+  media = galleryMedia,
+  heading: content = defaultContent,
+}: {
+  media?: GalleryMedia[];
+  heading?: typeof defaultContent;
+}) {
   const isMobile = useIsMobile(MOBILE_BREAKPOINT);
   const columns = isMobile ? MOBILE_COLUMNS : DESKTOP_COLUMNS;
   const rows = isMobile ? MOBILE_ROWS : DESKTOP_ROWS;

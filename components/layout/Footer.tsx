@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { navLinks, services, siteContent } from "@/lib/data";
+import { navLinks, services } from "@/lib/data";
+import { getSetting } from "@/lib/content/settings";
 import { siteConfig } from "@/lib/site-config";
 import { FacebookIcon, InstagramIcon } from "@/components/shared/SocialIcons";
 
-const content = siteContent.footer;
-
-export default function Footer() {
+export default async function Footer() {
+  const content = await getSetting("footer");
   const midpoint = Math.ceil(services.length / 2);
   const serviceColumns = [
     services.slice(0, midpoint),

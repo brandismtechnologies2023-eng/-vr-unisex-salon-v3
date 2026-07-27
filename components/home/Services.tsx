@@ -7,7 +7,7 @@ import ServiceCard from "@/components/shared/ServiceCard";
 import Button from "@/components/shared/Button";
 import { services, siteContent } from "@/lib/data";
 
-const content = siteContent.servicesSection;
+const defaultContent = siteContent.servicesSection;
 
 interface ServicesProps {
   // Omit to show every service — the home page trims to a teaser that can
@@ -18,9 +18,16 @@ interface ServicesProps {
   // Set when a page already renders its own hero heading (e.g. the full
   // services page) so this section doesn't repeat it.
   hideHeading?: boolean;
+  heading?: typeof defaultContent;
 }
 
-export default function Services({ limit, showViewAll = false, as, hideHeading = false }: ServicesProps) {
+export default function Services({
+  limit,
+  showViewAll = false,
+  as,
+  hideHeading = false,
+  heading: content = defaultContent,
+}: ServicesProps) {
   const [expanded, setExpanded] = useState(false);
   const isTrimmed = limit !== undefined && !expanded;
   const shown = isTrimmed ? services.slice(0, limit) : services;

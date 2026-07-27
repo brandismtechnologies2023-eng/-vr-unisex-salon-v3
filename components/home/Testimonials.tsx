@@ -8,15 +8,19 @@ import { siteContent, testimonials } from "@/lib/data";
 import { siteConfig } from "@/lib/site-config";
 import type { Testimonial } from "@/types";
 
-const content = siteContent.testimonials;
+const defaultContent = siteContent.testimonials;
 
 interface TestimonialsProps {
   // Defaults to the site-wide homepage set; service pages pass their own
   // curated reviews instead.
   reviews?: Testimonial[];
+  heading?: typeof defaultContent;
 }
 
-export default function Testimonials({ reviews = testimonials }: TestimonialsProps) {
+export default function Testimonials({
+  reviews = testimonials,
+  heading: content = defaultContent,
+}: TestimonialsProps) {
   return (
     <section className="bg-primary/20 py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

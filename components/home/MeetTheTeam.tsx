@@ -2,11 +2,15 @@ import Image from "next/image";
 import SectionHeading from "@/components/shared/SectionHeading";
 import { InstagramIcon, WhatsAppIcon } from "@/components/shared/SocialIcons";
 import { siteContent } from "@/lib/data";
+import { getSetting } from "@/lib/content/settings";
 import { getTeam } from "@/lib/content/team";
 import { siteConfig, whatsappLink } from "@/lib/site-config";
 import type { TeamMember } from "@/types";
 
-const content = siteContent.meetTeam;
+// The WhatsApp message template is a function (not admin-editable), so the
+// social links read it from the static source; the section title/subtitle
+// come from the DB-backed setting in the main component below.
+const meetTeamStatic = siteContent.meetTeam;
 
 interface MeetTheTeamProps {
   // "detailed" gives each member a full-width row with their bio;
@@ -28,13 +32,13 @@ function SocialLinks({ member, className = "" }: { member: TeamMember; className
         <InstagramIcon className="h-4 w-4" />
       </a>
       <a
-        href={whatsappLink(content.whatsappMessage(siteConfig.shortName, member.name))}
+        href={whatsappLink(meetTeamStatic.whatsappMessage(siteConfig.shortName, member.name))}
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#1ebe5d]"
       >
         <WhatsAppIcon className="h-4 w-4 shrink-0" />
-        {content.chatWithPrefix} {member.name}
+        {meetTeamStatic.chatWithPrefix} {member.name}
       </a>
     </div>
   );
@@ -59,7 +63,7 @@ function Portrait({ member, className = "" }: { member: TeamMember; className?: 
 }
 
 export default async function MeetTheTeam({ variant = "detailed" }: MeetTheTeamProps) {
-  const team = await getTeam();
+  const [team, content] = await Promise.all([getTeam(), getSetting("meetTeam")]);
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">

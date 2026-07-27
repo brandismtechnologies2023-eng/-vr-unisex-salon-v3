@@ -2,14 +2,15 @@ import Link from "next/link";
 import { Check } from "lucide-react";
 import SectionHeading from "@/components/shared/SectionHeading";
 import Button from "@/components/shared/Button";
-import { siteContent } from "@/lib/data";
 import { pricingContent } from "@/lib/content/pricing";
+import { getSetting } from "@/lib/content/settings";
 import { siteConfig } from "@/lib/site-config";
 
-const content = siteContent.pricing;
-
 export default async function Pricing() {
-  const pricingPackages = await pricingContent.getAll();
+  const [pricingPackages, content] = await Promise.all([
+    pricingContent.getAll(),
+    getSetting("pricing"),
+  ]);
   return (
     <section className="bg-primary/10 py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

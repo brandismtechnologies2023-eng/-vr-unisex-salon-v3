@@ -1,13 +1,11 @@
 import SectionHeading from "@/components/shared/SectionHeading";
 import FaqAccordion from "@/components/shared/FaqAccordion";
-import { siteContent } from "@/lib/data";
 import { faqsContent } from "@/lib/content/faqs";
+import { getSetting } from "@/lib/content/settings";
 import { whatsappLink } from "@/lib/site-config";
 
-const content = siteContent.faqSection;
-
 export default async function Faq() {
-  const faqs = await faqsContent.getAll();
+  const [faqs, content] = await Promise.all([faqsContent.getAll(), getSetting("faqSection")]);
   return (
     <section className="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">
       <SectionHeading eyebrow={content.eyebrow} title={content.title} subtitle={content.subtitle} />
