@@ -14,10 +14,19 @@
   --font-sans: var(--font-poppins);
 }
 
+/* Guards against any stray sub-pixel overflow (carousels, images, etc.)
+   letting the page get dragged sideways and reveal white space at the
+   edge on mobile browsers. */
+html {
+  overflow-x: hidden;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* Slow, aquarium-like drifting for decorative background shapes. Each
