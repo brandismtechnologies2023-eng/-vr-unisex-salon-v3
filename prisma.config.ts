@@ -12,6 +12,11 @@ export default defineConfig({
     seed: "tsx prisma/seed.ts",
   },
   datasource: {
-    url: process.env["DATABASE_URL"],
+    // `db push` runs schema DDL — prefer the direct (non-pooling) URL. Falls
+    // back to DATABASE_URL / pooled so it works in any of those setups.
+    url:
+      process.env["DATABASE_URL"] ||
+      process.env["POSTGRES_URL_NON_POOLING"] ||
+      process.env["POSTGRES_URL"],
   },
 });

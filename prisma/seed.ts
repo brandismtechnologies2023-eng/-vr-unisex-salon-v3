@@ -11,7 +11,13 @@ import {
   siteContent,
 } from "../lib/data";
 
-const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
+// Seeding runs DDL-adjacent bulk writes, so prefer the direct (non-pooling)
+// connection when available; fall back to DATABASE_URL / pooled.
+const connectionString =
+  process.env.DATABASE_URL ||
+  process.env.POSTGRES_URL_NON_POOLING ||
+  process.env.POSTGRES_URL;
+const adapter = new PrismaPg({ connectionString });
 const prisma = new PrismaClient({ adapter });
 
 // Our content interfaces are JSON-serializable but don't carry the index
