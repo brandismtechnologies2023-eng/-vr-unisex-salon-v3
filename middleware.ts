@@ -7,15 +7,15 @@ export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // The login page itself must stay reachable while logged out.
-  if (pathname === "/admin/login") return NextResponse.next();
+  if (pathname === "/vddbinew/login") return NextResponse.next();
 
   const token = request.cookies.get(SESSION_COOKIE)?.value;
   if (await isValidSessionToken(token)) return NextResponse.next();
 
-  const loginUrl = new URL("/admin/login", request.url);
+  const loginUrl = new URL("/vddbinew/login", request.url);
   return NextResponse.redirect(loginUrl);
 }
 
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: ["/vddbinew/:path*"],
 };

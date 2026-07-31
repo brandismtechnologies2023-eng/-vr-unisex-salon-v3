@@ -16,7 +16,7 @@ export default function ContentIndexPage() {
         {contentSections.map((s) => (
           <Link
             key={s.namespace}
-            href={`/admin/content/${s.namespace}`}
+            href={`/vddbinew/content/${s.namespace}`}
             className="flex items-center gap-4 border-b border-zinc-100 p-4 last:border-b-0 hover:bg-zinc-50"
           >
             <div className="min-w-0 flex-1">

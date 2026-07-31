@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useFormStatus } from "react-dom";
 import ImageUploadField from "@/components/admin/ImageUploadField";
-import { saveItem } from "@/app/admin/(protected)/collections/actions";
+import { saveItem } from "@/app/vddbinew/(protected)/collections/actions";
 import type { FieldSpec } from "@/lib/admin/collections";
 
 // Config-driven form shared by every simple collection. The server action

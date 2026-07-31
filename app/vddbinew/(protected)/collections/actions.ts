@@ -51,8 +51,8 @@ export async function saveItem(key: string, formData: FormData) {
   else await config.content.create(data);
 
   config.revalidate.forEach((p) => revalidatePath(p));
-  revalidatePath(`/admin/collections/${key}`);
-  redirect(`/admin/collections/${key}`);
+  revalidatePath(`/vddbinew/collections/${key}`);
+  redirect(`/vddbinew/collections/${key}`);
 }
 
 export async function duplicateItem(key: string, id: string) {
@@ -61,7 +61,7 @@ export async function duplicateItem(key: string, id: string) {
   if (!config) return;
   await config.content.duplicate(id);
   config.revalidate.forEach((p) => revalidatePath(p));
-  revalidatePath(`/admin/collections/${key}`);
+  revalidatePath(`/vddbinew/collections/${key}`);
 }
 
 export async function deleteItem(key: string, id: string) {
@@ -70,7 +70,7 @@ export async function deleteItem(key: string, id: string) {
   if (!config) return;
   await config.content.remove(id);
   config.revalidate.forEach((p) => revalidatePath(p));
-  revalidatePath(`/admin/collections/${key}`);
+  revalidatePath(`/vddbinew/collections/${key}`);
 }
 
 export async function reorderItems(key: string, orderedIds: string[]) {
@@ -79,5 +79,5 @@ export async function reorderItems(key: string, orderedIds: string[]) {
   if (!config) return;
   await config.content.reorder(orderedIds);
   config.revalidate.forEach((p) => revalidatePath(p));
-  revalidatePath(`/admin/collections/${key}`);
+  revalidatePath(`/vddbinew/collections/${key}`);
 }

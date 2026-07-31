@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LogOut } from "lucide-react";
 import { adminNav } from "@/lib/admin/nav";
-import { logout } from "@/app/admin/login/actions";
+import { logout } from "@/app/vddbinew/login/actions";
 
 export default function AdminSidebar() {
   const pathname = usePathname();
@@ -19,8 +19,8 @@ export default function AdminSidebar() {
       <nav className="flex-1 space-y-1 p-3">
         {adminNav.map((item) => {
           const active =
-            item.href === "/admin"
-              ? pathname === "/admin"
+            item.href === "/vddbinew"
+              ? pathname === "/vddbinew"
               : pathname.startsWith(item.href);
           return (
             <Link

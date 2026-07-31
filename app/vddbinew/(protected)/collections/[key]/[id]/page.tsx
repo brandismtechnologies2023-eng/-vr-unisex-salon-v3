@@ -21,7 +21,7 @@ export default async function EditCollectionItemPage({
         collectionKey={key}
         fields={config.fields}
         item={item}
-        backHref={`/admin/collections/${key}`}
+        backHref={`/vddbinew/collections/${key}`}
       />
     </div>
   );

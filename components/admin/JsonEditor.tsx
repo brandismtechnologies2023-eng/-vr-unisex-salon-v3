@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useFormStatus } from "react-dom";
-import { saveSetting } from "@/app/admin/(protected)/content/actions";
+import { saveSetting } from "@/app/vddbinew/(protected)/content/actions";
 import { LeafField } from "@/components/admin/LeafFields";
 import type { Leaf } from "@/lib/admin/paths";
 

@@ -14,5 +14,5 @@ export async function isAdmin(): Promise<boolean> {
 // admin layout — this is the real security boundary (middleware is only the
 // redirect-to-login UX layer).
 export async function requireAdmin(): Promise<void> {
-  if (!(await isAdmin())) redirect("/admin/login");
+  if (!(await isAdmin())) redirect("/vddbinew/login");
 }

@@ -17,7 +17,7 @@ export default async function NewCollectionItemPage({
       <CollectionForm
         collectionKey={key}
         fields={config.fields}
-        backHref={`/admin/collections/${key}`}
+        backHref={`/vddbinew/collections/${key}`}
       />
     </div>
   );

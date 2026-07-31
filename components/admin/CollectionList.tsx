@@ -6,7 +6,7 @@ import {
   duplicateItem,
   deleteItem,
   reorderItems,
-} from "@/app/admin/(protected)/collections/actions";
+} from "@/app/vddbinew/(protected)/collections/actions";
 
 export interface ListRow {
   id: string;
@@ -26,7 +26,7 @@ export default function CollectionList({
   description: string;
   rows: ListRow[];
 }) {
-  const base = `/admin/collections/${collectionKey}`;
+  const base = `/vddbinew/collections/${collectionKey}`;
   const ids = rows.map((r) => r.id);
   const swap = (i: number, j: number) => {
     const next = [...ids];

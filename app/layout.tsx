@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 // Root layout is intentionally bare (just html/body/font). The public site
 // chrome (navbar/footer) lives in app/(public)/layout.tsx; the admin panel
-// has its own shell in app/admin/layout.tsx.
+// has its own shell in app/vddbinew/layout.tsx.
 export default function RootLayout({
   children,
 }: Readonly<{

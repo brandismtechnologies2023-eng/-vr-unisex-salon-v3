@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useFormStatus } from "react-dom";
 import ImageUploadField from "@/components/admin/ImageUploadField";
 import { LeafField } from "@/components/admin/LeafFields";
-import { saveService } from "@/app/admin/(protected)/services/actions";
+import { saveService } from "@/app/vddbinew/(protected)/services/actions";
 import type { Leaf } from "@/lib/admin/paths";
 import type { Service } from "@/types";
 
@@ -104,7 +104,7 @@ function SubmitRow() {
         {pending ? "Saving..." : "Save"}
       </button>
       <Link
-        href="/admin/services"
+        href="/vddbinew/services"
         className="rounded-full px-6 py-2.5 text-sm font-medium text-zinc-500 hover:bg-zinc-100"
       >
         Cancel

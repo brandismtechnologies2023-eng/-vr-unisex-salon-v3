@@ -18,7 +18,7 @@ function revalidateServices(slug?: string) {
   revalidatePath("/");
   revalidatePath("/services");
   if (slug) revalidatePath(`/services/${slug}`);
-  revalidatePath("/admin/services");
+  revalidatePath("/vddbinew/services");
 }
 
 async function resolveImage(formData: FormData, current?: string): Promise<string | undefined> {
@@ -71,7 +71,7 @@ export async function saveService(id: string, formData: FormData) {
 
   await updateService(id, updated);
   revalidateServices(updated.slug);
-  redirect("/admin/services");
+  redirect("/vddbinew/services");
 }
 
 export async function duplicateServiceAction(id: string) {

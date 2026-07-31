@@ -7,7 +7,7 @@ import {
   duplicateServiceAction,
   deleteServiceAction,
   reorderServicesAction,
-} from "@/app/admin/(protected)/services/actions";
+} from "@/app/vddbinew/(protected)/services/actions";
 
 export default async function ServicesAdminPage() {
   const services = await getServices();
@@ -64,7 +64,7 @@ export default async function ServicesAdminPage() {
                 </button>
               </form>
               <Link
-                href={`/admin/services/${s.id}`}
+                href={`/vddbinew/services/${s.id}`}
                 className="rounded-md p-2 text-zinc-500 hover:bg-zinc-100 hover:text-secondary"
                 aria-label="Edit"
               >

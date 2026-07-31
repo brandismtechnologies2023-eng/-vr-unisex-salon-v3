@@ -26,6 +26,6 @@ export async function saveSetting(namespace: string, formData: FormData) {
 
   // Site copy can appear on any page — refresh the main ones.
   ["/", "/about", "/contact", "/services"].forEach((p) => revalidatePath(p));
-  revalidatePath(`/admin/content/${namespace}`);
-  redirect("/admin/content");
+  revalidatePath(`/vddbinew/content/${namespace}`);
+  redirect("/vddbinew/content");
 }

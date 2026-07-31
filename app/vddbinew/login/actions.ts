@@ -9,7 +9,7 @@ export async function login(formData: FormData) {
   const password = String(formData.get("password") ?? "");
 
   if (!verifyPassword(password, process.env.ADMIN_PASSWORD_HASH)) {
-    redirect("/admin/login?error=1");
+    redirect("/vddbinew/login?error=1");
   }
 
   const token = await createSessionToken();
@@ -21,10 +21,10 @@ export async function login(formData: FormData) {
     maxAge: 60 * 60 * 24 * 7,
   });
 
-  redirect("/admin");
+  redirect("/vddbinew");
 }
 
 export async function logout() {
   (await cookies()).delete(SESSION_COOKIE);
-  redirect("/admin/login");
+  redirect("/vddbinew/login");
 }

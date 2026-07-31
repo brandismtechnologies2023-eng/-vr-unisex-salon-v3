@@ -19,13 +19,13 @@ export default async function AdminDashboardPage() {
   ]);
 
   const cards = [
-    { label: "Services", count: services.length, href: "/admin/services" },
-    { label: "Team", count: team.length, href: "/admin/collections/team" },
-    { label: "Testimonials", count: testimonials.length, href: "/admin/collections/testimonials" },
-    { label: "Gallery", count: gallery.length, href: "/admin/collections/gallery" },
-    { label: "Pricing", count: pricing.length, href: "/admin/collections/pricing" },
-    { label: "FAQs", count: faqs.length, href: "/admin/collections/faqs" },
-    { label: "Site Text", count: contentSections.length, href: "/admin/content" },
+    { label: "Services", count: services.length, href: "/vddbinew/services" },
+    { label: "Team", count: team.length, href: "/vddbinew/collections/team" },
+    { label: "Testimonials", count: testimonials.length, href: "/vddbinew/collections/testimonials" },
+    { label: "Gallery", count: gallery.length, href: "/vddbinew/collections/gallery" },
+    { label: "Pricing", count: pricing.length, href: "/vddbinew/collections/pricing" },
+    { label: "FAQs", count: faqs.length, href: "/vddbinew/collections/faqs" },
+    { label: "Site Text", count: contentSections.length, href: "/vddbinew/content" },
   ];
 
   return (
