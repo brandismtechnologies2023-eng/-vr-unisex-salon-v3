@@ -51,3 +51,6 @@ next-env.d.ts
 
 # admin-uploaded images (local testing only)
 /public/images/uploads
+
+# Local handoff notes (contains admin password) — never commit
+SESSION-NOTES.md

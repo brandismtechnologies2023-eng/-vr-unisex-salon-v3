@@ -17,6 +17,13 @@ const renamedServiceSlugs: [string, string][] = [
 ];
 
 const nextConfig: NextConfig = {
+  // Admin-uploaded images live on Vercel Blob; allow next/image to optimise
+  // them from that host.
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "*.public.blob.vercel-storage.com" },
+    ],
+  },
   // The contact API route embeds the logo in the thank-you email via
   // fs.readFileSync — explicitly trace it so Vercel's serverless bundle
   // includes it (public/ assets aren't traced automatically).

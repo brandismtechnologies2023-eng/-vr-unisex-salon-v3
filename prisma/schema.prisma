@@ -2,8 +2,8 @@
 // Repeatable collections are rows (id + order + JSON payload) so that
 // "duplicate" is just cloning a row with a new id. Free-form page copy is
 // one SiteSetting row per top-level siteContent namespace.
-// Local dev uses SQLite; swapping to Postgres later only changes the
-// datasource provider/url below.
+// Uses hosted Postgres (Neon / Vercel Postgres / Supabase). The connection
+// string comes from DATABASE_URL and is used both locally and on Vercel.
 
 generator client {
   provider = "prisma-client"
@@ -11,7 +11,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
 }
 
 model Service {
