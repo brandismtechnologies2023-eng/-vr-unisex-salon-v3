@@ -24,9 +24,13 @@ function labelFor(segment: string) {
 export default function GlobalBreadcrumb() {
   const pathname = usePathname();
 
-  if (pathname === "/") return null;
-
   const segments = pathname.split("/").filter(Boolean);
+
+  // No breadcrumb on the home page. Guard against the pathname arriving as
+  // "/", "", or the prerendered "/index" form — all mean home.
+  if (segments.length === 0 || (segments.length === 1 && segments[0] === "index")) {
+    return null;
+  }
   const items = [
     { label: content.homeLabel, href: "/" },
     ...segments.map((segment, i) => {
