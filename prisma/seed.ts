@@ -1,3 +1,8 @@
+import { config as loadEnv } from "dotenv";
+// Load the app's env file so `tsx prisma/seed.ts` has the DB connection
+// string (Prisma CLI loads it via prisma.config.ts, but a direct run doesn't).
+loadEnv({ path: ".env.local" });
+
 import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaClient } from "../lib/generated/prisma/client";
 import type { Prisma } from "../lib/generated/prisma/client";
