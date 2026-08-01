@@ -1,10 +1,14 @@
 import type { MetadataRoute } from "next";
 import { getServices } from "@/lib/content/services";
-import { indexingAllowed, siteUrl } from "@/lib/seo";
+import { getSeoSettings } from "@/lib/content/seo-settings";
+import { siteUrl } from "@/lib/seo";
+
+export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Nothing to advertise while the site is hidden from search engines.
-  if (!indexingAllowed) return [];
+  const { allowIndexing } = await getSeoSettings();
+  if (!allowIndexing) return [];
 
   const services = await getServices();
   const now = new Date();

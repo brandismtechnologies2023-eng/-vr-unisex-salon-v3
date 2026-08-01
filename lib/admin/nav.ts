@@ -9,4 +9,5 @@ export const adminNav: { label: string; href: string }[] = [
   { label: "FAQs", href: "/vddbinew/collections/faqs" },
   { label: "Site Text", href: "/vddbinew/content" },
   { label: "Submissions", href: "/vddbinew/submissions" },
+  { label: "Search Engines", href: "/vddbinew/seo" },
 ];

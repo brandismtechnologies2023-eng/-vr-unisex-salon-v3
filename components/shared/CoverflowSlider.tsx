@@ -146,6 +146,9 @@ export default function CoverflowSlider({ slides, interval = 3200 }: CoverflowSl
               alt={slide.title}
               fill
               sizes={`${layout.cardW}px`}
+              // The front card is the hero's LCP element — preload it so the
+              // browser doesn't discover it only after hydration.
+              priority={isFront}
               className="object-cover"
             />
             <div className="absolute inset-0 bg-linear-to-t from-secondary/80 via-secondary/10 to-transparent" />

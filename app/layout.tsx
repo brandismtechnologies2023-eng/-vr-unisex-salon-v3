@@ -3,23 +3,29 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { siteContent } from "@/lib/data";
 import { siteConfig } from "@/lib/site-config";
-import { indexingAllowed } from "@/lib/seo";
+import { getSeoSettings } from "@/lib/content/seo-settings";
 
+// Only the weights the UI actually uses — 300/800 were loaded but never
+// applied, costing two extra render-blocking font files.
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: `${siteConfig.name} | ${siteContent.siteMeta.titleSuffix}`,
-  description: siteConfig.description,
-  // Applies to every page unless a page overrides it. Keeps the demo URL out
-  // of search results; flip ALLOW_INDEXING on the real domain.
-  robots: indexingAllowed
-    ? { index: true, follow: true }
-    : { index: false, follow: false },
-};
+// Dynamic so the admin panel's "Search engine visibility" toggle takes effect
+// without a redeploy. Applies to every page unless a page overrides it.
+export async function generateMetadata(): Promise<Metadata> {
+  const { allowIndexing } = await getSeoSettings();
+  return {
+    title: `${siteConfig.name} | ${siteContent.siteMeta.titleSuffix}`,
+    description: siteConfig.description,
+    robots: allowIndexing
+      ? { index: true, follow: true }
+      : { index: false, follow: false },
+  };
+}
 
 // Root layout is intentionally bare (just html/body/font). The public site
 // chrome (navbar/footer) lives in app/(public)/layout.tsx; the admin panel

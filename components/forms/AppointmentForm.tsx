@@ -1,7 +1,8 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
+import dynamic from "next/dynamic";
+import type ReCAPTCHAType from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -116,13 +117,25 @@ const iconClass =
 const chevronClass =
   "pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-third";
 
+// Google's reCAPTCHA script is ~1MB and this form sits on the home page, so
+// it's code-split and only mounted once the visitor actually starts filling
+// the form — the page itself no longer pays for it.
+// Cast back to the real component type so the imperative ref (used to reset
+// the widget after submit) keeps working through the dynamic wrapper.
+const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"), {
+  ssr: false,
+}) as unknown as typeof import("react-google-recaptcha").default;
+
 export default function AppointmentForm() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [country, setCountry] = useState<CountryCode>("AE");
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [recaptchaError, setRecaptchaError] = useState(false);
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const recaptchaRef = useRef<ReCAPTCHAType>(null);
   const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+  // Flipped on first interaction with the form (focus covers typing, autofill
+  // and tabbing), which is what triggers loading the reCAPTCHA script.
+  const [formStarted, setFormStarted] = useState(false);
   const timeSlots = useMemo(buildTimeSlots, []);
   // Blocks past dates in the picker; the value is also re-checked on submit.
   const today = useMemo(() => new Date().toISOString().split("T")[0], []);
@@ -178,7 +191,11 @@ export default function AppointmentForm() {
     );
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      onFocusCapture={() => setFormStarted(true)}
+      noValidate
+    >
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className={labelClass}>
@@ -359,16 +376,20 @@ export default function AppointmentForm() {
       </div>
 
       {recaptchaSiteKey && (
-        <div className="mt-5 flex flex-col items-center">
-          <ReCAPTCHA
-            ref={recaptchaRef}
-            sitekey={recaptchaSiteKey}
-            onChange={(token) => {
-              setRecaptchaToken(token);
-              if (token) setRecaptchaError(false);
-            }}
-            onExpired={() => setRecaptchaToken(null)}
-          />
+        // Height is reserved up front so the widget appearing doesn't shift
+        // the submit button.
+        <div className="mt-5 flex min-h-[78px] flex-col items-center">
+          {formStarted && (
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              sitekey={recaptchaSiteKey}
+              onChange={(token) => {
+                setRecaptchaToken(token);
+                if (token) setRecaptchaError(false);
+              }}
+              onExpired={() => setRecaptchaToken(null)}
+            />
+          )}
           {recaptchaError && (
             <p className="mt-2 text-xs text-red-600">{content.validation.recaptcha}</p>
           )}
