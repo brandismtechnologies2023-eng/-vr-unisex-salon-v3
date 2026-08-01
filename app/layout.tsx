@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { siteContent } from "@/lib/data";
 import { siteConfig } from "@/lib/site-config";
+import { indexingAllowed } from "@/lib/seo";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -13,6 +14,11 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: `${siteConfig.name} | ${siteContent.siteMeta.titleSuffix}`,
   description: siteConfig.description,
+  // Applies to every page unless a page overrides it. Keeps the demo URL out
+  // of search results; flip ALLOW_INDEXING on the real domain.
+  robots: indexingAllowed
+    ? { index: true, follow: true }
+    : { index: false, follow: false },
 };
 
 // Root layout is intentionally bare (just html/body/font). The public site
