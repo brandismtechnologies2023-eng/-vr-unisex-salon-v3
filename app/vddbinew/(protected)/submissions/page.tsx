@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Inbox, Trash2 } from "lucide-react";
+import { FileSpreadsheet, FileText, Inbox, Trash2 } from "lucide-react";
 import ConfirmButton from "@/components/admin/ConfirmButton";
 import { getSubmissions, getSubmissionFormTypes } from "@/lib/content/submissions";
 import { deleteSubmissionAction } from "@/app/vddbinew/(protected)/submissions/actions";
@@ -58,6 +58,20 @@ export default async function SubmissionsPage({
           </div>
         )}
       </div>
+
+      {submissions.length > 0 && (
+        <div className="mb-6 flex flex-wrap items-center gap-3 rounded-xl border border-zinc-200 bg-white p-4">
+          <div className="mr-auto min-w-0">
+            <p className="font-medium text-secondary">Export</p>
+            <p className="mt-0.5 text-sm text-zinc-500">
+              Download {form ? "the filtered" : "all"} {submissions.length}{" "}
+              {submissions.length === 1 ? "entry" : "entries"}.
+            </p>
+          </div>
+          <ExportLink format="xlsx" form={form} label="Excel" icon="sheet" />
+          <ExportLink format="pdf" form={form} label="PDF" icon="pdf" />
+        </div>
+      )}
 
       {submissions.length === 0 ? (
         <div className="rounded-xl border border-dashed border-zinc-300 bg-white p-10 text-center">
@@ -124,6 +138,34 @@ export default async function SubmissionsPage({
         </div>
       )}
     </div>
+  );
+}
+
+function ExportLink({
+  format,
+  form,
+  label,
+  icon,
+}: {
+  format: "xlsx" | "pdf";
+  form?: string;
+  label: string;
+  icon: "sheet" | "pdf";
+}) {
+  const params = new URLSearchParams({ format });
+  if (form) params.set("form", form);
+  const Icon = icon === "sheet" ? FileSpreadsheet : FileText;
+
+  return (
+    <a
+      href={`/vddbinew/submissions/export?${params.toString()}`}
+      // A download, not a navigation — skip the client router.
+      download
+      className="inline-flex items-center gap-2 rounded-full border border-zinc-200 px-4 py-2 text-sm font-medium text-secondary transition-colors hover:bg-zinc-50"
+    >
+      <Icon className="h-4 w-4 text-third" />
+      {label}
+    </a>
   );
 }
 
