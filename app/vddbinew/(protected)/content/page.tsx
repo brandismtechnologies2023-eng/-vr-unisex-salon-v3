@@ -4,7 +4,7 @@ import { contentSections } from "@/lib/admin/content-sections";
 
 export default function ContentIndexPage() {
   return (
-    <div className="p-8">
+    <div className="p-4 sm:p-8">
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-secondary">Site Text</h1>
         <p className="mt-1 text-sm text-zinc-500">

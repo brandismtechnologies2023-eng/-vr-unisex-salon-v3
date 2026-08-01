@@ -35,10 +35,10 @@ export default function CollectionList({
   };
 
   return (
-    <div className="p-8">
-      <div className="mb-6 flex items-center justify-between">
+    <div className="p-4 sm:p-8">
+      <div className="mb-6 flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-secondary">{title}</h1>
+          <h1 className="text-xl font-bold text-secondary sm:text-2xl">{title}</h1>
           <p className="mt-1 text-sm text-zinc-500">{description}</p>
         </div>
         <Link
@@ -55,7 +55,7 @@ export default function CollectionList({
         {rows.map((row, i) => (
           <div
             key={row.id}
-            className="flex items-center gap-4 border-b border-zinc-100 p-4 last:border-b-0"
+            className="flex flex-wrap items-center gap-3 border-b border-zinc-100 p-4 last:border-b-0 sm:flex-nowrap sm:gap-4"
           >
             {row.thumb ? (
               <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-zinc-100">
@@ -64,14 +64,14 @@ export default function CollectionList({
             ) : (
               <div className="h-12 w-12 shrink-0 rounded-lg bg-zinc-100" />
             )}
-            <div className="min-w-0 flex-1">
+            <div className="min-w-0 flex-1 basis-40">
               <p className="truncate font-medium text-secondary">{row.primary}</p>
               {row.secondary && (
                 <p className="truncate text-sm text-zinc-500">{row.secondary}</p>
               )}
             </div>
 
-            <div className="flex items-center gap-1">
+            <div className="flex shrink-0 items-center gap-1">
               <form action={reorderItems.bind(null, collectionKey, swap(i, i - 1))}>
                 <button
                   type="submit"

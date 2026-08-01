@@ -19,9 +19,9 @@ export default async function ServicesAdminPage() {
   };
 
   return (
-    <div className="p-8">
+    <div className="p-4 sm:p-8">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-secondary">Services</h1>
+        <h1 className="text-xl font-bold text-secondary sm:text-2xl">Services</h1>
         <p className="mt-1 text-sm text-zinc-500">
           Edit any service page. Use Duplicate to clone a service, then edit the copy.
         </p>
@@ -31,18 +31,18 @@ export default async function ServicesAdminPage() {
         {services.map((s, i) => (
           <div
             key={s.id}
-            className="flex items-center gap-4 border-b border-zinc-100 p-4 last:border-b-0"
+            className="flex flex-wrap items-center gap-3 border-b border-zinc-100 p-4 last:border-b-0 sm:flex-nowrap sm:gap-4"
           >
             <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-zinc-100">
               {s.image && <Image src={s.image} alt="" fill sizes="48px" className="object-cover" />}
             </div>
-            <div className="min-w-0 flex-1">
+            <div className="min-w-0 flex-1 basis-40">
               <p className="truncate font-medium text-secondary">{s.title}</p>
               <p className="truncate text-sm text-zinc-500">
                 /services/{s.slug} · from AED {s.startingPrice}
               </p>
             </div>
-            <div className="flex items-center gap-1">
+            <div className="flex shrink-0 items-center gap-1">
               <form action={reorderServicesAction.bind(null, swap(i, i - 1))}>
                 <button
                   type="submit"

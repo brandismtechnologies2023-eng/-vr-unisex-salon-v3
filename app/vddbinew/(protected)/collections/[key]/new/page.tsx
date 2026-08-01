@@ -12,7 +12,7 @@ export default async function NewCollectionItemPage({
   if (!config) notFound();
 
   return (
-    <div className="p-8">
+    <div className="p-4 sm:p-8">
       <h1 className="mb-6 text-2xl font-bold text-secondary">Add {config.singular}</h1>
       <CollectionForm
         collectionKey={key}

@@ -73,3 +73,22 @@ model SiteSetting {
   data      Json
   updatedAt DateTime @updatedAt
 }
+
+// Every public form submission. `formType` identifies which form it came
+// from ("appointment" today); the admin filter is derived from the distinct
+// values present, so adding another form on the site makes its filter option
+// appear automatically. `data` holds that form's fields as submitted, so new
+// forms need no schema change.
+model Submission {
+  id        String   @id @default(cuid())
+  formType  String
+  formLabel String
+  name      String?
+  email     String?
+  phone     String?
+  data      Json
+  createdAt DateTime @default(now())
+
+  @@index([formType, createdAt])
+  @@index([createdAt])
+}

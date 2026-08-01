@@ -8,4 +8,5 @@ export const adminNav: { label: string; href: string }[] = [
   { label: "Pricing", href: "/vddbinew/collections/pricing" },
   { label: "FAQs", href: "/vddbinew/collections/faqs" },
   { label: "Site Text", href: "/vddbinew/content" },
+  { label: "Submissions", href: "/vddbinew/submissions" },
 ];

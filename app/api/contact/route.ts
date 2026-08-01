@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { z } from "zod";
 import { siteContent } from "@/lib/data";
+import { createSubmission } from "@/lib/content/submissions";
 import { siteConfig } from "@/lib/site-config";
 
 const thankYouContent = siteContent.customerThankYouEmail;
@@ -99,6 +100,30 @@ export async function POST(request: Request) {
   }
 
   const { name, email, phone, service, date, time, message } = parsed.data;
+
+  // Record the lead first so it's never lost if email delivery fails. Stored
+  // generically (formType + fields) so the admin Submissions tab picks it up
+  // and any future form does too, with no code change there.
+  try {
+    await createSubmission({
+      formType: "appointment",
+      formLabel: "Appointment Request",
+      name,
+      email,
+      phone,
+      data: {
+        Name: name,
+        Email: email,
+        Phone: phone,
+        ...(service ? { Service: service } : {}),
+        ...(date ? { "Preferred date": date } : {}),
+        ...(time ? { "Preferred time": time } : {}),
+        ...(message ? { Message: message } : {}),
+      },
+    });
+  } catch (error) {
+    console.error("Failed to record submission:", error);
+  }
 
   const transporter = nodemailer.createTransport({
     host: SMTP_HOST,

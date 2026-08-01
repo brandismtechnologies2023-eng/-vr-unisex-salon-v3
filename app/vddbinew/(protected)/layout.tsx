@@ -16,10 +16,12 @@ export default async function ProtectedAdminLayout({
 }>) {
   await requireAdmin();
 
+  // On mobile AdminSidebar renders a sticky top bar plus a slide-in drawer;
+  // from lg up it becomes the static left column.
   return (
-    <div className="flex min-h-screen bg-zinc-50">
+    <div className="min-h-screen bg-zinc-50 lg:flex">
       <AdminSidebar />
-      <div className="flex-1 overflow-x-hidden">{children}</div>
+      <div className="min-w-0 flex-1 overflow-x-hidden">{children}</div>
     </div>
   );
 }

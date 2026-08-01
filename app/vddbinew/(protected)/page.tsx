@@ -6,17 +6,20 @@ import { testimonialsContent } from "@/lib/content/testimonials";
 import { galleryContent } from "@/lib/content/gallery";
 import { pricingContent } from "@/lib/content/pricing";
 import { faqsContent } from "@/lib/content/faqs";
+import { getSubmissions } from "@/lib/content/submissions";
 import { contentSections } from "@/lib/admin/content-sections";
 
 export default async function AdminDashboardPage() {
-  const [services, team, testimonials, gallery, pricing, faqs] = await Promise.all([
-    getServices(),
-    teamContent.getAll(),
-    testimonialsContent.getAll(),
-    galleryContent.getAll(),
-    pricingContent.getAll(),
-    faqsContent.getAll(),
-  ]);
+  const [services, team, testimonials, gallery, pricing, faqs, submissions] =
+    await Promise.all([
+      getServices(),
+      teamContent.getAll(),
+      testimonialsContent.getAll(),
+      galleryContent.getAll(),
+      pricingContent.getAll(),
+      faqsContent.getAll(),
+      getSubmissions(),
+    ]);
 
   const cards = [
     { label: "Services", count: services.length, href: "/vddbinew/services" },
@@ -26,13 +29,14 @@ export default async function AdminDashboardPage() {
     { label: "Pricing", count: pricing.length, href: "/vddbinew/collections/pricing" },
     { label: "FAQs", count: faqs.length, href: "/vddbinew/collections/faqs" },
     { label: "Site Text", count: contentSections.length, href: "/vddbinew/content" },
+    { label: "Submissions", count: submissions.length, href: "/vddbinew/submissions" },
   ];
 
   return (
-    <div className="p-8">
-      <div className="mb-8 flex items-center justify-between">
+    <div className="p-4 sm:p-8">
+      <div className="mb-8 flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-secondary">Dashboard</h1>
+          <h1 className="text-xl font-bold text-secondary sm:text-2xl">Dashboard</h1>
           <p className="mt-1 text-sm text-zinc-500">
             Manage everything shown on the VR Salon website.
           </p>

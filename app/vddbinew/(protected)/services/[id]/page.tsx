@@ -29,7 +29,7 @@ export default async function EditServicePage({
   const sectionLeaves = flattenLeaves(sections);
 
   return (
-    <div className="p-8">
+    <div className="p-4 sm:p-8">
       <h1 className="mb-1 text-2xl font-bold text-secondary">Edit Service</h1>
       <p className="mb-6 text-sm text-zinc-500">{service.title}</p>
       <ServiceForm service={service} sectionLeaves={sectionLeaves} />
