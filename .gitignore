@@ -54,3 +54,6 @@ next-env.d.ts
 
 # Local handoff notes (contains admin password) — never commit
 SESSION-NOTES.md
+
+# Lighthouse report artifacts
+lh*.json
