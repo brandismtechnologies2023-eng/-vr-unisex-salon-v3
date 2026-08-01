@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import AppointmentForm from "@/components/forms/AppointmentForm";
+import AppointmentFormLazy from "@/components/forms/AppointmentFormLazy";
 import { getSetting } from "@/lib/content/settings";
 import { siteConfig } from "@/lib/site-config";
 
@@ -61,7 +61,7 @@ export default async function ContactSection() {
               </span>
             </div>
 
-            <AppointmentForm />
+            <AppointmentFormLazy />
           </div>
         </div>
       </div>
