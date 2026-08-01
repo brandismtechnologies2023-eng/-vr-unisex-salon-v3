@@ -117,9 +117,10 @@ const iconClass =
 const chevronClass =
   "pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-third";
 
-// Google's reCAPTCHA script is ~1MB and this form sits on the home page, so
-// it's code-split and only mounted once the visitor actually starts filling
-// the form — the page itself no longer pays for it.
+// Google's reCAPTCHA script is ~1MB, so it's code-split rather than bundled
+// into the page. The form itself is already deferred until it scrolls into
+// view (see AppointmentFormLazy), so loading it with the form means the
+// checkbox is visible whenever the form is — without costing a page load.
 // Cast back to the real component type so the imperative ref (used to reset
 // the widget after submit) keeps working through the dynamic wrapper.
 const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"), {
@@ -133,9 +134,6 @@ export default function AppointmentForm() {
   const [recaptchaError, setRecaptchaError] = useState(false);
   const recaptchaRef = useRef<ReCAPTCHAType>(null);
   const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-  // Flipped on first interaction with the form (focus covers typing, autofill
-  // and tabbing), which is what triggers loading the reCAPTCHA script.
-  const [formStarted, setFormStarted] = useState(false);
   const timeSlots = useMemo(buildTimeSlots, []);
   // Blocks past dates in the picker; the value is also re-checked on submit.
   const today = useMemo(() => new Date().toISOString().split("T")[0], []);
@@ -191,11 +189,7 @@ export default function AppointmentForm() {
     );
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      onFocusCapture={() => setFormStarted(true)}
-      noValidate
-    >
+    <form onSubmit={handleSubmit(onSubmit)} noValidate>
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className={labelClass}>
@@ -379,17 +373,15 @@ export default function AppointmentForm() {
         // Height is reserved up front so the widget appearing doesn't shift
         // the submit button.
         <div className="mt-5 flex min-h-[78px] flex-col items-center">
-          {formStarted && (
-            <ReCAPTCHA
-              ref={recaptchaRef}
-              sitekey={recaptchaSiteKey}
-              onChange={(token) => {
-                setRecaptchaToken(token);
-                if (token) setRecaptchaError(false);
-              }}
-              onExpired={() => setRecaptchaToken(null)}
-            />
-          )}
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            sitekey={recaptchaSiteKey}
+            onChange={(token) => {
+              setRecaptchaToken(token);
+              if (token) setRecaptchaError(false);
+            }}
+            onExpired={() => setRecaptchaToken(null)}
+          />
           {recaptchaError && (
             <p className="mt-2 text-xs text-red-600">{content.validation.recaptcha}</p>
           )}
