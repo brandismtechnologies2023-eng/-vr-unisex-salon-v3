@@ -91,19 +91,13 @@ export async function POST(request: Request) {
   const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS } = process.env;
   const toEmail = process.env.CONTACT_TO_EMAIL || siteConfig.email;
 
-  if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS) {
-    console.error("SMTP environment variables are not configured");
-    return NextResponse.json(
-      { error: "Email service is not configured" },
-      { status: 500 }
-    );
-  }
-
   const { name, email, phone, service, date, time, message } = parsed.data;
 
-  // Record the lead first so it's never lost if email delivery fails. Stored
-  // generically (formType + fields) so the admin Submissions tab picks it up
-  // and any future form does too, with no code change there.
+  // Record the lead first, before any email work. The admin Submissions tab
+  // is the system of record, so a mail outage must never lose an enquiry.
+  // Stored generically (formType + fields) so a future form is picked up
+  // there with no change needed.
+  let recorded = false;
   try {
     await createSubmission({
       formType: "appointment",
@@ -121,8 +115,18 @@ export async function POST(request: Request) {
         ...(message ? { Message: message } : {}),
       },
     });
+    recorded = true;
   } catch (error) {
     console.error("Failed to record submission:", error);
+  }
+
+  // Email is best-effort from here on: if the enquiry is safely stored, the
+  // customer gets a success response even when mail is misconfigured or down.
+  if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS) {
+    console.error("SMTP environment variables are not configured");
+    return recorded
+      ? NextResponse.json({ success: true })
+      : NextResponse.json({ error: "Failed to send message" }, { status: 500 });
   }
 
   const transporter = nodemailer.createTransport({
@@ -154,7 +158,11 @@ export async function POST(request: Request) {
     });
   } catch (error) {
     console.error("SMTP send error:", error);
-    return NextResponse.json({ error: "Failed to send message" }, { status: 500 });
+    // Only a hard failure if the enquiry wasn't stored either — otherwise the
+    // salon still has it in the admin panel.
+    if (!recorded) {
+      return NextResponse.json({ error: "Failed to send message" }, { status: 500 });
+    }
   }
 
   // Best-effort: the salon already has the lead above, so a failure here

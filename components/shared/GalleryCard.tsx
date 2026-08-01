@@ -19,14 +19,20 @@ export default function GalleryCard({ media, onClick, className = "" }: GalleryC
         className
       )}
     >
+      {/* Videos are never mounted here — a thumbnail only. The real <video>
+          lives in the modal, so opening the page downloads no video data. */}
       {media.type === "video" ? (
-        <video
-          src={media.src}
-          className="h-full w-full object-cover"
-          preload="metadata"
-          muted
-          playsInline
-        />
+        media.poster ? (
+          <Image
+            src={media.poster}
+            alt={media.alt}
+            fill
+            sizes="(min-width: 1024px) 16vw, (min-width: 640px) 25vw, 50vw"
+            className="object-cover"
+          />
+        ) : (
+          <span className="absolute inset-0 bg-gradient-to-br from-secondary/80 to-third/60" />
+        )
       ) : (
         <Image
           src={media.src}

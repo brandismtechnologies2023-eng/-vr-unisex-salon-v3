@@ -104,6 +104,12 @@ export const collections: Record<string, CollectionConfig> = {
         ],
       },
       { name: "src", label: "File", type: "image", accept: "image/*,video/*" },
+      {
+        name: "poster",
+        label: "Video Thumbnail",
+        type: "image",
+        help: "Only for videos — the picture shown before the video is played.",
+      },
       { name: "alt", label: "Description (alt text)", type: "text", required: true },
       { name: "category", label: "Category", type: "text" },
       { name: "width", label: "Width (px)", type: "number" },

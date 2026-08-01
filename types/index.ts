@@ -216,6 +216,9 @@ export interface GalleryMedia {
   src: string;
   alt: string;
   category?: string;
+  // Thumbnail shown in place of a video until it's opened, so page load never
+  // downloads video data. Optional — without one the card shows a placeholder.
+  poster?: string;
   // Intrinsic pixel size, used so images/videos render at their own
   // natural aspect ratio in the masonry grid instead of a forced crop.
   width?: number;
