@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import SectionHeading from "@/components/shared/SectionHeading";
 import ServiceCard from "@/components/shared/ServiceCard";
 import Button from "@/components/shared/Button";
@@ -56,19 +55,18 @@ export default function Services({
           const isRevealed = limit !== undefined && i >= limit;
 
           return (
-            <motion.div
+            <div
               key={service.id}
-              className="w-full sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)]"
-              initial={isRevealed ? { opacity: 0, y: 16 } : false}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.35,
-                ease: "easeOut",
-                delay: isRevealed ? (i - limit) * 0.05 : 0,
-              }}
+              className={`w-full sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] ${
+                isRevealed ? "animate-fade-up" : ""
+              }`}
+              // Stagger the reveal without a JS animation library.
+              style={
+                isRevealed ? { animationDelay: `${(i - limit) * 0.05}s` } : undefined
+              }
             >
               <ServiceCard service={service} />
-            </motion.div>
+            </div>
           );
         })}
       </div>
