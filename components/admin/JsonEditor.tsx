@@ -11,15 +11,34 @@ import type { Leaf } from "@/lib/admin/paths";
 export default function JsonEditor({
   namespace,
   leaves,
+  seoLeaves = [],
   backHref,
 }: {
   namespace: string;
   leaves: Leaf[];
+  /** Rendered first, in a highlighted box — how the page appears in Google. */
+  seoLeaves?: Leaf[];
   backHref: string;
 }) {
   const save = saveSetting.bind(null, namespace);
   return (
     <form action={save} className="max-w-2xl space-y-5">
+      {seoLeaves.length > 0 && (
+        <section className="rounded-xl border border-sky-200 bg-sky-50/70 p-5">
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-sky-900">
+            SEO &amp; Search Listing
+          </h2>
+          <p className="mt-1 mb-4 text-xs text-sky-800/70">
+            How this page shows up on Google.
+          </p>
+          <div className="space-y-4">
+            {seoLeaves.map((leaf) => (
+              <LeafField key={leaf.path} leaf={leaf} />
+            ))}
+          </div>
+        </section>
+      )}
+
       {leaves.map((leaf) => (
         <LeafField key={leaf.path} leaf={leaf} />
       ))}

@@ -57,6 +57,14 @@ export async function saveService(id: string, formData: FormData) {
     setPath(sectionBag, leaf.path, value);
   }
 
+  // The SEO box always posts these, even for a service that has none stored
+  // yet (so no leaf existed above for the loop to pick up).
+  for (const key of ["metaTitle", "metaDescription"] as const) {
+    const value = str(formData, `sec.${key}`);
+    if (value) sectionBag[key] = value;
+    else delete sectionBag[key];
+  }
+
   const shortTitle = str(formData, "shortTitle");
   const updated = {
     id,

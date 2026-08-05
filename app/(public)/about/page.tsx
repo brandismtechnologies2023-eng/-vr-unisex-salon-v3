@@ -4,15 +4,17 @@ import WhatMakesUsDifferent from "@/components/about/WhatMakesUsDifferent";
 import AboutServices from "@/components/about/AboutServices";
 import MeetTheTeam from "@/components/home/MeetTheTeam";
 import ContactCta from "@/components/home/ContactCta";
-import { siteContent } from "@/lib/data";
+import { getSetting } from "@/lib/content/settings";
 import { siteConfig } from "@/lib/site-config";
 
-const { meta } = siteContent.about;
-
-export const metadata: Metadata = {
-  title: `${meta.titlePrefix} | ${siteConfig.name}`,
-  description: meta.description,
-};
+// Dynamic so edits made in the admin panel's Pages editor take effect.
+export async function generateMetadata(): Promise<Metadata> {
+  const { meta } = await getSetting("about");
+  return {
+    title: `${meta.titlePrefix} | ${siteConfig.name}`,
+    description: meta.description,
+  };
+}
 
 export default function AboutPage() {
   return (

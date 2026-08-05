@@ -35,15 +35,37 @@ export async function getSetting<K extends keyof SiteContent>(
   }
 }
 
-// Raw DB data (function-stripped) for the admin editor.
+// Some siteContent entries are template functions (WhatsApp/email wording).
+// They can't be stored or edited, and would make structuredClone throw in the
+// save action, so they're dropped from what the editor sees.
+function stripFunctions(value: unknown): unknown {
+  if (typeof value === "function") return undefined;
+  if (Array.isArray(value)) return value.map(stripFunctions);
+  if (value && typeof value === "object") {
+    const out: Record<string, unknown> = {};
+    for (const [k, v] of Object.entries(value)) {
+      const cleaned = stripFunctions(v);
+      if (cleaned !== undefined) out[k] = cleaned;
+    }
+    return out;
+  }
+  return value;
+}
+
+// Shape shown in the admin editor. Merged over the static source the same way
+// the public reads are, so a field newly added to lib/data.ts appears for
+// editing straight away instead of waiting for a re-seed.
 export async function getSettingRaw(namespace: string): Promise<unknown> {
+  const fallback = stripFunctions(
+    (siteContent as Record<string, unknown>)[namespace] ?? null
+  );
   try {
     const row = await prisma.siteSetting.findUnique({ where: { namespace } });
-    if (row) return row.data;
+    if (row) return deepMerge(fallback, row.data);
   } catch {
     /* fall through to static */
   }
-  return (siteContent as Record<string, unknown>)[namespace] ?? null;
+  return fallback;
 }
 
 export async function updateSetting(namespace: string, data: unknown): Promise<void> {

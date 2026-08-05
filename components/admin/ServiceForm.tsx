@@ -24,6 +24,62 @@ export default function ServiceForm({
 
   return (
     <form action={save} className="max-w-2xl space-y-5">
+      {/* Search-engine fields first, visually separated — they decide how the
+          page appears in Google, so they shouldn't be buried in page copy. */}
+      <section className="rounded-xl border border-sky-200 bg-sky-50/70 p-5">
+        <h2 className="text-sm font-semibold uppercase tracking-wider text-sky-900">
+          SEO &amp; Page Address
+        </h2>
+        <p className="mt-1 mb-4 text-xs text-sky-800/70">
+          How this page shows up on Google, and the web address people visit.
+        </p>
+
+        <div className="space-y-4">
+          <div>
+            <label
+              htmlFor="sec.metaTitle"
+              className="mb-1.5 block text-sm font-medium text-secondary"
+            >
+              SEO Title
+              <span className="ml-2 font-normal text-zinc-400">shown in Google results</span>
+            </label>
+            <input
+              id="sec.metaTitle"
+              name="sec.metaTitle"
+              defaultValue={service.metaTitle ?? ""}
+              className={base}
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="sec.metaDescription"
+              className="mb-1.5 block text-sm font-medium text-secondary"
+            >
+              Meta Description
+              <span className="ml-2 font-normal text-zinc-400">
+                the grey text under the title
+              </span>
+            </label>
+            <textarea
+              id="sec.metaDescription"
+              name="sec.metaDescription"
+              rows={3}
+              defaultValue={service.metaDescription ?? ""}
+              className={base}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="slug" className="mb-1.5 block text-sm font-medium text-secondary">
+              Page URL
+              <span className="ml-2 font-normal text-zinc-400">/services/&lt;slug&gt;</span>
+            </label>
+            <input id="slug" name="slug" defaultValue={service.slug} className={base} />
+          </div>
+        </div>
+      </section>
+
       <div>
         <label htmlFor="title" className="mb-1.5 block text-sm font-medium text-secondary">
           Title
@@ -40,13 +96,6 @@ export default function ServiceForm({
           defaultValue={service.shortTitle ?? ""}
           className={base}
         />
-      </div>
-      <div>
-        <label htmlFor="slug" className="mb-1.5 block text-sm font-medium text-secondary">
-          URL Slug
-          <span className="ml-2 font-normal text-zinc-300">/services/&lt;slug&gt;</span>
-        </label>
-        <input id="slug" name="slug" defaultValue={service.slug} className={base} />
       </div>
       <div>
         <label htmlFor="description" className="mb-1.5 block text-sm font-medium text-secondary">

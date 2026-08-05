@@ -3,14 +3,19 @@ import SectionHeading from "@/components/shared/SectionHeading";
 import ContactSection from "@/components/home/ContactSection";
 import ContactCta from "@/components/home/ContactCta";
 import { siteContent } from "@/lib/data";
+import { getSetting } from "@/lib/content/settings";
 import { siteConfig } from "@/lib/site-config";
 
 const content = siteContent.contactPage;
 
-export const metadata: Metadata = {
-  title: `${content.meta.titlePrefix} | ${siteConfig.name}`,
-  description: content.meta.description,
-};
+// Dynamic so edits made in the admin panel's Pages editor take effect.
+export async function generateMetadata(): Promise<Metadata> {
+  const { meta } = await getSetting("contactPage");
+  return {
+    title: `${meta.titlePrefix} | ${siteConfig.name}`,
+    description: meta.description,
+  };
+}
 
 export default function ContactPage() {
   return (

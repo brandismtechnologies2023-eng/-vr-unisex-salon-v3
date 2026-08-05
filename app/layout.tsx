@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { siteContent } from "@/lib/data";
 import { siteConfig } from "@/lib/site-config";
 import { getSeoSettings } from "@/lib/content/seo-settings";
+import { getSetting } from "@/lib/content/settings";
 
 // Only the weights the UI actually uses — 300/800 were loaded but never
 // applied, costing two extra render-blocking font files.
@@ -17,10 +17,13 @@ const poppins = Poppins({
 // Dynamic so the admin panel's "Search engine visibility" toggle takes effect
 // without a redeploy. Applies to every page unless a page overrides it.
 export async function generateMetadata(): Promise<Metadata> {
-  const { allowIndexing } = await getSeoSettings();
+  const [{ allowIndexing }, meta] = await Promise.all([
+    getSeoSettings(),
+    getSetting("siteMeta"),
+  ]);
   return {
-    title: `${siteConfig.name} | ${siteContent.siteMeta.titleSuffix}`,
-    description: siteConfig.description,
+    title: `${siteConfig.name} | ${meta.titleSuffix}`,
+    description: meta.description ?? siteConfig.description,
     robots: allowIndexing
       ? { index: true, follow: true }
       : { index: false, follow: false },

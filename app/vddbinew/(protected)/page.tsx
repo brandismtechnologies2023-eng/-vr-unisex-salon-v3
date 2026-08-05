@@ -7,7 +7,7 @@ import { galleryContent } from "@/lib/content/gallery";
 import { pricingContent } from "@/lib/content/pricing";
 import { faqsContent } from "@/lib/content/faqs";
 import { getSubmissions } from "@/lib/content/submissions";
-import { contentSections } from "@/lib/admin/content-sections";
+import { contentPages, contentSections } from "@/lib/admin/content-sections";
 
 export default async function AdminDashboardPage() {
   const [services, team, testimonials, gallery, pricing, faqs, submissions] =
@@ -22,6 +22,7 @@ export default async function AdminDashboardPage() {
     ]);
 
   const cards = [
+    { label: "Pages", count: contentPages.length, href: "/vddbinew/pages" },
     { label: "Services", count: services.length, href: "/vddbinew/services" },
     { label: "Team", count: team.length, href: "/vddbinew/collections/team" },
     { label: "Testimonials", count: testimonials.length, href: "/vddbinew/collections/testimonials" },

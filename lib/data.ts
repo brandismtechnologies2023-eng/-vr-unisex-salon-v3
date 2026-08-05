@@ -3965,5 +3965,7 @@ export const siteContent = {
 
   siteMeta: {
     titleSuffix: "Premium Unisex Salon",
+    description:
+      "Personalised beauty experiences, thoughtfully crafted for every style. Visit VR Unisex Salon at Crown Park Hotel, Burjuman, Dubai.",
   },
 };

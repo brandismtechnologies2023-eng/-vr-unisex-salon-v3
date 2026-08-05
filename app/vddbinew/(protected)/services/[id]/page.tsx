@@ -14,6 +14,8 @@ export default async function EditServicePage({
 
   // Flatten the section bag (everything except the flat columns/id) into
   // editable leaves.
+  // metaTitle/metaDescription are excluded too — ServiceForm gives them their
+  // own SEO box at the top instead of listing them among the page copy.
   const {
     id: _id,
     slug: _s,
@@ -22,9 +24,11 @@ export default async function EditServicePage({
     description: _d,
     startingPrice: _p,
     image: _i,
+    metaTitle: _mt,
+    metaDescription: _md,
     ...sections
   } = service;
-  void _id, void _s, void _t, void _st, void _d, void _p, void _i;
+  void _id, void _s, void _t, void _st, void _d, void _p, void _i, void _mt, void _md;
 
   const sectionLeaves = flattenLeaves(sections);
 
