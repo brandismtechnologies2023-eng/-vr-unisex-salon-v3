@@ -56,5 +56,8 @@ next-env.d.ts
 SESSION-NOTES.md
 new-session.md
 
+# Personal VS Code setup export — unrelated to this project
+/vscode-backup/
+
 # Lighthouse report artifacts
 lh*.json
