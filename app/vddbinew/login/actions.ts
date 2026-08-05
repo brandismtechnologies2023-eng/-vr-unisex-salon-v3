@@ -3,7 +3,11 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { verifyPassword } from "@/lib/admin/password";
-import { SESSION_COOKIE, createSessionToken } from "@/lib/admin/session";
+import {
+  SESSION_COOKIE,
+  SESSION_TTL_SECONDS,
+  createSessionToken,
+} from "@/lib/admin/session";
 
 export async function login(formData: FormData) {
   const password = String(formData.get("password") ?? "");
@@ -18,7 +22,7 @@ export async function login(formData: FormData) {
     sameSite: "lax",
     secure: process.env.NODE_ENV === "production",
     path: "/",
-    maxAge: 60 * 60 * 24 * 7,
+    maxAge: SESSION_TTL_SECONDS,
   });
 
   redirect("/vddbinew");

@@ -4,7 +4,13 @@
 // expiry; the HMAC-SHA256 is over the exp string, keyed by ADMIN_SESSION_SECRET.
 
 export const SESSION_COOKIE = "vr_admin_session";
-const SESSION_TTL_MS = 1000 * 60 * 60 * 24 * 7; // 7 days
+
+// A login lasts 24 hours, then the admin has to sign in again — so a session
+// left open on a shared or lost device doesn't stay valid indefinitely.
+// Exported so the cookie's lifetime and the signed token's expiry can't drift
+// apart; the token expiry is what's actually enforced.
+export const SESSION_TTL_SECONDS = 60 * 60 * 24;
+const SESSION_TTL_MS = SESSION_TTL_SECONDS * 1000;
 
 function getSecret(): string {
   const secret = process.env.ADMIN_SESSION_SECRET;
