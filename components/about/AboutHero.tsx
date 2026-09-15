@@ -56,13 +56,13 @@ export default function AboutHero() {
       {/* Perks sit on their own band so the location facts read as facts,
           not bullet points buried under the copy. */}
       <div className="mt-16 border-t border-third/20 bg-white/50 sm:mt-24">
-        <ul className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-6 px-4 py-8 sm:flex-row sm:divide-x sm:divide-third/20 sm:px-6 lg:px-8">
+        <ul className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-8 sm:grid-cols-2 sm:divide-x sm:divide-third/20 sm:px-6 lg:px-8">
           {content.perks.map((perk) => {
             const Icon = perkIcons[perk.icon] ?? MapPin;
             return (
               <li
                 key={perk.label}
-                className="flex items-center justify-center gap-3 text-center text-sm text-zinc-700 sm:px-8"
+                className="flex items-center justify-center gap-3 text-center text-sm text-zinc-700"
               >
                 <Icon className="h-5 w-5 shrink-0 text-third" strokeWidth={1.5} />
                 {perk.label}
