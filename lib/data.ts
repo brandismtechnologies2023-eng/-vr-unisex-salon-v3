@@ -3833,7 +3833,6 @@ export const siteContent = {
     hero: {
       perks: [
         { icon: "TrainFront", label: "2 minutes' walk from Burjuman Metro Station" },
-        { icon: "MapPin", label: "Inside the 5-star Crown Park Hotel" },
         { icon: "Car", label: "Free valet parking available" },
       ],
       photos: [
