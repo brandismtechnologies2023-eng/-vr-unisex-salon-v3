@@ -13,6 +13,7 @@ import {
   galleryMedia,
   faqs,
   pricingPackages,
+  brandsWeUse,
   siteContent,
 } from "../lib/data";
 
@@ -66,6 +67,7 @@ async function main() {
     { model: prisma.galleryItem, rows: galleryMedia },
     { model: prisma.faqItem, rows: faqs },
     { model: prisma.pricingPkg, rows: pricingPackages },
+    { model: prisma.brand, rows: brandsWeUse.map((b, i) => ({ ...b, id: String(i) })) },
   ] as const;
 
   for (const { model, rows } of collections) {
@@ -98,6 +100,7 @@ async function main() {
     gallery: await prisma.galleryItem.count(),
     faqs: await prisma.faqItem.count(),
     pricing: await prisma.pricingPkg.count(),
+    brands: await prisma.brand.count(),
     settings: await prisma.siteSetting.count(),
   };
   console.log("Seeded:", counts);
