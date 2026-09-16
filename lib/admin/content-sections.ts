@@ -55,6 +55,8 @@ export const contentSections: ContentEntry[] = [
   { namespace: "contactCta", label: "Book Now Banner", description: "The \"Ready to Experience Beauty\" call-to-action shown on several pages.", path: "/" },
   { namespace: "instagramFeed", label: "Instagram Section", description: "Bio and labels on the homepage Instagram block.", path: "/" },
   { namespace: "footer", label: "Footer", description: "Footer tagline and column headings.", path: "/" },
+  { namespace: "contactInfo", label: "Contact Details", description: "The phone number, email and address shown across the whole site.", path: "/contact" },
+  { namespace: "emailSettings", label: "Email Notifications", description: "Where enquiry-form emails are sent, and the sender/CC/BCC details." },
 ];
 
 const all = [...contentPages, ...contentSections];

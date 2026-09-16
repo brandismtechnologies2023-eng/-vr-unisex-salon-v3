@@ -1,10 +1,13 @@
 import { Check } from "lucide-react";
 import AppointmentFormLazy from "@/components/forms/AppointmentFormLazy";
 import { getSetting } from "@/lib/content/settings";
-import { siteConfig } from "@/lib/site-config";
+import { mapEmbedUrl, siteConfig } from "@/lib/site-config";
 
 export default async function ContactSection() {
-  const content = await getSetting("contactSection");
+  const [content, contact] = await Promise.all([
+    getSetting("contactSection"),
+    getSetting("contactInfo"),
+  ]);
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
       {/* 5-column grid so the map column takes 40% and the form 60%. */}
@@ -33,7 +36,7 @@ export default async function ContactSection() {
           <div className="overflow-hidden rounded-2xl border border-zinc-100">
             <iframe
               title={`${siteConfig.name} location`}
-              src={siteConfig.mapEmbedUrl}
+              src={mapEmbedUrl(contact.address)}
               className="h-45 w-full border-0"
               loading="lazy"
             />

@@ -16,7 +16,7 @@ import { getServices } from "@/lib/content/services";
 import { getSetting } from "@/lib/content/settings";
 
 export default async function Home() {
-  const [services, gallery, testimonials, heroCopy, servicesCopy, galleryCopy, testimonialsCopy, contactCtaCopy] =
+  const [services, gallery, testimonials, heroCopy, servicesCopy, galleryCopy, testimonialsCopy, contactCtaCopy, contact] =
     await Promise.all([
       getServices(),
       galleryContent.getAll(),
@@ -26,6 +26,7 @@ export default async function Home() {
       getSetting("gallery"),
       getSetting("testimonials"),
       getSetting("contactCta"),
+      getSetting("contactInfo"),
     ]);
 
   return (
@@ -47,6 +48,7 @@ export default async function Home() {
         description={joinDescriptionLines(contactCtaCopy.descriptionLines)}
         whatsappLabel={contactCtaCopy.whatsappLabel}
         callPrefix={contactCtaCopy.callPrefix}
+        phone={contact.phone}
       />
     </>
   );

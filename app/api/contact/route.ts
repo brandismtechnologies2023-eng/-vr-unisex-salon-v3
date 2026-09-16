@@ -4,11 +4,20 @@ import nodemailer from "nodemailer";
 import { z } from "zod";
 import { siteContent } from "@/lib/data";
 import { createSubmission } from "@/lib/content/submissions";
+import { getSetting } from "@/lib/content/settings";
 import { siteConfig } from "@/lib/site-config";
 
 const thankYouContent = siteContent.customerThankYouEmail;
 
-function thankYouEmailHtml(name: string, service?: string) {
+// Comma or newline separated addresses -> a clean array, dropping blanks.
+function splitEmails(value: string): string[] {
+  return value
+    .split(/[,\n]/)
+    .map((e) => e.trim())
+    .filter(Boolean);
+}
+
+function thankYouEmailHtml(name: string, service: string | undefined, contact: { address: string; phone: string; email: string }) {
   const body = service
     ? thankYouContent.bodyWithService(service)
     : thankYouContent.bodyGeneric;
@@ -38,8 +47,8 @@ function thankYouEmailHtml(name: string, service?: string) {
         </div>
         <div style="background-color:#272939;padding:20px 24px;text-align:center;">
           <p style="margin:0;font-size:13px;color:#ecd7d0;">${siteConfig.name}</p>
-          <p style="margin:4px 0 0;font-size:12px;color:#b29da0;">${siteConfig.address}</p>
-          <p style="margin:4px 0 0;font-size:12px;color:#b29da0;">${siteConfig.phone} · ${siteConfig.email}</p>
+          <p style="margin:4px 0 0;font-size:12px;color:#b29da0;">${contact.address}</p>
+          <p style="margin:4px 0 0;font-size:12px;color:#b29da0;">${contact.phone} · ${contact.email}</p>
         </div>
       </div>
     </div>
@@ -88,8 +97,16 @@ export async function POST(request: Request) {
     }
   }
 
+  const [contact, emailSettings] = await Promise.all([
+    getSetting("contactInfo"),
+    getSetting("emailSettings"),
+  ]);
+
   const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS } = process.env;
-  const toEmail = process.env.CONTACT_TO_EMAIL || siteConfig.email;
+  const toEmail = process.env.CONTACT_TO_EMAIL || emailSettings.toEmail || contact.email;
+  const fromName = emailSettings.fromName || siteConfig.name;
+  const ccEmails = splitEmails(emailSettings.ccEmails);
+  const bccEmails = splitEmails(emailSettings.bccEmails);
 
   const { name, email, phone, service, date, time, message } = parsed.data;
 
@@ -148,9 +165,11 @@ export async function POST(request: Request) {
 
   try {
     await transporter.sendMail({
-      from: `${siteConfig.name} Website <${SMTP_USER}>`,
+      from: `${fromName} <${emailSettings.fromEmail || SMTP_USER}>`,
       to: toEmail,
-      replyTo: email,
+      cc: ccEmails.length ? ccEmails : undefined,
+      bcc: bccEmails.length ? bccEmails : undefined,
+      replyTo: emailSettings.replyToEmail || email,
       subject: service
         ? `Appointment request: ${service} — ${name}`
         : `New enquiry from ${name}`,
@@ -169,12 +188,12 @@ export async function POST(request: Request) {
   // shouldn't turn the whole submission into an error for the customer.
   try {
     await transporter.sendMail({
-      from: `${siteConfig.name} <${SMTP_USER}>`,
+      from: `${fromName} <${emailSettings.fromEmail || SMTP_USER}>`,
       to: email,
       subject: service
         ? thankYouContent.subjectWithService(service)
         : thankYouContent.subjectGeneric,
-      html: thankYouEmailHtml(name, service),
+      html: thankYouEmailHtml(name, service, contact),
       attachments: [
         {
           filename: "logo.webp",

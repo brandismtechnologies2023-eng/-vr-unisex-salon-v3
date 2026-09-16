@@ -59,13 +59,16 @@ const processColsClass: Record<number, string> = {
 
 interface ServiceDetailProps {
   service: Service;
+  // Fetched server-side (getSetting("contactInfo")) and passed down, since
+  // ContactCta below needs it but this file is a Client Component.
+  phone: string;
   // Rendered server-side by the route and passed through as a slot, since
   // InstagramFeed is an async Server Component and this file is a Client
   // Component (it needs the treatment-tab state below).
   instagramFeed?: ReactNode;
 }
 
-export default function ServiceDetail({ service, instagramFeed }: ServiceDetailProps) {
+export default function ServiceDetail({ service, phone, instagramFeed }: ServiceDetailProps) {
   const categories = service.treatments
     ? Array.from(new Set(service.treatments.map((t) => t.category)))
     : [];
@@ -629,6 +632,7 @@ export default function ServiceDetail({ service, instagramFeed }: ServiceDetailP
         title={service.ctaTitle ?? content.ctaTitleFallback(service.title)}
         description={service.ctaDescription ?? content.ctaDescriptionFallback}
         bookLabel={service.bookLabel}
+        phone={phone}
       />
     </>
   );

@@ -4,7 +4,7 @@ import { CalendarCheck, Phone } from "lucide-react";
 import Button from "@/components/shared/Button";
 import { WhatsAppIcon } from "@/components/shared/SocialIcons";
 import { siteContent } from "@/lib/data";
-import { siteConfig, telLink, whatsappLink } from "@/lib/site-config";
+import { telLink, whatsappLink } from "@/lib/site-config";
 
 const content = siteContent.contactCta;
 const { common } = siteContent;
@@ -48,6 +48,10 @@ interface ContactCtaProps {
   bookLabel?: string;
   whatsappLabel?: string;
   callPrefix?: string;
+  // The admin-editable contact number — every caller fetches it (via
+  // getSetting("contactInfo")) and passes it down, since this component
+  // itself stays a plain sync component so client callers can render it.
+  phone: string;
 }
 
 export default function ContactCta({
@@ -56,6 +60,7 @@ export default function ContactCta({
   bookLabel = common.bookAppointmentLabel,
   whatsappLabel = content.whatsappLabel,
   callPrefix = content.callPrefix,
+  phone,
 }: ContactCtaProps) {
   return (
     <section className="bg-primary/30">
@@ -74,12 +79,12 @@ export default function ContactCta({
             {whatsappLabel}
           </Button>
           <Button
-            href={telLink()}
+            href={telLink(phone)}
             size="lg"
             className="bg-secondary/60 text-white hover:bg-secondary hover:text-primary"
             icon={<Phone className="h-5 w-5" />}
           >
-            {callPrefix} {siteConfig.phone}
+            {callPrefix} {phone}
           </Button>
           <Button
             href="/contact"

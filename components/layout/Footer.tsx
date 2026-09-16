@@ -3,11 +3,14 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { navLinks, services } from "@/lib/data";
 import { getSetting } from "@/lib/content/settings";
-import { siteConfig } from "@/lib/site-config";
+import { mapLink, siteConfig, telLink } from "@/lib/site-config";
 import { FacebookIcon, InstagramIcon } from "@/components/shared/SocialIcons";
 
 export default async function Footer() {
-  const content = await getSetting("footer");
+  const [content, contact] = await Promise.all([
+    getSetting("footer"),
+    getSetting("contactInfo"),
+  ]);
   const midpoint = Math.ceil(services.length / 2);
   const serviceColumns = [
     services.slice(0, midpoint),
@@ -100,19 +103,17 @@ export default async function Footer() {
           <ul className="mt-4 space-y-3 text-sm">
             <li className="flex items-start gap-2">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-              <a href={siteConfig.mapLink} target="_blank" rel="noopener noreferrer">
-                {siteConfig.address}
+              <a href={mapLink(contact.address)} target="_blank" rel="noopener noreferrer">
+                {contact.address}
               </a>
             </li>
             <li className="flex items-center gap-2">
               <Phone className="h-4 w-4 shrink-0 text-primary" />
-              <a href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`}>
-                {siteConfig.phone}
-              </a>
+              <a href={telLink(contact.phone)}>{contact.phone}</a>
             </li>
             <li className="flex items-center gap-2">
               <Mail className="h-4 w-4 shrink-0 text-primary" />
-              <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+              <a href={`mailto:${contact.email}`}>{contact.email}</a>
             </li>
           </ul>
           <div className="mt-4 space-y-1 text-sm text-zinc-400">

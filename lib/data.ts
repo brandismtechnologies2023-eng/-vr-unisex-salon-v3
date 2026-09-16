@@ -3830,6 +3830,30 @@ export const siteContent = {
     defaultArrowLabel: "items",
   },
 
+  // The public-facing phone/email/address. Everywhere these appear on the
+  // site (footer, contact page, WhatsApp/call/email links, the enquiry
+  // notification email) reads from here via getSetting, not from the
+  // hardcoded values in lib/site-config.ts.
+  contactInfo: {
+    phone: "+971 55 956 6627",
+    email: "info@vrunisexsalon.com",
+    address:
+      "Crown Park Hotel, Burjuman, Shop 01, Ground Floor, Exit 4, Al Hamriya, Dubai, United Arab Emirates",
+  },
+
+  // Where enquiry-form emails are sent and who they appear to come from.
+  // fromEmail is best left blank unless your SMTP provider allows sending
+  // "from" an address other than the authenticated SMTP_USER account — most
+  // providers reject or flag mismatched From addresses.
+  emailSettings: {
+    toEmail: "info@vrunisexsalon.com",
+    fromName: "VR Unisex Salon",
+    fromEmail: "",
+    replyToEmail: "",
+    ccEmails: "",
+    bccEmails: "",
+  },
+
   about: {
     hero: {
       perks: [

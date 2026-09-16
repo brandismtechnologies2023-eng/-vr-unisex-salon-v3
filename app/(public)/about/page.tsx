@@ -17,7 +17,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function AboutPage() {
-  const contactCtaCopy = await getSetting("contactCta");
+  const [contactCtaCopy, contact] = await Promise.all([
+    getSetting("contactCta"),
+    getSetting("contactInfo"),
+  ]);
   return (
     <>
       <AboutHero />
@@ -29,6 +32,7 @@ export default async function AboutPage() {
         description={joinDescriptionLines(contactCtaCopy.descriptionLines)}
         whatsappLabel={contactCtaCopy.whatsappLabel}
         callPrefix={contactCtaCopy.callPrefix}
+        phone={contact.phone}
       />
     </>
   );

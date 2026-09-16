@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import ServiceDetail from "@/components/services/ServiceDetail";
 import InstagramFeed from "@/components/home/InstagramFeed";
 import { getServices, getServiceBySlug } from "@/lib/content/services";
+import { getSetting } from "@/lib/content/settings";
 import { siteConfig } from "@/lib/site-config";
 
 interface ServicePageProps {
@@ -33,9 +34,14 @@ export async function generateMetadata({
 
 export default async function ServicePage({ params }: ServicePageProps) {
   const { slug } = await params;
-  const service = await getServiceBySlug(slug);
+  const [service, contact] = await Promise.all([
+    getServiceBySlug(slug),
+    getSetting("contactInfo"),
+  ]);
 
   if (!service) notFound();
 
-  return <ServiceDetail service={service} instagramFeed={<InstagramFeed />} />;
+  return (
+    <ServiceDetail service={service} phone={contact.phone} instagramFeed={<InstagramFeed />} />
+  );
 }
