@@ -3757,10 +3757,11 @@ export const siteContent = {
   },
 
   footer: {
+    tagline: "Personalised beauty experiences, thoughtfully crafted for every style.",
     quickLinksHeading: "Quick Links",
     servicesHeading: "Services",
     getInTouchHeading: "Get In Touch",
-    rightsReservedSuffix: "All rights reserved.",
+    copyrightLine: "VR Unisex Salon. All rights reserved.",
   },
 
   breadcrumb: {

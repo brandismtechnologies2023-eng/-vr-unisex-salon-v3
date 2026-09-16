@@ -66,6 +66,13 @@ model PricingPkg {
   updatedAt DateTime @updatedAt
 }
 
+model Brand {
+  id        String   @id
+  order     Int      @default(0)
+  data      Json
+  updatedAt DateTime @updatedAt
+}
+
 // Free-form site copy: one row per top-level siteContent namespace
 // (hero, whyChooseUs, meetTeam, …), the whole subtree stored as JSON.
 model SiteSetting {

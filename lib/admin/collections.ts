@@ -3,6 +3,7 @@ import { testimonialsContent } from "@/lib/content/testimonials";
 import { galleryContent } from "@/lib/content/gallery";
 import { faqsContent } from "@/lib/content/faqs";
 import { pricingContent } from "@/lib/content/pricing";
+import { brandsContent } from "@/lib/content/brands";
 import type { makeCollection } from "@/lib/content/collection";
 
 export type FieldType =
@@ -151,6 +152,20 @@ export const collections: Record<string, CollectionConfig> = {
       { name: "popular", label: "Mark as popular", type: "boolean" },
     ],
     row: (p) => ({ primary: p.name, secondary: `AED ${p.price}` }),
+  },
+
+  brands: {
+    key: "brands",
+    label: "Brands We Use",
+    singular: "Brand",
+    description: "Product brand logos shown on the homepage.",
+    content: brandsContent,
+    revalidate: ["/"],
+    fields: [
+      { name: "name", label: "Brand Name", type: "text", required: true },
+      { name: "logo", label: "Logo", type: "image", required: true },
+    ],
+    row: (b) => ({ primary: b.name, thumb: b.logo }),
   },
 };
 

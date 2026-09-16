@@ -40,13 +40,15 @@ export default function Hero({ content: heroContent = defaultHero }: { content?:
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:px-8 lg:py-24">
         {/* Left — content */}
         <div>
-          <div className="animate-fade-up flex items-center gap-3">
-            <span className="h-px w-10 bg-primary/70" />
-            <span className="inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-              <Sparkles className="h-4 w-4" />
-              {heroContent.eyebrow}
-            </span>
-          </div>
+          {heroContent.eyebrow && (
+            <div className="animate-fade-up flex items-center gap-3">
+              <span className="h-px w-10 bg-primary/70" />
+              <span className="inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                <Sparkles className="h-4 w-4" />
+                {heroContent.eyebrow}
+              </span>
+            </div>
+          )}
 
           <h1 className="animate-fade-up delay-100 mt-6 text-5xl font-bold leading-[1.05] text-white sm:text-6xl lg:text-7xl">
             {heroContent.titleLine1}
@@ -54,9 +56,11 @@ export default function Hero({ content: heroContent = defaultHero }: { content?:
             <span className="text-primary">{heroContent.titleLine2}</span>
           </h1>
 
-          <p className="animate-fade-up delay-200 mt-6 max-w-xl text-lg text-white">
-            {heroContent.subtitle}
-          </p>
+          {heroContent.subtitle && (
+            <p className="animate-fade-up delay-200 mt-6 max-w-xl text-lg text-white">
+              {heroContent.subtitle}
+            </p>
+          )}
 
           <div className="animate-fade-up delay-300 mt-10 flex flex-col gap-4 sm:flex-row">
             <Button

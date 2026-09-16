@@ -26,7 +26,7 @@ export default async function Pricing() {
                   : "border-zinc-200 bg-white"
               }`}
             >
-              {pkg.popular && (
+              {pkg.popular && content.popularBadge && (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-white">
                   {content.popularBadge}
                 </span>

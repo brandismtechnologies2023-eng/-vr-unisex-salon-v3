@@ -28,7 +28,9 @@ export default async function Footer() {
               className="h-22 w-22 rounded-lg object-cover"
             />
           </Link>
-          <p className="mt-4 text-sm text-zinc-400">{siteConfig.description}</p>
+          {content.tagline && (
+            <p className="mt-4 text-sm text-zinc-400">{content.tagline}</p>
+          )}
           <div className="mt-5 flex items-center gap-3">
             <a
               href={siteConfig.instagramUrl}
@@ -124,7 +126,7 @@ export default async function Footer() {
       </div>
 
       <div className="border-t border-white/10 py-6 text-center text-xs text-zinc-500">
-        © {new Date().getFullYear()} {siteConfig.name}. {content.rightsReservedSuffix}
+        © {new Date().getFullYear()} {content.copyrightLine}
       </div>
     </footer>
   );

@@ -6,6 +6,7 @@ export const adminNav: { label: string; href: string }[] = [
   { label: "Team", href: "/vddbinew/collections/team" },
   { label: "Testimonials", href: "/vddbinew/collections/testimonials" },
   { label: "Gallery", href: "/vddbinew/collections/gallery" },
+  { label: "Brands We Use", href: "/vddbinew/collections/brands" },
   { label: "Pricing", href: "/vddbinew/collections/pricing" },
   { label: "FAQs", href: "/vddbinew/collections/faqs" },
   { label: "Site Text", href: "/vddbinew/content" },
