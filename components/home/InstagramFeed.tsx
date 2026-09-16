@@ -4,10 +4,9 @@ import Button from "@/components/shared/Button";
 import InstagramSlider from "@/components/home/InstagramSlider";
 import { InstagramIcon } from "@/components/shared/SocialIcons";
 import { instagramPosts as placeholderPosts, siteContent } from "@/lib/data";
+import { getSetting } from "@/lib/content/settings";
 import { getInstagramPosts, getInstagramProfile } from "@/lib/instagram";
 import { siteConfig } from "@/lib/site-config";
-
-const content = siteContent.instagramFeed;
 
 function formatCount(n: number): string {
   if (n >= 1000) return `${(n / 1000).toFixed(n % 1000 === 0 ? 0 : 1)}K+`;
@@ -15,9 +14,10 @@ function formatCount(n: number): string {
 }
 
 export default async function InstagramFeed() {
-  const [livePosts, profile] = await Promise.all([
+  const [livePosts, profile, content] = await Promise.all([
     getInstagramPosts(30),
     getInstagramProfile(),
+    getSetting("instagramFeed"),
   ]);
   const posts = livePosts ?? placeholderPosts;
 
@@ -59,9 +59,11 @@ export default async function InstagramFeed() {
             ))}
           </dl>
 
-          <p className="mt-5 text-sm leading-relaxed text-zinc-700">
-            {content.bio}
-          </p>
+          {content.bio && (
+            <p className="mt-5 text-sm leading-relaxed text-zinc-700">
+              {content.bio}
+            </p>
+          )}
 
           <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
             <Button

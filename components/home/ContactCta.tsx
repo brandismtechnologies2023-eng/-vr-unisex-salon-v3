@@ -20,18 +20,42 @@ const DEFAULT_DESCRIPTION = (
   </>
 );
 
+// Turns saved description lines into the <br/>-joined layout this component
+// expects, dropping any line an admin has blanked out.
+export function joinDescriptionLines(lines: string[]): ReactNode {
+  return (
+    <>
+      {lines
+        .filter((line) => line.trim() !== "")
+        .map((line, i) => (
+          <Fragment key={line}>
+            {i > 0 && <br />}
+            {line}
+          </Fragment>
+        ))}
+    </>
+  );
+}
+
 interface ContactCtaProps {
   // Only the wording varies per page — the layout, colours and buttons stay
-  // here so restyling this one file updates the CTA everywhere.
+  // here so restyling this one file updates the CTA everywhere. Pages that
+  // want the admin-edited default (rather than their own custom wording)
+  // fetch it themselves and pass it down — this stays a plain component so
+  // client components (like ServiceDetail) can keep rendering it directly.
   title?: string;
   description?: ReactNode;
   bookLabel?: string;
+  whatsappLabel?: string;
+  callPrefix?: string;
 }
 
 export default function ContactCta({
   title = content.title,
   description = DEFAULT_DESCRIPTION,
   bookLabel = common.bookAppointmentLabel,
+  whatsappLabel = content.whatsappLabel,
+  callPrefix = content.callPrefix,
 }: ContactCtaProps) {
   return (
     <section className="bg-primary/30">
@@ -47,7 +71,7 @@ export default function ContactCta({
             className="bg-[#25D366] text-white hover:bg-[#1ebe5d]"
             icon={<WhatsAppIcon className="h-5 w-5" />}
           >
-            {content.whatsappLabel}
+            {whatsappLabel}
           </Button>
           <Button
             href={telLink()}
@@ -55,7 +79,7 @@ export default function ContactCta({
             className="bg-secondary/60 text-white hover:bg-secondary hover:text-primary"
             icon={<Phone className="h-5 w-5" />}
           >
-            {content.callPrefix} {siteConfig.phone}
+            {callPrefix} {siteConfig.phone}
           </Button>
           <Button
             href="/contact"

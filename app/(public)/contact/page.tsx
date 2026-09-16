@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import SectionHeading from "@/components/shared/SectionHeading";
 import ContactSection from "@/components/home/ContactSection";
-import ContactCta from "@/components/home/ContactCta";
-import { siteContent } from "@/lib/data";
+import ContactCta, { joinDescriptionLines } from "@/components/home/ContactCta";
 import { getSetting } from "@/lib/content/settings";
 import { siteConfig } from "@/lib/site-config";
-
-const content = siteContent.contactPage;
 
 // Dynamic so edits made in the admin panel's Pages editor take effect.
 export async function generateMetadata(): Promise<Metadata> {
@@ -17,7 +14,11 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const [content, contactCtaCopy] = await Promise.all([
+    getSetting("contactPage"),
+    getSetting("contactCta"),
+  ]);
   return (
     <>
       <section className="bg-primary/15 py-16 lg:py-20">
@@ -32,7 +33,12 @@ export default function ContactPage() {
       </section>
 
       <ContactSection />
-      <ContactCta />
+      <ContactCta
+        title={contactCtaCopy.title}
+        description={joinDescriptionLines(contactCtaCopy.descriptionLines)}
+        whatsappLabel={contactCtaCopy.whatsappLabel}
+        callPrefix={contactCtaCopy.callPrefix}
+      />
     </>
   );
 }

@@ -52,6 +52,8 @@ export const contentSections: ContentEntry[] = [
   { namespace: "testimonials", label: "Testimonials Section", description: "Heading above customer reviews.", path: "/" },
   { namespace: "faqSection", label: "FAQ Section", description: "Heading above the FAQ list.", path: "/" },
   { namespace: "contactSection", label: "Contact Section", description: "Text beside the appointment form.", path: "/contact" },
+  { namespace: "contactCta", label: "Book Now Banner", description: "The \"Ready to Experience Beauty\" call-to-action shown on several pages.", path: "/" },
+  { namespace: "instagramFeed", label: "Instagram Section", description: "Bio and labels on the homepage Instagram block.", path: "/" },
   { namespace: "footer", label: "Footer", description: "Footer tagline and column headings.", path: "/" },
 ];
 

@@ -77,3 +77,15 @@ export async function updateSetting(namespace: string, data: unknown): Promise<v
     update: { data: data as any },
   });
 }
+
+// Drops any saved override for a namespace, so public reads fall back to the
+// static copy in lib/data.ts. Used when a saved override no longer matches
+// the current shape of the content (e.g. an array shrank in code) and would
+// otherwise show stale or blank-looking values instead of the real default.
+export async function resetSetting(namespace: string): Promise<void> {
+  try {
+    await prisma.siteSetting.delete({ where: { namespace } });
+  } catch {
+    /* nothing saved for this namespace — already at default */
+  }
+}

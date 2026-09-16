@@ -3,7 +3,7 @@ import AboutHero from "@/components/about/AboutHero";
 import WhatMakesUsDifferent from "@/components/about/WhatMakesUsDifferent";
 import AboutServices from "@/components/about/AboutServices";
 import MeetTheTeam from "@/components/home/MeetTheTeam";
-import ContactCta from "@/components/home/ContactCta";
+import ContactCta, { joinDescriptionLines } from "@/components/home/ContactCta";
 import { getSetting } from "@/lib/content/settings";
 import { siteConfig } from "@/lib/site-config";
 
@@ -16,14 +16,20 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const contactCtaCopy = await getSetting("contactCta");
   return (
     <>
       <AboutHero />
       <WhatMakesUsDifferent />
       <AboutServices />
       <MeetTheTeam />
-      <ContactCta />
+      <ContactCta
+        title={contactCtaCopy.title}
+        description={joinDescriptionLines(contactCtaCopy.descriptionLines)}
+        whatsappLabel={contactCtaCopy.whatsappLabel}
+        callPrefix={contactCtaCopy.callPrefix}
+      />
     </>
   );
 }

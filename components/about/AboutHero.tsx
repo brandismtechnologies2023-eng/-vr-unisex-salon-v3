@@ -1,9 +1,7 @@
 import Image from "next/image";
 import { Car, MapPin, TrainFront, type LucideIcon } from "lucide-react";
-import { siteContent } from "@/lib/data";
+import { getSetting } from "@/lib/content/settings";
 import { siteConfig } from "@/lib/site-config";
-
-const content = siteContent.about.hero;
 
 const perkIcons: Record<string, LucideIcon> = {
   TrainFront,
@@ -11,15 +9,21 @@ const perkIcons: Record<string, LucideIcon> = {
   Car,
 };
 
-export default function AboutHero() {
+export default async function AboutHero() {
+  const { hero: content } = await getSetting("about");
+  // A blanked-out label in the admin panel means "remove this perk".
+  const perks = content.perks.filter((perk) => perk.label.trim() !== "");
+
   return (
     <section className="bg-primary/15">
       <div className="mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:px-8 lg:pt-24">
         {/* Centered editorial intro rather than a text/image split. */}
         <div className="mx-auto max-w-8xl text-center">
-          <span className="text-sm font-semibold uppercase tracking-[0.2em] text-third">
-            {content.eyebrow}
-          </span>
+          {content.eyebrow && (
+            <span className="text-sm font-semibold uppercase tracking-[0.2em] text-third">
+              {content.eyebrow}
+            </span>
+          )}
           <h1 className="mt-3 text-4xl font-bold leading-tight text-secondary sm:text-5xl">
             {content.title}
           </h1>
@@ -27,7 +31,9 @@ export default function AboutHero() {
           <p className="mt-6 text-lg text-zinc-600">
             {content.paragraph1(siteConfig.name)}
           </p>
-          <p className="mt-4 text-zinc-600">{content.paragraph2}</p>
+          {content.paragraph2 && (
+            <p className="mt-4 text-zinc-600">{content.paragraph2}</p>
+          )}
         </div>
 
         {/* Staggered photo row: the centre image drops lower than its
@@ -55,22 +61,28 @@ export default function AboutHero() {
 
       {/* Perks sit on their own band so the location facts read as facts,
           not bullet points buried under the copy. */}
-      <div className="mt-16 border-t border-third/20 bg-white/50 sm:mt-24">
-        <ul className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-8 sm:grid-cols-2 sm:divide-x sm:divide-third/20 sm:px-6 lg:px-8">
-          {content.perks.map((perk) => {
-            const Icon = perkIcons[perk.icon] ?? MapPin;
-            return (
-              <li
-                key={perk.label}
-                className="flex items-center justify-center gap-3 text-center text-sm text-zinc-700"
-              >
-                <Icon className="h-5 w-5 shrink-0 text-third" strokeWidth={1.5} />
-                {perk.label}
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+      {perks.length > 0 && (
+        <div className="mt-16 border-t border-third/20 bg-white/50 sm:mt-24">
+          <ul
+            className={`mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-8 sm:divide-x sm:divide-third/20 sm:px-6 lg:px-8 ${
+              perks.length === 1 ? "sm:grid-cols-1" : perks.length === 2 ? "sm:grid-cols-2" : "sm:grid-cols-3"
+            }`}
+          >
+            {perks.map((perk) => {
+              const Icon = perkIcons[perk.icon] ?? MapPin;
+              return (
+                <li
+                  key={perk.label}
+                  className="flex items-center justify-center gap-3 text-center text-sm text-zinc-700"
+                >
+                  <Icon className="h-5 w-5 shrink-0 text-third" strokeWidth={1.5} />
+                  {perk.label}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
     </section>
   );
 }

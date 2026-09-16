@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { services, siteContent } from "@/lib/data";
+import { services } from "@/lib/data";
+import { getSetting } from "@/lib/content/settings";
 
-const content = siteContent.about.services;
-
-export default function AboutServices() {
+export default async function AboutServices() {
+  const { services: content } = await getSetting("about");
   const midpoint = Math.ceil(services.length / 2);
   const columns = [services.slice(0, midpoint), services.slice(midpoint)];
 
@@ -14,13 +14,15 @@ export default function AboutServices() {
         {/* Written inline rather than via SectionHeading: this band is dark,
             so the type needs inverted colours. */}
         <div className="mx-auto mb-12 max-w-2xl text-center">
-          <span className="text-sm font-semibold uppercase tracking-wider text-third">
-            {content.eyebrow}
-          </span>
+          {content.eyebrow && (
+            <span className="text-sm font-semibold uppercase tracking-wider text-third">
+              {content.eyebrow}
+            </span>
+          )}
           <h2 className="mt-2 text-3xl font-bold text-white sm:text-4xl">
             {content.title}
           </h2>
-          <p className="mt-4 text-zinc-400">{content.subtitle}</p>
+          {content.subtitle && <p className="mt-4 text-zinc-400">{content.subtitle}</p>}
         </div>
 
         {/* Reads as a salon menu — divided rows rather than a card grid. */}

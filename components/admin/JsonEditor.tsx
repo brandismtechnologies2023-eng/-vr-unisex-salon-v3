@@ -2,12 +2,15 @@
 
 import Link from "next/link";
 import { useFormStatus } from "react-dom";
-import { saveSetting } from "@/app/vddbinew/(protected)/content/actions";
+import { resetSection, saveSetting } from "@/app/vddbinew/(protected)/content/actions";
 import { LeafField } from "@/components/admin/LeafFields";
-import type { Leaf } from "@/lib/admin/paths";
+import Accordion from "@/components/admin/Accordion";
+import { groupLeaves, type Leaf } from "@/lib/admin/paths";
 
 // Generic path-keyed editor for a site-copy namespace. Each leaf's input is
 // named by its dot-path; the server action rebuilds the object from those.
+// Fields are grouped by which on-page block they belong to (hero, services,
+// etc.) so a page with several sections doesn't read as one long form.
 export default function JsonEditor({
   namespace,
   leaves,
@@ -21,6 +24,9 @@ export default function JsonEditor({
   backHref: string;
 }) {
   const save = saveSetting.bind(null, namespace);
+  const reset = resetSection.bind(null, namespace);
+  const { top, groups } = groupLeaves(leaves);
+
   return (
     <form action={save} className="max-w-2xl space-y-5">
       {seoLeaves.length > 0 && (
@@ -39,18 +45,42 @@ export default function JsonEditor({
         </section>
       )}
 
-      {leaves.map((leaf) => (
-        <LeafField key={leaf.path} leaf={leaf} />
+      {top.length > 0 && (
+        <section className="space-y-4 rounded-xl border border-zinc-200 p-5">
+          {top.map((leaf) => (
+            <LeafField key={leaf.path} leaf={leaf} />
+          ))}
+        </section>
+      )}
+
+      {groups.map((group) => (
+        <Accordion key={group.key} title={group.label} count={group.leaves.length}>
+          {group.leaves.map((leaf) => (
+            <LeafField key={leaf.path} leaf={leaf} />
+          ))}
+        </Accordion>
       ))}
-      <SubmitRow backHref={backHref} />
+
+      <p className="text-xs text-zinc-400">
+        Leave a field blank and save to hide that line on the live site — it
+        won&apos;t show as empty space.
+      </p>
+
+      <SubmitRow backHref={backHref} resetAction={reset} />
     </form>
   );
 }
 
-function SubmitRow({ backHref }: { backHref: string }) {
+function SubmitRow({
+  backHref,
+  resetAction,
+}: {
+  backHref: string;
+  resetAction: () => Promise<void>;
+}) {
   const { pending } = useFormStatus();
   return (
-    <div className="flex items-center gap-3 pt-2">
+    <div className="flex flex-wrap items-center gap-3 pt-2">
       <button
         type="submit"
         disabled={pending}
@@ -64,6 +94,18 @@ function SubmitRow({ backHref }: { backHref: string }) {
       >
         Cancel
       </Link>
+      <button
+        type="submit"
+        formAction={resetAction}
+        onClick={(e) => {
+          if (!confirm("Reset this whole section back to the original text? This can't be undone.")) {
+            e.preventDefault();
+          }
+        }}
+        className="ml-auto rounded-full px-4 py-2 text-xs font-medium text-red-500 hover:bg-red-50"
+      >
+        Reset section to default
+      </button>
     </div>
   );
 }

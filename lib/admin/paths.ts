@@ -13,6 +13,14 @@ export interface Leaf {
   kind: LeafKind;
 }
 
+// Turns a single camelCase key into a readable label, e.g. "whatMakesUsDifferent" -> "What Makes Us Different".
+export function humanizeKey(key: string): string {
+  return key
+    .replace(/([A-Z])/g, " $1")
+    .replace(/^\w/, (c) => c.toUpperCase())
+    .trim();
+}
+
 function humanize(path: string): string {
   const parts = path.split(".");
   // Keep the last non-numeric segment (plus an index suffix if present) so
@@ -53,6 +61,39 @@ export function flattenLeaves(obj: unknown, prefix = ""): Leaf[] {
 
   walk(obj, prefix);
   return leaves;
+}
+
+export interface LeafGroup {
+  key: string;
+  label: string;
+  leaves: Leaf[];
+}
+
+// Splits a flat leaf list into top-level scalars (shown ungrouped, e.g. a
+// page's own eyebrow/title/subtitle) and named sub-sections (shown as
+// accordions, e.g. "hero", "whatMakesUsDifferent"), preserving first-seen
+// order so the editor layout matches the shape of lib/data.ts.
+export function groupLeaves(leaves: Leaf[]): { top: Leaf[]; groups: LeafGroup[] } {
+  const top: Leaf[] = [];
+  const groups: LeafGroup[] = [];
+  const byKey = new Map<string, LeafGroup>();
+
+  for (const leaf of leaves) {
+    const key = leaf.path.split(".")[0];
+    if (key === leaf.path) {
+      top.push(leaf);
+      continue;
+    }
+    let group = byKey.get(key);
+    if (!group) {
+      group = { key, label: humanizeKey(key), leaves: [] };
+      byKey.set(key, group);
+      groups.push(group);
+    }
+    group.leaves.push(leaf);
+  }
+
+  return { top, groups };
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

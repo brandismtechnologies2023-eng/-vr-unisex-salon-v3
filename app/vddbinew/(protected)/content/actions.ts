@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { requireAdmin } from "@/lib/admin/guard";
-import { getSettingRaw, updateSetting } from "@/lib/content/settings";
+import { getSettingRaw, resetSetting, updateSetting } from "@/lib/content/settings";
 import { flattenLeaves, setPath } from "@/lib/admin/paths";
 
 export async function saveSetting(namespace: string, formData: FormData) {
@@ -28,4 +28,14 @@ export async function saveSetting(namespace: string, formData: FormData) {
   ["/", "/about", "/contact", "/services"].forEach((p) => revalidatePath(p));
   revalidatePath(`/vddbinew/content/${namespace}`);
   redirect("/vddbinew/content");
+}
+
+export async function resetSection(namespace: string) {
+  await requireAdmin();
+
+  await resetSetting(namespace);
+
+  ["/", "/about", "/contact", "/services"].forEach((p) => revalidatePath(p));
+  revalidatePath(`/vddbinew/content/${namespace}`);
+  redirect(`/vddbinew/content/${namespace}`);
 }

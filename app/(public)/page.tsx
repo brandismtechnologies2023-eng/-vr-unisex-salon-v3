@@ -8,7 +8,7 @@ import Gallery from "@/components/home/Gallery";
 import InstagramFeed from "@/components/home/InstagramFeed";
 import Testimonials from "@/components/home/Testimonials";
 import Faq from "@/components/home/Faq";
-import ContactCta from "@/components/home/ContactCta";
+import ContactCta, { joinDescriptionLines } from "@/components/home/ContactCta";
 import ContactSection from "@/components/home/ContactSection";
 import { galleryContent } from "@/lib/content/gallery";
 import { testimonialsContent } from "@/lib/content/testimonials";
@@ -16,7 +16,7 @@ import { getServices } from "@/lib/content/services";
 import { getSetting } from "@/lib/content/settings";
 
 export default async function Home() {
-  const [services, gallery, testimonials, heroCopy, servicesCopy, galleryCopy, testimonialsCopy] =
+  const [services, gallery, testimonials, heroCopy, servicesCopy, galleryCopy, testimonialsCopy, contactCtaCopy] =
     await Promise.all([
       getServices(),
       galleryContent.getAll(),
@@ -25,6 +25,7 @@ export default async function Home() {
       getSetting("servicesSection"),
       getSetting("gallery"),
       getSetting("testimonials"),
+      getSetting("contactCta"),
     ]);
 
   return (
@@ -41,7 +42,12 @@ export default async function Home() {
       <Testimonials reviews={testimonials} heading={testimonialsCopy} />
       <Faq />
       <ContactSection />
-      <ContactCta />
+      <ContactCta
+        title={contactCtaCopy.title}
+        description={joinDescriptionLines(contactCtaCopy.descriptionLines)}
+        whatsappLabel={contactCtaCopy.whatsappLabel}
+        callPrefix={contactCtaCopy.callPrefix}
+      />
     </>
   );
 }
