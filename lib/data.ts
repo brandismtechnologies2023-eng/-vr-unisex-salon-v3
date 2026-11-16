@@ -3838,7 +3838,7 @@ export const siteContent = {
     phone: "+971 55 956 6627",
     email: "info@vrunisexsalon.com",
     address:
-      "Crown Park Hotel, Burjuman, Shop 01, Ground Floor, Exit 4, Al Hamriya, Dubai, United Arab Emirates",
+      "The Canvas Dubai - MGallery Hotel Collection, 23 Kuwait Street, Port Rashid 52700 Dubai",
   },
 
   // Where enquiry-form emails are sent and who they appear to come from.
