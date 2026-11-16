@@ -27,7 +27,7 @@ export default async function WhyChooseUs() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           <div className="relative h-80 overflow-hidden rounded-2xl lg:h-full">
             <Image
-              src="/images/why-choose-us.webp"
+              src="/images/why-choose-us-canvas.webp"
               alt={content.imageAlt}
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"

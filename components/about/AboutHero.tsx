@@ -77,12 +77,16 @@ export default async function AboutHero() {
             {perks.map((perk) => {
               const Icon = perkIcons[perk.icon] ?? MapPin;
               return (
-                <li
-                  key={perk.label}
-                  className="flex items-center justify-center gap-3 text-center text-sm text-zinc-700"
-                >
-                  <Icon className="h-5 w-5 shrink-0 text-third" strokeWidth={1.5} />
-                  {perk.label}
+                <li key={perk.label} className="flex items-center text-sm text-zinc-700 sm:px-6">
+                  <div className="flex items-start gap-3 text-left">
+                    <Icon className="mt-0.5 h-5 w-5 shrink-0 text-third" strokeWidth={1.5} />
+                    <div>
+                      {perk.title && (
+                        <span className="block font-semibold text-secondary">{perk.title}</span>
+                      )}
+                      {perk.label}
+                    </div>
+                  </div>
                 </li>
               );
             })}

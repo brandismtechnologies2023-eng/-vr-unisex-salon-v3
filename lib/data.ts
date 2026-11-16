@@ -3842,10 +3842,10 @@ export const siteContent = {
     email: "info@vrunisexsalon.com",
     address:
       "The Canvas Dubai - MGallery Hotel Collection, 23 Kuwait Street, Port Rashid 52700 Dubai",
-    addressLabel: "",
+    addressLabel: "Main Branch",
     secondAddress:
       "Ground Floor, Sea View Hotel, Al Mina St, Beside Sharaf Building, Al Raffa, Dubai",
-    secondAddressLabel: "",
+    secondAddressLabel: "Second Branch",
   },
 
   // Where enquiry-form emails are sent and who they appear to come from.
@@ -3863,14 +3863,25 @@ export const siteContent = {
 
   about: {
     hero: {
+      // title is an optional heading shown above the label (e.g. "Main Branch").
       perks: [
-        { icon: "TrainFront", label: "2 minutes' walk from Burjuman Metro Station" },
-        { icon: "Car", label: "Free valet parking available" },
+        { icon: "TrainFront", title: "", label: "2 minutes' walk from Burjuman Metro Station" },
+        {
+          icon: "MapPin",
+          title: "Main Branch",
+          label: "The Canvas Dubai - MGallery Hotel Collection, 23 Kuwait Street, Port Rashid 52700 Dubai",
+        },
+        {
+          icon: "MapPin",
+          title: "Second Branch",
+          label: "Ground Floor, Sea View Hotel, Al Mina St, Beside Sharaf Building, Al Raffa, Dubai",
+        },
+        { icon: "Car", title: "", label: "Free valet parking available" },
       ],
       photos: [
-        { src: "/images/gallery/salon-01.jpg", alt: "Entrance and styling area at VR Unisex Salon" },
-        { src: "/images/gallery/salon-04.jpg", alt: "Pedicure and spa treatment area at VR Unisex Salon" },
-        { src: "/images/gallery/salon-05.jpg", alt: "Reception desk at VR Unisex Salon" },
+        { src: "/images/about/canvas-entrance.webp", alt: "Entrance to VR Unisex Salon at The Canvas Dubai" },
+        { src: "/images/about/canvas-salon-floor.webp", alt: "Styling floor with chandelier at VR Unisex Salon, The Canvas Dubai" },
+        { src: "/images/about/canvas-pedicure-chairs.webp", alt: "Pedicure chairs at VR Unisex Salon, The Canvas Dubai" },
       ],
       eyebrow: "Where Passion, Expertise & Beauty Come Together",
       title: "ABOUT VR UNISEX SALON",
@@ -3905,6 +3916,21 @@ export const siteContent = {
           title: "We Use Trusted Products",
           description: "Every treatment is performed using carefully selected professional products to ensure healthy hair, beautiful skin, and long-lasting results.",
         },
+      ],
+    },
+    // Showcase for the main branch. The first photo is the tall tile (keep it
+    // a portrait shot) and the next two stack beside it. Use shots that aren't
+    // already in hero.photos above so the page doesn't repeat itself.
+    mainBranch: {
+      eyebrow: "Our Main Branch",
+      title: "Our New Home at The Canvas Dubai",
+      paragraph:
+        "Our main salon is now at The Canvas Dubai – MGallery Hotel Collection in Port Rashid: a bright, calm space with dedicated styling stations, a relaxing pedicure lounge and a grooming station of its own.",
+      directionsLabel: "Get Directions",
+      photos: [
+        { src: "/images/about/canvas-grooming-station.webp", alt: "Grooming station and product shelves at VR Unisex Salon, The Canvas Dubai" },
+        { src: "/images/about/canvas-signage.webp", alt: "VR Unisex Salon sign at The Canvas Dubai" },
+        { src: "/images/about/canvas-pedicure-suite.webp", alt: "Pedicure suite with nail colour display at VR Unisex Salon, The Canvas Dubai" },
       ],
     },
     meta: {

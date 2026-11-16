@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import AboutHero from "@/components/about/AboutHero";
 import WhatMakesUsDifferent from "@/components/about/WhatMakesUsDifferent";
+import MainBranch from "@/components/about/MainBranch";
 import AboutServices from "@/components/about/AboutServices";
 import MeetTheTeam from "@/components/home/MeetTheTeam";
 import ContactCta, { joinDescriptionLines } from "@/components/home/ContactCta";
@@ -25,6 +26,7 @@ export default async function AboutPage() {
     <>
       <AboutHero />
       <WhatMakesUsDifferent />
+      <MainBranch />
       <AboutServices />
       <MeetTheTeam />
       <ContactCta
