@@ -13,6 +13,14 @@ export default async function AboutHero() {
   const { hero: content } = await getSetting("about");
   // A blanked-out label in the admin panel means "remove this perk".
   const perks = content.perks.filter((perk) => perk.label.trim() !== "");
+  // Four perks (e.g. two branch addresses) go 2x2 on tablets, so dividers
+  // only appear once they share a single row.
+  const perkGrid =
+    perks.length >= 4
+      ? "sm:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-third/20"
+      : `sm:divide-x sm:divide-third/20 ${
+          perks.length === 1 ? "sm:grid-cols-1" : perks.length === 2 ? "sm:grid-cols-2" : "sm:grid-cols-3"
+        }`;
 
   return (
     <section className="bg-primary/15">
@@ -64,9 +72,7 @@ export default async function AboutHero() {
       {perks.length > 0 && (
         <div className="mt-16 border-t border-third/20 bg-white/50 sm:mt-24">
           <ul
-            className={`mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-8 sm:divide-x sm:divide-third/20 sm:px-6 lg:px-8 ${
-              perks.length === 1 ? "sm:grid-cols-1" : perks.length === 2 ? "sm:grid-cols-2" : "sm:grid-cols-3"
-            }`}
+            className={`mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-8 sm:px-6 lg:px-8 ${perkGrid}`}
           >
             {perks.map((perk) => {
               const Icon = perkIcons[perk.icon] ?? MapPin;
