@@ -35,3 +35,19 @@ export function mapEmbedUrl(address: string) {
 export function mapLink(address: string) {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 }
+
+export interface BranchFields {
+  address: string;
+  addressLabel: string;
+  secondAddress: string;
+  secondAddressLabel: string;
+}
+
+// Main branch first, blank addresses dropped. Labels are only worth showing
+// when more than one branch comes back.
+export function branchAddresses(contact: BranchFields) {
+  return [
+    { label: contact.addressLabel, address: contact.address },
+    { label: contact.secondAddressLabel, address: contact.secondAddress },
+  ].filter((b) => b.address?.trim());
+}

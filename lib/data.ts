@@ -3834,11 +3834,17 @@ export const siteContent = {
   // site (footer, contact page, WhatsApp/call/email links, the enquiry
   // notification email) reads from here via getSetting, not from the
   // hardcoded values in lib/site-config.ts.
+  // address is the main branch (also used for the map); leave secondAddress
+  // blank to hide the second branch. Labels only show when both are set.
   contactInfo: {
     phone: "+971 55 956 6627",
     email: "info@vrunisexsalon.com",
     address:
       "The Canvas Dubai - MGallery Hotel Collection, 23 Kuwait Street, Port Rashid 52700 Dubai",
+    addressLabel: "Main Branch",
+    secondAddress:
+      "Ground Floor, Sea View Hotel, Al Mina St, Beside Sharaf Building, Al Raffa, Dubai",
+    secondAddressLabel: "Second Branch",
   },
 
   // Where enquiry-form emails are sent and who they appear to come from.

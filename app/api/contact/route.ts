@@ -5,7 +5,7 @@ import { z } from "zod";
 import { siteContent } from "@/lib/data";
 import { createSubmission } from "@/lib/content/submissions";
 import { getSetting } from "@/lib/content/settings";
-import { siteConfig } from "@/lib/site-config";
+import { branchAddresses, siteConfig, type BranchFields } from "@/lib/site-config";
 
 const thankYouContent = siteContent.customerThankYouEmail;
 
@@ -17,10 +17,14 @@ function splitEmails(value: string): string[] {
     .filter(Boolean);
 }
 
-function thankYouEmailHtml(name: string, service: string | undefined, contact: { address: string; phone: string; email: string }) {
+function thankYouEmailHtml(name: string, service: string | undefined, contact: BranchFields & { phone: string; email: string }) {
   const body = service
     ? thankYouContent.bodyWithService(service)
     : thankYouContent.bodyGeneric;
+  const branches = branchAddresses(contact);
+  const addressLines = branches
+    .map((b) => `<p style="margin:4px 0 0;font-size:12px;color:#b29da0;">${branches.length > 1 && b.label ? `${b.label}: ` : ""}${b.address}</p>`)
+    .join("");
 
   return `
     <div style="background-color:#f4f4f4;padding:32px 16px;font-family:Arial,Helvetica,sans-serif;">
@@ -47,7 +51,7 @@ function thankYouEmailHtml(name: string, service: string | undefined, contact: {
         </div>
         <div style="background-color:#272939;padding:20px 24px;text-align:center;">
           <p style="margin:0;font-size:13px;color:#ecd7d0;">${siteConfig.name}</p>
-          <p style="margin:4px 0 0;font-size:12px;color:#b29da0;">${contact.address}</p>
+          ${addressLines}
           <p style="margin:4px 0 0;font-size:12px;color:#b29da0;">${contact.phone} · ${contact.email}</p>
         </div>
       </div>

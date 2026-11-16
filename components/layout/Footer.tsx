@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { navLinks, services } from "@/lib/data";
 import { getSetting } from "@/lib/content/settings";
-import { mapLink, siteConfig, telLink } from "@/lib/site-config";
+import { branchAddresses, mapLink, siteConfig, telLink } from "@/lib/site-config";
 import { FacebookIcon, InstagramIcon } from "@/components/shared/SocialIcons";
 
 export default async function Footer() {
@@ -11,6 +11,7 @@ export default async function Footer() {
     getSetting("footer"),
     getSetting("contactInfo"),
   ]);
+  const branches = branchAddresses(contact);
   const midpoint = Math.ceil(services.length / 2);
   const serviceColumns = [
     services.slice(0, midpoint),
@@ -101,12 +102,17 @@ export default async function Footer() {
             {content.getInTouchHeading}
           </h3>
           <ul className="mt-4 space-y-3 text-sm">
-            <li className="flex items-start gap-2">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-              <a href={mapLink(contact.address)} target="_blank" rel="noopener noreferrer">
-                {contact.address}
-              </a>
-            </li>
+            {branches.map((branch) => (
+              <li key={branch.address} className="flex items-start gap-2">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <a href={mapLink(branch.address)} target="_blank" rel="noopener noreferrer">
+                  {branches.length > 1 && branch.label && (
+                    <span className="block font-semibold text-white">{branch.label}</span>
+                  )}
+                  {branch.address}
+                </a>
+              </li>
+            ))}
             <li className="flex items-center gap-2">
               <Phone className="h-4 w-4 shrink-0 text-primary" />
               <a href={telLink(contact.phone)}>{contact.phone}</a>
