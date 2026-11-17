@@ -143,6 +143,7 @@ export default function InstagramSlider({ posts, isLive }: InstagramSliderProps)
       >
         {activePost && (
           <InstagramPostModal
+            key={activePost.id}
             post={activePost}
             href={isLive ? activePost.permalink : siteConfig.instagramUrl}
           />

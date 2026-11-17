@@ -239,9 +239,18 @@ export interface PricingPackage {
   popular?: boolean;
 }
 
-export interface InstagramPost {
-  id: string;
+export interface InstagramMediaItem {
   image?: string;
+  // Long-lived copy tried when `image` (a signed Instagram URL) has expired.
+  fallbackImage?: string;
+  // MP4 for reels/video slides (signed, expires within about a day).
+  videoUrl?: string;
+}
+
+export interface InstagramPost extends InstagramMediaItem {
+  id: string;
+  // Every slide of a carousel post, in order; absent for single posts.
+  children?: InstagramMediaItem[];
   caption: string;
   likes: number;
   comments: number;

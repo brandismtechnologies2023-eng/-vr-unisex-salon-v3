@@ -14,10 +14,95 @@ interface GraphMediaItem {
   timestamp?: string;
 }
 
-// Returns null (rather than throwing) whenever the Graph API isn't
-// configured or the request fails, so callers can fall back to placeholder
-// content instead of breaking the page.
+interface BeholdSize {
+  mediaUrl: string;
+  width: number;
+  height: number;
+}
+
+type BeholdSizes = Partial<Record<"small" | "medium" | "large" | "full", BeholdSize>>;
+
+interface BeholdChild {
+  mediaType: "IMAGE" | "VIDEO";
+  mediaUrl: string;
+  sizes?: BeholdSizes;
+}
+
+interface BeholdPost {
+  id: string;
+  timestamp?: string;
+  permalink: string;
+  mediaType: "IMAGE" | "VIDEO" | "CAROUSEL_ALBUM";
+  mediaUrl: string;
+  thumbnailUrl?: string;
+  sizes?: BeholdSizes;
+  caption?: string;
+  likeCount?: number;
+  commentsCount?: number;
+  children?: BeholdChild[];
+}
+
+interface BeholdFeed {
+  followersCount?: number;
+  posts?: BeholdPost[];
+}
+
+// Behold's free plan refreshes the feed once a day, but the reel MP4 URLs in
+// it expire within about a day, so re-read every 2 hours to pick up fresh
+// links soon after each refresh. That's ~360 requests a month, well under the
+// free plan's 1,200.
+const BEHOLD_REVALIDATE = 2 * 60 * 60;
+
+// Behold (behold.so) JSON feed: Behold's own Meta app talks to Instagram and
+// we only read the public feed URL, so no token of ours is involved. Both
+// getInstagramPosts and getInstagramProfile call this; Next dedupes the
+// identical fetch, so it costs one request per revalidation.
+async function getBeholdFeed(): Promise<BeholdFeed | null> {
+  const feedUrl = process.env.BEHOLD_FEED_URL;
+  if (!feedUrl) return null;
+
+  try {
+    const res = await fetch(feedUrl, { next: { revalidate: BEHOLD_REVALIDATE } });
+    if (!res.ok) {
+      console.warn("Behold feed request failed:", res.status, await res.text());
+      return null;
+    }
+    return (await res.json()) as BeholdFeed;
+  } catch (err) {
+    console.warn("Failed to fetch Behold feed:", err);
+    return null;
+  }
+}
+
+// Returns null (rather than throwing) whenever no feed source is configured
+// or the request fails, so callers can leave the reels strip out instead of
+// breaking the page. Behold is tried first, then the Graph API.
 export async function getInstagramPosts(limit = 6): Promise<InstagramPost[] | null> {
+  const behold = await getBeholdFeed();
+  if (behold?.posts?.length) {
+    return behold.posts.slice(0, limit).map((post) => ({
+      id: post.id,
+      // Behold's sizes are square crops, which lose too much in our 9:16
+      // cards, so lead with Instagram's original (reel cover or photo). Those
+      // URLs expire after a few days; the square copy is the fallback.
+      image: (post.mediaType === "VIDEO" ? post.thumbnailUrl : post.mediaUrl) ?? post.sizes?.large?.mediaUrl,
+      fallbackImage: post.sizes?.large?.mediaUrl ?? post.sizes?.medium?.mediaUrl,
+      videoUrl: post.mediaType === "VIDEO" ? post.mediaUrl : undefined,
+      // A video slide's mediaUrl is the MP4, so its still is Behold's image.
+      children: post.children?.map((child) => ({
+        image: child.mediaType === "VIDEO" ? child.sizes?.large?.mediaUrl : child.mediaUrl,
+        fallbackImage: child.sizes?.large?.mediaUrl,
+        videoUrl: child.mediaType === "VIDEO" ? child.mediaUrl : undefined,
+      })),
+      caption: post.caption ?? "",
+      likes: post.likeCount ?? 0,
+      comments: post.commentsCount ?? 0,
+      timestamp: post.timestamp,
+      permalink: post.permalink,
+      isVideo: post.mediaType === "VIDEO",
+    }));
+  }
+
   const accessToken = process.env.INSTAGRAM_ACCESS_TOKEN;
   const businessAccountId = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
 
@@ -42,6 +127,7 @@ export async function getInstagramPosts(limit = 6): Promise<InstagramPost[] | nu
     return (json.data ?? []).map((item) => ({
       id: item.id,
       image: item.media_type === "VIDEO" ? item.thumbnail_url : item.media_url,
+      videoUrl: item.media_type === "VIDEO" ? item.media_url : undefined,
       caption: item.caption ?? "",
       likes: item.like_count ?? 0,
       comments: item.comments_count ?? 0,
@@ -61,6 +147,11 @@ export async function getInstagramPosts(limit = 6): Promise<InstagramPost[] | nu
 // isn't configured or the request fails, so the header can fall back to the
 // stats we always know (Google rating and review count).
 export async function getInstagramProfile(): Promise<InstagramProfile | null> {
+  const behold = await getBeholdFeed();
+  if (typeof behold?.followersCount === "number") {
+    return { followersCount: behold.followersCount, mediaCount: behold.posts?.length ?? 0 };
+  }
+
   const accessToken = process.env.INSTAGRAM_ACCESS_TOKEN;
   const businessAccountId = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
 

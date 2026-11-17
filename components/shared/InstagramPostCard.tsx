@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { Play } from "lucide-react";
 import { siteContent } from "@/lib/data";
 import { siteConfig } from "@/lib/site-config";
+import { useInstagramImage } from "@/hooks/useInstagramImage";
 import type { InstagramPost } from "@/types";
 
 const content = siteContent.instagramPost;
@@ -14,14 +14,14 @@ interface InstagramPostCardProps {
   onClick: () => void;
 }
 
-// A reel-style card: the account header above a 9:16 media frame, mirroring
-// how a post looks in-app.
+// A post-style card: the account header above a 4:5 media frame (Instagram's
+// portrait feed ratio), mirroring how a post looks in-app.
 export default function InstagramPostCard({ post, onClick }: InstagramPostCardProps) {
   // Instagram serves media from short-lived signed URLs; once they expire the
-  // image 403s. Track that so a failed load shows a branded panel instead of
-  // a black frame with the caption bleeding through as alt text.
-  const [imageFailed, setImageFailed] = useState(false);
-  const showImage = post.image && !imageFailed;
+  // image 403s. The hook retries with the long-lived fallback, then reports
+  // no src so a branded panel shows instead of a black frame with the
+  // caption bleeding through as alt text.
+  const { src: imageSrc, onError: onImageError } = useInstagramImage(post.image, post.fallbackImage);
 
   return (
     <div className="flex flex-col overflow-hidden rounded-xl bg-white">
@@ -50,17 +50,17 @@ export default function InstagramPostCard({ post, onClick }: InstagramPostCardPr
         type="button"
         onClick={onClick}
         aria-label="Open post"
-        className="group relative block aspect-9/16 w-full overflow-hidden bg-secondary"
+        className="group relative block aspect-4/5 w-full overflow-hidden bg-secondary"
       >
-        {showImage ? (
+        {imageSrc ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={post.image}
+            src={imageSrc}
             alt={content.reelAlt}
             loading="lazy"
             draggable={false}
-            onError={() => setImageFailed(true)}
-            className="h-full w-full scale-110 object-cover transition-transform duration-300 group-hover:scale-115"
+            onError={onImageError}
+            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
         ) : (
           <span className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-linear-to-br from-primary via-primary/60 to-third/40 px-4 text-center">

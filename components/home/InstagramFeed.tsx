@@ -2,8 +2,8 @@ import Image from "next/image";
 import { CalendarCheck } from "lucide-react";
 import Button from "@/components/shared/Button";
 import InstagramSlider from "@/components/home/InstagramSlider";
+import InstagramProfileEmbed from "@/components/home/InstagramProfileEmbed";
 import { InstagramIcon } from "@/components/shared/SocialIcons";
-import { instagramPosts as placeholderPosts, siteContent } from "@/lib/data";
 import { getSetting } from "@/lib/content/settings";
 import { getInstagramPosts, getInstagramProfile } from "@/lib/instagram";
 import { siteConfig } from "@/lib/site-config";
@@ -19,7 +19,7 @@ export default async function InstagramFeed() {
     getInstagramProfile(),
     getSetting("instagramFeed"),
   ]);
-  const posts = livePosts ?? placeholderPosts;
+  const posts = livePosts ?? [];
 
   const stats = [
     ...(profile
@@ -80,12 +80,17 @@ export default async function InstagramFeed() {
           </div>
         </div>
 
-        {/* Reels */}
+        {/* Reels: our own cards when a feed source (Behold or the Graph API)
+            returns posts, otherwise Instagram's profile embed. */}
         <div className="mt-14">
           <p className="mb-8 text-center text-sm font-semibold uppercase tracking-[0.2em] text-secondary">
             {content.reelsLabel}
           </p>
-          <InstagramSlider posts={posts} isLive={!!livePosts} />
+          {posts.length > 0 ? (
+            <InstagramSlider posts={posts} isLive />
+          ) : (
+            <InstagramProfileEmbed username={siteConfig.instagramHandle} />
+          )}
         </div>
       </div>
     </section>
