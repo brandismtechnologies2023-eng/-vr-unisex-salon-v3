@@ -11,7 +11,7 @@ export const siteConfig = {
   // Placeholder search link — swap for the real Google Business Profile
   // review link (e.g. a g.page/r/.../review short link) once available.
   googleReviewsUrl:
-    "https://www.google.com/search?q=VR+Unisex+Salon+Burjuman+Dubai+reviews",
+    "https://www.google.com/search?q=VR+Unisex+Salon+Dubai+reviews",
   hours: [
     { day: "Saturday - Thursday", time: "10:00 AM - 10:00 PM" },
     { day: "Friday", time: "2:00 PM - 10:00 PM" },

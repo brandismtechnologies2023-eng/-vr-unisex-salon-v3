@@ -3549,14 +3549,9 @@ export const faqs: FaqItem[] = [
     answer: "We use carefully selected professional salon brands trusted by beauty experts worldwide to ensure healthy, beautiful, and long-lasting results.",
   },
   {
-    id: "4",
-    question: "Is valet parking available?",
-    answer: "Yes. Complimentary valet parking is available for all our guests. ",
-  },
-  {
     id: "5",
     question: "Where is VR Unisex Salon located?",
-    answer: "We're conveniently located inside Crown Park Hotel, just a short walk from BurJuman Metro Station, making us easily accessible from across Dubai.",
+    answer: "We have two salons in Dubai: our main branch at The Canvas Dubai – MGallery Hotel Collection, 23 Kuwait Street, Port Rashid, and our second branch on the ground floor of Sea View Hotel, Al Mina Street, Al Raffa (beside Sharaf Building).",
   },
   {
     id: "6",
@@ -3584,7 +3579,7 @@ export const siteContent = {
   },
 
   hero: {
-    eyebrow: "Unisex Salon · Burjuman, Dubai",
+    eyebrow: "Best Unisex Salon in Dubai",
     titleLine1: "Luxury Hair & ",
     titleLine2: "Beauty Salon.",
     subtitle:
@@ -3624,8 +3619,8 @@ export const siteContent = {
       },
       {
         icon: "MapPin",
-        title: "Prime Location",
-        description: "Conveniently located inside Crown Park Hotel, near BurJuman Metro with complimentary valet parking.",
+        title: "Two Prime Locations",
+        description: "Two convenient Dubai salons: The Canvas Dubai – MGallery Hotel Collection in Port Rashid, and Sea View Hotel in Al Raffa.",
       },
     ],
   },
@@ -3686,7 +3681,7 @@ export const siteContent = {
   testimonials: {
     badgeLabel: "Google Reviews",
     eyebrow: "Reviews",
-    title: "What our Burjuman clients say",
+    title: "What our clients say",
     readAllText: "Read all our verified reviews on Google",
     seeAllLabel: "See All Google Reviews",
   },
@@ -3853,7 +3848,6 @@ export const siteContent = {
     hero: {
       // title is an optional heading shown above the label (e.g. "Main Branch").
       perks: [
-        { icon: "TrainFront", title: "", label: "2 minutes' walk from Burjuman Metro Station" },
         {
           icon: "MapPin",
           title: "Main Branch",
@@ -3864,7 +3858,6 @@ export const siteContent = {
           title: "Second Branch",
           label: "Ground Floor, Sea View Hotel, Al Mina St, Beside Sharaf Building, Al Raffa, Dubai",
         },
-        { icon: "Car", title: "", label: "Free valet parking available" },
       ],
       photos: [
         { src: "/images/about/canvas-entrance.webp", alt: "Entrance to VR Unisex Salon at The Canvas Dubai" },
@@ -3924,7 +3917,7 @@ export const siteContent = {
     meta: {
       titlePrefix: "About Us",
       description:
-        "Founded by brothers Vishal and Raju, VR Unisex Salon brings over 8 years of hair, skin and beauty expertise to Burjuman, Dubai — inside the 5-star Crown Park Hotel.",
+        "Learn about VR Unisex Salon, a luxury salon in Dubai offering personalised hair and beauty services. Explore our international expertise and commitment to care.",
     },
   },
 
@@ -3932,7 +3925,7 @@ export const siteContent = {
     meta: {
       titlePrefix: "Contact Us",
       description:
-        "Book an appointment at VR Unisex Salon — inside Crown Park Hotel, Burjuman, Dubai. Call, WhatsApp, or send us a booking request.",
+        "Contact VR Unisex Salon in Dubai to book haircuts, hair colour, nail care, facials and other beauty services. Choose your service and schedule an appointment.",
     },
     eyebrow: "Contact Us",
     title: "Get in Touch with VR Unisex Salon",
@@ -3993,7 +3986,7 @@ export const siteContent = {
     meta: {
       titlePrefix: "Services",
       description:
-        "Explore the full range of services at VR Unisex Salon — haircuts, colour, treatments, nails, lashes, waxing, makeup and more, in Burjuman, Dubai.",
+        "Explore the full range of services at VR Unisex Salon — haircuts, colour, treatments, nails, lashes, waxing, makeup and more, in Dubai.",
     },
     hero: {
       eyebrow: "Our Services",
@@ -4011,6 +4004,6 @@ export const siteContent = {
   siteMeta: {
     titleSuffix: "Premium Unisex Salon",
     description:
-      "Personalised beauty experiences, thoughtfully crafted for every style. Visit VR Unisex Salon at Crown Park Hotel, Burjuman, Dubai.",
+      "VR Unisex Salon is a hair and beauty salon in Dubai offering haircuts, hair colour, Korean head spa, nail care and beauty treatments. Book an appointment.",
   },
 };
