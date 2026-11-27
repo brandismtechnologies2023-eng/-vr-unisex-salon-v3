@@ -132,8 +132,17 @@ export default async function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-white/10 py-6 text-center text-xs text-zinc-500">
-        © {new Date().getFullYear()} {content.copyrightLine}
+      <div className="border-t border-white/10">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-2 px-4 py-6 text-xs text-zinc-500 sm:flex-row sm:justify-between sm:px-6 lg:px-8">
+          <p>
+            © {new Date().getFullYear()} {content.copyrightLine}
+          </p>
+          {content.privacyPolicyLabel && (
+            <Link href="/privacy-policy" className="hover:text-primary">
+              {content.privacyPolicyLabel}
+            </Link>
+          )}
+        </div>
       </div>
     </footer>
   );

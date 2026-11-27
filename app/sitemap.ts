@@ -13,11 +13,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const services = await getServices();
   const now = new Date();
 
-  const staticPages = ["", "/about", "/services", "/contact"].map((path) => ({
+  const staticPages = ["", "/about", "/services", "/contact", "/privacy-policy"].map((path) => ({
     url: `${siteUrl}${path}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
-    priority: path === "" ? 1 : 0.8,
+    priority: path === "" ? 1 : path === "/privacy-policy" ? 0.3 : 0.8,
   }));
 
   const servicePages = services.map((s) => ({

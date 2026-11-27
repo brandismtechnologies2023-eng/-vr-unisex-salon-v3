@@ -3745,6 +3745,7 @@ export const siteContent = {
     servicesHeading: "Services",
     getInTouchHeading: "Get In Touch",
     copyrightLine: "VR Unisex Salon. All rights reserved.",
+    privacyPolicyLabel: "Privacy Policy",
   },
 
   breadcrumb: {
